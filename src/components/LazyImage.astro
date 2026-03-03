@@ -1,0 +1,31 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  /** Optional small base64 or URL for blur placeholder (shown until full image loads) */
+  placeholder?: string;
+  sizes?: string;
+}
+
+const { src, alt, width, height, class: className = '', loading = 'lazy', placeholder, sizes = '100vw' } = Astro.props;
+const isExternal = src.startsWith('http') || src.startsWith('//');
+const imgSrc = isExternal ? src : src.startsWith('/') ? src : `/${src}`;
+---
+
+<figure class={`overflow-hidden rounded-sm ${className}`}>
+  <img
+    src={imgSrc}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding="async"
+    sizes={sizes}
+    class="w-full h-auto object-cover"
+    style={placeholder ? `background-image: url(${placeholder}); background-size: cover;` : undefined}
+  />
+</figure>

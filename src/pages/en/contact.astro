@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageTextileHero from '../../components/PageTextileHero.astro';
+import { tContact } from '../../data/translations';
+
+const locale = 'en';
+const t = tContact(locale);
+---
+
+<BaseLayout title={t.title} description={t.formNote} locale={locale} current="contact">
+  <PageTextileHero title={t.title} />
+  <div class="relative bg-textile-cream">
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+      <div class="text-heritage-charcoal space-y-3 font-medium pl-4 border-l-4 border-textile-gold">
+        <p class="font-semibold text-heritage-charcoal">{t.name}</p>
+        <p>{t.place}</p>
+        <p>{t.email}</p>
+        <p class="mt-6 text-sm">{t.formNote}</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageTextileHero from '../../components/PageTextileHero.astro';
+import { tTraditions } from '../../data/translations';
+
+const locale = 'en';
+const t = tTraditions(locale);
+---
+
+<BaseLayout title={t.title} description={t.heritageBody.slice(0, 155)} locale={locale} current="traditions">
+  <PageTextileHero title={t.title} />
+  <div class="relative bg-textile-cream">
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+      <section>
+        <h2 class="font-display text-xl text-heritage-charcoal font-semibold">{t.heritageTitle}</h2>
+        <p class="mt-4 text-heritage-charcoal leading-relaxed">{t.heritageBody}</p>
+        <a
+          href="https://www.ludovakultura.sk/en/list-ich/ornament-from-cataj-and-velky-grob/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block mt-6 text-embroidery-red hover:text-embroidery-blue hover:underline font-medium transition-colors"
+        >
+          {t.linkIch}
+        </a>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

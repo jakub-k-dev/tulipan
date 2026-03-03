@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OrnamentDivider from '../components/OrnamentDivider.astro';
+import RevealSection from '../components/RevealSection.astro';
+import UpcomingEventCard from '../components/UpcomingEventCard.astro';
+import { tHome, tNav, tAbout, tEvents } from '../data/translations';
+
+const locale = 'sk';
+const t = tHome(locale);
+const nav = tNav(locale);
+const tAboutL = tAbout(locale);
+const tEventsL = tEvents(locale);
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const base = locale === 'en' ? `${siteBase}/en` : siteBase;
+---
+
+<BaseLayout title={t.title} description={t.intro} locale={locale} current="home" fullTextile>
+  <!-- Hero: textile background, parallax -->
+  <section class="relative min-h-[100vh] flex items-end justify-center overflow-hidden" aria-label="Úvod">
+    <div class="absolute inset-0 bg-embroidery-full z-0" aria-hidden="true" />
+    <div class="absolute inset-0 textile-overlay-dark z-10" aria-hidden="true" />
+    <div class="relative z-20 w-full max-w-[90rem] mx-auto px-4 pb-20 pt-32 text-center md:text-left">
+      <OrnamentDivider variant="bar" class="mb-6 justify-center md:justify-start" />
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-textile-outline font-semibold leading-tight max-w-2xl mx-auto md:mx-0 drop-shadow-lg">
+        {t.title}
+      </h1>
+      <p class="mt-5 text-xl md:text-2xl text-textile-goldLight font-semibold max-w-xl mx-auto md:mx-0 drop-shadow-md">
+        {t.subtitle}
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
+        <a href={`${base}#about`} class="btn-red inline-block px-6 py-3 text-white font-semibold rounded-md transition-all border border-white/25">
+          {t.ctaAbout}
+        </a>
+        <a href={`${base}/events`} class="inline-block px-6 py-3 border-2 border-textile-outline text-textile-outline font-semibold rounded-md hover:bg-textile-outline/10 transition-all">
+          {t.ctaEvents}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll sections: teasers + links to full pages (combines one-page feel with separate pages) -->
+  <div class="relative">
+    <div class="absolute inset-0 bg-embroidery-full bg-left-top bg-fixed opacity-20 z-0" aria-hidden="true" />
+    <div class="relative z-10 textile-overlay">
+      <div class="max-w-[90rem] w-full mx-auto px-4 py-16 md:py-24">
+
+        <!-- Upcoming event: prominent, first thing after hero -->
+        <section id="next-event" class="scroll-mt-24 mb-16" aria-label="Najbližšie podujatie">
+          <RevealSection class="max-w-3xl">
+            <UpcomingEventCard locale={locale} variant="teaser" base={base} />
+          </RevealSection>
+        </section>
+
+        <RevealSection class="max-w-2xl">
+          <p class="text-heritage-charcoal leading-relaxed text-lg font-medium">{t.intro}</p>
+        </RevealSection>
+
+        <!-- About teaser (scroll section) -->
+        <section id="about" class="scroll-mt-24 mt-20 pt-12 border-t border-textile-gold/40">
+          <RevealSection>
+            <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.about}</h2>
+            <p class="mt-3 text-heritage-charcoal/90 max-w-2xl">{tAboutL.body.slice(0, 180)}…</p>
+            <a href={`${base}/about`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">Viac →</a>
+          </RevealSection>
+        </section>
+
+        <!-- Events teaser -->
+        <section id="events" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40">
+          <RevealSection>
+            <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.events}</h2>
+            <p class="mt-3 text-heritage-charcoal/90">16. mája 2026 — 100. výročie Folklórnej skupiny z Čataja v obci Čataj. Celodenný program, galaprogram, hosťia z Ploče.</p>
+            <a href={`${base}/events`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">Kalendár a detaily →</a>
+          </RevealSection>
+        </section>
+
+        <!-- Gallery hidden for now -->
+
+        <!-- Traditions teaser -->
+        <section id="traditions" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40">
+          <RevealSection>
+            <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.traditions}</h2>
+            <p class="mt-3 text-heritage-charcoal/90 max-w-2xl">Tradičný ornament a výšivka z Čataja a Veľkého Grobu. Evanjelický kroj a dedičstvo.</p>
+            <a href={`${base}/traditions`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">Čítať viac →</a>
+          </RevealSection>
+        </section>
+
+        <!-- Contact teaser -->
+        <section id="contact" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40">
+          <RevealSection>
+            <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.contact}</h2>
+            <p class="mt-3 text-heritage-charcoal/90">Napíšte nám alebo nás príďte pozrieť do Čataja.</p>
+            <a href={`${base}/contact`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">Kontaktovať →</a>
+          </RevealSection>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
