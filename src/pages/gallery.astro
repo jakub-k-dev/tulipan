@@ -32,6 +32,8 @@ function groupByDate(images: GalleryImage[], locale: 'sk' | 'en'): { dateLabel: 
 }
 
 const groups = groupByDate(galleryImages, locale);
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const withBase = (path: string) => (siteBase ? siteBase + path : path);
 ---
 
 <BaseLayout title={t.title} description={t.placeholder} locale={locale} current="gallery">
@@ -52,16 +54,16 @@ const groups = groupByDate(galleryImages, locale);
               const displaySrc = galleryDisplaySrc(img);
               const placeholderSrc = galleryPlaceholderSrc(img);
               return (
-              <a href={img.src} target="_blank" rel="noopener noreferrer" class={`gallery-card relative block aspect-[4/3] overflow-hidden ${placeholderSrc ? 'gallery-card-progressive' : ''}`}>
+              <a href={withBase(img.src)} target="_blank" rel="noopener noreferrer" class={`gallery-card relative block aspect-[4/3] overflow-hidden ${placeholderSrc ? 'gallery-card-progressive' : ''}`}>
                 {placeholderSrc && (
                   <span
                     class="absolute inset-0 bg-cover bg-center gallery-card-placeholder"
-                    style={`background-image: url(${placeholderSrc}); filter: blur(12px); transform: scale(1.08);`}
+                    style={`background-image: url(${withBase(placeholderSrc)}); filter: blur(12px); transform: scale(1.08);`}
                     aria-hidden="true"
                   />
                 )}
                 <img
-                  src={displaySrc}
+                  src={withBase(displaySrc)}
                   alt={img.altSk}
                   width={img.width}
                   height={img.height}

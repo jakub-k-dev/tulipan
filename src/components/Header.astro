@@ -8,7 +8,9 @@ interface Props {
 
 const { locale, current } = Astro.props;
 const navItems = tNav(locale);
-const base = locale === 'en' ? '/en' : '';
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const base = locale === 'en' ? `${siteBase}/en` : siteBase;
+const homeHref = base ? `${base}/` : '/';
 const isEn = locale === 'en';
 const activeClass = 'text-white font-semibold';
 const inactiveClass = 'text-white/90 hover:text-white transition-colors font-medium';
@@ -16,18 +18,18 @@ const inactiveClass = 'text-white/90 hover:text-white transition-colors font-med
 
 <header class="header-bar sticky top-0 z-50" aria-label="Hlavná navigácia">
   <div class="max-w-[90rem] w-full mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
-    <a href={base || '/'} class="flex items-center gap-2 font-display text-xl text-white font-semibold hover:text-white/95 transition-colors">
-      <img src="/images/logo.png" alt="" class="h-9 w-auto" width="36" height="36" />
+    <a href={homeHref} class="flex items-center gap-2 font-display text-xl text-white font-semibold hover:text-white/95 transition-colors">
+      <img src={`${siteBase || ''}/images/logo.png`} alt="" class="h-9 w-auto" width="36" height="36" />
       <span>Tulipán</span>
     </a>
     <nav class="flex flex-wrap items-center gap-5" aria-label="Hlavná navigácia">
-      <a href={base || '/'} class={current === 'home' ? activeClass : inactiveClass}>{navItems.home}</a>
+      <a href={homeHref} class={current === 'home' ? activeClass : inactiveClass}>{navItems.home}</a>
       <a href={`${base}/about`} class={current === 'about' ? activeClass : inactiveClass}>{navItems.about}</a>
       <a href={`${base}/events`} class={current === 'events' ? activeClass : inactiveClass}>{navItems.events}</a>
       <a href={`${base}/gallery`} class={current === 'gallery' ? activeClass : inactiveClass}>{navItems.gallery}</a>
       <a href={`${base}/traditions`} class={current === 'traditions' ? activeClass : inactiveClass}>{navItems.traditions}</a>
       <a href={`${base}/contact`} class={current === 'contact' ? activeClass : inactiveClass}>{navItems.contact}</a>
-      <a href={isEn ? '/' : '/en'} class={`text-sm ${inactiveClass}`} hreflang={isEn ? 'sk' : 'en'} lang={isEn ? 'sk' : 'en'}>
+      <a href={isEn ? (siteBase ? `${siteBase}/` : '/') : (siteBase ? `${siteBase}/en/` : '/en/')} class={`text-sm ${inactiveClass}`} hreflang={isEn ? 'sk' : 'en'} lang={isEn ? 'sk' : 'en'}>
         {isEn ? 'SK' : 'EN'}
       </a>
     </nav>

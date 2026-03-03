@@ -15,17 +15,19 @@ interface Props {
 
 const { title, description, locale, current, fullTextile = false } = Astro.props;
 const lang = locale === 'sk' ? 'sk' : 'en';
-const otherLocale = locale === 'sk' ? 'en' : 'sk';
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || ''; // '' or '/tulipan'
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
-const enUrl = locale === 'en' ? pathname : `/en${pathname === '/' ? '' : pathname}`;
-const skUrl = locale === 'sk' ? pathname : pathname.replace(/^\/en/, '') || '/';
+const pathWithoutBase = siteBase ? pathname.replace(siteBase, '') || '/' : pathname;
+const enUrl = locale === 'en' ? pathname : `${siteBase}/en${pathWithoutBase === '/' ? '' : pathWithoutBase}`;
+const skUrl = locale === 'sk' ? pathname : (siteBase ? pathname.replace(`${siteBase}/en`, siteBase) : pathname.replace(/^\/en/, '')) || siteBase || '/';
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
+    <style is:global set:html>{`:root { --hero-bg-url: url('${(import.meta.env.BASE_URL || '/').replace(/\/$/, '') || ''}/images/hero/hero-background.jpg'); }`}</style>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${siteBase || ''}/favicon.svg`} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} — Tulipán</title>
@@ -34,8 +36,8 @@ const skUrl = locale === 'sk' ? pathname : pathname.replace(/^\/en/, '') || '/';
     <link rel="alternate" hreflang="sk" href={new URL(skUrl, Astro.url).href} />
     <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.url).href} />
     <link rel="alternate" hreflang="x-default" href={new URL(skUrl, Astro.url).href} />
-    <link rel="prefetch" href={locale === 'sk' ? '/about' : '/en/about'} />
-    <link rel="prefetch" href={locale === 'sk' ? '/events' : '/en/events'} />
+    <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/about` : `${siteBase}/en/about`} />
+    <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/events` : `${siteBase}/en/events`} />
   </head>
   <body class="min-h-screen flex flex-col text-heritage-charcoal font-body">
     <Header locale={locale} current={current} />
