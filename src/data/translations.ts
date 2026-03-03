@@ -8,6 +8,7 @@ export const nav = {
     gallery: 'Galéria',
     contact: 'Kontakt',
     traditions: 'Folklór a tradície',
+    support: 'Podporiť',
   },
   en: {
     home: 'Home',
@@ -16,6 +17,7 @@ export const nav = {
     gallery: 'Gallery',
     contact: 'Contact',
     traditions: 'Traditions & folk',
+    support: 'Support us',
   },
 } as const;
 
@@ -38,9 +40,10 @@ export const home = {
   sk: {
     title: 'Folklórna skupina Tulipán Čataj',
     subtitle: 'Čataj — tradícia, kroj a ornament',
-    intro: 'Folklórna skupina Tulipán Čataj je občianske združenie a miestny folklórny súbor z obce Čataj. Nadväzujeme na dedičstvo čatajského a veľkogrobského ornamentu a kroja.',
+    intro: 'Folklórna skupina Tulipán Čataj je občianske združenie a miestna folklórna skupina z obce Čataj. Nadväzujeme na dedičstvo čatajského a veľkogrobského ornamentu a kroja.',
     ctaAbout: 'O nás',
     ctaEvents: 'Podujatia',
+    sponsorsTitle: 'Naši podporovatelia',
   },
   en: {
     title: 'Folklórna skupina Tulipán Čataj',
@@ -48,6 +51,7 @@ export const home = {
     intro: 'Folklórna skupina Tulipán Čataj is a civic association and local folklore group from the village of Čataj. We continue the heritage of the Čataj and Veľký Grob ornament and costume.',
     ctaAbout: 'About us',
     ctaEvents: 'Events',
+    sponsorsTitle: 'Our supporters',
   },
 } as const;
 
@@ -109,8 +113,8 @@ export const upcomingEvent = {
     dateLabel: '16. mája 2026',
     title: '100. výročie Folklórnej skupiny z Čataja',
     place: 'Čataj',
-    shortDescription: 'Slávnostné celodenné podujatie: krojovaný sprievod obcou, workshopy ľudovej kultúry a tradičných jedál, večer galaprogram s vystúpeniami našej skupiny, domácich i hosťujúcich súborov (vrátane folklórnej skupiny z Ploče, Chorvátsko), spoločenská zábava.',
-    description: 'V máji 2026 oslavujeme 100. výročie od prvého zdokumentovaného vystúpenia. Program má celodenný charakter v obci Čataj: krojovaný sprievod obcou, workshopy zamerané na ľudovú kultúru a tradičné jedlá; večer slávnostný galaprogram s vystúpením Folklórnej skupiny Tulipán, domácich i hosťujúcich súborov (vrátane medzinárodnej účasti – folklórna skupina z chorvátskeho mesta Ploče), po ktorom nasleduje spoločenská zábava. Podujatie je pod záštitou Bratislavského samosprávneho kraja a s odbornou podporou Fondu na podporu umenia.',
+    shortDescription: 'Slávnostné celodenné podujatie: krojovaný sprievod obcou, workshopy ľudovej kultúry a tradičných jedál, večer galaprogram s vystúpeniami našej skupiny, domácich i hosťujúcich skupín (vrátane folklórnej skupiny z Ploče, Chorvátsko), spoločenská zábava.',
+    description: 'V máji 2026 oslavujeme 100. výročie od prvého zdokumentovaného vystúpenia. Program má celodenný charakter v obci Čataj: krojovaný sprievod obcou, workshopy zamerané na ľudovú kultúru a tradičné jedlá; večer slávnostný galaprogram s vystúpením Folklórnej skupiny Tulipán Čataj, domácich i hosťujúcich skupín (vrátane medzinárodnej účasti – folklórna skupina z chorvátskeho mesta Ploče), po ktorom nasleduje spoločenská zábava. Podujatie je pod záštitou Bratislavského samosprávneho kraja a s odbornou podporou Fondu na podporu umenia.',
     cta: 'Viac o podujatí',
   },
   en: {
@@ -156,6 +160,8 @@ export const contact = {
     place: 'Čataj',
     email: 'tulipancataj@gmail.com',
     formNote: 'Napíšte nám e‑mailom alebo nás nájdete na Facebooku a Instagrame.',
+    supportTitle: 'Podporiť nás',
+    supportIntro: 'Svoju podporu môžete poslať na účet:',
   },
   en: {
     title: 'Contact',
@@ -163,6 +169,8 @@ export const contact = {
     place: 'Čataj',
     email: 'tulipancataj@gmail.com',
     formNote: 'Send us an email or find us on Facebook and Instagram.',
+    supportTitle: 'Support us',
+    supportIntro: 'You can send your support to our account:',
   },
 } as const;
 

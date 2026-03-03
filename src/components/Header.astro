@@ -28,6 +28,7 @@ const inactiveClass = 'text-white/90 hover:text-white transition-colors font-med
       <a href={`${base}/events`} class={current === 'events' ? activeClass : inactiveClass}>{navItems.events}</a>
       <a href={`${base}/traditions`} class={current === 'traditions' ? activeClass : inactiveClass}>{navItems.traditions}</a>
       <a href={`${base}/contact`} class={current === 'contact' ? activeClass : inactiveClass}>{navItems.contact}</a>
+      <a href={`${base}/contact#support`} class="inline-flex items-center px-3 py-1.5 rounded border border-white/60 text-white hover:bg-white/15 transition-colors font-medium text-sm">{navItems.support}</a>
       <a href={isEn ? (siteBase ? `${siteBase}/` : '/') : (siteBase ? `${siteBase}/en/` : '/en/')} class={`text-sm ${inactiveClass}`} hreflang={isEn ? 'sk' : 'en'} lang={isEn ? 'sk' : 'en'}>
         {isEn ? 'SK' : 'EN'}
       </a>

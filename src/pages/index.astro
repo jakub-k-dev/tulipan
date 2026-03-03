@@ -92,6 +92,21 @@ const base = locale === 'en' ? `${siteBase}/en` : siteBase;
             <a href={`${base}/contact`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">Kontaktovať →</a>
           </RevealSection>
         </section>
+
+        <!-- Sponsors -->
+        <section id="sponsors" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40" aria-labelledby="sponsors-heading">
+          <RevealSection>
+            <h2 id="sponsors-heading" class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{t.sponsorsTitle}</h2>
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-12 md:gap-16">
+              <a href="https://www.fpu.sk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all" title="Fond na podporu umenia">
+                <img src={`${siteBase || ''}/images/sponsors/fpu-logo.svg`} alt="Fond na podporu umenia" class="h-14 w-auto max-w-[200px] object-contain" width="200" height="56" />
+              </a>
+              <a href="https://www.bratislavskykraj.sk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all" title="Bratislavský samosprávny kraj">
+                <img src={`${siteBase || ''}/images/sponsors/bratislavsky-kraj.svg`} alt="Bratislavský samosprávny kraj" class="h-16 w-auto max-w-[140px] object-contain" width="120" height="140" />
+              </a>
+            </div>
+          </RevealSection>
+        </section>
       </div>
     </div>
   </div>
