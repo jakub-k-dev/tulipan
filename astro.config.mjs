@@ -3,10 +3,10 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
-// Custom domain fstulipan.sk — base '/' so routing works at root. In repo Settings → Pages add Custom domain: fstulipan.sk.
+// base '/tulipan/' for GitHub project URL (jakub-k-dev.github.io/tulipan). When using only custom domain fstulipan.sk, switch to base: '/' and redeploy.
 export default defineConfig({
-  site: 'https://fstulipan.sk',
-  base: '/',
+  site: 'https://jakub-k-dev.github.io',
+  base: '/tulipan/',
   integrations: [tailwind()],
   i18n: {
     defaultLocale: 'sk',
