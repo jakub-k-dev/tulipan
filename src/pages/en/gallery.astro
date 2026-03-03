@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageTextileHero from '../../components/PageTextileHero.astro';
+import { tGallery } from '../../data/translations';
+import { galleryImages, formatGalleryDate, galleryDisplaySrc, galleryPlaceholderSrc, type GalleryImage } from '../../data/gallery';
+
+const locale = 'en';
+const t = tGallery(locale);
+
+function groupByDate(images: GalleryImage[], locale: 'sk' | 'en'): { dateLabel: string | null; images: GalleryImage[] }[] {
+  const byDate = new Map<string, GalleryImage[]>();
+  const noDate: GalleryImage[] = [];
+  for (const img of images) {
+    if (img.date) {
+      const arr = byDate.get(img.date) ?? [];
+      arr.push(img);
+      byDate.set(img.date, arr);
+    } else {
+      noDate.push(img);
+    }
+  }
+  const sortedDates = [...byDate.keys()].sort().reverse();
+  const groups: { dateLabel: string | null; images: GalleryImage[] }[] = sortedDates.map((d) => ({
+    dateLabel: formatGalleryDate(d, locale),
+    images: byDate.get(d)!,
+  }));
+  if (noDate.length) {
+    groups.push({ dateLabel: null, images: noDate });
+  }
+  return groups;
+}
+
+const groups = groupByDate(galleryImages, locale);
+---
+
+<BaseLayout title={t.title} description={t.placeholder} locale={locale} current="gallery">
+  <PageTextileHero title={t.title} />
+  <div class="relative bg-textile-cream">
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+      <p class="mt-4 text-heritage-charcoal font-medium">{t.placeholder}</p>
+
+      {groups.map((group) => (
+        <section class="mt-12">
+          {group.dateLabel && (
+            <h2 id={`date-${group.dateLabel.replace(/\s/g, '-')}`} class="font-display text-xl text-embroidery-red font-semibold mb-6">
+              {group.dateLabel}
+            </h2>
+          )}
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {group.images.map((img) => {
+              const displaySrc = galleryDisplaySrc(img);
+              const placeholderSrc = galleryPlaceholderSrc(img);
+              return (
+              <a href={img.src} target="_blank" rel="noopener noreferrer" class={`gallery-card relative block aspect-[4/3] overflow-hidden ${placeholderSrc ? 'gallery-card-progressive' : ''}`}>
+                {placeholderSrc && (
+                  <span
+                    class="absolute inset-0 bg-cover bg-center gallery-card-placeholder"
+                    style={`background-image: url(${placeholderSrc}); filter: blur(12px); transform: scale(1.08);`}
+                    aria-hidden="true"
+                  />
+                )}
+                <img
+                  src={displaySrc}
+                  alt={img.altEn}
+                  width={img.width}
+                  height={img.height}
+                  loading="lazy"
+                  decoding="async"
+                  class="gallery-card-img absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+                  data-loaded="false"
+                />
+              </a>
+            );})}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.gallery-card-progressive .gallery-card-img').forEach((img) => {
+      const card = img.closest('.gallery-card-progressive');
+      const onLoad = () => {
+        img.classList.add('loaded');
+        if (card) card.classList.add('loaded');
+      };
+      img.addEventListener('load', onLoad);
+      if (img.complete) onLoad();
+    });
+  </script>
+</BaseLayout>

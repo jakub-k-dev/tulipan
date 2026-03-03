@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageTextileHero from '../../components/PageTextileHero.astro';
+import { tAbout } from '../../data/translations';
+
+const locale = 'en';
+const t = tAbout(locale);
+---
+
+<BaseLayout title={t.title} description={t.body.slice(0, 155)} locale={locale} current="about">
+  <PageTextileHero title={t.title} />
+  <div class="relative bg-textile-cream">
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+      <figure class="rounded-xl overflow-hidden border-2 border-textile-gold/50 shadow-lg max-w-2xl">
+        <img src="/images/gallery/group-photo.png" alt="Tulipan folklore group members" class="w-full h-auto object-cover" width="800" height="600" loading="eager" />
+      </figure>
+      <div class="mt-8 pl-4 border-l-4 border-embroidery-red max-w-none text-heritage-charcoal leading-relaxed font-medium">
+        <p>{t.body}</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

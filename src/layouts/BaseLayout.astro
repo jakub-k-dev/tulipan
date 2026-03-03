@@ -1,0 +1,47 @@
+---
+import type { Locale } from '../data/translations';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  locale: Locale;
+  current: string;
+  /** If true, main is not wrapped in a background strip; page provides full textile layout */
+  fullTextile?: boolean;
+}
+
+const { title, description, locale, current, fullTextile = false } = Astro.props;
+const lang = locale === 'sk' ? 'sk' : 'en';
+const otherLocale = locale === 'sk' ? 'en' : 'sk';
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const enUrl = locale === 'en' ? pathname : `/en${pathname === '/' ? '' : pathname}`;
+const skUrl = locale === 'sk' ? pathname : pathname.replace(/^\/en/, '') || '/';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} — Tulipán</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={new URL(pathname, Astro.url).href} />
+    <link rel="alternate" hreflang="sk" href={new URL(skUrl, Astro.url).href} />
+    <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.url).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(skUrl, Astro.url).href} />
+    <link rel="prefetch" href={locale === 'sk' ? '/about' : '/en/about'} />
+    <link rel="prefetch" href={locale === 'sk' ? '/events' : '/en/events'} />
+  </head>
+  <body class="min-h-screen flex flex-col text-heritage-charcoal font-body">
+    <Header locale={locale} current={current} />
+    <main class={fullTextile ? 'flex-1' : 'flex-1 bg-textile-cream'}>
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTextileHero from '../components/PageTextileHero.astro';
+import UpcomingEventCard from '../components/UpcomingEventCard.astro';
+import { tEvents } from '../data/translations';
+
+const locale = 'sk';
+const t = tEvents(locale);
+const base = locale === 'en' ? '/en' : '';
+---
+
+<BaseLayout title={t.title} description={t.upcoming} locale={locale} current="events">
+  <PageTextileHero title={t.title} />
+  <div class="relative bg-textile-cream">
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+      <h2 class="sr-only">{t.upcoming}</h2>
+      <UpcomingEventCard locale={locale} variant="full" base={base} />
+      <p class="mt-8 text-heritage-charcoal/80 text-sm font-medium">{t.noEvents}</p>
+    </div>
+  </div>
+</BaseLayout>

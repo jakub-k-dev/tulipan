@@ -1,0 +1,25 @@
+---
+import type { Locale } from '../data/translations';
+import { tFooter } from '../data/translations';
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = tFooter(locale);
+---
+
+<footer class="footer-bar text-white/95 text-sm">
+  <div class="max-w-[90rem] w-full mx-auto px-4 py-10">
+    <p class="max-w-xl mb-5 font-medium">{t.heritage}</p>
+    <a
+      href="https://www.ludovakultura.sk/en/list-ich/ornament-from-cataj-and-velky-grob/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-white font-semibold hover:underline transition-colors"
+    >
+      {t.linkHeritage}
+    </a>
+    <p class="mt-8 text-white/80 font-medium">© Folklórny súbor Tulipán, o. z. — Čataj</p>
+  </div>
+</footer>

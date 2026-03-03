@@ -1,0 +1,39 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  class?: string;
+  /** Optional low-res or blur placeholder (data URL or small image) */
+  placeholder?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt = '', class: className = '', placeholder, loading = 'lazy' } = Astro.props;
+const isExternal = src.startsWith('http') || src.startsWith('//');
+const imgSrc = isExternal ? src : import.meta.env.BASE_URL + src.replace(/^\//, '');
+---
+
+<div
+  class={`bg-cover bg-center bg-no-repeat ${className}`}
+  style={placeholder ? `background-image: url(${placeholder});` : undefined}
+  data-bg-full={imgSrc}
+  data-bg-load={loading}
+  role={alt ? 'img' : undefined}
+  aria-label={alt || undefined}
+>
+  <!-- Fallback content or empty; background will be set by script when full image loads -->
+</div>
+
+<script>
+  (function () {
+    const script = document.currentScript;
+    const el = script?.previousElementSibling as HTMLElement | null;
+    if (!el?.dataset?.bgFull) return;
+    const fullSrc = el.dataset.bgFull;
+    const img = new Image();
+    img.onload = () => {
+      el.style.backgroundImage = `url(${fullSrc})`;
+    };
+    img.src = fullSrc;
+  })();
+</script>

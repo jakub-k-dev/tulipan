@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Project: textile + bright red, full-width, scroll sections */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-heritage-charcoal bg-textile-cream antialiased;
+  }
+}
+
+/* Full-width content on PC (max 90rem) */
+.content-wide {
+  max-width: 90rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Gallery: hover-reveal image (image scales / overlay lifts on hover) */
+.gallery-card {
+  @apply overflow-hidden rounded-xl border-2 border-textile-gold/40 shadow-lg transition-all duration-300;
+}
+.gallery-card img {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+.gallery-card:hover img {
+  transform: scale(1.08);
+}
+.gallery-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(44,24,16,0.4) 0%, transparent 50%);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.gallery-card:hover::after {
+  opacity: 0.2;
+}
+
+/* Progressive gallery: placeholder shows first, image fades in when loaded */
+.gallery-card-progressive .gallery-card-img {
+  opacity: 0;
+}
+.gallery-card-progressive .gallery-card-img.loaded {
+  opacity: 1;
+}
+.gallery-card-progressive .gallery-card-placeholder {
+  transition: opacity 0.3s ease;
+}
+.gallery-card-progressive.loaded .gallery-card-placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Embroidery strip (image-based): full width, height from image aspect ratio */
+.embroidery-strip img {
+  min-height: 48px;
+}
+
+/* Shared red “fabric” palette — warmer, less bleak */
+:root {
+  --red-fabric-top: #e0352a;
+  --red-fabric-mid: #c92a22;
+  --red-fabric-bottom: #a81c1c;
+  --red-fabric-shine: rgba(255, 255, 255, 0.08);
+  --red-fabric-weft: rgba(255, 255, 255, 0.06);
+  --red-fabric-warp: rgba(0, 0, 0, 0.04);
+  --trim-gold: rgba(212, 160, 23, 0.5);
+  --trim-white: rgba(255, 254, 249, 0.7);
+}
+
+/* Header: fabric + warmer gradient + stronger trim */
+.header-bar {
+  background-color: var(--red-fabric-bottom);
+  background-image:
+    linear-gradient(135deg, transparent 30%, var(--red-fabric-shine) 50%, transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      var(--red-fabric-weft) 2px,
+      var(--red-fabric-weft) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 2px,
+      var(--red-fabric-warp) 2px,
+      var(--red-fabric-warp) 3px
+    ),
+    linear-gradient(to bottom, var(--red-fabric-top) 0%, var(--red-fabric-mid) 40%, var(--red-fabric-bottom) 100%);
+  background-size: 100% 100%, 4px 4px, 4px 4px, 100% 100%;
+  background-repeat: repeat, repeat, repeat, no-repeat;
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+/* Embroidery-style trim under header: gold + white lines */
+.header-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0,
+    var(--trim-white) 1px,
+    transparent 2px,
+    transparent 3px,
+    var(--trim-gold) 4px,
+    var(--trim-gold) 5px,
+    transparent 6px
+  );
+  pointer-events: none;
+}
+
+/* Footer: same fabric treatment + trim on top */
+.footer-bar {
+  background-color: var(--red-fabric-bottom);
+  background-image:
+    linear-gradient(135deg, transparent 30%, var(--red-fabric-shine) 50%, transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      var(--red-fabric-weft) 2px,
+      var(--red-fabric-weft) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 2px,
+      var(--red-fabric-warp) 2px,
+      var(--red-fabric-warp) 3px
+    ),
+    linear-gradient(to bottom, var(--red-fabric-top) 0%, var(--red-fabric-mid) 40%, var(--red-fabric-bottom) 100%);
+  background-size: 100% 100%, 4px 4px, 4px 4px, 100% 100%;
+  background-repeat: repeat, repeat, repeat, no-repeat;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+}
+
+.footer-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  background: linear-gradient(
+    to bottom,
+    var(--trim-white) 0px,
+    var(--trim-white) 1px,
+    transparent 2px,
+    var(--trim-gold) 3px,
+    var(--trim-gold) 4px,
+    transparent 5px,
+    transparent 6px
+  );
+  pointer-events: none;
+}
+
+/* Red primary buttons: subtle gradient + depth so they’re not flat */
+.btn-red {
+  background: linear-gradient(to bottom, #e0352a 0%, #c92a22 50%, #b91c1c 100%);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.btn-red:hover {
+  background: linear-gradient(to bottom, #c92a22 0%, #b91c1c 50%, #991b1b 100%);
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+@layer utilities {
+  /* Full-viewport main image (group photo); fixed = parallax */
+  .bg-embroidery-full {
+    background-image: url('/images/hero/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  /* Section overlay so text is readable over textile */
+  .textile-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(201, 162, 39, 0.85) 0%,
+      rgba(250, 246, 240, 0.92) 50%,
+      rgba(250, 246, 240, 0.98) 100%
+    );
+  }
+  .textile-overlay-dark {
+    background: linear-gradient(
+      to bottom,
+      rgba(44, 24, 16, 0.75) 0%,
+      rgba(44, 24, 16, 0.5) 50%,
+      rgba(44, 24, 16, 0.85) 100%
+    );
+  }
+  /* Reveal-on-scroll: initial state (before visible) */
+  .reveal-section {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .reveal-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
