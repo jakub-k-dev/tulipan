@@ -1,10 +1,12 @@
-# Astro Starter Kit: Minimal
+# Tulipan website (Astro)
 
-```sh
-npm create astro@latest -- --template minimal
-```
+**This is an Astro site, not Jekyll.** To publish on GitHub Pages you must use the Actions workflow:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+1. Repo **Settings** → **Pages** (under “Code and automation”).
+2. Under **Build and deployment** → **Source**, choose **GitHub Actions** (not “Deploy from a branch”).
+3. Push to `main`; the “Deploy to GitHub Pages” workflow will build and deploy.
+
+If Source is left as “Deploy from a branch”, GitHub runs Jekyll and the build will fail on `.astro` files.
 
 ## 🚀 Project Structure
 
