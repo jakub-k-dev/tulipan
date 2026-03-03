@@ -1,0 +1,25 @@
+---
+/** Embroidery-style band — palette from embroidery-reference (gold, red, green, blue, pink, white) */
+interface Props {
+  variant?: 'full' | 'bar';
+  class?: string;
+}
+
+const { variant = 'full', class: className = '' } = Astro.props;
+---
+
+{variant === 'full' ? (
+  <div class={`${className}`} aria-hidden="true" role="presentation">
+    <div class="h-2 w-full bg-gradient-to-r from-transparent via-textile-gold via-embroidery-red/70 via-embroidery-green/60 via-embroidery-blue/50 via-embroidery-pink/60 to-textile-gold to-transparent" />
+    <div class="h-1.5 w-full bg-textile-outline/20" />
+  </div>
+) : (
+  <div class={`flex gap-1 ${className}`} aria-hidden="true">
+    <span class="h-1 w-4 bg-embroidery-red rounded-sm" />
+    <span class="h-1 w-2 bg-textile-gold rounded-sm" />
+    <span class="h-1 w-3 bg-embroidery-green rounded-sm" />
+    <span class="h-1 w-2 bg-embroidery-blue rounded-sm" />
+    <span class="h-1 w-4 bg-embroidery-pink rounded-sm" />
+    <span class="h-1 w-2 bg-textile-outline/80 rounded-sm" />
+  </div>
+)}

@@ -1,0 +1,47 @@
+---
+/**
+ * Simplified floral motif from the embroidery (stylized flower with white outline).
+ * Use as decorative bullet, corner accent, or inline icon. Pure SVG.
+ */
+interface Props {
+  class?: string;
+  size?: number;
+  /** 'flower' | 'leaf' */
+  variant?: 'flower' | 'leaf';
+}
+const { class: className = '', size = 24, variant = 'flower' } = Astro.props;
+---
+{variant === 'flower' ? (
+  <svg
+    class={className}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <!-- Stylized 5-petal flower: white outline, red fill (from embroidery) -->
+    <circle cx="12" cy="12" r="3" fill="#b91c1c" stroke="#fffef9" stroke-width="1.2" />
+    <!-- Petals -->
+    <ellipse cx="12" cy="6" rx="3" ry="5" fill="#b91c1c" stroke="#fffef9" stroke-width="1" />
+    <ellipse cx="12" cy="18" rx="3" ry="5" fill="#b91c1c" stroke="#fffef9" stroke-width="1" />
+    <ellipse cx="6" cy="12" rx="5" ry="3" fill="#b91c1c" stroke="#fffef9" stroke-width="1" />
+    <ellipse cx="18" cy="12" rx="5" ry="3" fill="#b91c1c" stroke="#fffef9" stroke-width="1" />
+    <ellipse cx="8.5" cy="8.5" rx="5" ry="3" transform="rotate(-45 8.5 8.5)" fill="#db2777" stroke="#fffef9" stroke-width="0.8" />
+    <ellipse cx="15.5" cy="15.5" rx="5" ry="3" transform="rotate(-45 15.5 15.5)" fill="#db2777" stroke="#fffef9" stroke-width="0.8" />
+  </svg>
+) : (
+  <svg
+    class={className}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <!-- Stylized leaf: green, white outline -->
+    <path d="M 12 2 Q 20 8 12 22 Q 4 8 12 2" fill="#166534" stroke="#fffef9" stroke-width="1" stroke-linejoin="round" />
+  </svg>
+)}

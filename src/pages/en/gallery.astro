@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageTextileHero from '../../components/PageTextileHero.astro';
+import { tGallery } from '../../data/translations';
+
+const locale = 'en';
+const t = tGallery(locale);
+---
+
+<BaseLayout title={t.title} description={t.placeholder} locale={locale} current="gallery">
+  <PageTextileHero title={t.title} />
+  <div class="relative bg-textile-cream">
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+      <p class="mt-4 text-heritage-charcoal font-medium text-lg max-w-xl">{t.comingSoon}</p>
+      <p class="mt-2 text-heritage-charcoal/80">{t.placeholder}</p>
+    </div>
+  </div>
+</BaseLayout>

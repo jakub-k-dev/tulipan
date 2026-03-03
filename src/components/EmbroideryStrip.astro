@@ -1,0 +1,43 @@
+---
+/**
+ * Embroidery strip: uses the actual cropped strip image so it looks like the reference.
+ * Place your cropped strip at public/images/embroidery-strip.png (or .webp).
+ * Responsive: full width, height scales; optional repeat-x if the image tiles.
+ */
+interface Props {
+  class?: string;
+  /** Image path (default: strip asset) */
+  src?: string;
+  /** Repeat horizontally (use if your image is a seamless tile) */
+  repeat?: boolean;
+  /** Fixed height in px; if not set, aspect-ratio preserves image proportions */
+  height?: number;
+}
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const { class: className = '', src: srcProp = '/images/embroidery-strip.png', repeat = false, height } = Astro.props;
+const src = base ? base + (srcProp.startsWith('/') ? srcProp : '/' + srcProp) : srcProp;
+---
+<div
+  class={`embroidery-strip w-full overflow-hidden ${className}`}
+  aria-hidden="true"
+  role="presentation"
+  style={height != null ? `height: ${height}px;` : undefined}
+>
+  {repeat ? (
+    <div
+      class="w-full bg-center bg-repeat-x"
+      style={`background-image: url(${src}); background-size: auto 100%; height: ${height ?? 72}px; min-height: 48px;`}
+    />
+  ) : (
+    <img
+      src={src}
+      alt=""
+      width="1200"
+      height="270"
+      class="w-full h-auto block object-cover object-center"
+      style={height != null ? `height: ${height}px; object-fit: cover;` : undefined}
+      loading="lazy"
+      decoding="async"
+    />
+  )}
+</div>
