@@ -78,6 +78,11 @@
   --trim-white: rgba(255, 254, 249, 0.75);
 }
 
+/* Header logo: white on red so it doesn’t blend in */
+.header-logo {
+  filter: brightness(0) invert(1);
+}
+
 /* Header: woven fabric look — threads + gradient + soft shine */
 .header-bar {
   background-color: var(--red-fabric-bottom);
