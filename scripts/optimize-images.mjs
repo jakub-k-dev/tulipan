@@ -31,10 +31,12 @@ async function ensureDir(p) {
 async function main() {
   console.log('Optimizing images…');
 
-  // 1. Hero: make progressive (same file, re-encoded)
+  // 1. Hero: make progressive, keep full quality (no resize, quality 95)
   const heroPath = join(publicDir, 'hero', 'hero-background.jpg');
   try {
-    const buf = await sharp(heroPath).jpeg(progressiveJpeg).toBuffer();
+    const buf = await sharp(heroPath)
+      .jpeg({ ...progressiveJpeg, quality: 95 })
+      .toBuffer();
     await sharp(buf).toFile(heroPath);
     console.log('  hero-background.jpg → progressive');
   } catch (e) {
