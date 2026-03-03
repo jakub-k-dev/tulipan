@@ -14,7 +14,7 @@ const t = tContact(locale);
       <div class="text-heritage-charcoal space-y-3 font-medium pl-4 border-l-4 border-textile-gold">
         <p class="font-semibold text-heritage-charcoal">{t.name}</p>
         <p>{t.place}</p>
-        <p>{t.email}</p>
+        <p><a href={`mailto:${t.email}`} class="text-embroidery-red hover:underline">{t.email}</a></p>
         <p class="mt-6 text-sm">{t.formNote}</p>
       </div>
     </div>

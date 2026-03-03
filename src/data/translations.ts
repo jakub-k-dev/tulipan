@@ -24,28 +24,28 @@ export const footer = {
     followUs: 'Sledujte nás',
     facebook: 'Facebook',
     instagram: 'Instagram',
-    copyright: '© Folklórny súbor Tulipán, o. z. — Čataj',
+    copyright: '© Folklórna skupina Tulipán Čataj, o. z. — Čataj',
   },
   en: {
     followUs: 'Follow us',
     facebook: 'Facebook',
     instagram: 'Instagram',
-    copyright: '© Tulipan Folklore Group, civic association — Čataj',
+    copyright: '© Folklórna skupina Tulipán Čataj, o. z. — Čataj',
   },
 } as const;
 
 export const home = {
   sk: {
-    title: 'Folklórny súbor Tulipán',
+    title: 'Folklórna skupina Tulipán Čataj',
     subtitle: 'Čataj — tradícia, kroj a ornament',
-    intro: 'Tulipán je občianske združenie a miestny folklórny súbor z obce Čataj. Nadväzujeme na dedičstvo čatajského a veľkogrobského ornamentu a kroja.',
+    intro: 'Folklórna skupina Tulipán Čataj je občianske združenie a miestny folklórny súbor z obce Čataj. Nadväzujeme na dedičstvo čatajského a veľkogrobského ornamentu a kroja.',
     ctaAbout: 'O nás',
     ctaEvents: 'Podujatia',
   },
   en: {
-    title: 'Tulipan Folklore Group',
+    title: 'Folklórna skupina Tulipán Čataj',
     subtitle: 'Čataj — tradition, costume & ornament',
-    intro: 'Tulipan is a civic association and local folklore group from the village of Čataj. We continue the heritage of the Čataj and Veľký Grob ornament and costume.',
+    intro: 'Folklórna skupina Tulipán Čataj is a civic association and local folklore group from the village of Čataj. We continue the heritage of the Čataj and Veľký Grob ornament and costume.',
     ctaAbout: 'About us',
     ctaEvents: 'Events',
   },
@@ -54,42 +54,50 @@ export const home = {
 export const about = {
   sk: {
     title: 'O nás',
-    body: 'Folklórny súbor Tulipán pôsobí v obci Čataj v okrese Senec. Sme občianske združenie a nadväzujeme na miestnu tradíciu kroja a výšivky. Čataj je známy výnimočným ornamentom (ornament z Čataja a Veľkého Grobu je od roku 2019 na Reprezentatívnom zozname nehmotného kultúrneho dedičstva Slovenska).',
-    historyTitle: 'Stručná história Čataja',
-    historyIntro: 'Z knihy Čataj 750 (1994) a historických prameňov — kľúčové momenty obce a ľudovej kultúry.',
+    body: 'Folklórna skupina Tulipán Čataj pôsobí v obci Čataj v okrese Senec. Sme občianske združenie a nadväzujeme na miestnu tradíciu kroja a výšivky.',
+    recentHistoryTitle: 'Naša skupina',
+    recentHistory: 'Folklórna skupina Tulipán Čataj existuje len niekoľko rokov; nadväzuje na tradíciu obce a folklórne dedičstvo Čataja. Od približne 2019 pôsobíme ako občianske združenie a vystupujeme v kroji s čatajským a veľkogrobským ornamentom. O staršej histórii obce a ľudovej kultúry píšeme na stránke Folklór a tradície.',
   },
   en: {
     title: 'About us',
-    body: 'The Tulipan folklore group is based in the village of Čataj, Senec district. We are a civic association and continue the local tradition of costume and embroidery. Čataj is known for its distinctive ornament (the ornament from Čataj and Veľký Grob has been on the Representative List of the Intangible Cultural Heritage of Slovakia since 2019).',
-    historyTitle: 'A short history of Čataj',
-    historyIntro: 'From the book Čataj 750 (1994) and historical sources — key moments of the village and folk culture.',
+    body: 'Folklórna skupina Tulipán Čataj is based in the village of Čataj, Senec district. We are a civic association and continue the local tradition of costume and embroidery.',
+    recentHistoryTitle: 'Our group',
+    recentHistory: 'The group has existed for a few years and continues the village tradition and folk heritage of Čataj. Since around 2019 we have been active as a civic association and perform in costume with the Čataj and Veľký Grob ornament. For the longer history of the village and folk culture, see the Traditions & folk page.',
   },
 } as const;
 
-/** Timeline entries from the 1994 book and research (context-source-book-1994, context-cataj-tulipan-research) */
+/** Timeline: village and folk culture from the 1994 book and research (context-source-book-1994, context-cataj-tulipan-research) */
 export const timeline = {
   sk: [
     { year: '1244', text: 'Prvá písomná zmienka o Čataji (villa Chatey) v listine kráľa Belu IV.' },
     { year: '14. st.', text: 'Nemeckí kolonisti osídľujú obec; až do 18. st. bola väčšinou nemecká.' },
     { year: '1397', text: 'Prvá zmienka o čatajskej farnosti (ostrihomská arcidiecéza).' },
+    { year: '1561', text: 'Vizitácia spomína prvých známych kňazov (Ambrusius, neskôr Emericius — plebanus Chatay).' },
+    { year: '1672–1728', text: 'Pôsobenie čatajských farárov (Juraj Dullay, Michal Horváth, Michal Kiss a ďalší).' },
     { year: '1721', text: 'Postavený druhý kostol v Čataji (neskôr po požiari nahradený).' },
-    { year: '1845', text: 'Postavený súčasný rímskokatolícky kostol sv. Margity (neoklasicistický).' },
-    { year: '19. – 20. st.', text: 'Rozkvet čatajskej výšivky a kroja; malované ohniská v domoch; zlatá a strieborná výšivka „po niti“. Katarína Rášová a Katarína Brinzová — maliarky ornamentu.' },
+    { year: '1768', text: 'Čatajský farár Jozef Nagy dostáva tzv. kvartu (štvrtina desiatku); fara bohatne.' },
+    { year: '1845', text: 'Postavený súčasný rímskokatolícky kostol sv. Margity (neoklasicistický); hlavný organizátor Ján Očovský.' },
+    { year: '19. st.', text: 'Rozkvet čatajskej výšivky a kroja; malované ohniská v domoch; zlatá a strieborná výšivka „po niti“. Katarína Rášová (1876–1974) a Katarína Brinzová (1879–1976) — maliarky ornamentu (Viedeň, Brno, Martin).' },
     { year: '1926', text: 'Prvé zdokumentované vystúpenie folklórnej skupiny z Čataja (100. výročie v roku 2026).' },
-    { year: '30. roky 20. st.', text: 'Pri prestavbách domov miznú malované ohniská; maliarky (napr. Katarína Kanišová) zachovávajú ornament na papieri a v závesných obrazoch.' },
+    { year: '30. roky 20. st.', text: 'Pri prestavbách domov miznú malované ohniská; maliarky (Katarína Kanišová — dcéra Brinzovej) zachovávajú ornament na papieri a závesných obrazoch (sobašná sieň).' },
     { year: '50. – 60. roky', text: 'Kroje sa prestávajú bežne nosiť; výšivka pre ÚĽUV a družstvá ešte pokračuje.' },
+    { year: '60. roky', text: 'Katarína Kanišová maluje závesný obraz pre sobášnu sieň obce (motív z čatajského ornamentu).' },
     { year: '2019', text: 'Ornament z Čataja a Veľkého Grobu zapísaný na Reprezentatívny zoznam nehmotného kultúrneho dedičstva Slovenska.' },
   ],
   en: [
     { year: '1244', text: 'First written mention of Čataj (villa Chatey) in a charter of King Béla IV.' },
     { year: '14th c.', text: 'German colonists settle the village; until the 18th century it was mostly German.' },
     { year: '1397', text: 'First mention of the Catholic parish in Čataj (Esztergom archdiocese).' },
+    { year: '1561', text: 'Visitation records first known priests (Ambrusius, later Emericius — plebanus Chatay).' },
+    { year: '1672–1728', text: 'Service of Čataj priests (Juraj Dullay, Michal Horváth, Michal Kiss, and others).' },
     { year: '1721', text: 'Second church built in Čataj (later replaced after a fire).' },
-    { year: '1845', text: 'Current Roman Catholic Church of St Margaret built (Neoclassical).' },
-    { year: '19th – 20th c.', text: 'Flourishing of Čataj embroidery and costume; painted fireplaces in homes; gold and silver counted-thread embroidery. Katarína Rášová and Katarína Brinzová — ornament painters.' },
+    { year: '1768', text: 'Čataj parish priest Jozef Nagy receives the so-called quarta (quarter tithe); parish grows wealthy.' },
+    { year: '1845', text: 'Current Roman Catholic Church of St Margaret built (Neoclassical); main organiser Ján Očovský.' },
+    { year: '19th c.', text: 'Flourishing of Čataj embroidery and costume; painted fireplaces in homes; gold and silver counted-thread embroidery. Katarína Rášová (1876–1974) and Katarína Brinzová (1879–1976) — ornament painters (Vienna, Brno, Martin).' },
     { year: '1926', text: 'First documented performance of the folklore group from Čataj (100th anniversary in 2026).' },
-    { year: '1930s', text: 'Painted fireplaces disappear with house rebuilds; painters (e.g. Katarína Kanišová) preserve ornament on paper and hanging pictures.' },
+    { year: '1930s', text: 'Painted fireplaces disappear with house rebuilds; painters (Katarína Kanišová — Brinzová’s daughter) preserve ornament on paper and hanging pictures (wedding hall).' },
     { year: '1950s – 60s', text: 'Costumes cease to be worn daily; embroidery for ÚĽUV and cooperatives continues for a time.' },
+    { year: '1960s', text: 'Katarína Kanišová paints hanging picture for the village wedding hall (Čataj ornament motif).' },
     { year: '2019', text: 'Ornament from Čataj and Veľký Grob inscribed on the Representative List of the Intangible Cultural Heritage of Slovakia.' },
   ],
 } as const;
@@ -144,17 +152,17 @@ export const gallery = {
 export const contact = {
   sk: {
     title: 'Kontakt',
-    name: 'Folklórny súbor Tulipán, o. z.',
+    name: 'Folklórna skupina Tulipán Čataj, o. z.',
     place: 'Čataj',
-    email: 'Kontaktný e‑mail bude doplnený.',
-    formNote: 'Formulár alebo kontaktné údaje budú doplnené.',
+    email: 'tulipancataj@gmail.com',
+    formNote: 'Napíšte nám e‑mailom alebo nás nájdete na Facebooku a Instagrame.',
   },
   en: {
     title: 'Contact',
-    name: 'Tulipan Folklore Group, civic association',
+    name: 'Folklórna skupina Tulipán Čataj, o. z.',
     place: 'Čataj',
-    email: 'Contact email to be added.',
-    formNote: 'Form or contact details will be added.',
+    email: 'tulipancataj@gmail.com',
+    formNote: 'Send us an email or find us on Facebook and Instagram.',
   },
 } as const;
 
@@ -163,13 +171,15 @@ export const traditions = {
     title: 'Folklór a tradície',
     heritageTitle: 'Ornament z Čataja a Veľkého Grobu',
     heritageBody: 'Tradičný ornament a výšivka z Čataja a Veľkého Grobu tvoria výnimočnú časť západoslovenského folklóru. Evanjelický (augsburský) kroj a ornament sa líšia od katolíckeho; výšivka „po niti“, zlatá a strieborná niť, trojrozmerný efekt a motívy (tulipán, ruže, srdcia, slnečnice) sú charakteristické pre toto dedičstvo. Od roku 2019 je ornament zapísaný na Reprezentatívnom zozname nehmotného kultúrneho dedičstva Slovenska.',
-    linkIch: 'Viac na portáli Ľudová kultúra',
+    historyTitle: 'História Čataja a ľudovej kultúry',
+    historyIntro: 'Z knihy Čataj 750 (1994) a historických prameňov — kľúčové momenty obce a folklóru.',
   },
   en: {
     title: 'Traditions & folk',
     heritageTitle: 'Ornament from Čataj and Veľký Grob',
     heritageBody: 'The traditional ornament and embroidery from Čataj and Veľký Grob are a distinctive part of western Slovak folklore. The Evangelical (Augsburg) costume and ornament differ from the Catholic; counted-thread embroidery, gold and silver thread, 3D effect, and motifs (tulip, roses, hearts, sunflowers) are characteristic of this heritage. Since 2019 the ornament has been inscribed on the Representative List of the Intangible Cultural Heritage of Slovakia.',
-    linkIch: 'More on the Folk Culture portal',
+    historyTitle: 'History of Čataj and folk culture',
+    historyIntro: 'From the book Čataj 750 (1994) and historical sources — key moments of the village and folk culture.',
   },
 } as const;
 
