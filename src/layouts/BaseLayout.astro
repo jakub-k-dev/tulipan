@@ -11,9 +11,11 @@ interface Props {
   current: string;
   /** If true, main is not wrapped in a background strip; page provides full textile layout */
   fullTextile?: boolean;
+  /** If true, preload hero image for LCP (homepage only) */
+  preloadHero?: boolean;
 }
 
-const { title, description, locale, current, fullTextile = false } = Astro.props;
+const { title, description, locale, current, fullTextile = false, preloadHero = false } = Astro.props;
 const lang = locale === 'sk' ? 'sk' : 'en';
 const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || ''; // '' or '/tulipan'
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -25,7 +27,8 @@ const skUrl = locale === 'sk' ? pathname : (siteBase ? pathname.replace(`${siteB
 <!doctype html>
 <html lang={lang}>
   <head>
-    <style is:global set:html>{`:root { --hero-bg-url: url('${(import.meta.env.BASE_URL || '/').replace(/\/$/, '') || ''}/images/hero/hero-background.jpg'); }`}</style>
+    <style is:global set:html>{`:root { --hero-bg-url: url('${siteBase || ''}/images/hero/hero-background.jpg'); --hero-bg-url-webp: url('${siteBase || ''}/images/hero/hero-background.webp'); }`}</style>
+    {preloadHero && <link rel="preload" as="image" href={`${siteBase || ''}/images/hero/hero-background.webp`} />}
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href={`${siteBase || ''}/images/logo.svg`} />
     <link rel="apple-touch-icon" href={`${siteBase || ''}/images/logo.svg`} />

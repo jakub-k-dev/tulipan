@@ -23,3 +23,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Raw/source images (camera JPGs, cropped hero); optimize-images generates hero/ and gallery outputs
+public/images/assets/
