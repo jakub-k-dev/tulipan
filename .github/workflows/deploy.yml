@@ -28,9 +28,6 @@ jobs:
         run: npm run build
         env:
           PUBLIC_GOATCOUNTER_SITE: ${{ vars.PUBLIC_GOATCOUNTER_SITE }}
-      # Ensure GitHub Pages does not run Jekyll (e.g. so _astro/ is served)
-      - name: Add .nojekyll
-        run: touch dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
