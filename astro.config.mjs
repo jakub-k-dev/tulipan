@@ -8,7 +8,8 @@ export default defineConfig({
   site: 'https://fstulipan.sk',
   base: '/',
   build: {
-    inlineStylesheets: 'auto', // inline small CSS to reduce render-blocking (Lighthouse)
+    // Inline all stylesheets to break critical request chain (Lighthouse: network dependency tree)
+    inlineStylesheets: 'always',
   },
   integrations: [tailwind()],
   i18n: {

@@ -1,6 +1,10 @@
-# Cache static assets (Lighthouse: efficient cache lifetimes)
-# Netlify/Cloudflare Pages: copy to dist or deploy from public
+# Long cache for static assets (Lighthouse: efficient cache lifetimes)
+# Applied by Netlify and Cloudflare Pages. GitHub Pages ignores this file — use Cloudflare in front or deploy to Netlify/Vercel.
 /images/*
+  Cache-Control: public, max-age=31536000, immutable
+/images/hero/*
+  Cache-Control: public, max-age=31536000, immutable
+/images/sponsors/*
   Cache-Control: public, max-age=31536000, immutable
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable

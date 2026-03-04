@@ -20,14 +20,14 @@ export interface GalleryImage {
  */
 const assetImages: GalleryImage[] = [
   { src: '/images/gallery/full/20250614_171736.webp', altSk: 'Folklórna skupina Tulipán Čataj, 14. jún 2025', altEn: 'Tulipan folklore group, 14 June 2025', width: 800, height: 600, date: '2025-06-14' },
-  { src: '/images/gallery/full/20250614_172137.webp', altSk: 'Tulipán, 14. jún 2025', altEn: 'Tulipan, 14 June 2025', width: 800, height: 600, date: '2025-06-14' },
-  { src: '/images/gallery/full/20250614_172159.webp', altSk: 'Vystúpenie Tulipán, 14. jún 2025', altEn: 'Tulipan performance, 14 June 2025', width: 800, height: 600, date: '2025-06-14' },
-  { src: '/images/gallery/full/20250614_172321.webp', altSk: 'Folklórna skupina Tulipán Čataj, 14. jún 2025', altEn: 'Tulipan folklore group, 14 June 2025', width: 800, height: 600, date: '2025-06-14' },
-  { src: '/images/gallery/full/20250614_172702.webp', altSk: 'Tulipán na podujatí, 14. jún 2025', altEn: 'Tulipan at event, 14 June 2025', width: 800, height: 600, date: '2025-06-14' },
-  { src: '/images/gallery/full/20250614_172717.webp', altSk: 'Podujatie — Tulipán, 14. jún 2025', altEn: 'Event — Tulipan, 14 June 2025', width: 800, height: 600, date: '2025-06-14' },
-  { src: '/images/gallery/full/20250614_175941.webp', altSk: 'Tulipán, 14. jún 2025', altEn: 'Tulipan, 14 June 2025', width: 800, height: 600, date: '2025-06-14' },
+  { src: '/images/gallery/full/20250614_172137.webp', altSk: 'Tulipán, 14. jún 2025', altEn: 'Tulipan, 14 June 2025', width: 800, height: 600, date: '2025-06-14', rotate: 90 },
+  { src: '/images/gallery/full/20250614_172159.webp', altSk: 'Vystúpenie Tulipán, 14. jún 2025', altEn: 'Tulipan performance, 14 June 2025', width: 800, height: 600, date: '2025-06-14', rotate: 90 },
+  { src: '/images/gallery/full/20250614_172321.webp', altSk: 'Folklórna skupina Tulipán Čataj, 14. jún 2025', altEn: 'Tulipan folklore group, 14 June 2025', width: 800, height: 600, date: '2025-06-14', rotate: 90 },
+  { src: '/images/gallery/full/20250614_172702.webp', altSk: 'Tulipán na podujatí, 14. jún 2025', altEn: 'Tulipan at event, 14 June 2025', width: 800, height: 600, date: '2025-06-14', rotate: 90 },
+  { src: '/images/gallery/full/20250614_172717.webp', altSk: 'Podujatie — Tulipán, 14. jún 2025', altEn: 'Event — Tulipan, 14 June 2025', width: 800, height: 600, date: '2025-06-14', rotate: 90 },
+  // 20250614_175941 removed (was #7)
   { src: '/images/gallery/full/20250621_193057.webp', altSk: 'Folklórna skupina Tulipán Čataj, 21. jún 2025', altEn: 'Tulipan folklore group, 21 June 2025', width: 800, height: 600, date: '2025-06-21' },
-  { src: '/images/gallery/full/20250621_193336.webp', altSk: 'Tulipán, 21. jún 2025', altEn: 'Tulipan, 21 June 2025', width: 800, height: 600, date: '2025-06-21' },
+  { src: '/images/gallery/full/20250621_193336.webp', altSk: 'Tulipán, 21. jún 2025', altEn: 'Tulipan, 21 June 2025', width: 800, height: 600, date: '2025-06-21', rotate: 90 },
 ];
 
 /** Existing gallery images (no date) */
@@ -37,11 +37,10 @@ const legacyImages: GalleryImage[] = [
   { src: '/images/gallery/event-1.png', altSk: 'Podujatie — Folklórna skupina Tulipán Čataj', altEn: 'Event — Tulipan folklore group', width: 800, height: 600 },
   { src: '/images/gallery/event-2.png', altSk: 'Podujatie — Tulipán', altEn: 'Event — Tulipan', width: 800, height: 600 },
   { src: '/images/gallery/event-3.png', altSk: 'Vystúpenie Tulipán', altEn: 'Tulipan performance', width: 800, height: 600 },
-  { src: '/images/gallery/event-4.png', altSk: 'Folklórna skupina Tulipán Čataj', altEn: 'Tulipan folklore group', width: 800, height: 600 },
+  // event-4.png removed (was #15)
   { src: '/images/gallery/event-5.png', altSk: 'Tulipán na podujatí', altEn: 'Tulipan at event', width: 800, height: 600 },
   { src: '/images/gallery/event-6.png', altSk: 'Tulipán — vystúpenie', altEn: 'Tulipan performance', width: 800, height: 600 },
-  { src: '/images/gallery/page_112_0.jpg', altSk: 'Čatajská výšivka — zástera', altEn: 'Čataj embroidery — apron', width: 520, height: 338 },
-  { src: '/images/gallery/page_113_0.jpg', altSk: 'Zástera a čepce s výšivkou', altEn: 'Apron and caps with embroidery', width: 513, height: 336 },
+  // page_112_0.jpg, page_113_0.jpg removed (last two)
 ];
 
 /** All gallery images: new dated assets first (newest date first), then legacy */
