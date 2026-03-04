@@ -197,6 +197,14 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
+  /* Same as above but scrolls with section — use on gallery etc. so no fixed layer over content */
+  .bg-embroidery-full-scroll {
+    background-image: var(--hero-bg-url-webp, var(--hero-bg-url, url('/images/hero/hero-background.jpg')));
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+  }
   /* Section overlay so text is readable over textile */
   .textile-overlay {
     background: linear-gradient(
