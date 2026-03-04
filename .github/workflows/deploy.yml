@@ -14,10 +14,13 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: github-pages
     steps:
       - uses: actions/checkout@v4
       - name: Build Astro site
         uses: withastro/action@v5
+        env:
+          PUBLIC_GOATCOUNTER_SITE: ${{ vars.PUBLIC_GOATCOUNTER_SITE }}
 
   deploy:
     needs: build
