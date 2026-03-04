@@ -1,0 +1,6 @@
+# Cache static assets (Lighthouse: efficient cache lifetimes)
+# Netlify/Cloudflare Pages: copy to dist or deploy from public
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

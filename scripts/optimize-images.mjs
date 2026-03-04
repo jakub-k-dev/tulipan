@@ -19,6 +19,8 @@ const WEBP_DISPLAY = { quality: 95, effort: 4 };
 const WEBP_PLACEHOLDER = { quality: 85, effort: 2 };
 const WEBP_FULL = { quality: 95, effort: 4 };
 const FULL_MAX_WIDTH = 1600;
+/** Hero: max long edge (covers 2× retina on large viewports); keeps file size sane, WebP much smaller than JPEG */
+const HERO_MAX_LONG_EDGE = 2400;
 
 function baseName(file) {
   return file.replace(/\.(jpe?g|webp)$/i, '');
@@ -31,20 +33,30 @@ async function ensureDir(p) {
 async function main() {
   console.log('Optimizing images…');
 
-  // 1. Hero: make progressive, keep full quality (no resize, quality 95)
-  const heroPath = join(publicDir, 'hero', 'hero-background.jpg');
+  // 1. Hero: from cropped variant → resize to HERO_MAX_LONG_EDGE (sharp at 2×, small file), WebP + JPEG fallback
+  const assetsDir = join(publicDir, 'assets');
+  const heroSourceName = '20250614_171736 cropped.jpg';
+  const heroSourcePath = join(assetsDir, heroSourceName);
+  const heroDir = join(publicDir, 'hero');
+  const heroPath = join(heroDir, 'hero-background.jpg');
+  const heroWebpPath = join(heroDir, 'hero-background.webp');
   try {
-    const buf = await sharp(heroPath)
-      .jpeg({ ...progressiveJpeg, quality: 95 })
-      .toBuffer();
-    await sharp(buf).toFile(heroPath);
-    console.log('  hero-background.jpg → progressive');
+    await ensureDir(heroDir);
+    const heroMeta = await sharp(heroSourcePath).metadata();
+    const w = heroMeta.width || 2400;
+    const h = heroMeta.height || 1600;
+    const scale = Math.min(1, HERO_MAX_LONG_EDGE / Math.max(w, h));
+    const targetW = Math.round(w * scale);
+    const targetH = Math.round(h * scale);
+    const resize = { width: targetW, height: targetH, fit: 'inside' };
+    await sharp(heroSourcePath).resize(resize).jpeg({ ...progressiveJpeg, quality: 95 }).toFile(heroPath);
+    await sharp(heroSourcePath).resize(resize).webp(WEBP_DISPLAY).toFile(heroWebpPath);
+    console.log('  hero: assets/' + heroSourceName + ' → ' + targetW + '×' + targetH + ' (.webp + .jpg)');
   } catch (e) {
     console.warn('  hero:', e.message);
   }
 
   // 2. Gallery: WebP display (800w), placeholders (40w), full (1600w) — all for repo + progressive load
-  const assetsDir = join(publicDir, 'assets');
   const displayDir = join(publicDir, 'gallery', 'display');
   const placeholdersDir = join(publicDir, 'gallery', 'placeholders');
   const fullDir = join(publicDir, 'gallery', 'full');
@@ -54,7 +66,9 @@ async function main() {
 
   let files = [];
   try {
-    files = (await readdir(assetsDir)).filter((f) => /\.(jpe?g|webp)$/i.test(f));
+    files = (await readdir(assetsDir))
+      .filter((f) => /\.(jpe?g|webp)$/i.test(f))
+      .filter((f) => f !== heroSourceName); // exclude hero cropped (used only for hero)
   } catch {
     // no assets
   }

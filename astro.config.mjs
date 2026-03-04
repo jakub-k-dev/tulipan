@@ -7,6 +7,9 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://fstulipan.sk',
   base: '/',
+  build: {
+    inlineStylesheets: 'auto', // inline small CSS to reduce render-blocking (Lighthouse)
+  },
   integrations: [tailwind()],
   i18n: {
     defaultLocale: 'sk',

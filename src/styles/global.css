@@ -189,9 +189,9 @@
 }
 
 @layer utilities {
-  /* Full-viewport main image (group photo); fixed = parallax. --hero-bg-url set in BaseLayout from BASE_URL. */
+  /* Full-viewport main image (group photo); fixed = parallax. WebP with JPG fallback. --hero-bg-url set in BaseLayout. */
   .bg-embroidery-full {
-    background-image: var(--hero-bg-url, url('/images/hero/hero-background.jpg'));
+    background-image: var(--hero-bg-url-webp, var(--hero-bg-url, url('/images/hero/hero-background.jpg')));
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
