@@ -11,7 +11,7 @@ const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
 
 <BaseLayout title={t.title} description={t.placeholder} locale={locale} current="gallery">
   <PageTextileHero title={t.title} />
-  <div class="relative bg-textile-cream">
+  <div class="relative z-10 bg-textile-cream">
     <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {galleryImages.map((img) => {
@@ -19,7 +19,7 @@ const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
           const alt = locale === 'sk' ? img.altSk : img.altEn;
           return (
             <a href={`${siteBase || ''}${img.src}`} target="_blank" rel="noopener noreferrer" class="gallery-card block rounded-xl overflow-hidden aspect-[4/3] bg-heritage-charcoal/5" title={alt}>
-              <img src={`${siteBase || ''}${displaySrc}`} alt={alt} width={img.width} height={img.height} class="w-full h-full object-cover" loading="lazy" />
+              <img src={`${siteBase || ''}${displaySrc}`} alt={alt} width={img.width} height={img.height} class="w-full h-full object-cover" style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
               {img.date && <span class="sr-only">{formatGalleryDate(img.date, locale)}</span>}
             </a>
           );
