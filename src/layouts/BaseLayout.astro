@@ -29,7 +29,7 @@ const skUrl = locale === 'sk' ? pathname : (siteBase ? pathname.replace(`${siteB
 <html lang={lang}>
   <head>
     <style is:global set:html>{`:root { --hero-bg-url: url('${siteBase || ''}/images/hero/hero-background.jpg'); --hero-bg-url-webp: url('${siteBase || ''}/images/hero/hero-background.webp'); }`}</style>
-    {preloadHero && <link rel="preload" as="image" href={`${siteBase || ''}/images/hero/hero-background.webp`} fetchpriority="high" />}
+    {preloadHero && <link rel="preload" as="image" href={`${siteBase || ''}/images/hero/hero-background.avif`} type="image/avif" fetchpriority="high" />}
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href={`${siteBase || ''}/images/logo.svg`} />
     <link rel="apple-touch-icon" href={`${siteBase || ''}/images/logo.svg`} />

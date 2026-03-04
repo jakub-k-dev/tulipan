@@ -45,25 +45,6 @@
   opacity: 0.2;
 }
 
-/* Progressive gallery: placeholder shows first, image fades in when loaded */
-.gallery-card-progressive .gallery-card-img {
-  opacity: 0;
-}
-.gallery-card-progressive .gallery-card-img.loaded {
-  opacity: 1;
-}
-.gallery-card-progressive .gallery-card-placeholder {
-  transition: opacity 0.3s ease;
-}
-.gallery-card-progressive.loaded .gallery-card-placeholder {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Embroidery strip (image-based): full width, height from image aspect ratio */
-.embroidery-strip img {
-  min-height: 48px;
-}
 
 /* Shared red “fabric” palette — warmer, textile-like */
 :root {

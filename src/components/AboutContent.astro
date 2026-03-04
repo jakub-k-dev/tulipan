@@ -1,0 +1,29 @@
+---
+import type { Locale } from '../data/translations';
+import PageTextileHero from './PageTextileHero.astro';
+import { tAbout } from '../data/translations';
+
+interface Props {
+  locale: Locale;
+  siteBase: string;
+}
+
+const { locale, siteBase } = Astro.props;
+const t = tAbout(locale);
+---
+
+<PageTextileHero title={t.title} />
+<div class="relative bg-textile-cream">
+  <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+    <figure class="rounded-xl overflow-hidden border-2 border-textile-gold/50 shadow-lg max-w-2xl">
+      <img src={`${siteBase || ''}/images/gallery/group-photo.png`} alt={t.groupPhotoAlt} class="w-full h-auto object-cover" width="800" height="600" loading="eager" />
+    </figure>
+    <div class="mt-8 pl-4 border-l-4 border-embroidery-red max-w-2xl text-heritage-charcoal leading-relaxed font-medium">
+      <p>{t.body}</p>
+    </div>
+    <section class="mt-12 pt-10 border-t border-textile-gold/40" aria-labelledby="recent-history-heading">
+      <h2 id="recent-history-heading" class="font-display text-xl text-heritage-charcoal font-semibold">{t.recentHistoryTitle}</h2>
+      <p class="mt-3 text-heritage-charcoal/90 leading-relaxed max-w-2xl">{t.recentHistory}</p>
+    </section>
+  </div>
+</div>
