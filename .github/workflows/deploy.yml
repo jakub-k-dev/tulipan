@@ -17,10 +17,24 @@ jobs:
     environment: github-pages
     steps:
       - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
       - name: Build Astro site
-        uses: withastro/action@v5
+        run: npm run build
         env:
           PUBLIC_GOATCOUNTER_SITE: ${{ vars.PUBLIC_GOATCOUNTER_SITE }}
+      # Ensure GitHub Pages does not run Jekyll (e.g. so _astro/ is served)
+      - name: Add .nojekyll
+        run: touch dist/.nojekyll
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
     needs: build
