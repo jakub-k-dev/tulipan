@@ -8,6 +8,7 @@
  */
 import sharp from 'sharp';
 import { readdir, mkdir } from 'fs/promises';
+import { existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -40,6 +41,7 @@ async function main() {
   const heroDir = join(publicDir, 'hero');
   const heroPath = join(heroDir, 'hero-background.jpg');
   const heroWebpPath = join(heroDir, 'hero-background.webp');
+  const heroAvifPath = join(heroDir, 'hero-background.avif');
   try {
     await ensureDir(heroDir);
     const heroMeta = await sharp(heroSourcePath).metadata();
@@ -49,10 +51,12 @@ async function main() {
     const targetW = Math.round(w * scale);
     const targetH = Math.round(h * scale);
     const resize = { width: targetW, height: targetH, fit: 'inside' };
-    // Hero: slightly lower quality for smaller transfer (Lighthouse image delivery); still looks sharp
-    await sharp(heroSourcePath).resize(resize).jpeg({ ...progressiveJpeg, quality: 88 }).toFile(heroPath);
-    await sharp(heroSourcePath).resize(resize).webp({ quality: 82, effort: 4 }).toFile(heroWebpPath);
-    console.log('  hero: assets/' + heroSourceName + ' → ' + targetW + '×' + targetH + ' (.webp + .jpg)');
+    const pipeline = sharp(heroSourcePath).resize(resize);
+    // Hero: balanced quality for Lighthouse image delivery; AVIF smallest, then WebP, JPEG fallback
+    await pipeline.clone().jpeg({ ...progressiveJpeg, quality: 80 }).toFile(heroPath);
+    await pipeline.clone().webp({ quality: 75, effort: 4 }).toFile(heroWebpPath);
+    await pipeline.clone().avif({ quality: 60, effort: 4 }).toFile(heroAvifPath);
+    console.log('  hero: assets/' + heroSourceName + ' → ' + targetW + '×' + targetH + ' (.avif + .webp + .jpg)');
   } catch (e) {
     console.warn('  hero:', e.message);
   }
@@ -104,6 +108,19 @@ async function main() {
     } catch (e) {
       console.warn('  ', file, e.message);
     }
+  }
+
+  // 3. Sponsors: convert cataj.png to WebP for smaller transfer (Lighthouse)
+  const sponsorsDir = join(publicDir, 'sponsors');
+  const catajPng = join(sponsorsDir, 'cataj.png');
+  const catajWebp = join(sponsorsDir, 'cataj.webp');
+  try {
+    if (existsSync(catajPng)) {
+      await sharp(catajPng).webp({ quality: 90, effort: 4 }).toFile(catajWebp);
+      console.log('  sponsors: cataj.png → cataj.webp');
+    }
+  } catch (e) {
+    console.warn('  sponsors cataj:', e.message);
   }
 
   console.log('Done.');

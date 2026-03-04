@@ -1,0 +1,122 @@
+---
+import type { Locale } from '../data/translations';
+import OrnamentDivider from './OrnamentDivider.astro';
+import RevealSection from './RevealSection.astro';
+import UpcomingEventCard from './UpcomingEventCard.astro';
+import { tHome, tNav, tAbout, tEvents } from '../data/translations';
+
+interface Props {
+  locale: Locale;
+  siteBase: string;
+  base: string;
+}
+
+const { locale, siteBase, base } = Astro.props;
+const t = tHome(locale);
+const nav = tNav(locale);
+const tAboutL = tAbout(locale);
+---
+
+<section class="relative min-h-[100vh] flex items-end justify-center overflow-hidden" aria-label={t.heroAria}>
+  <picture class="absolute inset-0 z-0" aria-hidden="true">
+    <source type="image/avif" srcset={`${siteBase}/images/hero/hero-background.avif`} />
+    <source type="image/webp" srcset={`${siteBase}/images/hero/hero-background.webp`} />
+    <img src={`${siteBase}/images/hero/hero-background.jpg`} alt="" fetchpriority="high" loading="eager" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center" />
+  </picture>
+  <div class="absolute inset-0 textile-overlay-dark z-10" aria-hidden="true" />
+  <div class="relative z-20 w-full max-w-[90rem] mx-auto px-4 pb-20 pt-32 text-center md:text-left">
+    <OrnamentDivider variant="bar" class="mb-6 justify-center md:justify-start" />
+    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-textile-outline font-semibold leading-tight max-w-2xl mx-auto md:mx-0 drop-shadow-lg">
+      {t.title}
+    </h1>
+    <p class="mt-5 text-xl md:text-2xl text-textile-goldLight font-semibold max-w-xl mx-auto md:mx-0 drop-shadow-md">
+      {t.subtitle}
+    </p>
+    <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
+      <a href={`${base}#about`} class="btn-red inline-block px-6 py-3 text-white font-semibold rounded-md transition-all border border-white/25">
+        {t.ctaAbout}
+      </a>
+      <a href={`${base}/events`} class="inline-block px-6 py-3 border-2 border-textile-outline text-textile-outline font-semibold rounded-md hover:bg-textile-outline/10 transition-all">
+        {t.ctaEvents}
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="relative">
+  <div class="absolute inset-0 bg-embroidery-full bg-left-top bg-fixed opacity-20 z-0" aria-hidden="true" />
+  <div class="relative z-10 textile-overlay">
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-16 md:py-24">
+
+      <section id="next-event" class="scroll-mt-24 mb-16" aria-label={locale === 'sk' ? 'Najbližšie podujatie' : 'Next event'}>
+        <RevealSection class="max-w-3xl">
+          <UpcomingEventCard locale={locale} variant="teaser" base={base} />
+        </RevealSection>
+      </section>
+
+      <RevealSection class="max-w-2xl">
+        <p class="text-heritage-charcoal leading-relaxed text-lg font-medium">{t.intro}</p>
+      </RevealSection>
+
+      <section id="about" class="scroll-mt-24 mt-20 pt-12 border-t border-textile-gold/40">
+        <RevealSection>
+          <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.about}</h2>
+          <p class="mt-3 text-heritage-charcoal/90 max-w-2xl">{tAboutL.body.slice(0, 180)}…</p>
+          <a href={`${base}/about`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">{t.readMore}</a>
+        </RevealSection>
+      </section>
+
+      <section id="events" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40">
+        <RevealSection>
+          <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.events}</h2>
+          <p class="mt-3 text-heritage-charcoal/90">{t.teaserEvents}</p>
+          <a href={`${base}/events`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">{t.calendarDetails}</a>
+        </RevealSection>
+      </section>
+
+      <section id="gallery" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40">
+        <RevealSection>
+          <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.gallery}</h2>
+          <p class="mt-3 text-heritage-charcoal/90 max-w-2xl">{t.teaserGallery}</p>
+          <a href={`${base}/gallery`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">{t.galleryLink}</a>
+        </RevealSection>
+      </section>
+
+      <section id="traditions" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40">
+        <RevealSection>
+          <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.traditions}</h2>
+          <p class="mt-3 text-heritage-charcoal/90 max-w-2xl">{t.teaserTraditions}</p>
+          <a href={`${base}/traditions`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">{t.readMore}</a>
+        </RevealSection>
+      </section>
+
+      <section id="contact" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40">
+        <RevealSection>
+          <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.contact}</h2>
+          <p class="mt-3 text-heritage-charcoal/90">{t.teaserContact}</p>
+          <a href={`${base}/contact`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">{t.contactLink}</a>
+        </RevealSection>
+      </section>
+
+      <section id="sponsors" class="scroll-mt-24 mt-16 pt-12 border-t border-textile-gold/40" aria-labelledby="sponsors-heading">
+        <RevealSection>
+          <h2 id="sponsors-heading" class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{t.sponsorsTitle}</h2>
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-12 md:gap-16">
+            <a href="https://www.fpu.sk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all" title="Fond na podporu umenia">
+              <img src={`${siteBase}/images/sponsors/fpu.svg`} alt="Fond na podporu umenia" class="h-14 w-auto max-w-[220px] object-contain" width="233" height="69" loading="lazy" decoding="async" />
+            </a>
+            <a href="https://bratislavskykraj.sk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all" title="Bratislavský samosprávny kraj">
+              <img src={`${siteBase}/images/sponsors/bsk.svg`} alt="Bratislavský samosprávny kraj" class="h-16 w-auto max-w-[160px] object-contain" width="160" height="90" loading="lazy" decoding="async" />
+            </a>
+            <a href="https://www.cataj.sk/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all" title="Obec Čataj">
+              <picture>
+                <source type="image/webp" srcset={`${siteBase}/images/sponsors/cataj.webp`} />
+                <img src={`${siteBase}/images/sponsors/cataj.png`} alt="Obec Čataj" class="h-16 w-auto max-w-[140px] object-contain" width="140" height="160" loading="lazy" decoding="async" />
+              </picture>
+            </a>
+          </div>
+        </RevealSection>
+      </section>
+    </div>
+  </div>
+</div>
