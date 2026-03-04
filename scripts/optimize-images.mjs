@@ -49,8 +49,9 @@ async function main() {
     const targetW = Math.round(w * scale);
     const targetH = Math.round(h * scale);
     const resize = { width: targetW, height: targetH, fit: 'inside' };
-    await sharp(heroSourcePath).resize(resize).jpeg({ ...progressiveJpeg, quality: 95 }).toFile(heroPath);
-    await sharp(heroSourcePath).resize(resize).webp(WEBP_DISPLAY).toFile(heroWebpPath);
+    // Hero: slightly lower quality for smaller transfer (Lighthouse image delivery); still looks sharp
+    await sharp(heroSourcePath).resize(resize).jpeg({ ...progressiveJpeg, quality: 88 }).toFile(heroPath);
+    await sharp(heroSourcePath).resize(resize).webp({ quality: 82, effort: 4 }).toFile(heroWebpPath);
     console.log('  hero: assets/' + heroSourceName + ' → ' + targetW + '×' + targetH + ' (.webp + .jpg)');
   } catch (e) {
     console.warn('  hero:', e.message);

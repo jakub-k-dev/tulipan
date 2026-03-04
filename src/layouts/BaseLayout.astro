@@ -18,6 +18,7 @@ interface Props {
 const { title, description, locale, current, fullTextile = false, preloadHero = false } = Astro.props;
 const lang = locale === 'sk' ? 'sk' : 'en';
 const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || ''; // '' or '/tulipan'
+const goatCounterSite = import.meta.env.PUBLIC_GOATCOUNTER_SITE as string | undefined;
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const pathWithoutBase = siteBase ? pathname.replace(siteBase, '') || '/' : pathname;
 const enUrl = locale === 'en' ? pathname : `${siteBase}/en${pathWithoutBase === '/' ? '' : pathWithoutBase}`;
@@ -42,6 +43,13 @@ const skUrl = locale === 'sk' ? pathname : (siteBase ? pathname.replace(`${siteB
     <link rel="alternate" hreflang="x-default" href={new URL(skUrl, Astro.url).href} />
     <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/about` : `${siteBase}/en/about`} />
     <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/events` : `${siteBase}/en/events`} />
+    {goatCounterSite && (
+      <script
+        data-goatcounter={`https://${goatCounterSite}.goatcounter.com/count`}
+        async
+        src="//gc.zgo.at/count.js"
+      />
+    )}
   </head>
   <body class="min-h-screen flex flex-col text-heritage-charcoal font-body">
     <Header locale={locale} current={current} />

@@ -8,6 +8,8 @@
 
 If Source is left as “Deploy from a branch”, GitHub runs Jekyll and the build will fail on `.astro` files.
 
+**Lighthouse — cache & image size:** GitHub Pages does not send long-lived `Cache-Control` headers, so “Use efficient cache lifetimes” will show 10m TTL until you add **Cloudflare** in front: add your domain in Cloudflare (DNS → proxy on), then **Rules** → **Transform Rules** → **Modify response header**: when URL path matches `/images/*` or `/_astro/*`, set `Cache-Control` = `public, max-age=31536000, immutable`. Hero images are already WebP + JPEG at reduced quality for smaller transfer.
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
