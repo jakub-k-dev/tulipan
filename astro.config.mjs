@@ -3,10 +3,10 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
-// base '/tulipan/' for GitHub project URL (jakub-k-dev.github.io/tulipan). When using only custom domain fstulipan.sk, switch to base: '/' and redeploy.
+// base '/' for root domain (e.g. fstulipan.sk). For GitHub project URL use base: '/tulipan/'.
 export default defineConfig({
-  site: 'https://jakub-k-dev.github.io',
-  base: '/tulipan/',
+  site: 'https://fstulipan.sk',
+  base: '/',
   integrations: [tailwind()],
   i18n: {
     defaultLocale: 'sk',
