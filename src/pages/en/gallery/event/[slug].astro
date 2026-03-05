@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getEventBySlug, getEventImages, formatGalleryDate, getYoutubeEmbedId, galleryEvents } from '../../../../data/gallery';
+import { tGallery } from '../../../../data/translations';
+import GalleryGrid from '../../../../components/GalleryGrid.astro';
+import GalleryLightbox from '../../../../components/GalleryLightbox.astro';
+
+export function getStaticPaths() {
+  return galleryEvents.map((event) => ({ params: { slug: event.slug } }));
+}
+
+const { slug } = Astro.params;
+const locale = 'en';
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const t = tGallery(locale);
+const event = getEventBySlug(slug!);
+const galleryPath = siteBase ? `${siteBase}/en/gallery` : '/en/gallery';
+const videoId = event?.videoUrl ? getYoutubeEmbedId(event.videoUrl) : null;
+const place = locale === 'sk' ? event?.placeSk : event?.placeEn;
+const description = locale === 'sk' ? event?.descriptionSk : event?.descriptionEn;
+---
+
+{event ? (
+  <BaseLayout title={`${locale === 'sk' ? event.titleSk : event.titleEn} — ${t.title}`} description={event.date !== '2000-01-01' ? formatGalleryDate(event.date, locale) : t.title} locale={locale} current="gallery">
+    <div class="z-10 bg-textile-cream page-content-fill">
+      <div class="w-full mx-auto px-4 md:px-6 lg:px-8 py-8">
+        <a href={galleryPath} class="inline-flex items-center text-embroidery-crimson font-medium hover:underline mb-6 focus:outline-none focus:ring-2 focus:ring-embroidery-crimson rounded">
+          {t.backToGallery}
+        </a>
+        <header class="mb-6">
+          {event.date && event.slug !== 'ostatne' && (
+            <time class="text-sm text-heritage-charcoal/70 font-medium" datetime={event.date}>
+              {formatGalleryDate(event.date, locale)}
+            </time>
+          )}
+          <h1 class="text-3xl font-display font-semibold text-heritage-charcoal mt-1">
+            {locale === 'sk' ? event.titleSk : event.titleEn}
+          </h1>
+        </header>
+
+        {(videoId || event) && (
+          <div data-lightbox-container>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-start">
+              {videoId && (
+                <div class="md:col-span-2 md:row-start-1 min-w-0">
+                  <p class="text-xs font-semibold uppercase tracking-wide text-heritage-charcoal/60 mb-2">{t.videoLabel}</p>
+                  <div class="aspect-video max-w-2xl rounded-xl overflow-hidden bg-heritage-charcoal/10 shadow-lg">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}?rel=0`}
+                      title={t.videoLabel}
+                      class="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    />
+                  </div>
+                </div>
+              )}
+              <aside class="rounded-xl border border-embroidery-ochre/40 bg-heritage-charcoal/[0.04] px-5 py-5 shadow-sm md:col-start-3 md:row-start-1">
+                <p class="text-sm font-semibold uppercase tracking-wide text-heritage-charcoal/70">{t.eventDetailsLabel}</p>
+                <dl class="mt-4 space-y-3 text-sm">
+                  {event.date && event.slug !== 'ostatne' && (
+                    <div>
+                      <dt class="text-heritage-charcoal/60 font-medium">{t.eventDate}</dt>
+                      <dd class="mt-0.5 text-heritage-charcoal">{formatGalleryDate(event.date, locale)}</dd>
+                    </div>
+                  )}
+                  <div>
+                    <dt class="text-heritage-charcoal/60 font-medium">{t.eventPlace}</dt>
+                    <dd class="mt-0.5 text-heritage-charcoal">{place || '—'}</dd>
+                  </div>
+                  <div>
+                    <dt class="text-heritage-charcoal/60 font-medium">{t.eventTime}</dt>
+                    <dd class="mt-0.5 text-heritage-charcoal">{t.eventPlaceholderTime}</dd>
+                  </div>
+                  {description && (
+                    <div>
+                      <dt class="text-heritage-charcoal/60 font-medium">{t.eventDescription}</dt>
+                      <dd class="mt-0.5 text-heritage-charcoal/90 leading-relaxed">{description}</dd>
+                    </div>
+                  )}
+                  <div>
+                    <dt class="text-heritage-charcoal/60 font-medium">{t.eventNotes}</dt>
+                    <dd class="mt-0.5 text-heritage-charcoal/80">{t.eventPlaceholderNotes}</dd>
+                  </div>
+                </dl>
+              </aside>
+              <GalleryGrid images={getEventImages(event)} locale={locale} siteBase={siteBase} itemsOnly />
+            </div>
+            <GalleryLightbox siteBase={siteBase} />
+          </div>
+        )}
+      </div>
+    </div>
+  </BaseLayout>
+) : (
+  <BaseLayout title={t.title} locale={locale} current="gallery">
+    <div class="z-10 bg-textile-cream page-content-fill px-4 py-12 text-center">
+      <p class="text-heritage-charcoal/80">{locale === 'sk' ? 'Podujatie sa nenašlo.' : 'Event not found.'}</p>
+      <a href={galleryPath} class="mt-4 inline-block text-embroidery-crimson font-medium hover:underline">{t.backToGallery}</a>
+    </div>
+  </BaseLayout>
+)}

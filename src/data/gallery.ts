@@ -75,3 +75,92 @@ export function formatGalleryDate(isoDate: string, locale: 'sk' | 'en'): string 
   const names = locale === 'sk' ? monthNamesSk : monthNamesEn;
   return locale === 'sk' ? `${d}. ${names[m - 1]} ${y}` : `${names[m - 1]} ${d}, ${y}`;
 }
+
+/** Event/album: a dated group of photos (for timeline and event pages). */
+export interface GalleryEvent {
+  /** URL slug, e.g. "2025-06-14" or "ostatne" */
+  slug: string;
+  /** ISO date for sorting and display; legacy/other can use a placeholder */
+  date: string;
+  titleSk: string;
+  titleEn: string;
+  /** Full image src paths (match GalleryImage.src) — order preserved */
+  imageSrcs: string[];
+  /** Optional: main YouTube video (watch or youtu.be URL). One per album for now. */
+  videoUrl?: string;
+  /** Optional: event location / place (for event-related albums) */
+  placeSk?: string;
+  placeEn?: string;
+  /** Optional: short event description (keep brief so details block stays compact) */
+  descriptionSk?: string;
+  descriptionEn?: string;
+}
+
+/** Extract YouTube video ID for embed from watch or youtu.be URL. */
+export function getYoutubeEmbedId(url: string): string | null {
+  if (!url || typeof url !== 'string') return null;
+  const trimmed = url.trim();
+  const m = trimmed.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
+
+/** Events for Tulipan recent history: newest first. Add new events here. */
+export const galleryEvents: GalleryEvent[] = [
+  {
+    slug: 'fasiangy-2026',
+    date: '2026-02-14',
+    titleSk: 'Fašiangy 2026',
+    titleEn: 'Fašiangy 2026',
+    imageSrcs: [
+      '/images/gallery/event-1.png',
+      '/images/gallery/event-2.png',
+      '/images/gallery/event-3.png',
+      '/images/gallery/event-5.png',
+      '/images/gallery/event-6.png',
+    ],
+  },
+  {
+    slug: '2025-06-21',
+    date: '2025-06-21',
+    titleSk: 'MFF Myjava',
+    titleEn: 'MFF Myjava',
+    placeSk: 'Myjava',
+    placeEn: 'Myjava',
+    descriptionSk: 'Medzinárodný folklórny festival.',
+    descriptionEn: 'International folklore festival.',
+    videoUrl: 'https://www.youtube.com/watch?v=2vjPBrAZ-TI',
+    imageSrcs: [
+      '/images/gallery/full/20250621_193057.webp',
+      '/images/gallery/full/20250621_193336.webp',
+    ],
+  },
+  {
+    slug: '2025-06-14',
+    date: '2025-06-14',
+    titleSk: 'Den obce Čataj',
+    titleEn: 'Čataj Village Day',
+    placeSk: 'Čataj',
+    placeEn: 'Čataj',
+    descriptionSk: 'Deň obce — vystúpenie folklórnej skupiny.',
+    descriptionEn: 'Village day — folklore group performance.',
+    imageSrcs: [
+      '/images/gallery/full/20250614_171736.webp',
+      '/images/gallery/full/20250614_172137.webp',
+      '/images/gallery/full/20250614_172159.webp',
+      '/images/gallery/full/20250614_172321.webp',
+      '/images/gallery/full/20250614_172702.webp',
+      '/images/gallery/full/20250614_172717.webp',
+    ],
+  },
+];
+
+/** Get images for an event (order preserved; skips missing). */
+export function getEventImages(event: GalleryEvent): GalleryImage[] {
+  const bySrc = new Map(galleryImages.map((img) => [img.src, img]));
+  return event.imageSrcs.map((src) => bySrc.get(src)).filter((img): img is GalleryImage => !!img);
+}
+
+/** Get event by slug, or undefined. */
+export function getEventBySlug(slug: string): GalleryEvent | undefined {
+  return galleryEvents.find((e) => e.slug === slug);
+}
