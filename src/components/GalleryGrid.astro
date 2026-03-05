@@ -1,0 +1,59 @@
+---
+import type { Locale } from '../data/translations';
+import { galleryDisplaySrc } from '../data/gallery';
+import type { GalleryImage } from '../data/gallery';
+import GalleryLightbox from './GalleryLightbox.astro';
+
+interface Props {
+  images: GalleryImage[];
+  locale: Locale;
+  siteBase: string;
+  /** When true, render only the photo buttons (no wrapper div, no lightbox). Parent must provide grid and lightbox. */
+  itemsOnly?: boolean;
+}
+
+const { images, locale, siteBase, itemsOnly = false } = Astro.props;
+---
+
+{itemsOnly ? (
+  <>
+    {images.map((img) => {
+      const displaySrc = galleryDisplaySrc(img);
+      const alt = locale === 'sk' ? img.altSk : img.altEn;
+      const fullSrc = siteBase ? siteBase + img.src : img.src;
+      return (
+        <button
+          type="button"
+          class="gallery-card block w-full rounded-xl overflow-hidden aspect-[4/3] bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0"
+          data-lightbox-src={fullSrc}
+          data-lightbox-alt={alt}
+          title={alt}
+        >
+          <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class="w-full h-full object-cover pointer-events-none" style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
+        </button>
+      );
+    })}
+  </>
+) : (
+  <>
+    <div data-lightbox-container class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {images.map((img) => {
+        const displaySrc = galleryDisplaySrc(img);
+        const alt = locale === 'sk' ? img.altSk : img.altEn;
+        const fullSrc = siteBase ? siteBase + img.src : img.src;
+        return (
+          <button
+            type="button"
+            class="gallery-card block w-full rounded-xl overflow-hidden aspect-[4/3] bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0"
+            data-lightbox-src={fullSrc}
+            data-lightbox-alt={alt}
+            title={alt}
+          >
+            <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class="w-full h-full object-cover pointer-events-none" style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
+          </button>
+        );
+      })}
+    </div>
+    <GalleryLightbox siteBase={siteBase} />
+  </>
+)}

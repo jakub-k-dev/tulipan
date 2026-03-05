@@ -9,9 +9,9 @@ interface Props {
 const { title, class: className = '', noFixed = false } = Astro.props;
 const bgClass = noFixed ? 'bg-embroidery-full-scroll' : 'bg-embroidery-full';
 ---
-<section class={`relative min-h-[40vh] flex items-end overflow-hidden ${className}`} aria-label={title}>
+<section class={`relative min-h-[40vh] flex items-end overflow-hidden isolate ${className}`} aria-label={title}>
   <div class={`absolute inset-0 ${bgClass} z-0`} aria-hidden="true" />
-  <div class="absolute inset-0 textile-overlay-dark z-10" aria-hidden="true" />
+  <div class="absolute inset-0 textile-overlay-dark z-10 pointer-events-none" aria-hidden="true" style="contain: strict;" />
   <div class="relative z-20 w-full max-w-[90rem] w-full mx-auto px-4 py-16">
     <h1 class="font-display text-3xl md:text-4xl lg:text-5xl text-textile-outline font-semibold drop-shadow-md">
       {title}

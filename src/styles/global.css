@@ -22,9 +22,9 @@
   padding-right: 1rem;
 }
 
-/* Gallery: hover-reveal image (image scales / overlay lifts on hover) */
+/* Gallery card: hover gradient overlay. .gallery-card needs position: relative so ::after is contained to the card. */
 .gallery-card {
-  @apply overflow-hidden rounded-xl border-2 border-textile-gold/40 shadow-lg transition-all duration-300;
+  @apply relative overflow-hidden rounded-xl border-2 border-textile-gold/40 shadow-lg transition-all duration-300;
 }
 .gallery-card img {
   @apply w-full h-full object-cover transition-transform duration-500;
@@ -212,5 +212,10 @@
   .reveal-section.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+  /* Page content: min-height + isolation so hero overlay doesn’t bleed above footer */
+  .page-content-fill {
+    min-height: min(calc(100vh - 14rem), 60rem);
+    isolation: isolate;
   }
 }
