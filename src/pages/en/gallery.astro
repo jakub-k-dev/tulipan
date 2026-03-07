@@ -1,13 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import GalleryContent from '../../components/GalleryContent.astro';
-import { tGallery } from '../../data/translations';
+import PageTextileHero from '../../components/PageTextileHero.astro';
+import { tGallery, tSite } from '../../data/translations';
 
 const locale = 'en';
 const t = tGallery(locale);
-const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const siteT = tSite(locale);
 ---
 
 <BaseLayout title={t.title} description={t.placeholder} locale={locale} current="gallery">
-  <GalleryContent locale={locale} siteBase={siteBase} />
+  <PageTextileHero title={t.title} />
+  <div class="bg-textile-cream">
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+      <div class="max-w-2xl pl-4 border-l-4 border-textile-gold text-heritage-charcoal leading-relaxed font-medium">
+        <p>{siteT.constructionMessage}</p>
+      </div>
+    </div>
+  </div>
 </BaseLayout>

@@ -36,7 +36,7 @@ async function main() {
 
   // 1. Hero: from cropped variant → resize to HERO_MAX_LONG_EDGE (sharp at 2×, small file), WebP + JPEG fallback
   const assetsDir = join(publicDir, 'assets');
-  const heroSourceName = '20250614_171736 cropped.jpg';
+  const heroSourceName = '20250614_171732 cropped 2.jpg';
   const heroSourcePath = join(assetsDir, heroSourceName);
   const heroDir = join(publicDir, 'hero');
   const heroPath = join(heroDir, 'hero-background.jpg');

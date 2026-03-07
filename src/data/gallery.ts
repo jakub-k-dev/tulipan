@@ -137,7 +137,7 @@ export const galleryEvents: GalleryEvent[] = [
   {
     slug: '2025-06-14',
     date: '2025-06-14',
-    titleSk: 'Den obce Čataj',
+    titleSk: 'Deň obce Čataj',
     titleEn: 'Čataj Village Day',
     placeSk: 'Čataj',
     placeEn: 'Čataj',
