@@ -232,8 +232,8 @@ export const contact = {
     phone: '+421 907 747 097',
     email: 'tulipancataj@gmail.com',
     formNote: 'Napíšte nám e‑mailom alebo nás nájdete na Facebooku a Instagrame.',
-    supportTitle: 'Podporiť nás',
-    supportIntro: 'Svoju podporu môžete poslať na účet:',
+    supportTitle: 'Ako nás podporiť',
+    supportIbanHint: 'Pre darovanie môžete použiť tento IBAN:',
   },
   en: {
     title: 'Contact',
@@ -245,8 +245,24 @@ export const contact = {
     phone: '+421 907 747 097',
     email: 'tulipancataj@gmail.com',
     formNote: 'Send us an email or find us on Facebook and Instagram.',
-    supportTitle: 'Support us',
-    supportIntro: 'You can send your support to our account:',
+    supportTitle: 'How to support us',
+    supportIbanHint: 'For donations you can use this IBAN:',
+  },
+} as const;
+
+/** 404 page */
+export const notFound = {
+  sk: {
+    title: 'Stránka nenájdená',
+    heading: 'Stránka nenájdená',
+    message: 'Toto nie je správny chodník medzi vinohrady.',
+    goHome: 'Na úvodnú stránku',
+  },
+  en: {
+    title: 'Page not found',
+    heading: 'Page not found',
+    message: 'This is not the right path between the vineyards.',
+    goHome: 'Back to home',
   },
 } as const;
 
@@ -293,6 +309,9 @@ export function tContact(locale: Locale) {
 }
 export function tTraditions(locale: Locale) {
   return traditions[locale];
+}
+export function tNotFound(locale: Locale) {
+  return notFound[locale];
 }
 export function tTimeline(locale: Locale) {
   return timeline[locale];

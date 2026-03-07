@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { tNotFound } from '../data/translations';
+
+// Infer locale from path so /en/... 404s show English
+const pathname = Astro.url.pathname;
+const locale = pathname.startsWith('/en') || pathname === '/en' ? 'en' : 'sk';
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const base = locale === 'en' ? `${siteBase}/en` : siteBase;
+const t = tNotFound(locale);
+---
+
+<BaseLayout title={t.title} description={t.message} locale={locale} current="">
+  <div class="bg-textile-cream min-h-[60vh] flex flex-col items-center justify-center px-4 py-16">
+    <div class="max-w-xl text-center">
+      <h1 class="font-display text-3xl md:text-4xl text-heritage-charcoal font-semibold">{t.heading}</h1>
+      <p class="mt-4 text-heritage-charcoal/90 font-medium">{t.message}</p>
+      <!-- Placeholder for folk photo: owner will add a specific funny folk photo here -->
+      <div class="mt-10 flex justify-center">
+        <img
+          src={`${siteBase || ''}/images/logo.svg`}
+          alt=""
+          class="w-32 h-32 opacity-60"
+          width="128"
+          height="128"
+        />
+      </div>
+      <a
+        href={base ? `${base}/` : '/'}
+        class="mt-10 inline-block px-6 py-3 bg-embroidery-red text-white font-semibold rounded-md hover:opacity-90 transition-opacity"
+      >
+        {t.goHome}
+      </a>
+    </div>
+  </div>
+</BaseLayout>

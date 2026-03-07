@@ -23,6 +23,11 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const pathWithoutBase = siteBase ? pathname.replace(siteBase, '') || '/' : pathname;
 const enUrl = locale === 'en' ? pathname : `${siteBase}/en${pathWithoutBase === '/' ? '' : pathWithoutBase}`;
 const skUrl = locale === 'sk' ? pathname : (siteBase ? pathname.replace(`${siteBase}/en`, siteBase) : pathname.replace(/^\/en/, '')) || siteBase || '/';
+const siteOrigin = (typeof Astro.site === 'string' ? Astro.site.replace(/\/$/, '') : null) ?? Astro.url.origin;
+const canonicalHref = new URL(pathname, siteOrigin).href;
+const ogImagePath = `${siteBase || ''}/images/hero/hero-background.jpg`;
+const ogImageUrl = new URL(ogImagePath.startsWith('/') ? ogImagePath : `/${ogImagePath}`, siteOrigin).href;
+const fullTitle = `${title} — Tulipán`;
 ---
 
 <!doctype html>
@@ -35,9 +40,22 @@ const skUrl = locale === 'sk' ? pathname : (siteBase ? pathname.replace(`${siteB
     <link rel="apple-touch-icon" href={`${siteBase || ''}/images/logo.svg`} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} — Tulipán</title>
+    <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
-    <link rel="canonical" href={new URL(pathname, Astro.url).href} />
+    <link rel="canonical" href={canonicalHref} />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonicalHref} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={lang === 'sk' ? 'sk_SK' : 'en_GB'} />
+    <meta property="og:site_name" content="Tulipán Čataj" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="alternate" hreflang="sk" href={new URL(skUrl, Astro.url).href} />
     <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.url).href} />
     <link rel="alternate" hreflang="x-default" href={new URL(skUrl, Astro.url).href} />

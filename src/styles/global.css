@@ -6,6 +6,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Overscroll top/bottom: same red gradient as header/footer */
+    background-color: var(--red-fabric-bottom);
+    background-image: linear-gradient(to bottom, var(--red-fabric-top) 0%, var(--red-fabric-mid) 35%, var(--red-fabric-bottom) 100%);
+    /* No rubber-band left/right */
+    overscroll-behavior-x: none;
   }
   body {
     @apply text-heritage-charcoal bg-textile-cream antialiased;
