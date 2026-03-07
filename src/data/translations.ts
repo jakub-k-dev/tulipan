@@ -1,5 +1,15 @@
 export type Locale = 'sk' | 'en';
 
+/** Site-wide message when (parts of) the site are under construction */
+export const site = {
+  sk: {
+    constructionMessage: 'Táto webová stránka je momentálne vo fáze prípravy. Postupne na nej dopĺňame ďalšie informácie o činnosti Folklórnej skupiny Tulipán, pripravovaných podujatiach a našej histórii. Ďakujeme za vašu trpezlivosť a tešíme sa na vašu ďalšiu návštevu.',
+  },
+  en: {
+    constructionMessage: 'This website is currently under construction. We are gradually adding more information about the activities of the Tulipán folklore group, upcoming events and our history. Thank you for your patience and we look forward to your next visit.',
+  },
+} as const;
+
 export const nav = {
   sk: {
     home: 'Domov',
@@ -76,17 +86,23 @@ export const home = {
 export const about = {
   sk: {
     title: 'O nás',
-    body: 'Folklórna skupina Tulipán Čataj pôsobí v obci Čataj v okrese Senec. Sme občianske združenie a nadväzujeme na miestnu tradíciu kroja a výšivky.',
-    recentHistoryTitle: 'Naša skupina',
-    recentHistory: 'Folklórna skupina Tulipán Čataj existuje len niekoľko rokov; nadväzuje na tradíciu obce a folklórne dedičstvo Čataja. Od približne 2019 pôsobíme ako občianske združenie a vystupujeme v kroji s čatajským a veľkogrobským ornamentom. O staršej histórii obce a ľudovej kultúry píšeme na stránke Folklór a tradície.',
-    groupPhotoAlt: 'Členovia Folklórnej skupiny Tulipán Čataj',
+    bodyParagraphs: [
+      'Folklórna skupina Tulipán z Čataja nadväzuje na bohaté tradície našej obce a na odkaz generácií, ktoré si po desaťročia uchovávali ľudové piesne, tance, zvyky a obyčaje. Po viac ako dvadsiatich rokoch nečinnosti sa folklórny život v obci opäť oživil.',
+      'Myšlienka znovu oživiť folklór v Čataji vznikla z podnetu Kultúrnej a sociálnej komisie Obecného zastupiteľstva Čataj, ako aj bývalých členov folklórnej skupiny. Spoločne sme začali hľadať spôsob, ako do obce opäť priniesť tradičnú atmosféru a prepojiť ľudí prostredníctvom kultúrneho dedičstva.',
+      'Prvým krokom bol fašiangový sprievod, ktorý sme pripravili v roku 2018. Práve tento moment sa stal impulzom pre obnovenie folklórnej skupiny. Postupne sa začali pravidelné nácviky a už v roku 2019 sme opäť vystúpili s vlastným programom.',
+      'Odvtedy folklórna skupina Tulipán aktívne pôsobí v kultúrnom živote obce. Organizujeme tradičné podujatia, vystupujeme na rôznych kultúrnych akciách a snažíme sa uchovávať a odovzdávať miestne tradície ďalším generáciám.',
+      'Aj keď obdobie pandémie našu činnosť na určitý čas prerušilo, naša chuť pokračovať bola silnejšia. Po návrate k spoločným stretnutiam sme opäť nadviazali na nácviky a vystúpenia a naďalej s radosťou udržiavame folklórne tradície, ktoré sú súčasťou identity našej obce.',
+    ],
   },
   en: {
     title: 'About us',
-    body: 'Folklórna skupina Tulipán Čataj is based in the village of Čataj, Senec district. We are a civic association and continue the local tradition of costume and embroidery.',
-    recentHistoryTitle: 'Our group',
-    recentHistory: 'The group has existed for a few years and continues the village tradition and folk heritage of Čataj. Since around 2019 we have been active as a civic association and perform in costume with the Čataj and Veľký Grob ornament. For the longer history of the village and folk culture, see the Traditions & folk page.',
-    groupPhotoAlt: 'Tulipan folklore group members',
+    bodyParagraphs: [
+      'The Tulipán folklore group from Čataj continues the rich traditions of our village and the legacy of generations who for decades preserved folk songs, dances, customs and practices. After more than twenty years of inactivity, folk life in the village has come to life again.',
+      'The idea to revive folklore in Čataj came from the Cultural and Social Committee of the Čataj Municipal Council and from former members of the folklore group. Together we began to look for a way to bring a traditional atmosphere back to the village and to connect people through cultural heritage.',
+      'The first step was a fašiangy (carnival) procession, which we prepared in 2018. That moment became the impulse for reviving the folklore group. Gradually, regular rehearsals began and in 2019 we performed again with our own programme.',
+      'Since then the Tulipán folklore group has been active in the cultural life of the village. We organise traditional events, perform at various cultural occasions and strive to preserve and pass on local traditions to the next generations.',
+      'Although the pandemic interrupted our activities for a time, our desire to continue was stronger. After returning to in-person meetings we resumed rehearsals and performances and continue with joy to maintain the folklore traditions that are part of our village’s identity.',
+    ],
   },
 } as const;
 
@@ -209,7 +225,11 @@ export const contact = {
   sk: {
     title: 'Kontakt',
     name: 'Folklórna skupina Tulipán Čataj, o. z.',
-    place: 'Čataj',
+    contactPersonLabel: 'Kontaktná osoba',
+    contactPerson: 'Drahoslav Hauskrecht',
+    addressLabel: 'Adresa',
+    address: 'Čataj 219, 900 83 Čataj',
+    phone: '+421 907 747 097',
     email: 'tulipancataj@gmail.com',
     formNote: 'Napíšte nám e‑mailom alebo nás nájdete na Facebooku a Instagrame.',
     supportTitle: 'Podporiť nás',
@@ -218,7 +238,11 @@ export const contact = {
   en: {
     title: 'Contact',
     name: 'Folklórna skupina Tulipán Čataj, o. z.',
-    place: 'Čataj',
+    contactPersonLabel: 'Contact person',
+    contactPerson: 'Drahoslav Hauskrecht',
+    addressLabel: 'Address',
+    address: 'Čataj 219, 900 83 Čataj',
+    phone: '+421 907 747 097',
     email: 'tulipancataj@gmail.com',
     formNote: 'Send us an email or find us on Facebook and Instagram.',
     supportTitle: 'Support us',
@@ -245,6 +269,9 @@ export const traditions = {
 
 export function tNav(locale: Locale) {
   return nav[locale];
+}
+export function tSite(locale: Locale) {
+  return site[locale];
 }
 export function tFooter(locale: Locale) {
   return footer[locale];

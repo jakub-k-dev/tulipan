@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../data/translations';
 import PageTextileHero from './PageTextileHero.astro';
+import OrnamentDivider from './OrnamentDivider.astro';
 import { tAbout } from '../data/translations';
 
 interface Props {
@@ -13,17 +14,18 @@ const t = tAbout(locale);
 ---
 
 <PageTextileHero title={t.title} />
-<div class="bg-textile-cream">
-  <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
-    <figure class="rounded-xl overflow-hidden border-2 border-textile-gold/50 shadow-lg max-w-2xl">
-      <img src={`${siteBase || ''}/images/gallery/group-photo.png`} alt={t.groupPhotoAlt} class="w-full h-auto object-cover" width="800" height="600" loading="eager" />
-    </figure>
-    <div class="mt-8 pl-4 border-l-4 border-embroidery-red max-w-2xl text-heritage-charcoal leading-relaxed font-medium">
-      <p>{t.body}</p>
-    </div>
-    <section class="mt-12 pt-10 border-t border-textile-gold/40" aria-labelledby="recent-history-heading">
-      <h2 id="recent-history-heading" class="font-display text-xl text-heritage-charcoal font-semibold">{t.recentHistoryTitle}</h2>
-      <p class="mt-3 text-heritage-charcoal/90 leading-relaxed max-w-2xl">{t.recentHistory}</p>
-    </section>
+<div class="bg-gradient-to-b from-textile-cream via-heritage-cream/30 to-textile-cream">
+  <div class="max-w-[90rem] w-full mx-auto px-4 sm:px-6 py-14 sm:py-20">
+    <OrnamentDivider variant="bar" class="max-w-[38rem] mx-auto mb-10 opacity-90" />
+    <article class="max-w-[38rem] mx-auto rounded-2xl bg-white/90 shadow-lg shadow-heritage-charcoal/10 border border-textile-gold/30 overflow-hidden">
+      <div class="p-6 sm:p-10 space-y-6 sm:space-y-7 pl-7 sm:pl-9 border-l-2 border-embroidery-red">
+        {t.bodyParagraphs.map((paragraph) => (
+          <p class="text-heritage-charcoal text-[1.05rem] leading-[1.75]">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    </article>
+    <OrnamentDivider variant="bar" class="max-w-[38rem] mx-auto mt-10 opacity-70" />
   </div>
 </div>

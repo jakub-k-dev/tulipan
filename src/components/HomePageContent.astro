@@ -3,7 +3,7 @@ import type { Locale } from '../data/translations';
 import OrnamentDivider from './OrnamentDivider.astro';
 import RevealSection from './RevealSection.astro';
 import UpcomingEventCard from './UpcomingEventCard.astro';
-import { tHome, tNav, tAbout, tEvents } from '../data/translations';
+import { tHome, tNav, tAbout, tEvents, tSite } from '../data/translations';
 
 interface Props {
   locale: Locale;
@@ -15,6 +15,7 @@ const { locale, siteBase, base } = Astro.props;
 const t = tHome(locale);
 const nav = tNav(locale);
 const tAboutL = tAbout(locale);
+const siteT = tSite(locale);
 ---
 
 <section class="relative min-h-[100vh] flex items-end justify-center overflow-hidden" aria-label={t.heroAria}>
@@ -48,6 +49,10 @@ const tAboutL = tAbout(locale);
   <div class="relative z-10 textile-overlay">
     <div class="max-w-[90rem] w-full mx-auto px-4 py-16 md:py-24">
 
+      <section class="mb-16 rounded-xl border-2 border-textile-gold/50 bg-heritage-charcoal/5 px-6 py-6 md:px-8 md:py-8 max-w-3xl" aria-label={locale === 'sk' ? 'Oznámenie' : 'Notice'}>
+        <p class="text-heritage-charcoal leading-relaxed font-medium">{siteT.constructionMessage}</p>
+      </section>
+
       <section id="next-event" class="scroll-mt-24 mb-16" aria-label={locale === 'sk' ? 'Najbližšie podujatie' : 'Next event'}>
         <RevealSection class="max-w-3xl">
           <UpcomingEventCard locale={locale} variant="teaser" base={base} />
@@ -61,7 +66,7 @@ const tAboutL = tAbout(locale);
       <section id="about" class="scroll-mt-24 mt-20 pt-12 border-t border-textile-gold/40">
         <RevealSection>
           <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{nav.about}</h2>
-          <p class="mt-3 text-heritage-charcoal/90 max-w-2xl">{tAboutL.body.slice(0, 180)}…</p>
+          <p class="mt-3 text-heritage-charcoal/90 max-w-2xl">{tAboutL.bodyParagraphs[0].slice(0, 180)}…</p>
           <a href={`${base}/about`} class="mt-4 inline-block text-groupRed font-semibold hover:underline">{t.readMore}</a>
         </RevealSection>
       </section>

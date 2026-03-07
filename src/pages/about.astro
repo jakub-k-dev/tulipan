@@ -8,6 +8,6 @@ const t = tAbout(locale);
 const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
 ---
 
-<BaseLayout title={t.title} description={t.body.slice(0, 155)} locale={locale} current="about">
+<BaseLayout title={t.title} description={t.bodyParagraphs[0].slice(0, 155)} locale={locale} current="about">
   <AboutContent locale={locale} siteBase={siteBase} />
 </BaseLayout>
