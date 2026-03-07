@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 // base '/' for root domain (e.g. fstulipan.sk). For GitHub project URL use base: '/tulipan/'.
@@ -11,7 +12,7 @@ export default defineConfig({
     // Inline all stylesheets to break critical request chain (Lighthouse: network dependency tree)
     inlineStylesheets: 'always',
   },
-  integrations: [tailwind()],
+  integrations: [tailwind(), sitemap()],
   i18n: {
     defaultLocale: 'sk',
     locales: ['sk', 'en'],
