@@ -63,6 +63,7 @@ export const home = {
     teaserTraditions: 'Tradičný ornament a výšivka z Čataja a Veľkého Grobu. Evanjelický kroj a dedičstvo.',
     teaserContact: 'Napíšte nám alebo nás príďte pozrieť do Čataja.',
     heroAria: 'Úvod',
+    peopleSaidTitle: 'Povedali o nás',
   },
   en: {
     title: 'Folklórna skupina Tulipán Čataj',
@@ -80,6 +81,7 @@ export const home = {
     teaserTraditions: 'Traditional ornament and embroidery from Čataj and Veľký Grob. Evangelical costume and heritage.',
     teaserContact: 'Get in touch or visit us in Čataj.',
     heroAria: 'Introduction',
+    peopleSaidTitle: 'People said about us',
   },
 } as const;
 
