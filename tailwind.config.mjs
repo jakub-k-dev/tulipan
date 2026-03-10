@@ -17,29 +17,6 @@ export default {
           cream: '#faf6f0',
           outline: '#fffef9',    /* white outlines */
         },
-        /* Rich red, green, blue, pink from embroidery */
-        embroidery: {
-          red: '#b91c1c',
-          redRich: '#991b1b',
-          green: '#166534',
-          greenLight: '#22c55e',
-          blue: '#1d4ed8',
-          blueLight: '#3b82f6',
-          pink: '#db2777',
-          pinkLight: '#ec4899',
-          /* legacy names for compatibility */
-          ochre: '#c9a227',
-          ochreLight: '#e5c76b',
-          ochreBright: '#f0d04a',
-          maroon: '#7f1d1d',
-          maroonBright: '#991b1b',
-          crimson: '#b91c1c',
-          gold: '#d4a017',
-          goldFlat: '#c9a227',
-          outline: '#fffef9',
-          royal: '#1d4ed8',
-          fuchsia: '#db2777',
-        },
         heritage: {
           cream: '#faf6f0',
           brown: '#2c1810',
@@ -49,9 +26,6 @@ export default {
       fontFamily: {
         display: ['Georgia', 'Cambria', 'serif'],
         body: ['system-ui', 'sans-serif'],
-      },
-      backgroundImage: {
-        'embroidery-hero': 'url("/images/embroidery-reference.png")',
       },
       animation: {
         'reveal': 'reveal 0.6s ease-out forwards',

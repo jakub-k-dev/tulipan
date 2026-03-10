@@ -3,16 +3,18 @@
 interface Props {
   title: string;
   class?: string;
-  /** If true, background scrolls with section (no fixed layer); use on gallery so bottom isn't obscured */
-  noFixed?: boolean;
 }
-const { title, class: className = '', noFixed = false } = Astro.props;
-const bgClass = noFixed ? 'bg-embroidery-full-scroll-inner' : 'bg-embroidery-full-inner';
+const { title, class: className = '' } = Astro.props;
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
 ---
 <section class={`relative min-h-[40vh] flex items-end overflow-hidden isolate ${className}`} aria-label={title}>
-  <div class={`absolute inset-0 ${bgClass} z-0`} aria-hidden="true" />
+  <picture class="absolute inset-0 z-0" aria-hidden="true">
+    <source type="image/avif" srcset={`${siteBase}/images/hero/hero-background.avif`} />
+    <source type="image/webp" srcset={`${siteBase}/images/hero/hero-background.webp`} />
+    <img src={`${siteBase}/images/hero/hero-background.jpg`} alt="" loading="eager" decoding="async" class="absolute inset-0 w-full h-full object-cover" style="object-position: center 40%;" />
+  </picture>
   <div class="absolute inset-0 textile-overlay-dark z-10 pointer-events-none" aria-hidden="true" style="contain: strict;" />
-  <div class="relative z-20 w-full max-w-[90rem] w-full mx-auto px-4 py-16">
+  <div class="relative z-20 w-full max-w-[90rem] mx-auto px-4 py-16">
     <h1 class="font-display text-3xl md:text-4xl lg:text-5xl text-textile-outline font-semibold drop-shadow-md">
       {title}
     </h1>

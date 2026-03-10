@@ -175,37 +175,6 @@
 }
 
 @layer utilities {
-  /* Full-viewport main image (group photo); fixed = parallax. WebP with JPG fallback. --hero-bg-url set in BaseLayout. */
-  .bg-embroidery-full {
-    background-image: var(--hero-bg-url-webp, var(--hero-bg-url, url('/images/hero/hero-background.jpg')));
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-  }
-  /* Same as above but scrolls with section — use on gallery etc. so no fixed layer over content */
-  .bg-embroidery-full-scroll {
-    background-image: var(--hero-bg-url-webp, var(--hero-bg-url, url('/images/hero/hero-background.jpg')));
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-  }
-  /* Inner-page hero: image moved up so lower part visible (top cropped). Scroll so position takes effect. */
-  .bg-embroidery-full-inner {
-    background-image: var(--hero-bg-url-webp, var(--hero-bg-url, url('/images/hero/hero-background.jpg')));
-    background-size: cover;
-    background-position: center 40%;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-  }
-  .bg-embroidery-full-scroll-inner {
-    background-image: var(--hero-bg-url-webp, var(--hero-bg-url, url('/images/hero/hero-background.jpg')));
-    background-size: cover;
-    background-position: center 40%;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-  }
   /* Section overlay so text is readable over textile */
   .textile-overlay {
     background: linear-gradient(
