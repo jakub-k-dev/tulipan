@@ -25,7 +25,7 @@ const enUrl = locale === 'en' ? pathname : `${siteBase}/en${pathWithoutBase === 
 const skUrl = locale === 'sk' ? pathname : (siteBase ? pathname.replace(`${siteBase}/en`, siteBase) : pathname.replace(/^\/en/, '')) || siteBase || '/';
 const siteOrigin = (typeof Astro.site === 'string' ? Astro.site.replace(/\/$/, '') : null) ?? Astro.url.origin;
 const canonicalHref = new URL(pathname, siteOrigin).href;
-const ogImagePath = `${siteBase || ''}/images/hero/hero-background.jpg`;
+const ogImagePath = `${siteBase || ''}/images/hero/carousel-1.jpg`;
 const ogImageUrl = new URL(ogImagePath.startsWith('/') ? ogImagePath : `/${ogImagePath}`, siteOrigin).href;
 const fullTitle = `${title} — Tulipán`;
 ---
@@ -33,7 +33,7 @@ const fullTitle = `${title} — Tulipán`;
 <!doctype html>
 <html lang={lang}>
   <head>
-    {preloadHero && <link rel="preload" as="image" href={`${siteBase || ''}/images/hero/hero-background.avif`} type="image/avif" fetchpriority="high" />}
+    {preloadHero && <link rel="preload" as="image" href={`${siteBase || ''}/images/hero/carousel-1.avif`} type="image/avif" fetchpriority="high" />}
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href={`${siteBase || ''}/images/logo.svg`} />
     <link rel="apple-touch-icon" href={`${siteBase || ''}/images/logo.svg`} />
