@@ -34,31 +34,42 @@ async function ensureDir(p) {
 async function main() {
   console.log('Optimizing images…');
 
-  // 1. Hero: from cropped variant → resize to HERO_MAX_LONG_EDGE (sharp at 2×, small file), WebP + JPEG fallback
+  // 1. Hero carousel: 4 images → hero/carousel-1.* … carousel-4.* (1–3 from base/, 4 = main from MFF Myjava)
   const assetsDir = join(publicDir, 'assets');
-  const heroSourceName = '20250614_171732 cropped 2.jpg';
-  const heroSourcePath = join(assetsDir, heroSourceName);
+  const heroCarouselDir = join(assetsDir, 'base');
+  const heroCarouselEntries = [
+    { dir: heroCarouselDir, name: 'folkloristikalendar 3.jpg' }, // main (first slide)
+    { dir: heroCarouselDir, name: 'folkloristikalendar 2.jpg' },
+    { dir: heroCarouselDir, name: 'folkloristikalendar 1.jpg' },
+    { dir: assetsDir, name: '20250621_193100.jpg' }, // main from gallery event MFF Myjava
+  ];
   const heroDir = join(publicDir, 'hero');
-  const heroPath = join(heroDir, 'hero-background.jpg');
-  const heroWebpPath = join(heroDir, 'hero-background.webp');
-  const heroAvifPath = join(heroDir, 'hero-background.avif');
-  try {
-    await ensureDir(heroDir);
-    const heroMeta = await sharp(heroSourcePath).metadata();
-    const w = heroMeta.width || 2400;
-    const h = heroMeta.height || 1600;
-    const scale = Math.min(1, HERO_MAX_LONG_EDGE / Math.max(w, h));
-    const targetW = Math.round(w * scale);
-    const targetH = Math.round(h * scale);
-    const resize = { width: targetW, height: targetH, fit: 'inside' };
-    const pipeline = sharp(heroSourcePath).resize(resize);
-    // Hero: balanced quality for Lighthouse image delivery; AVIF smallest, then WebP, JPEG fallback
-    await pipeline.clone().jpeg({ ...progressiveJpeg, quality: 80 }).toFile(heroPath);
-    await pipeline.clone().webp({ quality: 75, effort: 4 }).toFile(heroWebpPath);
-    await pipeline.clone().avif({ quality: 60, effort: 4 }).toFile(heroAvifPath);
-    console.log('  hero: assets/' + heroSourceName + ' → ' + targetW + '×' + targetH + ' (.avif + .webp + .jpg)');
-  } catch (e) {
-    console.warn('  hero:', e.message);
+  await ensureDir(heroDir);
+  for (let i = 0; i < heroCarouselEntries.length; i++) {
+    const { dir: srcDir, name } = heroCarouselEntries[i];
+    const srcPath = join(srcDir, name);
+    const prefix = `carousel-${i + 1}`;
+    const heroPath = join(heroDir, `${prefix}.jpg`);
+    const heroWebpPath = join(heroDir, `${prefix}.webp`);
+    const heroAvifPath = join(heroDir, `${prefix}.avif`);
+    const relLabel = srcDir === heroCarouselDir ? 'assets/base/' + name : 'assets/' + name;
+    try {
+      const pipeline = sharp(srcPath, { failOnError: false });
+      const heroMeta = await pipeline.metadata();
+      const w = heroMeta.width || 2400;
+      const h = heroMeta.height || 1600;
+      const scale = Math.min(1, HERO_MAX_LONG_EDGE / Math.max(w, h));
+      const targetW = Math.round(w * scale);
+      const targetH = Math.round(h * scale);
+      const resize = { width: targetW, height: targetH, fit: 'inside' };
+      const resizePipeline = sharp(srcPath, { failOnError: false }).rotate().resize(resize);
+      await resizePipeline.clone().jpeg({ ...progressiveJpeg, quality: 80 }).toFile(heroPath);
+      await resizePipeline.clone().webp({ quality: 75, effort: 4 }).toFile(heroWebpPath);
+      await resizePipeline.clone().avif({ quality: 60, effort: 4 }).toFile(heroAvifPath);
+      console.log('  hero carousel ' + (i + 1) + ': ' + relLabel + ' → ' + targetW + '×' + targetH + ' (.avif + .webp + .jpg)');
+    } catch (e) {
+      console.warn('  hero carousel ' + (i + 1) + ':', e.message);
+    }
   }
 
   // 2. Gallery: WebP display (800w), placeholders (40w), full (1600w) — all for repo + progressive load
@@ -69,11 +80,12 @@ async function main() {
   await ensureDir(placeholdersDir);
   await ensureDir(fullDir);
 
+  // Gallery: only from main assets dir (not base/); hero carousel sources in base/ are not in gallery
   let files = [];
   try {
     files = (await readdir(assetsDir))
       .filter((f) => /\.(jpe?g|webp)$/i.test(f))
-      .filter((f) => f !== heroSourceName); // exclude hero cropped (used only for hero)
+      .filter((f) => f !== 'base'); // exclude 'base' if it's listed as a file (should be a dir)
   } catch {
     // no assets
   }
@@ -90,16 +102,19 @@ async function main() {
       const w = meta.width || 800;
 
       await sharp(src, { failOnError: false })
+        .rotate()
         .resize(Math.min(800, w))
         .webp(WEBP_DISPLAY)
         .toFile(displayPath);
 
       await sharp(src, { failOnError: false })
+        .rotate()
         .resize(40)
         .webp(WEBP_PLACEHOLDER)
         .toFile(placeholderPath);
 
       await sharp(src, { failOnError: false })
+        .rotate()
         .resize(Math.min(FULL_MAX_WIDTH, w))
         .webp(WEBP_FULL)
         .toFile(fullPath);

@@ -16,13 +16,37 @@ const t = tHome(locale);
 const siteT = tSite(locale);
 ---
 
-<section class="relative min-h-[100vh] flex items-end justify-center overflow-hidden" aria-label={t.heroAria}>
-  <picture class="absolute inset-0 z-0" aria-hidden="true">
-    <source type="image/avif" srcset={`${siteBase}/images/hero/hero-background.avif`} />
-    <source type="image/webp" srcset={`${siteBase}/images/hero/hero-background.webp`} />
-    <img src={`${siteBase}/images/hero/hero-background.jpg`} alt="" fetchpriority="high" loading="eager" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center" />
-  </picture>
-  <div class="absolute inset-0 textile-overlay-dark z-10" aria-hidden="true" />
+<section class="relative min-h-[100vh] flex items-end justify-center overflow-hidden hero-carousel-section" aria-label={t.heroAria}>
+  <div class="hero-carousel absolute inset-0 z-0" aria-hidden="true">
+    {[1, 2, 3, 4].map((i) => (
+      <picture class={`hero-carousel__slide ${i === 1 ? 'hero-carousel__slide--active' : ''}`} data-slide={i}>
+        <source type="image/avif" srcset={`${siteBase}/images/hero/carousel-${i}.avif`} />
+        <source type="image/webp" srcset={`${siteBase}/images/hero/carousel-${i}.webp`} />
+        <img
+          src={`${siteBase}/images/hero/carousel-${i}.jpg`}
+          alt=""
+          fetchpriority={i === 1 ? 'high' : undefined}
+          loading={i === 1 ? 'eager' : 'lazy'}
+          decoding="async"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+      </picture>
+    ))}
+  </div>
+  <div class="absolute inset-0 z-10 flex items-center justify-between px-2 sm:px-4 pointer-events-none">
+    <button type="button" class="hero-carousel__btn hero-carousel__btn--prev pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/80 text-white/90 hover:bg-white/20 focus:outline focus:ring-2 focus:ring-white/60 flex items-center justify-center transition-all" aria-label={locale === 'sk' ? 'Predchádzajúci obrázok' : 'Previous image'}>
+      <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+    </button>
+    <button type="button" class="hero-carousel__btn hero-carousel__btn--next pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/80 text-white/90 hover:bg-white/20 focus:outline focus:ring-2 focus:ring-white/60 flex items-center justify-center transition-all" aria-label={locale === 'sk' ? 'Ďalší obrázok' : 'Next image'}>
+      <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </button>
+  </div>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2 pointer-events-auto">
+    {[1, 2, 3, 4].map((i) => (
+      <button type="button" class="hero-carousel__dot w-2.5 h-2.5 rounded-full border-2 border-white/90 transition-all focus:outline focus:ring-2 focus:ring-white/60" data-slide={i} aria-label={locale === 'sk' ? `Obrázok ${i}` : `Image ${i}`} aria-current={i === 1 ? 'true' : undefined}></button>
+    ))}
+  </div>
+  <div class="absolute inset-0 textile-overlay-dark z-10 pointer-events-none" aria-hidden="true" />
   <div class="relative z-20 w-full max-w-[90rem] mx-auto px-4 pb-20 pt-32 text-center md:text-left">
     <OrnamentDivider variant="bar" class="mb-6 justify-center md:justify-start" />
     <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-textile-outline font-semibold leading-tight max-w-2xl mx-auto md:mx-0 drop-shadow-lg">
@@ -112,3 +136,70 @@ const siteT = tSite(locale);
     </div>
   </div>
 </div>
+
+<style is:global>
+  .hero-carousel {
+    isolation: isolate;
+  }
+  .hero-carousel__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none;
+  }
+  .hero-carousel__slide--active {
+    opacity: 1;
+    z-index: 1;
+  }
+  .hero-carousel__slide picture,
+  .hero-carousel__slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-carousel__dot[aria-current="true"] {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+</style>
+
+<script>
+  const TOTAL = 4;
+  function initHeroCarousel() {
+    const section = document.querySelector('.hero-carousel-section');
+    if (!section) return;
+    const slides = section.querySelectorAll('.hero-carousel__slide');
+    const dots = section.querySelectorAll('.hero-carousel__dot');
+    const prevBtn = section.querySelector('.hero-carousel__btn--prev');
+    const nextBtn = section.querySelector('.hero-carousel__btn--next');
+
+    let current = 0;
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    function goTo(index: number) {
+      current = (index + TOTAL) % TOTAL;
+      slides.forEach((s, i) => s.classList.toggle('hero-carousel__slide--active', i === current));
+      dots.forEach((d, i) => d.setAttribute('aria-current', i === current ? 'true' : 'false'));
+      resetTimer();
+    }
+
+    function next() {
+      goTo(current + 1);
+    }
+
+    function prev() {
+      goTo(current - 1);
+    }
+
+    function resetTimer() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, 5000);
+    }
+
+    prevBtn?.addEventListener('click', prev);
+    nextBtn?.addEventListener('click', next);
+    dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+    resetTimer();
+  }
+  initHeroCarousel();
+</script>
