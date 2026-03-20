@@ -1,0 +1,293 @@
+# Gallery + hero carousel — single source of truth (edit here; see gallery-manifest.ts schema).
+# Stable `id` values: keep when renaming files or moving entries so tooling and audit logs stay consistent.
+
+version: 1
+galleryVisible: false
+
+heroCarousel:
+  slides:
+    - id: hero-cal-3
+      source: base
+      filename: folkloristikalendar 3.jpg
+    - id: hero-cal-2
+      source: base
+      filename: folkloristikalendar 2.jpg
+    - id: hero-cal-1
+      source: base
+      filename: folkloristikalendar 1.jpg
+    - id: hero-mff-main
+      source: assets
+      filename: 20250621_193100.jpg
+
+imageGroups:
+  - id: optimized-assets
+    images:
+      - id: img-20250614-171732-c2
+        src: /images/gallery/full/20250614_171732_cropped_2.webp
+        altSk: Skupinová fotka — Folklórna skupina Tulipán Čataj, Deň obce 2025
+        altEn: Group photo — Tulipan folklore group, Čataj Village Day 2025
+        width: 800
+        height: 422
+        date: "2025-06-14"
+      - id: img-20250614-172136
+        src: /images/gallery/full/20250614_172136.webp
+        altSk: Tulipán, 14. jún 2025
+        altEn: Tulipan, 14 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-14"
+      - id: img-20250614-172158
+        src: /images/gallery/full/20250614_172158.webp
+        altSk: Vystúpenie Tulipán, 14. jún 2025
+        altEn: Tulipan performance, 14 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-14"
+      - id: img-20250614-172320
+        src: /images/gallery/full/20250614_172320.webp
+        altSk: Folklórna skupina Tulipán Čataj, 14. jún 2025
+        altEn: Tulipan folklore group, 14 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-14"
+      - id: img-20250614-172702
+        src: /images/gallery/full/20250614_172702.webp
+        altSk: Tulipán na podujatí, 14. jún 2025
+        altEn: Tulipan at event, 14 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-14"
+      - id: img-20250614-172717
+        src: /images/gallery/full/20250614_172717.webp
+        altSk: Podujatie — Tulipán, 14. jún 2025
+        altEn: Event — Tulipan, 14 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-14"
+      - id: img-20250614-175049
+        src: /images/gallery/full/20250614_175049.webp
+        altSk: Tulipán — Deň obce, 14. jún 2025
+        altEn: Tulipan — Village Day, 14 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-14"
+      - id: img-20250614-175055
+        src: /images/gallery/full/20250614_175055.webp
+        altSk: Tulipán na Dni obce Čataj, 14. jún 2025
+        altEn: Tulipan at Čataj Village Day, 14 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-14"
+      - id: img-20250621-193100
+        src: /images/gallery/full/20250621_193100.webp
+        altSk: Folklórna skupina Tulipán Čataj, 21. jún 2025
+        altEn: Tulipan folklore group, 21 June 2025
+        width: 800
+        height: 600
+        date: "2025-06-21"
+      - id: img-20250621-193255
+        src: /images/gallery/full/20250621_193255.webp
+        altSk: Vystúpenie Tulipán, 21. jún 2025
+        altEn: Tulipan performance, 21 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-21"
+      - id: img-20250621-193334
+        src: /images/gallery/full/20250621_193334.webp
+        altSk: Tulipán na MFF Myjava, 21. jún 2025
+        altEn: Tulipan at MFF Myjava, 21 June 2025
+        width: 800
+        height: 1067
+        date: "2025-06-21"
+      - id: img-20250621-201855-c
+        src: "/images/gallery/full/20250621_201855 cropped.webp"
+        altSk: Skupinová fotka — Tulipán, MFF Myjava 2025
+        altEn: Group photo — Tulipan, MFF Myjava 2025
+        width: 800
+        height: 597
+        date: "2025-06-21"
+
+  - id: legacy
+    images:
+      - id: img-legacy-group
+        src: /images/gallery/group-photo.png
+        altSk: Členovia Folklórnej skupiny Tulipán Čataj
+        altEn: Tulipan folklore group members
+        width: 800
+        height: 600
+      - id: img-legacy-leto
+        src: /images/gallery/tulipan-leto.png
+        altSk: Tulipán v lete
+        altEn: Tulipan in summer
+        width: 800
+        height: 600
+      - id: img-legacy-e1
+        src: /images/gallery/event-1.png
+        altSk: Podujatie — Folklórna skupina Tulipán Čataj
+        altEn: Event — Tulipan folklore group
+        width: 800
+        height: 600
+      - id: img-legacy-e2
+        src: /images/gallery/event-2.png
+        altSk: Podujatie — Tulipán
+        altEn: Event — Tulipan
+        width: 800
+        height: 600
+      - id: img-legacy-e3
+        src: /images/gallery/event-3.png
+        altSk: Vystúpenie Tulipán
+        altEn: Tulipan performance
+        width: 800
+        height: 600
+      - id: img-legacy-e5
+        src: /images/gallery/event-5.png
+        altSk: Tulipán na podujatí
+        altEn: Tulipan at event
+        width: 800
+        height: 600
+      - id: img-legacy-e6
+        src: /images/gallery/event-6.png
+        altSk: Tulipán — vystúpenie
+        altEn: Tulipan performance
+        width: 800
+        height: 600
+
+  - id: demo-placeholders
+    images:
+      - id: demo-ar-16-9
+        src: /images/gallery/demo/ar-16-9.svg
+        altSk: "Ukážka 16∶9"
+        altEn: "Sample 16∶9"
+        width: 800
+        height: 450
+      - id: demo-ar-4-3
+        src: /images/gallery/demo/ar-4-3.svg
+        altSk: "Ukážka 4∶3"
+        altEn: "Sample 4∶3"
+        width: 800
+        height: 600
+      - id: demo-ar-3-2
+        src: /images/gallery/demo/ar-3-2.svg
+        altSk: "Ukážka 3∶2"
+        altEn: "Sample 3∶2"
+        width: 800
+        height: 533
+      - id: demo-ar-1-1
+        src: /images/gallery/demo/ar-1-1.svg
+        altSk: "Ukážka 1∶1"
+        altEn: "Sample 1∶1"
+        width: 800
+        height: 800
+      - id: demo-ar-3-4
+        src: /images/gallery/demo/ar-3-4.svg
+        altSk: "Ukážka 3∶4"
+        altEn: "Sample 3∶4"
+        width: 600
+        height: 800
+      - id: demo-ar-2-3
+        src: /images/gallery/demo/ar-2-3.svg
+        altSk: "Ukážka 2∶3"
+        altEn: "Sample 2∶3"
+        width: 533
+        height: 800
+      - id: demo-ar-9-16
+        src: /images/gallery/demo/ar-9-16.svg
+        altSk: "Ukážka 9∶16"
+        altEn: "Sample 9∶16"
+        width: 450
+        height: 800
+      - id: demo-ar-4-5
+        src: /images/gallery/demo/ar-4-5.svg
+        altSk: "Ukážka 4∶5"
+        altEn: "Sample 4∶5"
+        width: 640
+        height: 800
+      - id: demo-ar-5-4
+        src: /images/gallery/demo/ar-5-4.svg
+        altSk: "Ukážka 5∶4"
+        altEn: "Sample 5∶4"
+        width: 800
+        height: 640
+      - id: demo-ar-21-9
+        src: /images/gallery/demo/ar-21-9.svg
+        altSk: "Ukážka 21∶9"
+        altEn: "Sample 21∶9"
+        width: 800
+        height: 343
+
+events:
+  - id: evt-fasiangy-2026
+    slug: fasiangy-2026
+    draft: true
+    date: "2026-02-14"
+    titleSk: Fašiangy 2026
+    titleEn: Fašiangy 2026
+    imageSrcs:
+      - /images/gallery/event-1.png
+      - /images/gallery/event-2.png
+      - /images/gallery/event-3.png
+      - /images/gallery/event-5.png
+      - /images/gallery/event-6.png
+
+  - id: evt-mff-myjava-2025
+    slug: "2025-06-21"
+    draft: false
+    date: "2025-06-21"
+    titleSk: MFF Myjava
+    titleEn: MFF Myjava
+    placeSk: Myjava
+    placeEn: Myjava
+    descriptionSk: Medzinárodný folklórny festival.
+    descriptionEn: International folklore festival.
+    videoUrl: https://www.youtube.com/live/7BTgjTSTqwk
+    videoStartSeconds: 585
+    videoEndSeconds: 938
+    imageSrcs:
+      - /images/gallery/full/20250621_193100.webp
+      - /images/gallery/full/20250621_193255.webp
+      - /images/gallery/full/20250621_193334.webp
+      - "/images/gallery/full/20250621_201855 cropped.webp"
+
+  - id: evt-den-obce-2025
+    slug: "2025-06-14"
+    draft: false
+    date: "2025-06-14"
+    titleSk: Deň obce Čataj
+    titleEn: Čataj Village Day
+    placeSk: Čataj
+    placeEn: Čataj
+    descriptionSk: Deň obce — vystúpenie folklórnej skupiny.
+    descriptionEn: Village day — folklore group performance.
+    imageSrcs:
+      - /images/gallery/full/20250614_171732_cropped_2.webp
+      - /images/gallery/full/20250614_172136.webp
+      - /images/gallery/full/20250614_172158.webp
+      - /images/gallery/full/20250614_172320.webp
+      - /images/gallery/full/20250614_172702.webp
+      - /images/gallery/full/20250614_172717.webp
+      - /images/gallery/full/20250614_175049.webp
+      - /images/gallery/full/20250614_175055.webp
+
+  - id: evt-demo-50-aspect-ratios
+    slug: demo-50-aspect-ratios
+    draft: false
+    date: "2025-01-15"
+    titleSk: Ukážka 50 fotiek (rôzne pomery strán)
+    titleEn: "Demo: 50 photos (mixed aspect ratios)"
+    placeSk: Testovací album
+    placeEn: Test album
+    descriptionSk: Placeholdery s 10 rôznymi pomermi strán, zopakované v náhodnom poradí. Max 50 fotiek na podujatie.
+    descriptionEn: Placeholders with 10 aspect ratios, repeated in random order. Max 50 photos per event.
+    demoAspectSrcs:
+      - /images/gallery/demo/ar-16-9.svg
+      - /images/gallery/demo/ar-1-1.svg
+      - /images/gallery/demo/ar-9-16.svg
+      - /images/gallery/demo/ar-4-3.svg
+      - /images/gallery/demo/ar-2-3.svg
+      - /images/gallery/demo/ar-21-9.svg
+      - /images/gallery/demo/ar-3-4.svg
+      - /images/gallery/demo/ar-3-2.svg
+      - /images/gallery/demo/ar-5-4.svg
+      - /images/gallery/demo/ar-4-5.svg
+    demoRepeatCount: 5
+    demoHighlightIndices: [0, 3]
