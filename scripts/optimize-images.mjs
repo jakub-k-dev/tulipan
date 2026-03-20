@@ -11,9 +11,11 @@ import { readdir, mkdir } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { readHeroCarouselSlides } from './read-gallery-manifest-hero.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const publicDir = join(__dirname, '..', 'public', 'images');
+const siteRoot = join(__dirname, '..');
+const publicDir = join(siteRoot, 'public', 'images');
 
 const progressiveJpeg = { progressive: true, mozjpeg: true };
 const WEBP_DISPLAY = { quality: 95, effort: 4 };
@@ -34,15 +36,14 @@ async function ensureDir(p) {
 async function main() {
   console.log('Optimizing images…');
 
-  // 1. Hero carousel: 4 images → hero/carousel-1.* … carousel-4.* (1–3 from base/, 4 = main from MFF Myjava)
+  // 1. Hero carousel: 4 images → hero/carousel-1.* … carousel-4.* (sources from gallery.manifest.yaml)
   const assetsDir = join(publicDir, 'assets');
   const heroCarouselDir = join(assetsDir, 'base');
-  const heroCarouselEntries = [
-    { dir: heroCarouselDir, name: 'folkloristikalendar 3.jpg' }, // main (first slide)
-    { dir: heroCarouselDir, name: 'folkloristikalendar 2.jpg' },
-    { dir: heroCarouselDir, name: 'folkloristikalendar 1.jpg' },
-    { dir: assetsDir, name: '20250621_193100.jpg' }, // main from gallery event MFF Myjava
-  ];
+  const heroSlides = readHeroCarouselSlides(siteRoot);
+  const heroCarouselEntries = heroSlides.map((s) => ({
+    dir: s.source === 'base' ? heroCarouselDir : assetsDir,
+    name: s.filename,
+  }));
   const heroDir = join(publicDir, 'hero');
   await ensureDir(heroDir);
   for (let i = 0; i < heroCarouselEntries.length; i++) {
