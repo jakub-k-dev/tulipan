@@ -2,7 +2,7 @@
 import type { Locale } from '../data/translations';
 import PageTextileHero from './PageTextileHero.astro';
 import { tGallery } from '../data/translations';
-import { galleryEvents, getEventImages, formatGalleryDate } from '../data/gallery';
+import { galleryEventsForDisplay, getEventImages, formatGalleryDate } from '../data/gallery';
 import { galleryDisplaySrc } from '../data/gallery';
 
 interface Props {
@@ -22,7 +22,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
     <div class="relative">
       <div class="absolute left-2 top-0 bottom-0 w-2 bg-textile-base/70 pointer-events-none md:left-1/2 md:-translate-x-1" aria-hidden="true" />
       <div class="flex flex-col gap-3 pl-8 md:hidden">
-        {galleryEvents.map((event) => {
+        {galleryEventsForDisplay.map((event) => {
           const images = getEventImages(event);
           const cover = images[0];
           const displaySrc = cover ? galleryDisplaySrc(cover) : null;
@@ -51,7 +51,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
       </div>
       <div class="hidden md:grid md:grid-cols-[1fr_auto_1fr] md:gap-0">
         <div class="flex flex-col gap-3 md:gap-4 md:pr-4 md:text-right">
-          {galleryEvents.filter((_, i) => i % 2 === 0).map((event) => {
+          {galleryEventsForDisplay.filter((_, i) => i % 2 === 0).map((event) => {
             const images = getEventImages(event);
             const cover = images[0];
             const displaySrc = cover ? galleryDisplaySrc(cover) : null;
@@ -78,9 +78,9 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
           })}
         </div>
         <div class="flex flex-col h-full min-h-0 z-[1]">
-          {galleryEvents.map((event, index) => {
+          {galleryEventsForDisplay.map((event, index) => {
             const year = event.slug !== 'ostatne' ? event.date.slice(0, 4) : null;
-            const prevEvent = galleryEvents[index - 1];
+            const prevEvent = galleryEventsForDisplay[index - 1];
             const showYear = year && (!prevEvent || prevEvent.date.slice(0, 4) !== year);
             return (
               <div class="flex-1 min-h-[4rem] flex flex-col items-center justify-center px-1">
@@ -95,7 +95,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
           })}
         </div>
         <div class="flex flex-col gap-3 md:gap-4 md:pl-4 md:pt-[9rem] md:text-left">
-          {galleryEvents.filter((_, i) => i % 2 === 1).map((event) => {
+          {galleryEventsForDisplay.filter((_, i) => i % 2 === 1).map((event) => {
             const images = getEventImages(event);
             const cover = images[0];
             const displaySrc = cover ? galleryDisplaySrc(cover) : null;

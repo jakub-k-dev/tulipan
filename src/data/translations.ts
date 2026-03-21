@@ -199,6 +199,8 @@ export const gallery = {
     eventNotes: 'Poznámky',
     eventPlaceholderTime: '—',
     eventPlaceholderNotes: 'Doplníme.',
+    highlightsLabel: 'Výber',
+    restLabel: 'Ostatné fotky',
   },
   en: {
     title: 'Gallery',
@@ -220,6 +222,8 @@ export const gallery = {
     eventNotes: 'Notes',
     eventPlaceholderTime: '—',
     eventPlaceholderNotes: 'To be added.',
+    highlightsLabel: 'Highlights',
+    restLabel: 'More photos',
   },
 } as const;
 

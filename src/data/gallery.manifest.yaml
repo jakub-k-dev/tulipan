@@ -1,9 +1,6 @@
-# Gallery + hero carousel — single source of truth (edit here; see gallery-manifest.ts schema).
-# Stable `id` values: keep when renaming files or moving entries so tooling and audit logs stay consistent.
-
 version: 1
-galleryVisible: false
-
+galleryVisible: true
+manifestEditorNote: Gallery + catalogue cleared 2026-03-20 — restore from backup to recover content.
 heroCarousel:
   slides:
     - id: hero-cal-3
@@ -15,279 +12,3887 @@ heroCarousel:
     - id: hero-cal-1
       source: base
       filename: folkloristikalendar 1.jpg
-    - id: hero-mff-main
-      source: assets
-      filename: 20250621_193100.jpg
-
+    - id: hero-cal-1-repeat
+      source: base
+      filename: folkloristikalendar 1.jpg
 imageGroups:
   - id: optimized-assets
     images:
-      - id: img-20250614-171732-c2
-        src: /images/gallery/full/20250614_171732_cropped_2.webp
-        altSk: Skupinová fotka — Folklórna skupina Tulipán Čataj, Deň obce 2025
-        altEn: Group photo — Tulipan folklore group, Čataj Village Day 2025
-        width: 800
-        height: 422
-        date: "2025-06-14"
-      - id: img-20250614-172136
-        src: /images/gallery/full/20250614_172136.webp
-        altSk: Tulipán, 14. jún 2025
-        altEn: Tulipan, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-172158
-        src: /images/gallery/full/20250614_172158.webp
-        altSk: Vystúpenie Tulipán, 14. jún 2025
-        altEn: Tulipan performance, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-172320
-        src: /images/gallery/full/20250614_172320.webp
-        altSk: Folklórna skupina Tulipán Čataj, 14. jún 2025
-        altEn: Tulipan folklore group, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-172702
-        src: /images/gallery/full/20250614_172702.webp
-        altSk: Tulipán na podujatí, 14. jún 2025
-        altEn: Tulipan at event, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-172717
-        src: /images/gallery/full/20250614_172717.webp
-        altSk: Podujatie — Tulipán, 14. jún 2025
-        altEn: Event — Tulipan, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-175049
-        src: /images/gallery/full/20250614_175049.webp
-        altSk: Tulipán — Deň obce, 14. jún 2025
-        altEn: Tulipan — Village Day, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-175055
-        src: /images/gallery/full/20250614_175055.webp
-        altSk: Tulipán na Dni obce Čataj, 14. jún 2025
-        altEn: Tulipan at Čataj Village Day, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250621-193100
-        src: /images/gallery/full/20250621_193100.webp
-        altSk: Folklórna skupina Tulipán Čataj, 21. jún 2025
-        altEn: Tulipan folklore group, 21 June 2025
-        width: 800
-        height: 600
-        date: "2025-06-21"
-      - id: img-20250621-193255
-        src: /images/gallery/full/20250621_193255.webp
-        altSk: Vystúpenie Tulipán, 21. jún 2025
-        altEn: Tulipan performance, 21 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-21"
-      - id: img-20250621-193334
-        src: /images/gallery/full/20250621_193334.webp
-        altSk: Tulipán na MFF Myjava, 21. jún 2025
-        altEn: Tulipan at MFF Myjava, 21 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-21"
-      - id: img-20250621-201855-c
-        src: "/images/gallery/full/20250621_201855 cropped.webp"
-        altSk: Skupinová fotka — Tulipán, MFF Myjava 2025
-        altEn: Group photo — Tulipan, MFF Myjava 2025
-        width: 800
-        height: 597
-        date: "2025-06-21"
-
-  - id: legacy
-    images:
-      - id: img-legacy-group
-        src: /images/gallery/group-photo.png
-        altSk: Členovia Folklórnej skupiny Tulipán Čataj
-        altEn: Tulipan folklore group members
-        width: 800
-        height: 600
-      - id: img-legacy-leto
-        src: /images/gallery/tulipan-leto.png
-        altSk: Tulipán v lete
-        altEn: Tulipan in summer
-        width: 800
-        height: 600
-      - id: img-legacy-e1
-        src: /images/gallery/event-1.png
-        altSk: Podujatie — Folklórna skupina Tulipán Čataj
-        altEn: Event — Tulipan folklore group
-        width: 800
-        height: 600
-      - id: img-legacy-e2
-        src: /images/gallery/event-2.png
-        altSk: Podujatie — Tulipán
-        altEn: Event — Tulipan
-        width: 800
-        height: 600
-      - id: img-legacy-e3
-        src: /images/gallery/event-3.png
-        altSk: Vystúpenie Tulipán
-        altEn: Tulipan performance
-        width: 800
-        height: 600
-      - id: img-legacy-e5
-        src: /images/gallery/event-5.png
-        altSk: Tulipán na podujatí
-        altEn: Tulipan at event
-        width: 800
-        height: 600
-      - id: img-legacy-e6
-        src: /images/gallery/event-6.png
-        altSk: Tulipán — vystúpenie
-        altEn: Tulipan performance
-        width: 800
-        height: 600
-
-  - id: demo-placeholders
-    images:
-      - id: demo-ar-16-9
-        src: /images/gallery/demo/ar-16-9.svg
-        altSk: "Ukážka 16∶9"
-        altEn: "Sample 16∶9"
-        width: 800
-        height: 450
-      - id: demo-ar-4-3
-        src: /images/gallery/demo/ar-4-3.svg
-        altSk: "Ukážka 4∶3"
-        altEn: "Sample 4∶3"
-        width: 800
-        height: 600
-      - id: demo-ar-3-2
-        src: /images/gallery/demo/ar-3-2.svg
-        altSk: "Ukážka 3∶2"
-        altEn: "Sample 3∶2"
-        width: 800
-        height: 533
-      - id: demo-ar-1-1
-        src: /images/gallery/demo/ar-1-1.svg
-        altSk: "Ukážka 1∶1"
-        altEn: "Sample 1∶1"
-        width: 800
-        height: 800
-      - id: demo-ar-3-4
-        src: /images/gallery/demo/ar-3-4.svg
-        altSk: "Ukážka 3∶4"
-        altEn: "Sample 3∶4"
-        width: 600
-        height: 800
-      - id: demo-ar-2-3
-        src: /images/gallery/demo/ar-2-3.svg
-        altSk: "Ukážka 2∶3"
-        altEn: "Sample 2∶3"
-        width: 533
-        height: 800
-      - id: demo-ar-9-16
-        src: /images/gallery/demo/ar-9-16.svg
-        altSk: "Ukážka 9∶16"
-        altEn: "Sample 9∶16"
-        width: 450
-        height: 800
-      - id: demo-ar-4-5
-        src: /images/gallery/demo/ar-4-5.svg
-        altSk: "Ukážka 4∶5"
-        altEn: "Sample 4∶5"
-        width: 640
-        height: 800
-      - id: demo-ar-5-4
-        src: /images/gallery/demo/ar-5-4.svg
-        altSk: "Ukážka 5∶4"
-        altEn: "Sample 5∶4"
-        width: 800
-        height: 640
-      - id: demo-ar-21-9
-        src: /images/gallery/demo/ar-21-9.svg
-        altSk: "Ukážka 21∶9"
-        altEn: "Sample 21∶9"
-        width: 800
-        height: 343
-
-events:
-  - id: evt-fasiangy-2026
-    slug: fasiangy-2026
-    draft: true
-    date: "2026-02-14"
-    titleSk: Fašiangy 2026
-    titleEn: Fašiangy 2026
-    imageSrcs:
-      - /images/gallery/event-1.png
-      - /images/gallery/event-2.png
-      - /images/gallery/event-3.png
-      - /images/gallery/event-5.png
-      - /images/gallery/event-6.png
-
-  - id: evt-mff-myjava-2025
-    slug: "2025-06-21"
-    draft: false
-    date: "2025-06-21"
-    titleSk: MFF Myjava
-    titleEn: MFF Myjava
-    placeSk: Myjava
-    placeEn: Myjava
-    descriptionSk: Medzinárodný folklórny festival.
-    descriptionEn: International folklore festival.
-    videoUrl: https://www.youtube.com/live/7BTgjTSTqwk
-    videoStartSeconds: 585
-    videoEndSeconds: 938
-    imageSrcs:
-      - /images/gallery/full/20250621_193100.webp
-      - /images/gallery/full/20250621_193255.webp
-      - /images/gallery/full/20250621_193334.webp
-      - "/images/gallery/full/20250621_201855 cropped.webp"
-
-  - id: evt-den-obce-2025
-    slug: "2025-06-14"
-    draft: false
-    date: "2025-06-14"
-    titleSk: Deň obce Čataj
-    titleEn: Čataj Village Day
-    placeSk: Čataj
-    placeEn: Čataj
-    descriptionSk: Deň obce — vystúpenie folklórnej skupiny.
-    descriptionEn: Village day — folklore group performance.
-    imageSrcs:
-      - /images/gallery/full/20250614_171732_cropped_2.webp
-      - /images/gallery/full/20250614_172136.webp
-      - /images/gallery/full/20250614_172158.webp
-      - /images/gallery/full/20250614_172320.webp
-      - /images/gallery/full/20250614_172702.webp
-      - /images/gallery/full/20250614_172717.webp
-      - /images/gallery/full/20250614_175049.webp
-      - /images/gallery/full/20250614_175055.webp
-
-  - id: evt-demo-50-aspect-ratios
-    slug: demo-50-aspect-ratios
-    draft: false
-    date: "2025-01-15"
-    titleSk: Ukážka 50 fotiek (rôzne pomery strán)
-    titleEn: "Demo: 50 photos (mixed aspect ratios)"
-    placeSk: Testovací album
-    placeEn: Test album
-    descriptionSk: Placeholdery s 10 rôznymi pomermi strán, zopakované v náhodnom poradí. Max 50 fotiek na podujatie.
-    descriptionEn: Placeholders with 10 aspect ratios, repeated in random order. Max 50 photos per event.
-    demoAspectSrcs:
-      - /images/gallery/demo/ar-16-9.svg
-      - /images/gallery/demo/ar-1-1.svg
-      - /images/gallery/demo/ar-9-16.svg
-      - /images/gallery/demo/ar-4-3.svg
-      - /images/gallery/demo/ar-2-3.svg
-      - /images/gallery/demo/ar-21-9.svg
-      - /images/gallery/demo/ar-3-4.svg
-      - /images/gallery/demo/ar-3-2.svg
-      - /images/gallery/demo/ar-5-4.svg
-      - /images/gallery/demo/ar-4-5.svg
-    demoRepeatCount: 5
-    demoHighlightIndices: [0, 3]
+      - id: img-1774047328214-0
+        src: /images/gallery/full/IMG_4778.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774047328216-1
+        src: /images/gallery/full/IMG_4802.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774047328217-2
+        src: /images/gallery/full/IMG_3282.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774047328218-3
+        src: /images/gallery/full/IMG_3290.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1804
+      - id: img-1774047328220-4
+        src: /images/gallery/full/IMG_3291.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1763
+      - id: img-1774051977490-0
+        src: /images/gallery/full/IMG_4809.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977493-1
+        src: /images/gallery/full/IMG_4813.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977496-2
+        src: /images/gallery/full/IMG_4814.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977498-3
+        src: /images/gallery/full/IMG_4815.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977501-4
+        src: /images/gallery/full/IMG_4816.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977503-5
+        src: /images/gallery/full/IMG_4817.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977506-6
+        src: /images/gallery/full/IMG_4818.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977509-7
+        src: /images/gallery/full/IMG_4819.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977512-8
+        src: /images/gallery/full/IMG_4823.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977513-9
+        src: /images/gallery/full/IMG_4824.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977515-10
+        src: /images/gallery/full/IMG_4825.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977518-11
+        src: /images/gallery/full/IMG_4828.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977521-12
+        src: /images/gallery/full/IMG_4829.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977523-13
+        src: /images/gallery/full/IMG_4832.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977526-14
+        src: /images/gallery/full/IMG_4833.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977529-15
+        src: /images/gallery/full/IMG_4834.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977532-16
+        src: /images/gallery/full/IMG_4835.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977534-17
+        src: /images/gallery/full/IMG_4836.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977537-18
+        src: /images/gallery/full/IMG_4837.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977539-19
+        src: /images/gallery/full/IMG_4842.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977541-20
+        src: /images/gallery/full/IMG_4843.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977544-21
+        src: /images/gallery/full/IMG_4844.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977546-22
+        src: /images/gallery/full/IMG_4845.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977548-23
+        src: /images/gallery/full/IMG_4846.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977551-24
+        src: /images/gallery/full/IMG_4847.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977553-25
+        src: /images/gallery/full/IMG_4848.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977555-26
+        src: /images/gallery/full/IMG_4849.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977558-27
+        src: /images/gallery/full/IMG_4850.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977561-28
+        src: /images/gallery/full/IMG_4851.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977563-29
+        src: /images/gallery/full/IMG_4852.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977566-30
+        src: /images/gallery/full/IMG_4853.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977568-31
+        src: /images/gallery/full/IMG_4854.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977570-32
+        src: /images/gallery/full/IMG_4858.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977572-33
+        src: /images/gallery/full/IMG_4859.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977574-34
+        src: /images/gallery/full/IMG_4860.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977576-35
+        src: /images/gallery/full/IMG_4871.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977578-36
+        src: /images/gallery/full/IMG_4872.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977580-37
+        src: /images/gallery/full/IMG_4875.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977582-38
+        src: /images/gallery/full/IMG_4876.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977585-39
+        src: /images/gallery/full/IMG_4878.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977587-40
+        src: /images/gallery/full/IMG_4887 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977589-41
+        src: /images/gallery/full/IMG_4887.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977591-42
+        src: /images/gallery/full/IMG_4888 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977594-43
+        src: /images/gallery/full/IMG_4888.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977596-44
+        src: /images/gallery/full/IMG_4920 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977599-45
+        src: /images/gallery/full/IMG_4920.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977602-46
+        src: /images/gallery/full/IMG_4921 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977604-47
+        src: /images/gallery/full/IMG_4921.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977606-48
+        src: /images/gallery/full/IMG_4932 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977609-49
+        src: /images/gallery/full/IMG_4932.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977611-50
+        src: /images/gallery/full/IMG_4934 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977613-51
+        src: /images/gallery/full/IMG_4934.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977615-52
+        src: /images/gallery/full/IMG_4935 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977617-53
+        src: /images/gallery/full/IMG_4935.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977620-54
+        src: /images/gallery/full/IMG_4936 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977622-55
+        src: /images/gallery/full/IMG_4936.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977624-56
+        src: /images/gallery/full/IMG_4937 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977627-57
+        src: /images/gallery/full/IMG_4937.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977629-58
+        src: /images/gallery/full/IMG_4938 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977632-59
+        src: /images/gallery/full/IMG_4938.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977634-60
+        src: /images/gallery/full/IMG_4939 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977637-61
+        src: /images/gallery/full/IMG_4939.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977639-62
+        src: /images/gallery/full/IMG_4940 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977642-63
+        src: /images/gallery/full/IMG_4940.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977644-64
+        src: /images/gallery/full/IMG_4941 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977647-65
+        src: /images/gallery/full/IMG_4941.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977648-66
+        src: /images/gallery/full/IMG_4942 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977651-67
+        src: /images/gallery/full/IMG_4942.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977653-68
+        src: /images/gallery/full/IMG_4943 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977657-69
+        src: /images/gallery/full/IMG_4943.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977659-70
+        src: /images/gallery/full/IMG_4944 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977662-71
+        src: /images/gallery/full/IMG_4944.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977664-72
+        src: /images/gallery/full/IMG_4946 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977666-73
+        src: /images/gallery/full/IMG_4946.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977668-74
+        src: /images/gallery/full/IMG_4947 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977671-75
+        src: /images/gallery/full/IMG_4947.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977673-76
+        src: /images/gallery/full/IMG_4948 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977675-77
+        src: /images/gallery/full/IMG_4948.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977677-78
+        src: /images/gallery/full/IMG_4949 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977679-79
+        src: /images/gallery/full/IMG_4949.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977682-80
+        src: /images/gallery/full/IMG_4950 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977684-81
+        src: /images/gallery/full/IMG_4950.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977688-82
+        src: /images/gallery/full/IMG_4951 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977690-83
+        src: /images/gallery/full/IMG_4951.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977693-84
+        src: /images/gallery/full/IMG_4952 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977696-85
+        src: /images/gallery/full/IMG_4952.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977698-86
+        src: /images/gallery/full/IMG_4953 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977701-87
+        src: /images/gallery/full/IMG_4953.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977703-88
+        src: /images/gallery/full/IMG_4954 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977706-89
+        src: /images/gallery/full/IMG_4954.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977708-90
+        src: /images/gallery/full/IMG_4955 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977711-91
+        src: /images/gallery/full/IMG_4955.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977713-92
+        src: /images/gallery/full/IMG_4956 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977715-93
+        src: /images/gallery/full/IMG_4956.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977718-94
+        src: /images/gallery/full/IMG_4957 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977720-95
+        src: /images/gallery/full/IMG_4957.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977722-96
+        src: /images/gallery/full/IMG_4958 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977725-97
+        src: /images/gallery/full/IMG_4958.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977727-98
+        src: /images/gallery/full/IMG_4967 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977729-99
+        src: /images/gallery/full/IMG_4967.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977732-100
+        src: /images/gallery/full/IMG_4971 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977734-101
+        src: /images/gallery/full/IMG_4971.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977736-102
+        src: /images/gallery/full/IMG_4972 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977739-103
+        src: /images/gallery/full/IMG_4972.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977741-104
+        src: /images/gallery/full/IMG_4973 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977745-105
+        src: /images/gallery/full/IMG_4973.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977748-106
+        src: /images/gallery/full/IMG_4975 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977750-107
+        src: /images/gallery/full/IMG_4975.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977753-108
+        src: /images/gallery/full/IMG_4976 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977755-109
+        src: /images/gallery/full/IMG_4976.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977757-110
+        src: /images/gallery/full/IMG_4977 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977760-111
+        src: /images/gallery/full/IMG_4977.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977762-112
+        src: /images/gallery/full/IMG_4978 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977764-113
+        src: /images/gallery/full/IMG_4978.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977766-114
+        src: /images/gallery/full/IMG_4979 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977767-115
+        src: /images/gallery/full/IMG_4979.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977769-116
+        src: /images/gallery/full/IMG_4980 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977771-117
+        src: /images/gallery/full/IMG_4980.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977773-118
+        src: /images/gallery/full/IMG_4981 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977774-119
+        src: /images/gallery/full/IMG_4981.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977776-120
+        src: /images/gallery/full/IMG_4982 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977778-121
+        src: /images/gallery/full/IMG_4982.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977780-122
+        src: /images/gallery/full/IMG_4983 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977782-123
+        src: /images/gallery/full/IMG_4983.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977786-124
+        src: /images/gallery/full/IMG_4984 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977789-125
+        src: /images/gallery/full/IMG_4984.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977792-126
+        src: /images/gallery/full/IMG_3292.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2101
+      - id: img-1774051977795-127
+        src: /images/gallery/full/IMG_3296.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977797-128
+        src: /images/gallery/full/IMG_3298.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977799-129
+        src: /images/gallery/full/IMG_3302.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977801-130
+        src: /images/gallery/full/IMG_3303.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1924
+      - id: img-1774051977804-131
+        src: /images/gallery/full/IMG_3308.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977805-132
+        src: /images/gallery/full/IMG_3311.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977807-133
+        src: /images/gallery/full/IMG_3317.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1874
+      - id: img-1774051977809-134
+        src: /images/gallery/full/IMG_3318.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977812-135
+        src: /images/gallery/full/IMG_3319.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977814-136
+        src: /images/gallery/full/IMG_3321.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1710
+      - id: img-1774051977817-137
+        src: /images/gallery/full/IMG_3322.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977818-138
+        src: /images/gallery/full/IMG_3324.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977820-139
+        src: /images/gallery/full/IMG_3325.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977821-140
+        src: /images/gallery/full/IMG_3328.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977823-141
+        src: /images/gallery/full/IMG_3335.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977825-142
+        src: /images/gallery/full/IMG_3339.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2201
+      - id: img-1774051977827-143
+        src: /images/gallery/full/IMG_3340.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2031
+      - id: img-1774051977828-144
+        src: /images/gallery/full/IMG_3341.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977830-145
+        src: /images/gallery/full/IMG_3344.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977832-146
+        src: /images/gallery/full/IMG_3346.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977834-147
+        src: /images/gallery/full/IMG_3347.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977835-148
+        src: /images/gallery/full/IMG_3348.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977837-149
+        src: /images/gallery/full/IMG_3353.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977838-150
+        src: /images/gallery/full/IMG_3358.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977840-151
+        src: /images/gallery/full/IMG_3362.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977841-152
+        src: /images/gallery/full/IMG_3365.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977843-153
+        src: /images/gallery/full/IMG_3366.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977845-154
+        src: /images/gallery/full/IMG_3368.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977846-155
+        src: /images/gallery/full/IMG_3370.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977848-156
+        src: /images/gallery/full/IMG_3372.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2182
+      - id: img-1774051977849-157
+        src: /images/gallery/full/IMG_3374.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2093
+      - id: img-1774051977851-158
+        src: /images/gallery/full/IMG_3377.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977853-159
+        src: /images/gallery/full/IMG_3380.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977854-160
+        src: /images/gallery/full/IMG_3383.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977856-161
+        src: /images/gallery/full/IMG_3389.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977858-162
+        src: /images/gallery/full/IMG_3391.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977860-163
+        src: /images/gallery/full/IMG_3396.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774051977861-164
+        src: /images/gallery/full/IMG_3398.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1604
+      - id: img-1774051977863-165
+        src: /images/gallery/full/IMG_3399.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774051977865-166
+        src: /images/gallery/full/IMG_3403.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977867-167
+        src: /images/gallery/full/IMG_2188.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977868-168
+        src: /images/gallery/full/IMG_2189.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977870-169
+        src: /images/gallery/full/IMG_2190.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977871-170
+        src: /images/gallery/full/IMG_2191.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977874-171
+        src: /images/gallery/full/IMG_2192.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977876-172
+        src: /images/gallery/full/IMG_2193.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977877-173
+        src: /images/gallery/full/IMG_2194.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977879-174
+        src: /images/gallery/full/IMG_2195.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977881-175
+        src: /images/gallery/full/IMG_2196.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977883-176
+        src: /images/gallery/full/IMG_2199.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977885-177
+        src: /images/gallery/full/IMG_2200.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977887-178
+        src: /images/gallery/full/IMG_2201.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977888-179
+        src: /images/gallery/full/IMG_2202.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977890-180
+        src: /images/gallery/full/IMG_2203.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977891-181
+        src: /images/gallery/full/IMG_2204.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977894-182
+        src: /images/gallery/full/IMG_2205.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977896-183
+        src: /images/gallery/full/IMG_2206.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977898-184
+        src: /images/gallery/full/IMG_2207.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977899-185
+        src: /images/gallery/full/IMG_2208.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977901-186
+        src: /images/gallery/full/IMG_2209.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977903-187
+        src: /images/gallery/full/IMG_2210.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977905-188
+        src: /images/gallery/full/IMG_2211.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977907-189
+        src: /images/gallery/full/IMG_2212.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977909-190
+        src: /images/gallery/full/IMG_2213.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977911-191
+        src: /images/gallery/full/IMG_2214.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977913-192
+        src: /images/gallery/full/IMG_2215.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977914-193
+        src: /images/gallery/full/IMG_2216.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977916-194
+        src: /images/gallery/full/IMG_2217.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977918-195
+        src: /images/gallery/full/IMG_2218.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977919-196
+        src: /images/gallery/full/IMG_2219.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977921-197
+        src: /images/gallery/full/IMG_2220.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977923-198
+        src: /images/gallery/full/IMG_2221.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977924-199
+        src: /images/gallery/full/IMG_2222.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977926-200
+        src: /images/gallery/full/IMG_2223.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977928-201
+        src: /images/gallery/full/IMG_2224.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977929-202
+        src: /images/gallery/full/IMG_2225.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977931-203
+        src: /images/gallery/full/IMG_2226.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977932-204
+        src: /images/gallery/full/IMG_2227.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977934-205
+        src: /images/gallery/full/IMG_2229.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977935-206
+        src: /images/gallery/full/IMG_2230.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977937-207
+        src: /images/gallery/full/IMG_2231.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774051977939-208
+        src: /images/gallery/full/IMG_2232.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977940-209
+        src: /images/gallery/full/IMG_2233.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977942-210
+        src: /images/gallery/full/IMG_2234.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977944-211
+        src: /images/gallery/full/IMG_2235.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977946-212
+        src: /images/gallery/full/IMG_2236.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977947-213
+        src: /images/gallery/full/IMG_2237.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977949-214
+        src: /images/gallery/full/IMG_2238.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977950-215
+        src: /images/gallery/full/IMG_2239.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977952-216
+        src: /images/gallery/full/IMG_2240.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977953-217
+        src: /images/gallery/full/IMG_2241.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977955-218
+        src: /images/gallery/full/IMG_2242.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977956-219
+        src: /images/gallery/full/IMG_2243.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532582-0
+        src: /images/gallery/full/IMG_2165.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532586-1
+        src: /images/gallery/full/IMG_2166.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532594-2
+        src: /images/gallery/full/IMG_2167.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532603-3
+        src: /images/gallery/full/IMG_2168.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532605-4
+        src: /images/gallery/full/IMG_2169.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532613-5
+        src: /images/gallery/full/IMG_2170.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532616-6
+        src: /images/gallery/full/IMG_2171.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532620-7
+        src: /images/gallery/full/IMG_2172.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532622-8
+        src: /images/gallery/full/IMG_2173.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532623-9
+        src: /images/gallery/full/IMG_2176.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532625-10
+        src: /images/gallery/full/IMG_2179.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532627-11
+        src: /images/gallery/full/IMG_2180.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532629-12
+        src: /images/gallery/full/IMG_2181.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532633-13
+        src: /images/gallery/full/IMG_2182.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532638-14
+        src: /images/gallery/full/101132b3-27bf-4b6c-9e41-57d9b01d19b7.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532641-15
+        src: /images/gallery/full/2b600fba-8a4c-45fa-84ac-ac14ca5ccde6.webp
+        altSk: ""
+        altEn: ""
+        width: 1200
+        height: 1600
+      - id: img-1774058532645-16
+        src: /images/gallery/full/4503a1fa-cb20-471f-b76d-f23f2862efab.webp
+        altSk: ""
+        altEn: ""
+        width: 1536
+        height: 2048
+      - id: img-1774058532648-17
+        src: /images/gallery/full/b966bdec-58ca-49b9-9101-730a1a78701c.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1197
+      - id: img-1774058532652-18
+        src: /images/gallery/full/dd2e2b7d-3f85-4c5f-8c54-765526b4c984.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532656-19
+        src: /images/gallery/full/IMG_1961.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532663-20
+        src: /images/gallery/full/IMG_1962.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532669-21
+        src: /images/gallery/full/IMG_1969.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532676-22
+        src: /images/gallery/full/IMG_1970.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532678-23
+        src: /images/gallery/full/IMG_1971.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532682-24
+        src: /images/gallery/full/IMG_1972.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532688-25
+        src: /images/gallery/full/IMG_1975.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532694-26
+        src: /images/gallery/full/IMG_1976.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532701-27
+        src: /images/gallery/full/IMG_1977.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532707-28
+        src: /images/gallery/full/IMG_1985.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532711-29
+        src: /images/gallery/full/IMG_1986.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532714-30
+        src: /images/gallery/full/IMG_1987.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532716-31
+        src: /images/gallery/full/IMG_1988.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532719-32
+        src: /images/gallery/full/IMG_1990.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532722-33
+        src: /images/gallery/full/IMG_1992.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532724-34
+        src: /images/gallery/full/IMG_1993.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532727-35
+        src: /images/gallery/full/IMG_1995.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532730-36
+        src: /images/gallery/full/IMG_1996.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532732-37
+        src: /images/gallery/full/IMG_1997.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532735-38
+        src: /images/gallery/full/IMG_1999.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532737-39
+        src: /images/gallery/full/IMG_2001.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532742-40
+        src: /images/gallery/full/IMG_2002.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532746-41
+        src: /images/gallery/full/IMG_2003.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532749-42
+        src: /images/gallery/full/IMG_2004.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532752-43
+        src: /images/gallery/full/IMG_2005.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532754-44
+        src: /images/gallery/full/IMG_2006.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532757-45
+        src: /images/gallery/full/IMG_2016.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1326
+      - id: img-1774058532760-46
+        src: /images/gallery/full/IMG_2017.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532764-47
+        src: /images/gallery/full/IMG_2018.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532770-48
+        src: /images/gallery/full/IMG_2019.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532773-49
+        src: /images/gallery/full/IMG_2020.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532775-50
+        src: /images/gallery/full/IMG_2026.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1915
+      - id: img-1774058532779-51
+        src: /images/gallery/full/IMG_2027.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532781-52
+        src: /images/gallery/full/IMG_2028.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532784-53
+        src: /images/gallery/full/IMG_2029.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1673
+      - id: img-1774058532785-54
+        src: /images/gallery/full/IMG_2031.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532787-55
+        src: /images/gallery/full/IMG_2032.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532790-56
+        src: /images/gallery/full/IMG_2033.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532792-57
+        src: /images/gallery/full/IMG_2036.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532795-58
+        src: /images/gallery/full/IMG_2037.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532802-59
+        src: /images/gallery/full/IMG_2045.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532808-60
+        src: /images/gallery/full/IMG_2050.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532814-61
+        src: /images/gallery/full/IMG_2057.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532818-62
+        src: /images/gallery/full/IMG_2062.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+events: []
+catalogue:
+  - id: cat-nc-86f57edca72ed18528a2238e
+    nextcloudPath: halina/101132b3-27bf-4b6c-9e41-57d9b01d19b7.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/101132b3-27bf-4b6c-9e41-57d9b01d19b7.webp
+    nextcloudModifiedAt: 2025-06-21T12:35:06.000Z
+  - id: cat-nc-f54126e7b9554318ccfb57ee
+    nextcloudPath: halina/2b600fba-8a4c-45fa-84ac-ac14ca5ccde6.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/2b600fba-8a4c-45fa-84ac-ac14ca5ccde6.webp
+    nextcloudModifiedAt: 2025-06-21T14:07:09.000Z
+  - id: cat-nc-743a89e1b3197fcaca2935f8
+    nextcloudPath: halina/4503a1fa-cb20-471f-b76d-f23f2862efab.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/4503a1fa-cb20-471f-b76d-f23f2862efab.webp
+    nextcloudModifiedAt: 2025-06-21T12:35:03.000Z
+  - id: cat-nc-11f219af1d84adba4b32f181
+    nextcloudPath: halina/b966bdec-58ca-49b9-9101-730a1a78701c.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/b966bdec-58ca-49b9-9101-730a1a78701c.webp
+    nextcloudModifiedAt: 2025-06-21T12:34:05.000Z
+  - id: cat-nc-dac8e84377d6feb0934735db
+    nextcloudPath: halina/dd2e2b7d-3f85-4c5f-8c54-765526b4c984.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/dd2e2b7d-3f85-4c5f-8c54-765526b4c984.webp
+    nextcloudModifiedAt: 2025-06-21T06:59:53.000Z
+  - id: cat-nc-48541991dda65300fd61eaa5
+    nextcloudPath: halina/IMG_0368.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:13:10.000Z
+  - id: cat-nc-0a207d17c14135a3ef11bccc
+    nextcloudPath: halina/IMG_0369.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:13:11.000Z
+  - id: cat-nc-bab9746b7fb0b815532336d3
+    nextcloudPath: halina/IMG_0370.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:13:12.000Z
+  - id: cat-nc-1b04170b60679cc0c1bb83d4
+    nextcloudPath: halina/IMG_0371.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:13:32.000Z
+  - id: cat-nc-274724b4f18b77ef01e9a164
+    nextcloudPath: halina/IMG_0372.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:13:35.000Z
+  - id: cat-nc-d71eaae9b52aa8d412ad7221
+    nextcloudPath: halina/IMG_0376.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:17:14.000Z
+  - id: cat-nc-09079cf10ca8118420a810cd
+    nextcloudPath: halina/IMG_0380.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:18:12.000Z
+  - id: cat-nc-5a9dd912f02f1c6b67f5ffd1
+    nextcloudPath: halina/IMG_0381.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:18:15.000Z
+  - id: cat-nc-d05827fd1867e059162d1681
+    nextcloudPath: halina/IMG_0386.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:24:43.000Z
+  - id: cat-nc-cf1661cc3b0eee3aff943214
+    nextcloudPath: halina/IMG_0389.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:33:25.000Z
+  - id: cat-nc-cb11f789f889b817e2cde150
+    nextcloudPath: halina/IMG_0390.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:33:39.000Z
+  - id: cat-nc-959232ffcd736234401c96f0
+    nextcloudPath: halina/IMG_0391.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:33:51.000Z
+  - id: cat-nc-46ac8b649c609cf11e376a9d
+    nextcloudPath: halina/IMG_0392.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:34:17.000Z
+  - id: cat-nc-804c230f0ca1aa8209270c4f
+    nextcloudPath: halina/IMG_0393.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:35:31.000Z
+  - id: cat-nc-1a0776d8ae741e6f643bdd03
+    nextcloudPath: halina/IMG_0394.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:36:07.000Z
+  - id: cat-nc-5477a89d46208828dc0e2760
+    nextcloudPath: halina/IMG_0395.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:36:21.000Z
+  - id: cat-nc-cfded75b557ac16e6feb3530
+    nextcloudPath: halina/IMG_0396.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:36:25.000Z
+  - id: cat-nc-6f29b7779734a98799d2f010
+    nextcloudPath: halina/IMG_0397.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:36:31.000Z
+  - id: cat-nc-7b5be02edf5f64838d864cb5
+    nextcloudPath: halina/IMG_0398.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:36:50.000Z
+  - id: cat-nc-f6ccb2514c23d30a51717145
+    nextcloudPath: halina/IMG_0401.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:52:25.000Z
+  - id: cat-nc-ef0a47c574af44fbeffa756e
+    nextcloudPath: halina/IMG_0402.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:55:00.000Z
+  - id: cat-nc-5b94383a51484d56df5ba23c
+    nextcloudPath: halina/IMG_0403.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T17:55:02.000Z
+  - id: cat-nc-fb7bdd2d75db2f05df460f4b
+    nextcloudPath: halina/IMG_0406.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T18:46:13.000Z
+  - id: cat-nc-715624598bcb5cd4cf084453
+    nextcloudPath: halina/IMG_0408.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T18:57:30.000Z
+  - id: cat-nc-6a1b2b502705c9921e69a901
+    nextcloudPath: halina/IMG_0410.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T18:59:04.000Z
+  - id: cat-nc-327e2a41f488c5445af4a3ad
+    nextcloudPath: halina/IMG_0412.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:11:52.000Z
+  - id: cat-nc-74010ad967ba8a0d3d0d4cf6
+    nextcloudPath: halina/IMG_0415.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:20:37.000Z
+  - id: cat-nc-64184acc908f5589b3e4c91e
+    nextcloudPath: halina/IMG_0416.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:20:37.000Z
+  - id: cat-nc-204b765d887fbceeb094b7a2
+    nextcloudPath: halina/IMG_0417.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:20:41.000Z
+  - id: cat-nc-4ab262a44f633526917f3a65
+    nextcloudPath: halina/IMG_0418.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:20:43.000Z
+  - id: cat-nc-29eaefad2213e9927d3e1d72
+    nextcloudPath: halina/IMG_0419.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:34:29.000Z
+  - id: cat-nc-0af68200e80963c02f69c3b3
+    nextcloudPath: halina/IMG_0420.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:34:34.000Z
+  - id: cat-nc-7962b853afcd07ff7ace79c0
+    nextcloudPath: halina/IMG_0421.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:34:44.000Z
+  - id: cat-nc-5b29f865ba41cb867a9b4b3c
+    nextcloudPath: halina/IMG_0422.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:34:47.000Z
+  - id: cat-nc-81dfdd48cbb3382493a09f3d
+    nextcloudPath: halina/IMG_0423.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:34:54.000Z
+  - id: cat-nc-8375a0db66c04f225d68038d
+    nextcloudPath: halina/IMG_0424.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:34:59.000Z
+  - id: cat-nc-77d3e1600ef633148ec57177
+    nextcloudPath: halina/IMG_0425.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:35:20.000Z
+  - id: cat-nc-54925f3e55b5bace1eedfa5c
+    nextcloudPath: halina/IMG_0426.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2024-12-14T19:35:21.000Z
+  - id: cat-nc-89096a329c6f77577d9935c9
+    nextcloudPath: halina/IMG_0884.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:08:17.000Z
+  - id: cat-nc-aa1087bbc524a5351958de29
+    nextcloudPath: halina/IMG_0885.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:08:53.000Z
+  - id: cat-nc-9328091c9229fece75546924
+    nextcloudPath: halina/IMG_0886.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:09:08.000Z
+  - id: cat-nc-c2f826f7840043ee35fcaf82
+    nextcloudPath: halina/IMG_0887.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:09:09.000Z
+  - id: cat-nc-6a7d3ef6a071aa83111506bb
+    nextcloudPath: halina/IMG_0888.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:09:14.000Z
+  - id: cat-nc-45e12bb577baaca998c6ee55
+    nextcloudPath: halina/IMG_0889.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:09:19.000Z
+  - id: cat-nc-683d2499721fece69267b631
+    nextcloudPath: halina/IMG_0890.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:09:22.000Z
+  - id: cat-nc-31af28b9ab8301c133fa00e1
+    nextcloudPath: halina/IMG_0891.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:09:24.000Z
+  - id: cat-nc-1fff4c76da3fe7f49c3290cc
+    nextcloudPath: halina/IMG_0894.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:15:21.000Z
+  - id: cat-nc-da6d9ec7ea711176ea120089
+    nextcloudPath: halina/IMG_0897.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:17:46.000Z
+  - id: cat-nc-9ef6a3765a8c5fb8d75abee7
+    nextcloudPath: halina/IMG_0899.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:21:07.000Z
+  - id: cat-nc-d792ccfc007b8b8fc99c0f56
+    nextcloudPath: halina/IMG_0902.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:35:05.000Z
+  - id: cat-nc-b510844c737d2179cd29cb89
+    nextcloudPath: halina/IMG_0903.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:49:13.000Z
+  - id: cat-nc-414893941cb4eefce0d63347
+    nextcloudPath: halina/IMG_0904.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:49:27.000Z
+  - id: cat-nc-ce43df24ab3e51660b0f8be5
+    nextcloudPath: halina/IMG_0905.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T09:55:31.000Z
+  - id: cat-nc-3422a94e59443de7e6ffec3c
+    nextcloudPath: halina/IMG_0906.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:15:29.000Z
+  - id: cat-nc-4e56bef0c3ac2132dfe3a585
+    nextcloudPath: halina/IMG_0907.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:15:31.000Z
+  - id: cat-nc-c3536fd3dfd816700850f29d
+    nextcloudPath: halina/IMG_0908.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:15:32.000Z
+  - id: cat-nc-8ef1dda8e9a5eb040c68bc29
+    nextcloudPath: halina/IMG_0909.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:15:33.000Z
+  - id: cat-nc-f9a1b0ef3b3e203248da42a0
+    nextcloudPath: halina/IMG_0912.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:15:51.000Z
+  - id: cat-nc-3806a672d95b0f56a224ce7d
+    nextcloudPath: halina/IMG_0916.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:18:23.000Z
+  - id: cat-nc-7a7192939eeddf8e8dfd3cbf
+    nextcloudPath: halina/IMG_0917.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:18:49.000Z
+  - id: cat-nc-32e9878259367c7bde689c60
+    nextcloudPath: halina/IMG_0922.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:21:30.000Z
+  - id: cat-nc-6ac92a63cd6450815eee602d
+    nextcloudPath: halina/IMG_0925.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:35:18.000Z
+  - id: cat-nc-71ec1e0593f285b57eb66cc3
+    nextcloudPath: halina/IMG_0926.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:36:20.000Z
+  - id: cat-nc-1532e997b6314865faf9485c
+    nextcloudPath: halina/IMG_0929.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T10:36:27.000Z
+  - id: cat-nc-d911c335fd710e798b705d7f
+    nextcloudPath: halina/IMG_0932.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T11:16:36.000Z
+  - id: cat-nc-df6d36217dbf61d8af3dcaf0
+    nextcloudPath: halina/IMG_0933.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T11:16:37.000Z
+  - id: cat-nc-8e845c79362380d06db9bc98
+    nextcloudPath: halina/IMG_0937.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T11:35:08.000Z
+  - id: cat-nc-8452acb1259922cb5c93a98d
+    nextcloudPath: halina/IMG_0939.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T11:54:27.000Z
+  - id: cat-nc-90b2c51f77c4af6bc7635b84
+    nextcloudPath: halina/IMG_0940.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T11:54:34.000Z
+  - id: cat-nc-760073090c426bc61e2ca5b3
+    nextcloudPath: halina/IMG_0945.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T12:07:13.000Z
+  - id: cat-nc-cda4343956a41cfdf38dbfdd
+    nextcloudPath: halina/IMG_0947.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T12:07:17.000Z
+  - id: cat-nc-97b61a89ef88bbb1dd059efa
+    nextcloudPath: halina/IMG_0948.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T12:07:37.000Z
+  - id: cat-nc-ea0a3916148661ed1263e00f
+    nextcloudPath: halina/IMG_0951.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T12:18:46.000Z
+  - id: cat-nc-8f66b208e80b05a0bf7e1a43
+    nextcloudPath: halina/IMG_0953.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T12:19:02.000Z
+  - id: cat-nc-d98a84397f324b4dfbb8e0d9
+    nextcloudPath: halina/IMG_0956.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T12:25:25.000Z
+  - id: cat-nc-0bed38aaffa766b988804f97
+    nextcloudPath: halina/IMG_0957.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T12:25:53.000Z
+  - id: cat-nc-8daa8935ed4f131d36f3a1d0
+    nextcloudPath: halina/IMG_0960.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T12:41:05.000Z
+  - id: cat-nc-b567491b569aa4b6fe33a0c7
+    nextcloudPath: halina/IMG_0962.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T13:08:45.000Z
+  - id: cat-nc-0496c2367d734ec87bc86e41
+    nextcloudPath: halina/IMG_0963.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T13:19:04.000Z
+  - id: cat-nc-00ee8e95c3fa1e9d151d03ba
+    nextcloudPath: halina/IMG_0969.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T13:56:04.000Z
+  - id: cat-nc-ae59af587e33d8b426bf3383
+    nextcloudPath: halina/IMG_0971.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T14:01:34.000Z
+  - id: cat-nc-1bede7895b3fd03b3a667973
+    nextcloudPath: halina/IMG_0972.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T14:01:36.000Z
+  - id: cat-nc-1152aa810f93b5f067a44ce9
+    nextcloudPath: halina/IMG_0975.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T14:04:11.000Z
+  - id: cat-nc-b40032d0864a22805ef20abe
+    nextcloudPath: halina/IMG_0977.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2025-03-01T21:08:42.000Z
+  - id: cat-nc-a89d0aef23db76e3ce90c275
+    nextcloudPath: halina/IMG_1961.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1961.webp
+    nextcloudModifiedAt: 2025-06-21T05:01:31.000Z
+  - id: cat-nc-315aac109ac81d0585359329
+    nextcloudPath: halina/IMG_1962.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1962.webp
+    nextcloudModifiedAt: 2025-06-21T05:01:33.000Z
+  - id: cat-nc-44962b0ec547093eaae3f2a9
+    nextcloudPath: halina/IMG_1969.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1969.webp
+    nextcloudModifiedAt: 2025-06-21T06:45:37.000Z
+  - id: cat-nc-702a57bdd13184dd292fd7a7
+    nextcloudPath: halina/IMG_1970.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1970.webp
+    nextcloudModifiedAt: 2025-06-21T06:45:38.000Z
+  - id: cat-nc-1fb8f1f18c079c1950baa0c0
+    nextcloudPath: halina/IMG_1971.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1971.webp
+    nextcloudModifiedAt: 2025-06-21T06:45:42.000Z
+  - id: cat-nc-88c15d71cd209729a69d41f7
+    nextcloudPath: halina/IMG_1972.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1972.webp
+    nextcloudModifiedAt: 2025-06-21T06:45:43.000Z
+  - id: cat-nc-3412f4972fa078245770449d
+    nextcloudPath: halina/IMG_1975.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1975.webp
+    nextcloudModifiedAt: 2025-06-21T06:47:09.000Z
+  - id: cat-nc-94f47cd31fc9f4cc2054b34a
+    nextcloudPath: halina/IMG_1976.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1976.webp
+    nextcloudModifiedAt: 2025-06-21T06:47:10.000Z
+  - id: cat-nc-e1550b8264d33be5f29d3596
+    nextcloudPath: halina/IMG_1977.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1977.webp
+    nextcloudModifiedAt: 2025-06-21T06:47:10.000Z
+  - id: cat-nc-4b925dcbb2adfc78d41bb9e7
+    nextcloudPath: halina/IMG_1985.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1985.webp
+    nextcloudModifiedAt: 2025-06-21T08:39:39.000Z
+  - id: cat-nc-5fe109f7498faa7516bfd366
+    nextcloudPath: halina/IMG_1986.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1986.webp
+    nextcloudModifiedAt: 2025-06-21T08:39:52.000Z
+  - id: cat-nc-a31ae2c2fdf5affa4c2e9272
+    nextcloudPath: halina/IMG_1987.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1987.webp
+    nextcloudModifiedAt: 2025-06-21T08:39:56.000Z
+  - id: cat-nc-2d2398bcfd27f4be90fd965d
+    nextcloudPath: halina/IMG_1988.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1988.webp
+    nextcloudModifiedAt: 2025-06-21T08:44:46.000Z
+  - id: cat-nc-b7ecc74d890d2e100a3e72f3
+    nextcloudPath: halina/IMG_1990.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1990.webp
+    nextcloudModifiedAt: 2025-06-21T08:48:39.000Z
+  - id: cat-nc-4bd0c0a893ef4d943c662b26
+    nextcloudPath: halina/IMG_1992.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1992.webp
+    nextcloudModifiedAt: 2025-06-21T08:50:04.000Z
+  - id: cat-nc-730f31b6a544bd3ca2e4b978
+    nextcloudPath: halina/IMG_1993.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1993.webp
+    nextcloudModifiedAt: 2025-06-21T08:50:59.000Z
+  - id: cat-nc-b15014939f283e1600e813f9
+    nextcloudPath: halina/IMG_1995.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1995.webp
+    nextcloudModifiedAt: 2025-06-21T09:03:48.000Z
+  - id: cat-nc-1873e973c94811db92be4353
+    nextcloudPath: halina/IMG_1996.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1996.webp
+    nextcloudModifiedAt: 2025-06-21T09:03:55.000Z
+  - id: cat-nc-f5130637da2887508d27bfd6
+    nextcloudPath: halina/IMG_1997.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1997.webp
+    nextcloudModifiedAt: 2025-06-21T09:03:57.000Z
+  - id: cat-nc-223310bb38b284472e1b7e76
+    nextcloudPath: halina/IMG_1999.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_1999.webp
+    nextcloudModifiedAt: 2025-06-21T09:04:24.000Z
+  - id: cat-nc-fcbfacc127f12460b98fed5e
+    nextcloudPath: halina/IMG_2001.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2001.webp
+    nextcloudModifiedAt: 2025-06-21T09:04:29.000Z
+  - id: cat-nc-45ef4c38afc941c42775d709
+    nextcloudPath: halina/IMG_2002.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2002.webp
+    nextcloudModifiedAt: 2025-06-21T09:04:31.000Z
+  - id: cat-nc-151fb8027d86294ca0e897fe
+    nextcloudPath: halina/IMG_2003.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2003.webp
+    nextcloudModifiedAt: 2025-06-21T09:04:35.000Z
+  - id: cat-nc-7498acc5692375fc4995057e
+    nextcloudPath: halina/IMG_2004.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2004.webp
+    nextcloudModifiedAt: 2025-06-21T09:04:37.000Z
+  - id: cat-nc-80d98cbed4f6df84969094c2
+    nextcloudPath: halina/IMG_2005.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2005.webp
+    nextcloudModifiedAt: 2025-06-21T09:04:55.000Z
+  - id: cat-nc-108d72c5b7a41b8e3cf74025
+    nextcloudPath: halina/IMG_2006.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2006.webp
+    nextcloudModifiedAt: 2025-06-21T09:06:28.000Z
+  - id: cat-nc-dfeb01df7611b9f9014fac2b
+    nextcloudPath: halina/IMG_2016.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2016.webp
+    nextcloudModifiedAt: 2025-06-21T15:00:29.000Z
+  - id: cat-nc-46421196ddb78c31abafee1e
+    nextcloudPath: halina/IMG_2017.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2017.webp
+    nextcloudModifiedAt: 2025-06-21T15:00:34.000Z
+  - id: cat-nc-22bda8bb87c46b94eb4b09e2
+    nextcloudPath: halina/IMG_2018.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2018.webp
+    nextcloudModifiedAt: 2025-06-21T15:00:35.000Z
+  - id: cat-nc-4ac02d00395a124a8ea5e575
+    nextcloudPath: halina/IMG_2019.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2019.webp
+    nextcloudModifiedAt: 2025-06-21T15:00:50.000Z
+  - id: cat-nc-babfc4bebc54a3f53207bf92
+    nextcloudPath: halina/IMG_2020.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2020.webp
+    nextcloudModifiedAt: 2025-06-21T15:00:51.000Z
+  - id: cat-nc-1419498349181cfd9dd2e3a8
+    nextcloudPath: halina/IMG_2026.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2026.webp
+    nextcloudModifiedAt: 2025-06-21T15:36:47.000Z
+  - id: cat-nc-8853ff0fd0525561b1babfac
+    nextcloudPath: halina/IMG_2027.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2027.webp
+    nextcloudModifiedAt: 2025-06-21T15:37:46.000Z
+  - id: cat-nc-56469acf9cfbb745662b4f0b
+    nextcloudPath: halina/IMG_2028.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2028.webp
+    nextcloudModifiedAt: 2025-06-21T15:37:47.000Z
+  - id: cat-nc-40f50216cd08addb9f6f48b5
+    nextcloudPath: halina/IMG_2029.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2029.webp
+    nextcloudModifiedAt: 2025-06-21T15:37:55.000Z
+  - id: cat-nc-8a766d10a260e1128b42634e
+    nextcloudPath: halina/IMG_2031.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2031.webp
+    nextcloudModifiedAt: 2025-06-21T15:39:28.000Z
+  - id: cat-nc-9008f61bf3976045d1f0affa
+    nextcloudPath: halina/IMG_2032.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2032.webp
+    nextcloudModifiedAt: 2025-06-21T15:39:29.000Z
+  - id: cat-nc-a6837c7c95094d50b04fc98d
+    nextcloudPath: halina/IMG_2033.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2033.webp
+    nextcloudModifiedAt: 2025-06-21T15:39:30.000Z
+  - id: cat-nc-0991d6fdc14dd9bc1f5bb9c8
+    nextcloudPath: halina/IMG_2036.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2036.webp
+    nextcloudModifiedAt: 2025-06-21T15:40:17.000Z
+  - id: cat-nc-9bb7ca17e799009362e238cd
+    nextcloudPath: halina/IMG_2037.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2037.webp
+    nextcloudModifiedAt: 2025-06-21T15:40:18.000Z
+  - id: cat-nc-0c16bf2d88686c1ef787b10c
+    nextcloudPath: halina/IMG_2045.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2045.webp
+    nextcloudModifiedAt: 2025-06-21T16:24:23.000Z
+  - id: cat-nc-18e5af8b77b74045e168f44e
+    nextcloudPath: halina/IMG_2050.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2050.webp
+    nextcloudModifiedAt: 2025-06-21T16:45:30.000Z
+  - id: cat-nc-1d25a8e9f427d254fec71071
+    nextcloudPath: halina/IMG_2057.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2057.webp
+    nextcloudModifiedAt: 2025-06-21T17:04:30.000Z
+  - id: cat-nc-e07b6dce4563176abbe46c1c
+    nextcloudPath: halina/IMG_2062.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2062.webp
+    nextcloudModifiedAt: 2025-06-21T17:04:44.000Z
+  - id: cat-nc-3dcf0ebec714dc60e336e764
+    nextcloudPath: halina/IMG_2165.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2165.webp
+    nextcloudModifiedAt: 2025-07-09T18:13:59.000Z
+  - id: cat-nc-02c029cdef9474199c1fa060
+    nextcloudPath: halina/IMG_2166.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2166.webp
+    nextcloudModifiedAt: 2025-07-09T18:14:00.000Z
+  - id: cat-nc-c5ede8a7ce3d9ff459e2f26b
+    nextcloudPath: halina/IMG_2167.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2167.webp
+    nextcloudModifiedAt: 2025-07-09T18:14:14.000Z
+  - id: cat-nc-3976c95557726693d3aa1c9a
+    nextcloudPath: halina/IMG_2168.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2168.webp
+    nextcloudModifiedAt: 2025-07-09T18:14:15.000Z
+  - id: cat-nc-4f0d0017a6aa52e1cc3ac24a
+    nextcloudPath: halina/IMG_2169.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2169.webp
+    nextcloudModifiedAt: 2025-07-09T18:14:18.000Z
+  - id: cat-nc-2d382a3f8fd5c22fb730ae32
+    nextcloudPath: halina/IMG_2170.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2170.webp
+    nextcloudModifiedAt: 2025-07-09T18:14:21.000Z
+  - id: cat-nc-0162206d74bd6edd88d51d46
+    nextcloudPath: halina/IMG_2171.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2171.webp
+    nextcloudModifiedAt: 2025-07-09T18:14:31.000Z
+  - id: cat-nc-3749eabd37f7e23b06ba640f
+    nextcloudPath: halina/IMG_2172.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2172.webp
+    nextcloudModifiedAt: 2025-07-09T18:16:15.000Z
+  - id: cat-nc-d85e210ee4bf6a898f4dee63
+    nextcloudPath: halina/IMG_2173.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2173.webp
+    nextcloudModifiedAt: 2025-07-09T18:16:19.000Z
+  - id: cat-nc-366937288baa6b65c8e62a1f
+    nextcloudPath: halina/IMG_2176.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2176.webp
+    nextcloudModifiedAt: 2025-07-09T18:22:38.000Z
+  - id: cat-nc-6e77764e2d4b5704237f1655
+    nextcloudPath: halina/IMG_2179.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2179.webp
+    nextcloudModifiedAt: 2025-07-09T20:22:29.000Z
+  - id: cat-nc-b5badeaacfa308e9cdeeeb3e
+    nextcloudPath: halina/IMG_2180.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2180.webp
+    nextcloudModifiedAt: 2025-07-09T20:22:33.000Z
+  - id: cat-nc-d9480bb06067c9e3e58ba80b
+    nextcloudPath: halina/IMG_2181.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2181.webp
+    nextcloudModifiedAt: 2025-07-09T20:22:34.000Z
+  - id: cat-nc-d0b5e2a223259b2344474503
+    nextcloudPath: halina/IMG_2182.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2182.webp
+    nextcloudModifiedAt: 2025-07-09T20:22:56.000Z
+  - id: cat-nc-1bdae8c0f05529fe8f45f845
+    nextcloudPath: halina/IMG_2188.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2188.webp
+    nextcloudModifiedAt: 2025-07-12T14:41:11.000Z
+  - id: cat-nc-ae43683ab339b58a3015039b
+    nextcloudPath: halina/IMG_2189.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2189.webp
+    nextcloudModifiedAt: 2025-07-12T14:41:19.000Z
+  - id: cat-nc-4ef0845dec8881811e69df89
+    nextcloudPath: halina/IMG_2190.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2190.webp
+    nextcloudModifiedAt: 2025-07-12T14:41:21.000Z
+  - id: cat-nc-ca6d2124574ff189163d2f4a
+    nextcloudPath: halina/IMG_2191.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2191.webp
+    nextcloudModifiedAt: 2025-07-12T14:41:23.000Z
+  - id: cat-nc-d4f208743ccf6570ce37bb1d
+    nextcloudPath: halina/IMG_2192.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2192.webp
+    nextcloudModifiedAt: 2025-07-12T14:41:51.000Z
+  - id: cat-nc-3e13662bbe801fa07c572bc0
+    nextcloudPath: halina/IMG_2193.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2193.webp
+    nextcloudModifiedAt: 2025-07-12T14:41:53.000Z
+  - id: cat-nc-e03658889ddd29f1aa6682b3
+    nextcloudPath: halina/IMG_2194.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2194.webp
+    nextcloudModifiedAt: 2025-07-12T14:42:04.000Z
+  - id: cat-nc-2b97fb9c28d8ad6f61e9c9e9
+    nextcloudPath: halina/IMG_2195.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2195.webp
+    nextcloudModifiedAt: 2025-07-12T14:42:17.000Z
+  - id: cat-nc-07b9c32fc03d908c819deb5d
+    nextcloudPath: halina/IMG_2196.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2196.webp
+    nextcloudModifiedAt: 2025-07-12T14:42:38.000Z
+  - id: cat-nc-124b18abb6a4513d2a4abc54
+    nextcloudPath: halina/IMG_2199.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2199.webp
+    nextcloudModifiedAt: 2025-07-12T15:13:12.000Z
+  - id: cat-nc-ad884273413cf4ef7b26bea1
+    nextcloudPath: halina/IMG_2200.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2200.webp
+    nextcloudModifiedAt: 2025-07-12T15:13:18.000Z
+  - id: cat-nc-75856734c9e9983cadcb70fc
+    nextcloudPath: halina/IMG_2201.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2201.webp
+    nextcloudModifiedAt: 2025-07-12T15:13:19.000Z
+  - id: cat-nc-38ddfe60c39bfef2574df2df
+    nextcloudPath: halina/IMG_2202.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2202.webp
+    nextcloudModifiedAt: 2025-07-12T15:13:34.000Z
+  - id: cat-nc-92e9dbef07934ec12c77fb68
+    nextcloudPath: halina/IMG_2203.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2203.webp
+    nextcloudModifiedAt: 2025-07-12T15:13:57.000Z
+  - id: cat-nc-0916b57a99020c22908d7ba3
+    nextcloudPath: halina/IMG_2204.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2204.webp
+    nextcloudModifiedAt: 2025-07-12T15:14:28.000Z
+  - id: cat-nc-752be8fdf9ee928cb794713e
+    nextcloudPath: halina/IMG_2205.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2205.webp
+    nextcloudModifiedAt: 2025-07-12T15:14:28.000Z
+  - id: cat-nc-f97356721c6ef95cbf4715fd
+    nextcloudPath: halina/IMG_2206.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2206.webp
+    nextcloudModifiedAt: 2025-07-12T15:15:10.000Z
+  - id: cat-nc-b5960524b1a46baecbb64ef0
+    nextcloudPath: halina/IMG_2207.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2207.webp
+    nextcloudModifiedAt: 2025-07-12T15:15:37.000Z
+  - id: cat-nc-3ae72d7f9018636f664a5709
+    nextcloudPath: halina/IMG_2208.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2208.webp
+    nextcloudModifiedAt: 2025-07-12T15:15:39.000Z
+  - id: cat-nc-1cb3184ca8ef86ea209801a0
+    nextcloudPath: halina/IMG_2209.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2209.webp
+    nextcloudModifiedAt: 2025-07-12T15:15:42.000Z
+  - id: cat-nc-19384434879c6b8cabf3be1e
+    nextcloudPath: halina/IMG_2210.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2210.webp
+    nextcloudModifiedAt: 2025-07-12T15:16:07.000Z
+  - id: cat-nc-bc6bff67f54d0c22b12f9f76
+    nextcloudPath: halina/IMG_2211.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2211.webp
+    nextcloudModifiedAt: 2025-07-12T15:16:07.000Z
+  - id: cat-nc-5a1ab9aa0f2353416062968d
+    nextcloudPath: halina/IMG_2212.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2212.webp
+    nextcloudModifiedAt: 2025-07-12T15:16:09.000Z
+  - id: cat-nc-202fe1e73492b84c147ffefa
+    nextcloudPath: halina/IMG_2213.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2213.webp
+    nextcloudModifiedAt: 2025-07-12T15:17:48.000Z
+  - id: cat-nc-138f4ed7bcefea6b2c4f3485
+    nextcloudPath: halina/IMG_2214.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2214.webp
+    nextcloudModifiedAt: 2025-07-12T15:17:48.000Z
+  - id: cat-nc-aa191c3c1380e71d509f0839
+    nextcloudPath: halina/IMG_2215.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2215.webp
+    nextcloudModifiedAt: 2025-07-12T15:19:04.000Z
+  - id: cat-nc-4d7ac00f77e62acb53e50f4b
+    nextcloudPath: halina/IMG_2216.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2216.webp
+    nextcloudModifiedAt: 2025-07-12T15:19:05.000Z
+  - id: cat-nc-a524f44bd14bfcd2298d67c8
+    nextcloudPath: halina/IMG_2217.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2217.webp
+    nextcloudModifiedAt: 2025-07-12T15:19:06.000Z
+  - id: cat-nc-19c3fdc1d0a61d9c2a993e53
+    nextcloudPath: halina/IMG_2218.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2218.webp
+    nextcloudModifiedAt: 2025-07-12T15:19:14.000Z
+  - id: cat-nc-7be59029f0537f295a4c84d8
+    nextcloudPath: halina/IMG_2219.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2219.webp
+    nextcloudModifiedAt: 2025-07-12T15:19:29.000Z
+  - id: cat-nc-eee232d16446e71dc63af497
+    nextcloudPath: halina/IMG_2220.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2220.webp
+    nextcloudModifiedAt: 2025-07-12T15:19:51.000Z
+  - id: cat-nc-79a17e4e443e67f89260b1b2
+    nextcloudPath: halina/IMG_2221.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2221.webp
+    nextcloudModifiedAt: 2025-07-12T15:19:55.000Z
+  - id: cat-nc-9871863493c3ff44527cacc4
+    nextcloudPath: halina/IMG_2222.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2222.webp
+    nextcloudModifiedAt: 2025-07-12T15:20:00.000Z
+  - id: cat-nc-509b3ee881865d45155ed44e
+    nextcloudPath: halina/IMG_2223.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2223.webp
+    nextcloudModifiedAt: 2025-07-12T15:20:35.000Z
+  - id: cat-nc-6d7a0d12b3587c97a1869e18
+    nextcloudPath: halina/IMG_2224.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2224.webp
+    nextcloudModifiedAt: 2025-07-12T15:20:57.000Z
+  - id: cat-nc-bffdbfdb1b9c7694a9a3a20c
+    nextcloudPath: halina/IMG_2225.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2225.webp
+    nextcloudModifiedAt: 2025-07-12T15:21:02.000Z
+  - id: cat-nc-bd1e602ab4f252258f72cc10
+    nextcloudPath: halina/IMG_2226.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2226.webp
+    nextcloudModifiedAt: 2025-07-12T15:21:17.000Z
+  - id: cat-nc-9e2aca39b7a65a8d0c5f6809
+    nextcloudPath: halina/IMG_2227.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2227.webp
+    nextcloudModifiedAt: 2025-07-12T15:21:18.000Z
+  - id: cat-nc-dcadd99a187e55437ac708f7
+    nextcloudPath: halina/IMG_2229.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2229.webp
+    nextcloudModifiedAt: 2025-07-12T15:21:30.000Z
+  - id: cat-nc-786dd7af09f84b54c92d5c10
+    nextcloudPath: halina/IMG_2230.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2230.webp
+    nextcloudModifiedAt: 2025-07-12T15:59:46.000Z
+  - id: cat-nc-72858d0a52de7cbec7044f04
+    nextcloudPath: halina/IMG_2231.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2231.webp
+    nextcloudModifiedAt: 2025-07-12T16:31:03.000Z
+  - id: cat-nc-bbdecca8f188c8453cf80047
+    nextcloudPath: halina/IMG_2232.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2232.webp
+    nextcloudModifiedAt: 2025-07-12T16:31:10.000Z
+  - id: cat-nc-95ed002d739a707565ee05ef
+    nextcloudPath: halina/IMG_2233.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2233.webp
+    nextcloudModifiedAt: 2025-07-12T16:31:10.000Z
+  - id: cat-nc-7d5d7e1ca51e353654feb83b
+    nextcloudPath: halina/IMG_2234.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2234.webp
+    nextcloudModifiedAt: 2025-07-12T16:31:11.000Z
+  - id: cat-nc-e59ed192ef60a40b484941e8
+    nextcloudPath: halina/IMG_2235.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2235.webp
+    nextcloudModifiedAt: 2025-07-12T16:31:21.000Z
+  - id: cat-nc-688436e76d4fc77a01fcd813
+    nextcloudPath: halina/IMG_2236.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2236.webp
+    nextcloudModifiedAt: 2025-07-12T16:31:49.000Z
+  - id: cat-nc-e7bc8688559f0116060f8717
+    nextcloudPath: halina/IMG_2237.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2237.webp
+    nextcloudModifiedAt: 2025-07-12T16:31:57.000Z
+  - id: cat-nc-46203efb633959297cef3d56
+    nextcloudPath: halina/IMG_2238.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2238.webp
+    nextcloudModifiedAt: 2025-07-12T16:32:21.000Z
+  - id: cat-nc-b08fc5818afca995f5237637
+    nextcloudPath: halina/IMG_2239.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2239.webp
+    nextcloudModifiedAt: 2025-07-12T21:55:39.000Z
+  - id: cat-nc-816a6a6d1693a29590f44034
+    nextcloudPath: halina/IMG_2240.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2240.webp
+    nextcloudModifiedAt: 2025-07-12T21:55:41.000Z
+  - id: cat-nc-48e58ed78c03ad6cdb036572
+    nextcloudPath: halina/IMG_2241.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2241.webp
+    nextcloudModifiedAt: 2025-07-12T21:55:50.000Z
+  - id: cat-nc-b300b3afd4b24a0594bb15ee
+    nextcloudPath: halina/IMG_2242.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2242.webp
+    nextcloudModifiedAt: 2025-07-12T21:55:50.000Z
+  - id: cat-nc-36587ee4b013ba43b17557b0
+    nextcloudPath: halina/IMG_2243.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_2243.webp
+    nextcloudModifiedAt: 2025-07-12T21:55:51.000Z
+  - id: cat-nc-05affc9724a15bd8d08cb6d9
+    nextcloudPath: halina/IMG_3282.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3282.webp
+    nextcloudModifiedAt: 2025-09-27T12:06:49.000Z
+  - id: cat-nc-71a8366dfc3e45305bc6ad54
+    nextcloudPath: halina/IMG_3290.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3290.webp
+    nextcloudModifiedAt: 2025-09-27T12:37:30.000Z
+  - id: cat-nc-738e1d0039edb06a36c2881d
+    nextcloudPath: halina/IMG_3291.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3291.webp
+    nextcloudModifiedAt: 2025-09-27T12:37:35.000Z
+  - id: cat-nc-e2920fb6b89136a8cc0e5ddf
+    nextcloudPath: halina/IMG_3292.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3292.webp
+    nextcloudModifiedAt: 2025-09-27T12:37:40.000Z
+  - id: cat-nc-abf7c2c778281120366e33f4
+    nextcloudPath: halina/IMG_3296.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3296.webp
+    nextcloudModifiedAt: 2025-09-27T12:40:41.000Z
+  - id: cat-nc-e800506881775a4d48f590f0
+    nextcloudPath: halina/IMG_3298.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3298.webp
+    nextcloudModifiedAt: 2025-09-27T12:41:22.000Z
+  - id: cat-nc-2bf6682eb16b892555ab3307
+    nextcloudPath: halina/IMG_3302.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3302.webp
+    nextcloudModifiedAt: 2025-09-27T12:42:41.000Z
+  - id: cat-nc-c66142868ad3889c4a4d2a76
+    nextcloudPath: halina/IMG_3303.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3303.webp
+    nextcloudModifiedAt: 2025-09-27T12:42:50.000Z
+  - id: cat-nc-663c56d1ac0d096acdf2940d
+    nextcloudPath: halina/IMG_3308.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3308.webp
+    nextcloudModifiedAt: 2025-09-27T13:01:12.000Z
+  - id: cat-nc-75cb89477ab77628ff0d188e
+    nextcloudPath: halina/IMG_3311.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3311.webp
+    nextcloudModifiedAt: 2025-09-27T13:01:13.000Z
+  - id: cat-nc-5696a8670a3471d56486c351
+    nextcloudPath: halina/IMG_3317.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3317.webp
+    nextcloudModifiedAt: 2025-09-27T13:06:07.000Z
+  - id: cat-nc-b0feb27c124bab5e697dba98
+    nextcloudPath: halina/IMG_3318.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3318.webp
+    nextcloudModifiedAt: 2025-09-27T13:06:19.000Z
+  - id: cat-nc-236e60c7b578906d539890a5
+    nextcloudPath: halina/IMG_3319.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3319.webp
+    nextcloudModifiedAt: 2025-09-27T13:06:20.000Z
+  - id: cat-nc-b3ef62d88caaf3e4a310abca
+    nextcloudPath: halina/IMG_3321.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3321.webp
+    nextcloudModifiedAt: 2025-09-27T13:09:23.000Z
+  - id: cat-nc-fb6b55d707196f05c187b5e2
+    nextcloudPath: halina/IMG_3322.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3322.webp
+    nextcloudModifiedAt: 2025-09-27T13:09:24.000Z
+  - id: cat-nc-b92f9e338a7cbac419ddcdde
+    nextcloudPath: halina/IMG_3324.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3324.webp
+    nextcloudModifiedAt: 2025-09-27T13:10:00.000Z
+  - id: cat-nc-170167cbd26d369e323a5556
+    nextcloudPath: halina/IMG_3325.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3325.webp
+    nextcloudModifiedAt: 2025-09-27T13:10:37.000Z
+  - id: cat-nc-7cb49d94dd093bc2c7c22cb6
+    nextcloudPath: halina/IMG_3328.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3328.webp
+    nextcloudModifiedAt: 2025-09-27T13:10:46.000Z
+  - id: cat-nc-16027392d7247516326c5999
+    nextcloudPath: halina/IMG_3335.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3335.webp
+    nextcloudModifiedAt: 2025-09-27T13:26:02.000Z
+  - id: cat-nc-c0c136837866f15477d9d3cf
+    nextcloudPath: halina/IMG_3339.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3339.webp
+    nextcloudModifiedAt: 2025-09-27T13:27:48.000Z
+  - id: cat-nc-11f3bbe6e9494a2302c9be30
+    nextcloudPath: halina/IMG_3340.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3340.webp
+    nextcloudModifiedAt: 2025-09-27T13:27:49.000Z
+  - id: cat-nc-ef4b5c6a9089fc090005aff5
+    nextcloudPath: halina/IMG_3341.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3341.webp
+    nextcloudModifiedAt: 2025-09-27T13:27:50.000Z
+  - id: cat-nc-c32d2a6b98df5ed5963ae8ff
+    nextcloudPath: halina/IMG_3344.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3344.webp
+    nextcloudModifiedAt: 2025-09-27T13:27:54.000Z
+  - id: cat-nc-2e709ccdafad9c847402ddc3
+    nextcloudPath: halina/IMG_3346.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3346.webp
+    nextcloudModifiedAt: 2025-09-27T13:27:55.000Z
+  - id: cat-nc-8256f0b7a037baff090edf3e
+    nextcloudPath: halina/IMG_3347.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3347.webp
+    nextcloudModifiedAt: 2025-09-27T13:28:30.000Z
+  - id: cat-nc-adc6f9b3f6b80270471a9ceb
+    nextcloudPath: halina/IMG_3348.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3348.webp
+    nextcloudModifiedAt: 2025-09-27T13:28:31.000Z
+  - id: cat-nc-647da24765a0cf32be03b10f
+    nextcloudPath: halina/IMG_3353.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3353.webp
+    nextcloudModifiedAt: 2025-09-27T13:28:45.000Z
+  - id: cat-nc-dcd84b581d36d8816d445530
+    nextcloudPath: halina/IMG_3358.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3358.webp
+    nextcloudModifiedAt: 2025-09-27T13:49:36.000Z
+  - id: cat-nc-775667eaaf38b1c60a6c2427
+    nextcloudPath: halina/IMG_3362.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3362.webp
+    nextcloudModifiedAt: 2025-09-27T13:51:00.000Z
+  - id: cat-nc-1f41bd5a60cd6cc68518fc5e
+    nextcloudPath: halina/IMG_3365.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3365.webp
+    nextcloudModifiedAt: 2025-09-27T13:51:03.000Z
+  - id: cat-nc-1051218857bfc58144669e73
+    nextcloudPath: halina/IMG_3366.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3366.webp
+    nextcloudModifiedAt: 2025-09-27T13:51:49.000Z
+  - id: cat-nc-fb22a3f3434f61fbdb009e6d
+    nextcloudPath: halina/IMG_3368.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3368.webp
+    nextcloudModifiedAt: 2025-09-27T13:51:56.000Z
+  - id: cat-nc-e116055a96f7444e80e716a6
+    nextcloudPath: halina/IMG_3370.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3370.webp
+    nextcloudModifiedAt: 2025-09-27T13:52:28.000Z
+  - id: cat-nc-179c0a4d2167717dde0b755b
+    nextcloudPath: halina/IMG_3372.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3372.webp
+    nextcloudModifiedAt: 2025-09-27T13:52:31.000Z
+  - id: cat-nc-44b466a3c7467c97df3b0bf4
+    nextcloudPath: halina/IMG_3374.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3374.webp
+    nextcloudModifiedAt: 2025-09-27T13:53:37.000Z
+  - id: cat-nc-ce66209ddc49e08ec1d2b718
+    nextcloudPath: halina/IMG_3377.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3377.webp
+    nextcloudModifiedAt: 2025-09-27T13:56:08.000Z
+  - id: cat-nc-aee8244ac45a70af2e2c0c37
+    nextcloudPath: halina/IMG_3380.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3380.webp
+    nextcloudModifiedAt: 2025-09-27T13:56:12.000Z
+  - id: cat-nc-2fcc0b3d385a309449691d18
+    nextcloudPath: halina/IMG_3383.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3383.webp
+    nextcloudModifiedAt: 2025-09-27T13:56:21.000Z
+  - id: cat-nc-4c7fda5fdc0dd8f2c21be257
+    nextcloudPath: halina/IMG_3389.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3389.webp
+    nextcloudModifiedAt: 2025-09-27T13:56:58.000Z
+  - id: cat-nc-2a0f3add8f615f3072a535c5
+    nextcloudPath: halina/IMG_3391.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3391.webp
+    nextcloudModifiedAt: 2025-09-27T14:19:43.000Z
+  - id: cat-nc-25ce17ef86c67d0c8daefae2
+    nextcloudPath: halina/IMG_3396.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3396.webp
+    nextcloudModifiedAt: 2025-09-27T14:19:52.000Z
+  - id: cat-nc-1cf33a6741f6eedf8453de0f
+    nextcloudPath: halina/IMG_3398.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3398.webp
+    nextcloudModifiedAt: 2025-09-27T14:19:55.000Z
+  - id: cat-nc-18171953a2e3676a30a135d4
+    nextcloudPath: halina/IMG_3399.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3399.webp
+    nextcloudModifiedAt: 2025-09-27T14:19:58.000Z
+  - id: cat-nc-1acd7fef4c3f1413c56948f3
+    nextcloudPath: halina/IMG_3403.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_3403.webp
+    nextcloudModifiedAt: 2025-09-27T14:27:39.000Z
+  - id: cat-nc-d2c348457f0c837e9ee175d2
+    nextcloudPath: halina/IMG_4778.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4778.webp
+    nextcloudModifiedAt: 2026-02-14T09:28:33.000Z
+  - id: cat-nc-436e0afbf66c6810e52d7452
+    nextcloudPath: halina/IMG_4802.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4802.webp
+    nextcloudModifiedAt: 2026-02-14T09:58:24.000Z
+  - id: cat-nc-ab455c1e47b85ad98528867c
+    nextcloudPath: halina/IMG_4809.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4809.webp
+    nextcloudModifiedAt: 2026-02-14T10:15:18.000Z
+  - id: cat-nc-369075ab0c9de51790d670a7
+    nextcloudPath: halina/IMG_4813.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4813.webp
+    nextcloudModifiedAt: 2026-02-14T10:28:14.000Z
+  - id: cat-nc-79b49f75c84572d0178022b9
+    nextcloudPath: halina/IMG_4814.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4814.webp
+    nextcloudModifiedAt: 2026-02-14T10:28:16.000Z
+  - id: cat-nc-31540c830f25281e538bc643
+    nextcloudPath: halina/IMG_4815.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4815.webp
+    nextcloudModifiedAt: 2026-02-14T10:28:17.000Z
+  - id: cat-nc-a9764c338f19fdefce859b7d
+    nextcloudPath: halina/IMG_4816.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4816.webp
+    nextcloudModifiedAt: 2026-02-14T10:28:17.000Z
+  - id: cat-nc-047d03c7e949306b1c13f42e
+    nextcloudPath: halina/IMG_4817.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4817.webp
+    nextcloudModifiedAt: 2026-02-14T10:28:17.000Z
+  - id: cat-nc-f37fd66f7128b3a9dd136545
+    nextcloudPath: halina/IMG_4818.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4818.webp
+    nextcloudModifiedAt: 2026-02-14T10:28:20.000Z
+  - id: cat-nc-9cca0fbcc9089c11b55aeb29
+    nextcloudPath: halina/IMG_4819.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4819.webp
+    nextcloudModifiedAt: 2026-02-14T10:28:21.000Z
+  - id: cat-nc-91bd9e50df0e7220452d86ab
+    nextcloudPath: halina/IMG_4823.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4823.webp
+    nextcloudModifiedAt: 2026-02-14T10:39:17.000Z
+  - id: cat-nc-d4534e33302ef4d61f9a4cfc
+    nextcloudPath: halina/IMG_4824.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4824.webp
+    nextcloudModifiedAt: 2026-02-14T10:39:18.000Z
+  - id: cat-nc-b12a66b149aa207a5af34bdf
+    nextcloudPath: halina/IMG_4825.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4825.webp
+    nextcloudModifiedAt: 2026-02-14T10:39:18.000Z
+  - id: cat-nc-b157e75030c1ad6e0e70cbd6
+    nextcloudPath: halina/IMG_4828.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4828.webp
+    nextcloudModifiedAt: 2026-02-14T10:40:05.000Z
+  - id: cat-nc-b0ff5110e21bb263eba5a149
+    nextcloudPath: halina/IMG_4829.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4829.webp
+    nextcloudModifiedAt: 2026-02-14T10:40:05.000Z
+  - id: cat-nc-de7c21a44aa391a5a0b446ec
+    nextcloudPath: halina/IMG_4832.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4832.webp
+    nextcloudModifiedAt: 2026-02-14T10:43:00.000Z
+  - id: cat-nc-ebec672b4c83397be27192c3
+    nextcloudPath: halina/IMG_4833.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4833.webp
+    nextcloudModifiedAt: 2026-02-14T10:43:03.000Z
+  - id: cat-nc-f8ebfb0c23c0c93e9e40a13d
+    nextcloudPath: halina/IMG_4834.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4834.webp
+    nextcloudModifiedAt: 2026-02-14T10:43:04.000Z
+  - id: cat-nc-b0b160007da87fda014c83c0
+    nextcloudPath: halina/IMG_4835.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4835.webp
+    nextcloudModifiedAt: 2026-02-14T10:43:06.000Z
+  - id: cat-nc-db3f219b76341708507fa551
+    nextcloudPath: halina/IMG_4836.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4836.webp
+    nextcloudModifiedAt: 2026-02-14T10:43:06.000Z
+  - id: cat-nc-cd27a613c3f265a8f3387bd0
+    nextcloudPath: halina/IMG_4837.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4837.webp
+    nextcloudModifiedAt: 2026-02-14T10:43:07.000Z
+  - id: cat-nc-91d8bd8525d49eaa06293836
+    nextcloudPath: halina/IMG_4842.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4842.webp
+    nextcloudModifiedAt: 2026-02-14T10:52:58.000Z
+  - id: cat-nc-6d7530d7e56fbc710cc7bc7d
+    nextcloudPath: halina/IMG_4843.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4843.webp
+    nextcloudModifiedAt: 2026-02-14T10:52:59.000Z
+  - id: cat-nc-58db016860186c927d8264f2
+    nextcloudPath: halina/IMG_4844.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4844.webp
+    nextcloudModifiedAt: 2026-02-14T10:53:01.000Z
+  - id: cat-nc-a3fdbdfd83f59f517a2b3ad7
+    nextcloudPath: halina/IMG_4845.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4845.webp
+    nextcloudModifiedAt: 2026-02-14T10:53:01.000Z
+  - id: cat-nc-27f1e3c013489a7860d1379e
+    nextcloudPath: halina/IMG_4846.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4846.webp
+    nextcloudModifiedAt: 2026-02-14T10:53:02.000Z
+  - id: cat-nc-74b2c2ae316dd0ce00b77f39
+    nextcloudPath: halina/IMG_4847.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4847.webp
+    nextcloudModifiedAt: 2026-02-14T10:53:02.000Z
+  - id: cat-nc-f7612e0b0301792f2f30a27e
+    nextcloudPath: halina/IMG_4848.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4848.webp
+    nextcloudModifiedAt: 2026-02-14T10:53:03.000Z
+  - id: cat-nc-0df686b0d66e7a6174da036c
+    nextcloudPath: halina/IMG_4849.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4849.webp
+    nextcloudModifiedAt: 2026-02-14T10:53:03.000Z
+  - id: cat-nc-d1d69175d99bcae17c0e7ca1
+    nextcloudPath: halina/IMG_4850.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4850.webp
+    nextcloudModifiedAt: 2026-02-14T10:53:04.000Z
+  - id: cat-nc-aa557589c9baa2e7f20bfa65
+    nextcloudPath: halina/IMG_4851.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4851.webp
+    nextcloudModifiedAt: 2026-02-14T10:53:04.000Z
+  - id: cat-nc-d3a3ec819260f95de83fa77c
+    nextcloudPath: halina/IMG_4852.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4852.webp
+    nextcloudModifiedAt: 2026-02-14T10:56:46.000Z
+  - id: cat-nc-ee350c0049aa7e39824aa7ab
+    nextcloudPath: halina/IMG_4853.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4853.webp
+    nextcloudModifiedAt: 2026-02-14T10:56:48.000Z
+  - id: cat-nc-81554dbc0b271aa3f5687cf5
+    nextcloudPath: halina/IMG_4854.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4854.webp
+    nextcloudModifiedAt: 2026-02-14T10:56:49.000Z
+  - id: cat-nc-1d9e276e4182a64b7681ac2e
+    nextcloudPath: halina/IMG_4858.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4858.webp
+    nextcloudModifiedAt: 2026-02-14T11:06:46.000Z
+  - id: cat-nc-27e17cc9515b0735302033fd
+    nextcloudPath: halina/IMG_4859.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4859.webp
+    nextcloudModifiedAt: 2026-02-14T11:06:47.000Z
+  - id: cat-nc-66ea69d02c38f8c67d9f337d
+    nextcloudPath: halina/IMG_4860.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4860.webp
+    nextcloudModifiedAt: 2026-02-14T11:06:50.000Z
+  - id: cat-nc-9cffb6942c21679ab9c58c8a
+    nextcloudPath: halina/IMG_4871.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4871.webp
+    nextcloudModifiedAt: 2026-02-14T11:32:55.000Z
+  - id: cat-nc-1ead6409711c1e011c09f4f9
+    nextcloudPath: halina/IMG_4872.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4872.webp
+    nextcloudModifiedAt: 2026-02-14T11:32:57.000Z
+  - id: cat-nc-f9fb3123f02d09bf6f35ed74
+    nextcloudPath: halina/IMG_4875.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4875.webp
+    nextcloudModifiedAt: 2026-02-14T11:33:56.000Z
+  - id: cat-nc-2f1544e27d2434abfd730fd1
+    nextcloudPath: halina/IMG_4876.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4876.webp
+    nextcloudModifiedAt: 2026-02-14T11:33:56.000Z
+  - id: cat-nc-a902263bb047891392b54053
+    nextcloudPath: halina/IMG_4878.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4878.webp
+    nextcloudModifiedAt: 2026-02-14T11:34:56.000Z
+  - id: cat-nc-4015642c30173aff7010b85c
+    nextcloudPath: halina/IMG_4887 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4887 (2).webp
+    nextcloudModifiedAt: 2026-02-14T11:40:26.000Z
+  - id: cat-nc-d19808e8f1f868be87ecf4ce
+    nextcloudPath: halina/IMG_4887.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4887.webp
+    nextcloudModifiedAt: 2026-02-14T11:40:26.000Z
+  - id: cat-nc-32fbfee93020bce1a26627c8
+    nextcloudPath: halina/IMG_4888 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4888 (2).webp
+    nextcloudModifiedAt: 2026-02-14T11:40:39.000Z
+  - id: cat-nc-d50ea21101837dd30a6a56b9
+    nextcloudPath: halina/IMG_4888.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4888.webp
+    nextcloudModifiedAt: 2026-02-14T11:40:39.000Z
+  - id: cat-nc-a21ade623f33af07da39e9e8
+    nextcloudPath: halina/IMG_4920 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4920 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:26:27.000Z
+  - id: cat-nc-b222d136d1e58474b4b22d2c
+    nextcloudPath: halina/IMG_4920.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4920.webp
+    nextcloudModifiedAt: 2026-02-14T12:26:27.000Z
+  - id: cat-nc-1cb4e52f07a827611d9826cc
+    nextcloudPath: halina/IMG_4921 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4921 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:26:28.000Z
+  - id: cat-nc-8975240c2b5ecbba2afc3f69
+    nextcloudPath: halina/IMG_4921.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4921.webp
+    nextcloudModifiedAt: 2026-02-14T12:26:28.000Z
+  - id: cat-nc-8bc39c952ba0e3cc5cc99be5
+    nextcloudPath: halina/IMG_4932 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4932 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:50:50.000Z
+  - id: cat-nc-94b2078e02d42065334fce56
+    nextcloudPath: halina/IMG_4932.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4932.webp
+    nextcloudModifiedAt: 2026-02-14T12:50:50.000Z
+  - id: cat-nc-f97b549f717d17eccdc21d49
+    nextcloudPath: halina/IMG_4934 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4934 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:58:07.000Z
+  - id: cat-nc-0b29e7c67f8e10ed08dded6c
+    nextcloudPath: halina/IMG_4934.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4934.webp
+    nextcloudModifiedAt: 2026-02-14T12:58:07.000Z
+  - id: cat-nc-5364903a5d1345b5c2823e1b
+    nextcloudPath: halina/IMG_4935 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4935 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:58:19.000Z
+  - id: cat-nc-7e4782d972cf4fddb8f64286
+    nextcloudPath: halina/IMG_4935.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4935.webp
+    nextcloudModifiedAt: 2026-02-14T12:58:19.000Z
+  - id: cat-nc-b1786a7920c3bf001f3b4e60
+    nextcloudPath: halina/IMG_4936 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4936 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:58:24.000Z
+  - id: cat-nc-acf261ffec6329a92d66bf75
+    nextcloudPath: halina/IMG_4936.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4936.webp
+    nextcloudModifiedAt: 2026-02-14T12:58:24.000Z
+  - id: cat-nc-cbf5058aa5e84451dcfe12ef
+    nextcloudPath: halina/IMG_4937 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4937 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:58:34.000Z
+  - id: cat-nc-1a10e10d6c4d4141751b7db9
+    nextcloudPath: halina/IMG_4937.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4937.webp
+    nextcloudModifiedAt: 2026-02-14T12:58:34.000Z
+  - id: cat-nc-1f2ccec69dc8c602836d7628
+    nextcloudPath: halina/IMG_4938 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4938 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:58:45.000Z
+  - id: cat-nc-bfe4eba321c2f48889a909a6
+    nextcloudPath: halina/IMG_4938.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4938.webp
+    nextcloudModifiedAt: 2026-02-14T12:58:45.000Z
+  - id: cat-nc-5ab530509679f8fc3f622660
+    nextcloudPath: halina/IMG_4939 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4939 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:58:46.000Z
+  - id: cat-nc-12df701b61adb7e815413cfd
+    nextcloudPath: halina/IMG_4939.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4939.webp
+    nextcloudModifiedAt: 2026-02-14T12:58:46.000Z
+  - id: cat-nc-34178712ed78b10d066571cb
+    nextcloudPath: halina/IMG_4940 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4940 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:59:00.000Z
+  - id: cat-nc-af1b041408f099b4bab63ee0
+    nextcloudPath: halina/IMG_4940.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4940.webp
+    nextcloudModifiedAt: 2026-02-14T12:59:00.000Z
+  - id: cat-nc-d63eee2b0565f24a5c78edcc
+    nextcloudPath: halina/IMG_4941 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4941 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:59:03.000Z
+  - id: cat-nc-abaff52321228a2fc628b0cc
+    nextcloudPath: halina/IMG_4941.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4941.webp
+    nextcloudModifiedAt: 2026-02-14T12:59:03.000Z
+  - id: cat-nc-4563cbcb9365d1ffd63a3cfa
+    nextcloudPath: halina/IMG_4942 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4942 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:59:04.000Z
+  - id: cat-nc-a6ec5cc3ebc0e8dc38d4c766
+    nextcloudPath: halina/IMG_4942.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4942.webp
+    nextcloudModifiedAt: 2026-02-14T12:59:04.000Z
+  - id: cat-nc-8bbb2a1cedf6d0dbdc189736
+    nextcloudPath: halina/IMG_4943 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4943 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:59:06.000Z
+  - id: cat-nc-fe9d255c24d1651960aaa4c4
+    nextcloudPath: halina/IMG_4943.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4943.webp
+    nextcloudModifiedAt: 2026-02-14T12:59:06.000Z
+  - id: cat-nc-35377f74ba7e2afa51d93a60
+    nextcloudPath: halina/IMG_4944 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4944 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:59:12.000Z
+  - id: cat-nc-d6ba42549cb4b8877336151d
+    nextcloudPath: halina/IMG_4944.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4944.webp
+    nextcloudModifiedAt: 2026-02-14T12:59:12.000Z
+  - id: cat-nc-aeba1b34819e0b0bddcec609
+    nextcloudPath: halina/IMG_4946 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4946 (2).webp
+    nextcloudModifiedAt: 2026-02-14T12:59:53.000Z
+  - id: cat-nc-aa9bd43ea562912cdd9c10dc
+    nextcloudPath: halina/IMG_4946.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4946.webp
+    nextcloudModifiedAt: 2026-02-14T12:59:53.000Z
+  - id: cat-nc-ddc2df7a461830bc2640d5ac
+    nextcloudPath: halina/IMG_4947 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4947 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:00:00.000Z
+  - id: cat-nc-5c0a6e14bb304a443989c383
+    nextcloudPath: halina/IMG_4947.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4947.webp
+    nextcloudModifiedAt: 2026-02-14T13:00:00.000Z
+  - id: cat-nc-9726dcfda44d87573c9b1ba2
+    nextcloudPath: halina/IMG_4948 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4948 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:00:01.000Z
+  - id: cat-nc-d1a7a1340ad46240475339b3
+    nextcloudPath: halina/IMG_4948.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4948.webp
+    nextcloudModifiedAt: 2026-02-14T13:00:01.000Z
+  - id: cat-nc-685dd2ff328885c6ccacfb31
+    nextcloudPath: halina/IMG_4949 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4949 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:00:07.000Z
+  - id: cat-nc-27cdfe3380a8daf7f7de7f34
+    nextcloudPath: halina/IMG_4949.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4949.webp
+    nextcloudModifiedAt: 2026-02-14T13:00:07.000Z
+  - id: cat-nc-22eaf8e82484602554046ee6
+    nextcloudPath: halina/IMG_4950 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4950 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:00:09.000Z
+  - id: cat-nc-cb17448cd36e300b2b536016
+    nextcloudPath: halina/IMG_4950.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4950.webp
+    nextcloudModifiedAt: 2026-02-14T13:00:09.000Z
+  - id: cat-nc-9e6e957b8d447ff462c11f70
+    nextcloudPath: halina/IMG_4951 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4951 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:02:48.000Z
+  - id: cat-nc-cd8b780295e21e8a9af392d9
+    nextcloudPath: halina/IMG_4951.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4951.webp
+    nextcloudModifiedAt: 2026-02-14T13:02:48.000Z
+  - id: cat-nc-cf5a58b2d619a629493b00a4
+    nextcloudPath: halina/IMG_4952 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4952 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:02:50.000Z
+  - id: cat-nc-3ec72c75bbd3e4e7b5965f22
+    nextcloudPath: halina/IMG_4952.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4952.webp
+    nextcloudModifiedAt: 2026-02-14T13:02:50.000Z
+  - id: cat-nc-82c0e8710686fd08eaa26f16
+    nextcloudPath: halina/IMG_4953 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4953 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:02:51.000Z
+  - id: cat-nc-8ddf543a2d488e444556427f
+    nextcloudPath: halina/IMG_4953.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4953.webp
+    nextcloudModifiedAt: 2026-02-14T13:02:51.000Z
+  - id: cat-nc-ef880d433ebf6df58dfcab8f
+    nextcloudPath: halina/IMG_4954 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4954 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:02:52.000Z
+  - id: cat-nc-59fa237b1cc3a8b9aefb0353
+    nextcloudPath: halina/IMG_4954.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4954.webp
+    nextcloudModifiedAt: 2026-02-14T13:02:52.000Z
+  - id: cat-nc-2bc9214a06d3e14adf9926eb
+    nextcloudPath: halina/IMG_4955 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4955 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:02:56.000Z
+  - id: cat-nc-89f9ee79eaaab313114ddf70
+    nextcloudPath: halina/IMG_4955.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4955.webp
+    nextcloudModifiedAt: 2026-02-14T13:02:56.000Z
+  - id: cat-nc-99a5d3772f061d265a91f5d9
+    nextcloudPath: halina/IMG_4956 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4956 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:02:57.000Z
+  - id: cat-nc-b3a4e7b0b289d030266d2749
+    nextcloudPath: halina/IMG_4956.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4956.webp
+    nextcloudModifiedAt: 2026-02-14T13:02:57.000Z
+  - id: cat-nc-02a41eb2d070b72e0b5c36e8
+    nextcloudPath: halina/IMG_4957 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4957 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:03:42.000Z
+  - id: cat-nc-0506b0541f96ac32616f8c3b
+    nextcloudPath: halina/IMG_4957.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4957.webp
+    nextcloudModifiedAt: 2026-02-14T13:03:42.000Z
+  - id: cat-nc-10ab4ff3c4979f53de32a233
+    nextcloudPath: halina/IMG_4958 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4958 (2).webp
+    nextcloudModifiedAt: 2026-02-14T13:03:43.000Z
+  - id: cat-nc-aa41dcadbe7c70cc74f122d6
+    nextcloudPath: halina/IMG_4958.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4958.webp
+    nextcloudModifiedAt: 2026-02-14T13:03:43.000Z
+  - id: cat-nc-a437571162160bdf08ebb004
+    nextcloudPath: halina/IMG_4967 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4967 (2).webp
+    nextcloudModifiedAt: 2026-02-14T14:31:21.000Z
+  - id: cat-nc-5d23a38877c8e856ce46d88e
+    nextcloudPath: halina/IMG_4967.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4967.webp
+    nextcloudModifiedAt: 2026-02-14T14:31:21.000Z
+  - id: cat-nc-d97c67d7b244b00b3ea12f07
+    nextcloudPath: halina/IMG_4971 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4971 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:02:59.000Z
+  - id: cat-nc-8c169fbd32d7caf145c915f1
+    nextcloudPath: halina/IMG_4971.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4971.webp
+    nextcloudModifiedAt: 2026-02-14T15:02:59.000Z
+  - id: cat-nc-4d837e1bc7a7c8d575bea241
+    nextcloudPath: halina/IMG_4972 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4972 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:03:01.000Z
+  - id: cat-nc-1fbbe024a87f1873e8896f5f
+    nextcloudPath: halina/IMG_4972.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4972.webp
+    nextcloudModifiedAt: 2026-02-14T15:03:01.000Z
+  - id: cat-nc-bc92fbc2859d50053ce3f0fc
+    nextcloudPath: halina/IMG_4973 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4973 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:03:05.000Z
+  - id: cat-nc-1a9203673314feecf1a44f4e
+    nextcloudPath: halina/IMG_4973.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4973.webp
+    nextcloudModifiedAt: 2026-02-14T15:03:05.000Z
+  - id: cat-nc-a656a07f975551635b34278d
+    nextcloudPath: halina/IMG_4975 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4975 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:03:43.000Z
+  - id: cat-nc-397f851ab93c53da9aec0578
+    nextcloudPath: halina/IMG_4975.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4975.webp
+    nextcloudModifiedAt: 2026-02-14T15:03:43.000Z
+  - id: cat-nc-b8ce6d28adf79a771961fed7
+    nextcloudPath: halina/IMG_4976 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4976 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:03:45.000Z
+  - id: cat-nc-20f08c8ca0e8c819aab3bcd6
+    nextcloudPath: halina/IMG_4976.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4976.webp
+    nextcloudModifiedAt: 2026-02-14T15:03:45.000Z
+  - id: cat-nc-51d3aa41e6f9802c34a23c3f
+    nextcloudPath: halina/IMG_4977 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4977 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:03:52.000Z
+  - id: cat-nc-c01d1f7a05ca273d26d93085
+    nextcloudPath: halina/IMG_4977.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4977.webp
+    nextcloudModifiedAt: 2026-02-14T15:03:52.000Z
+  - id: cat-nc-49fc68e2abe6370b314866e6
+    nextcloudPath: halina/IMG_4978 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4978 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:03:52.000Z
+  - id: cat-nc-7eca099029f97b440ada9bab
+    nextcloudPath: halina/IMG_4978.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4978.webp
+    nextcloudModifiedAt: 2026-02-14T15:03:52.000Z
+  - id: cat-nc-a82f9c232b01f2ba84a68b5c
+    nextcloudPath: halina/IMG_4979 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4979 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:03:53.000Z
+  - id: cat-nc-c333a84954243347f1aa37d5
+    nextcloudPath: halina/IMG_4979.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4979.webp
+    nextcloudModifiedAt: 2026-02-14T15:03:53.000Z
+  - id: cat-nc-b320f3696c1712f7fe7c0924
+    nextcloudPath: halina/IMG_4980 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4980 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:04:03.000Z
+  - id: cat-nc-070dce71e554837fb29c0105
+    nextcloudPath: halina/IMG_4980.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4980.webp
+    nextcloudModifiedAt: 2026-02-14T15:04:03.000Z
+  - id: cat-nc-7e980b2001723ded407e6c00
+    nextcloudPath: halina/IMG_4981 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4981 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:04:04.000Z
+  - id: cat-nc-797815c5c0f8ad45cab20e1c
+    nextcloudPath: halina/IMG_4981.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4981.webp
+    nextcloudModifiedAt: 2026-02-14T15:04:04.000Z
+  - id: cat-nc-1005b2da624f8f4fb382e6a8
+    nextcloudPath: halina/IMG_4982 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4982 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:04:05.000Z
+  - id: cat-nc-69f99f6ca6fc0bed20d75326
+    nextcloudPath: halina/IMG_4982.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4982.webp
+    nextcloudModifiedAt: 2026-02-14T15:04:05.000Z
+  - id: cat-nc-62ac4092a14eb4cd8ea76ee6
+    nextcloudPath: halina/IMG_4983 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4983 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:04:18.000Z
+  - id: cat-nc-087dea31bbbc00b3684fbf50
+    nextcloudPath: halina/IMG_4983.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4983.webp
+    nextcloudModifiedAt: 2026-02-14T15:04:18.000Z
+  - id: cat-nc-f868dd5acdbeea66ef142054
+    nextcloudPath: halina/IMG_4984 (2).jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4984 (2).webp
+    nextcloudModifiedAt: 2026-02-14T15:04:19.000Z
+  - id: cat-nc-c52abdd8708d068871a5814b
+    nextcloudPath: halina/IMG_4984.jpeg
+    accepted: true
+    missingFromNextcloud: false
+    src: /images/gallery/full/IMG_4984.webp
+    nextcloudModifiedAt: 2026-02-14T15:04:19.000Z

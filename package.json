@@ -7,7 +7,13 @@
     "build": "npm run optimize-images && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "clean-unused-images": "node scripts/clean-unused-optimized-images.mjs",
+    "clean-unused-images:dry": "node scripts/clean-unused-optimized-images.mjs --dry-run",
+    "list-referenced-images": "node scripts/list-referenced-images.mjs",
+    "list-referenced-images:gallery": "node scripts/list-referenced-images.mjs --gallery-only",
+    "restore-referenced-images": "node scripts/restore-referenced-images-from-git.mjs",
+    "restore-referenced-images:dry": "node scripts/restore-referenced-images-from-git.mjs --dry-run"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",

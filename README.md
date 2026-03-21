@@ -10,6 +10,8 @@ If Source is left as “Deploy from a branch”, GitHub runs Jekyll and the buil
 
 **Lighthouse — cache & image size:** GitHub Pages does not send long-lived `Cache-Control` headers, so “Use efficient cache lifetimes” will show 10m TTL until you add **Cloudflare** in front. See **`docs/notes/cache-headers-github-pages.md`** (in repo root `web/`) for step-by-step Cloudflare Transform Rules. Hero uses AVIF/WebP/JPEG and optimized compression; sponsor logos use WebP where applicable.
 
+**Images (repo size):** Only optimized assets are committed. Put originals in `public/images/assets/` (gitignored), run `npm run optimize-images`, then commit the generated files under `public/images/` (hero, gallery/display, placeholders, full). The script **removes** optimized files that are no longer referenced from `src/` (including **`src/data/gallery.manifest.yaml`**); use `npm run optimize-images -- --no-prune` to skip. Gallery data lives in **`gallery.manifest.yaml`** (not hand-edited `gallery.ts` arrays). Before push after adding new photos, run `npm run optimize-images` so the repo never contains original JPEGs. Full notes: **`docs/notes/image-optimization-workflow.md`** in the parent **`web/`** project folder (not inside this git repo).
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
