@@ -5,17 +5,20 @@
  * - Gallery assets: generate WebP only (display 800w, placeholder 40w, full 1600w for "open in new tab").
  *   WebP at quality 95 is visually lossless and much smaller than JPEG; all outputs stay under GitHub limits.
  * Run before build: npm run optimize-images
+ * After generating outputs, removes files under public/images/ that are not referenced
+ * from src/ (including gallery.manifest.yaml), unless you pass --no-prune.
  */
-import sharp from 'sharp';
-import { readdir, mkdir } from 'fs/promises';
-import { existsSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { readHeroCarouselSlides } from './read-gallery-manifest-hero.mjs';
+import sharp from "sharp";
+import { readdir, mkdir } from "fs/promises";
+import { existsSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+import { readHeroCarouselSlides } from "./read-gallery-manifest-hero.mjs";
+import { pruneUnusedOptimizedImages } from "./clean-unused-optimized-images.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const siteRoot = join(__dirname, '..');
-const publicDir = join(siteRoot, 'public', 'images');
+const siteRoot = join(__dirname, "..");
+const publicDir = join(siteRoot, "public", "images");
 
 const progressiveJpeg = { progressive: true, mozjpeg: true };
 const WEBP_DISPLAY = { quality: 95, effort: 4 };
@@ -26,7 +29,7 @@ const FULL_MAX_WIDTH = 1600;
 const HERO_MAX_LONG_EDGE = 2400;
 
 function baseName(file) {
-  return file.replace(/\.(jpe?g|webp)$/i, '');
+  return file.replace(/\.(jpe?g|webp)$/i, "");
 }
 
 async function ensureDir(p) {
@@ -34,17 +37,17 @@ async function ensureDir(p) {
 }
 
 async function main() {
-  console.log('Optimizing images…');
+  console.log("Optimizing images…");
 
   // 1. Hero carousel: 4 images → hero/carousel-1.* … carousel-4.* (sources from gallery.manifest.yaml)
-  const assetsDir = join(publicDir, 'assets');
-  const heroCarouselDir = join(assetsDir, 'base');
+  const assetsDir = join(publicDir, "assets");
+  const heroCarouselDir = join(assetsDir, "base");
   const heroSlides = readHeroCarouselSlides(siteRoot);
   const heroCarouselEntries = heroSlides.map((s) => ({
-    dir: s.source === 'base' ? heroCarouselDir : assetsDir,
+    dir: s.source === "base" ? heroCarouselDir : assetsDir,
     name: s.filename,
   }));
-  const heroDir = join(publicDir, 'hero');
+  const heroDir = join(publicDir, "hero");
   await ensureDir(heroDir);
   for (let i = 0; i < heroCarouselEntries.length; i++) {
     const { dir: srcDir, name } = heroCarouselEntries[i];
@@ -53,7 +56,8 @@ async function main() {
     const heroPath = join(heroDir, `${prefix}.jpg`);
     const heroWebpPath = join(heroDir, `${prefix}.webp`);
     const heroAvifPath = join(heroDir, `${prefix}.avif`);
-    const relLabel = srcDir === heroCarouselDir ? 'assets/base/' + name : 'assets/' + name;
+    const relLabel =
+      srcDir === heroCarouselDir ? "assets/base/" + name : "assets/" + name;
     try {
       const pipeline = sharp(srcPath, { failOnError: false });
       const heroMeta = await pipeline.metadata();
@@ -62,21 +66,42 @@ async function main() {
       const scale = Math.min(1, HERO_MAX_LONG_EDGE / Math.max(w, h));
       const targetW = Math.round(w * scale);
       const targetH = Math.round(h * scale);
-      const resize = { width: targetW, height: targetH, fit: 'inside' };
-      const resizePipeline = sharp(srcPath, { failOnError: false }).rotate().resize(resize);
-      await resizePipeline.clone().jpeg({ ...progressiveJpeg, quality: 80 }).toFile(heroPath);
-      await resizePipeline.clone().webp({ quality: 75, effort: 4 }).toFile(heroWebpPath);
-      await resizePipeline.clone().avif({ quality: 60, effort: 4 }).toFile(heroAvifPath);
-      console.log('  hero carousel ' + (i + 1) + ': ' + relLabel + ' → ' + targetW + '×' + targetH + ' (.avif + .webp + .jpg)');
+      const resize = { width: targetW, height: targetH, fit: "inside" };
+      const resizePipeline = sharp(srcPath, { failOnError: false })
+        .rotate()
+        .resize(resize);
+      await resizePipeline
+        .clone()
+        .jpeg({ ...progressiveJpeg, quality: 80 })
+        .toFile(heroPath);
+      await resizePipeline
+        .clone()
+        .webp({ quality: 75, effort: 4 })
+        .toFile(heroWebpPath);
+      await resizePipeline
+        .clone()
+        .avif({ quality: 60, effort: 4 })
+        .toFile(heroAvifPath);
+      console.log(
+        "  hero carousel " +
+          (i + 1) +
+          ": " +
+          relLabel +
+          " → " +
+          targetW +
+          "×" +
+          targetH +
+          " (.avif + .webp + .jpg)"
+      );
     } catch (e) {
-      console.warn('  hero carousel ' + (i + 1) + ':', e.message);
+      console.warn("  hero carousel " + (i + 1) + ":", e.message);
     }
   }
 
   // 2. Gallery: WebP display (800w), placeholders (40w), full (1600w) — all for repo + progressive load
-  const displayDir = join(publicDir, 'gallery', 'display');
-  const placeholdersDir = join(publicDir, 'gallery', 'placeholders');
-  const fullDir = join(publicDir, 'gallery', 'full');
+  const displayDir = join(publicDir, "gallery", "display");
+  const placeholdersDir = join(publicDir, "gallery", "placeholders");
+  const fullDir = join(publicDir, "gallery", "full");
   await ensureDir(displayDir);
   await ensureDir(placeholdersDir);
   await ensureDir(fullDir);
@@ -86,7 +111,7 @@ async function main() {
   try {
     files = (await readdir(assetsDir))
       .filter((f) => /\.(jpe?g|webp)$/i.test(f))
-      .filter((f) => f !== 'base'); // exclude 'base' if it's listed as a file (should be a dir)
+      .filter((f) => f !== "base"); // exclude 'base' if it's listed as a file (should be a dir)
   } catch {
     // no assets
   }
@@ -120,26 +145,35 @@ async function main() {
         .webp(WEBP_FULL)
         .toFile(fullPath);
 
-      console.log(' ', file, '→ display + placeholder + full (.webp)');
+      console.log(" ", file, "→ display + placeholder + full (.webp)");
     } catch (e) {
-      console.warn('  ', file, e.message);
+      console.warn("  ", file, e.message);
     }
   }
 
   // 3. Sponsors: convert cataj.png to WebP for smaller transfer (Lighthouse)
-  const sponsorsDir = join(publicDir, 'sponsors');
-  const catajPng = join(sponsorsDir, 'cataj.png');
-  const catajWebp = join(sponsorsDir, 'cataj.webp');
+  const sponsorsDir = join(publicDir, "sponsors");
+  const catajPng = join(sponsorsDir, "cataj.png");
+  const catajWebp = join(sponsorsDir, "cataj.webp");
   try {
     if (existsSync(catajPng)) {
       await sharp(catajPng).webp({ quality: 90, effort: 4 }).toFile(catajWebp);
-      console.log('  sponsors: cataj.png → cataj.webp');
+      console.log("  sponsors: cataj.png → cataj.webp");
     }
   } catch (e) {
-    console.warn('  sponsors cataj:', e.message);
+    console.warn("  sponsors cataj:", e.message);
   }
 
-  console.log('Done.');
+  if (!process.argv.includes("--no-prune")) {
+    const { removed } = pruneUnusedOptimizedImages(siteRoot, { dryRun: false });
+    if (removed > 0) {
+      console.log(
+        `  Pruned ${removed} file(s) not referenced in src/ (manifest + code).`,
+      );
+    }
+  }
+
+  console.log("Done.");
 }
 
 main().catch((e) => {

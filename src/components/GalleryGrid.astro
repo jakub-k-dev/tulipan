@@ -10,33 +10,46 @@ interface Props {
   siteBase: string;
   /** When true, render only the photo buttons (no wrapper div, no lightbox). Parent must provide grid and lightbox. */
   itemsOnly?: boolean;
+  /** When true with itemsOnly, parent is a grid: use col-span-2 for landscape (not column-span). */
+  inGrid?: boolean;
+  /** When true, no bottom margin on cards (for gapless masonry). */
+  compact?: boolean;
 }
 
-const { images, locale, siteBase, itemsOnly = false } = Astro.props;
+const { images, locale, siteBase, itemsOnly = false, inGrid = false, compact = false } = Astro.props;
+
+function galleryCardClasses(img: GalleryImage, inGridLayout: boolean, noGap: boolean): string {
+  const base = 'gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0' + (noGap ? ' rounded-none' : ' rounded-xl');
+  const gap = inGridLayout ? '' : noGap ? ' break-inside-avoid' : ' break-inside-avoid mb-4';
+  return base + gap;
+}
+
+function galleryImgClasses(): string {
+  return 'w-full h-auto block pointer-events-none';
+}
 ---
 
+{/* Card: wide images span 2 columns (larger), tall images capped height (not huge). */}
 {itemsOnly ? (
-  <>
-    {images.map((img) => {
-      const displaySrc = galleryDisplaySrc(img);
-      const alt = locale === 'sk' ? img.altSk : img.altEn;
-      const fullSrc = siteBase ? siteBase + img.src : img.src;
-      return (
-        <button
-          type="button"
-          class="gallery-card block w-full rounded-xl overflow-hidden aspect-[4/3] bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0"
-          data-lightbox-src={fullSrc}
-          data-lightbox-alt={alt}
-          title={alt}
-        >
-          <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class="w-full h-full object-cover pointer-events-none" style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
-        </button>
-      );
-    })}
-  </>
+  images.map((img) => {
+    const displaySrc = galleryDisplaySrc(img);
+    const alt = locale === 'sk' ? img.altSk : img.altEn;
+    const fullSrc = siteBase ? siteBase + img.src : img.src;
+    return (
+      <button
+        type="button"
+        class={galleryCardClasses(img, itemsOnly && inGrid, compact)}
+        data-lightbox-src={fullSrc}
+        data-lightbox-alt={alt}
+        title={alt}
+      >
+        <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class={galleryImgClasses()} style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
+      </button>
+    );
+  })
 ) : (
   <>
-    <div data-lightbox-container class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div data-lightbox-container class="columns-1 sm:columns-2 lg:columns-4 [column-gap:1rem]">
       {images.map((img) => {
         const displaySrc = galleryDisplaySrc(img);
         const alt = locale === 'sk' ? img.altSk : img.altEn;
@@ -44,12 +57,12 @@ const { images, locale, siteBase, itemsOnly = false } = Astro.props;
         return (
           <button
             type="button"
-            class="gallery-card block w-full rounded-xl overflow-hidden aspect-[4/3] bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0"
+            class={galleryCardClasses(img, itemsOnly && inGrid, compact)}
             data-lightbox-src={fullSrc}
             data-lightbox-alt={alt}
             title={alt}
           >
-            <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class="w-full h-full object-cover pointer-events-none" style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
+            <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class={galleryImgClasses()} style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
           </button>
         );
       })}

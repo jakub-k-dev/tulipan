@@ -1,20 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageTextileHero from '../components/PageTextileHero.astro';
+import GalleryContent from '../components/GalleryContent.astro';
 import { tGallery, tSite } from '../data/translations';
+import { galleryVisible } from '../data/gallery';
 
 const locale = 'sk';
 const t = tGallery(locale);
 const siteT = tSite(locale);
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
 ---
 
 <BaseLayout title={t.title} description={t.placeholder} locale={locale} current="gallery">
-  <PageTextileHero title={t.title} />
-  <div class="bg-textile-cream">
-    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
-      <div class="max-w-2xl pl-4 border-l-4 border-textile-gold text-heritage-charcoal leading-relaxed font-medium">
-        <p>{siteT.constructionMessage}</p>
+  {galleryVisible ? (
+    <GalleryContent locale={locale} siteBase={siteBase} />
+  ) : (
+    <div class="z-10 bg-textile-cream page-content-fill">
+      <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+        <section class="rounded-xl border-2 border-textile-gold/50 bg-heritage-charcoal/5 px-6 py-6 md:px-8 md:py-8 max-w-3xl" aria-label={locale === 'sk' ? 'Oznámenie' : 'Notice'}>
+          <p class="text-heritage-charcoal leading-relaxed font-medium">{siteT.constructionMessage}</p>
+        </section>
       </div>
     </div>
-  </div>
+  )}
 </BaseLayout>

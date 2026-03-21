@@ -1,9 +1,6 @@
-# Gallery + hero carousel — single source of truth (edit here; see gallery-manifest.ts schema).
-# Stable `id` values: keep when renaming files or moving entries so tooling and audit logs stay consistent.
-
 version: 1
-galleryVisible: false
-
+galleryVisible: true
+manifestEditorNote: Gallery + catalogue cleared 2026-03-20 — restore from backup to recover content.
 heroCarousel:
   slides:
     - id: hero-cal-3
@@ -15,279 +12,1738 @@ heroCarousel:
     - id: hero-cal-1
       source: base
       filename: folkloristikalendar 1.jpg
-    - id: hero-mff-main
-      source: assets
-      filename: 20250621_193100.jpg
-
+    - id: hero-cal-1-repeat
+      source: base
+      filename: folkloristikalendar 1.jpg
 imageGroups:
   - id: optimized-assets
     images:
-      - id: img-20250614-171732-c2
-        src: /images/gallery/full/20250614_171732_cropped_2.webp
-        altSk: Skupinová fotka — Folklórna skupina Tulipán Čataj, Deň obce 2025
-        altEn: Group photo — Tulipan folklore group, Čataj Village Day 2025
-        width: 800
-        height: 422
-        date: "2025-06-14"
-      - id: img-20250614-172136
-        src: /images/gallery/full/20250614_172136.webp
-        altSk: Tulipán, 14. jún 2025
-        altEn: Tulipan, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-172158
-        src: /images/gallery/full/20250614_172158.webp
-        altSk: Vystúpenie Tulipán, 14. jún 2025
-        altEn: Tulipan performance, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-172320
-        src: /images/gallery/full/20250614_172320.webp
-        altSk: Folklórna skupina Tulipán Čataj, 14. jún 2025
-        altEn: Tulipan folklore group, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-172702
-        src: /images/gallery/full/20250614_172702.webp
-        altSk: Tulipán na podujatí, 14. jún 2025
-        altEn: Tulipan at event, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-172717
-        src: /images/gallery/full/20250614_172717.webp
-        altSk: Podujatie — Tulipán, 14. jún 2025
-        altEn: Event — Tulipan, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-175049
-        src: /images/gallery/full/20250614_175049.webp
-        altSk: Tulipán — Deň obce, 14. jún 2025
-        altEn: Tulipan — Village Day, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250614-175055
-        src: /images/gallery/full/20250614_175055.webp
-        altSk: Tulipán na Dni obce Čataj, 14. jún 2025
-        altEn: Tulipan at Čataj Village Day, 14 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-14"
-      - id: img-20250621-193100
-        src: /images/gallery/full/20250621_193100.webp
-        altSk: Folklórna skupina Tulipán Čataj, 21. jún 2025
-        altEn: Tulipan folklore group, 21 June 2025
-        width: 800
-        height: 600
-        date: "2025-06-21"
-      - id: img-20250621-193255
-        src: /images/gallery/full/20250621_193255.webp
-        altSk: Vystúpenie Tulipán, 21. jún 2025
-        altEn: Tulipan performance, 21 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-21"
-      - id: img-20250621-193334
-        src: /images/gallery/full/20250621_193334.webp
-        altSk: Tulipán na MFF Myjava, 21. jún 2025
-        altEn: Tulipan at MFF Myjava, 21 June 2025
-        width: 800
-        height: 1067
-        date: "2025-06-21"
-      - id: img-20250621-201855-c
-        src: "/images/gallery/full/20250621_201855 cropped.webp"
-        altSk: Skupinová fotka — Tulipán, MFF Myjava 2025
-        altEn: Group photo — Tulipan, MFF Myjava 2025
-        width: 800
-        height: 597
-        date: "2025-06-21"
-
-  - id: legacy
-    images:
-      - id: img-legacy-group
-        src: /images/gallery/group-photo.png
-        altSk: Členovia Folklórnej skupiny Tulipán Čataj
-        altEn: Tulipan folklore group members
-        width: 800
-        height: 600
-      - id: img-legacy-leto
-        src: /images/gallery/tulipan-leto.png
-        altSk: Tulipán v lete
-        altEn: Tulipan in summer
-        width: 800
-        height: 600
-      - id: img-legacy-e1
-        src: /images/gallery/event-1.png
-        altSk: Podujatie — Folklórna skupina Tulipán Čataj
-        altEn: Event — Tulipan folklore group
-        width: 800
-        height: 600
-      - id: img-legacy-e2
-        src: /images/gallery/event-2.png
-        altSk: Podujatie — Tulipán
-        altEn: Event — Tulipan
-        width: 800
-        height: 600
-      - id: img-legacy-e3
-        src: /images/gallery/event-3.png
-        altSk: Vystúpenie Tulipán
-        altEn: Tulipan performance
-        width: 800
-        height: 600
-      - id: img-legacy-e5
-        src: /images/gallery/event-5.png
-        altSk: Tulipán na podujatí
-        altEn: Tulipan at event
-        width: 800
-        height: 600
-      - id: img-legacy-e6
-        src: /images/gallery/event-6.png
-        altSk: Tulipán — vystúpenie
-        altEn: Tulipan performance
-        width: 800
-        height: 600
-
-  - id: demo-placeholders
-    images:
-      - id: demo-ar-16-9
-        src: /images/gallery/demo/ar-16-9.svg
-        altSk: "Ukážka 16∶9"
-        altEn: "Sample 16∶9"
-        width: 800
-        height: 450
-      - id: demo-ar-4-3
-        src: /images/gallery/demo/ar-4-3.svg
-        altSk: "Ukážka 4∶3"
-        altEn: "Sample 4∶3"
-        width: 800
-        height: 600
-      - id: demo-ar-3-2
-        src: /images/gallery/demo/ar-3-2.svg
-        altSk: "Ukážka 3∶2"
-        altEn: "Sample 3∶2"
-        width: 800
-        height: 533
-      - id: demo-ar-1-1
-        src: /images/gallery/demo/ar-1-1.svg
-        altSk: "Ukážka 1∶1"
-        altEn: "Sample 1∶1"
-        width: 800
-        height: 800
-      - id: demo-ar-3-4
-        src: /images/gallery/demo/ar-3-4.svg
-        altSk: "Ukážka 3∶4"
-        altEn: "Sample 3∶4"
-        width: 600
-        height: 800
-      - id: demo-ar-2-3
-        src: /images/gallery/demo/ar-2-3.svg
-        altSk: "Ukážka 2∶3"
-        altEn: "Sample 2∶3"
-        width: 533
-        height: 800
-      - id: demo-ar-9-16
-        src: /images/gallery/demo/ar-9-16.svg
-        altSk: "Ukážka 9∶16"
-        altEn: "Sample 9∶16"
-        width: 450
-        height: 800
-      - id: demo-ar-4-5
-        src: /images/gallery/demo/ar-4-5.svg
-        altSk: "Ukážka 4∶5"
-        altEn: "Sample 4∶5"
-        width: 640
-        height: 800
-      - id: demo-ar-5-4
-        src: /images/gallery/demo/ar-5-4.svg
-        altSk: "Ukážka 5∶4"
-        altEn: "Sample 5∶4"
-        width: 800
-        height: 640
-      - id: demo-ar-21-9
-        src: /images/gallery/demo/ar-21-9.svg
-        altSk: "Ukážka 21∶9"
-        altEn: "Sample 21∶9"
-        width: 800
-        height: 343
-
-events:
-  - id: evt-fasiangy-2026
-    slug: fasiangy-2026
-    draft: true
-    date: "2026-02-14"
-    titleSk: Fašiangy 2026
-    titleEn: Fašiangy 2026
-    imageSrcs:
-      - /images/gallery/event-1.png
-      - /images/gallery/event-2.png
-      - /images/gallery/event-3.png
-      - /images/gallery/event-5.png
-      - /images/gallery/event-6.png
-
-  - id: evt-mff-myjava-2025
-    slug: "2025-06-21"
-    draft: false
-    date: "2025-06-21"
-    titleSk: MFF Myjava
-    titleEn: MFF Myjava
-    placeSk: Myjava
-    placeEn: Myjava
-    descriptionSk: Medzinárodný folklórny festival.
-    descriptionEn: International folklore festival.
-    videoUrl: https://www.youtube.com/live/7BTgjTSTqwk
-    videoStartSeconds: 585
-    videoEndSeconds: 938
-    imageSrcs:
-      - /images/gallery/full/20250621_193100.webp
-      - /images/gallery/full/20250621_193255.webp
-      - /images/gallery/full/20250621_193334.webp
-      - "/images/gallery/full/20250621_201855 cropped.webp"
-
-  - id: evt-den-obce-2025
-    slug: "2025-06-14"
-    draft: false
-    date: "2025-06-14"
-    titleSk: Deň obce Čataj
-    titleEn: Čataj Village Day
-    placeSk: Čataj
-    placeEn: Čataj
-    descriptionSk: Deň obce — vystúpenie folklórnej skupiny.
-    descriptionEn: Village day — folklore group performance.
-    imageSrcs:
-      - /images/gallery/full/20250614_171732_cropped_2.webp
-      - /images/gallery/full/20250614_172136.webp
-      - /images/gallery/full/20250614_172158.webp
-      - /images/gallery/full/20250614_172320.webp
-      - /images/gallery/full/20250614_172702.webp
-      - /images/gallery/full/20250614_172717.webp
-      - /images/gallery/full/20250614_175049.webp
-      - /images/gallery/full/20250614_175055.webp
-
-  - id: evt-demo-50-aspect-ratios
-    slug: demo-50-aspect-ratios
-    draft: false
-    date: "2025-01-15"
-    titleSk: Ukážka 50 fotiek (rôzne pomery strán)
-    titleEn: "Demo: 50 photos (mixed aspect ratios)"
-    placeSk: Testovací album
-    placeEn: Test album
-    descriptionSk: Placeholdery s 10 rôznymi pomermi strán, zopakované v náhodnom poradí. Max 50 fotiek na podujatie.
-    descriptionEn: Placeholders with 10 aspect ratios, repeated in random order. Max 50 photos per event.
-    demoAspectSrcs:
-      - /images/gallery/demo/ar-16-9.svg
-      - /images/gallery/demo/ar-1-1.svg
-      - /images/gallery/demo/ar-9-16.svg
-      - /images/gallery/demo/ar-4-3.svg
-      - /images/gallery/demo/ar-2-3.svg
-      - /images/gallery/demo/ar-21-9.svg
-      - /images/gallery/demo/ar-3-4.svg
-      - /images/gallery/demo/ar-3-2.svg
-      - /images/gallery/demo/ar-5-4.svg
-      - /images/gallery/demo/ar-4-5.svg
-    demoRepeatCount: 5
-    demoHighlightIndices: [0, 3]
+      - id: img-1774047328214-0
+        src: /images/gallery/full/IMG_4778.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774047328216-1
+        src: /images/gallery/full/IMG_4802.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774047328217-2
+        src: /images/gallery/full/IMG_3282.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774047328218-3
+        src: /images/gallery/full/IMG_3290.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1804
+      - id: img-1774047328220-4
+        src: /images/gallery/full/IMG_3291.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1763
+      - id: img-1774051977490-0
+        src: /images/gallery/full/IMG_4809.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977493-1
+        src: /images/gallery/full/IMG_4813.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977496-2
+        src: /images/gallery/full/IMG_4814.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977498-3
+        src: /images/gallery/full/IMG_4815.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977501-4
+        src: /images/gallery/full/IMG_4816.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977503-5
+        src: /images/gallery/full/IMG_4817.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977506-6
+        src: /images/gallery/full/IMG_4818.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977509-7
+        src: /images/gallery/full/IMG_4819.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977512-8
+        src: /images/gallery/full/IMG_4823.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977513-9
+        src: /images/gallery/full/IMG_4824.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977515-10
+        src: /images/gallery/full/IMG_4825.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977518-11
+        src: /images/gallery/full/IMG_4828.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977521-12
+        src: /images/gallery/full/IMG_4829.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977523-13
+        src: /images/gallery/full/IMG_4832.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977526-14
+        src: /images/gallery/full/IMG_4833.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977529-15
+        src: /images/gallery/full/IMG_4834.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977532-16
+        src: /images/gallery/full/IMG_4835.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977534-17
+        src: /images/gallery/full/IMG_4836.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977537-18
+        src: /images/gallery/full/IMG_4837.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977539-19
+        src: /images/gallery/full/IMG_4842.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977541-20
+        src: /images/gallery/full/IMG_4843.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977544-21
+        src: /images/gallery/full/IMG_4844.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977546-22
+        src: /images/gallery/full/IMG_4845.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977548-23
+        src: /images/gallery/full/IMG_4846.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977551-24
+        src: /images/gallery/full/IMG_4847.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977553-25
+        src: /images/gallery/full/IMG_4848.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977555-26
+        src: /images/gallery/full/IMG_4849.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977558-27
+        src: /images/gallery/full/IMG_4850.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977561-28
+        src: /images/gallery/full/IMG_4851.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977563-29
+        src: /images/gallery/full/IMG_4852.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977566-30
+        src: /images/gallery/full/IMG_4853.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977568-31
+        src: /images/gallery/full/IMG_4854.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977570-32
+        src: /images/gallery/full/IMG_4858.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977572-33
+        src: /images/gallery/full/IMG_4859.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977574-34
+        src: /images/gallery/full/IMG_4860.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977576-35
+        src: /images/gallery/full/IMG_4871.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977578-36
+        src: /images/gallery/full/IMG_4872.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977580-37
+        src: /images/gallery/full/IMG_4875.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977582-38
+        src: /images/gallery/full/IMG_4876.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977585-39
+        src: /images/gallery/full/IMG_4878.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977587-40
+        src: /images/gallery/full/IMG_4887 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977589-41
+        src: /images/gallery/full/IMG_4887.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977591-42
+        src: /images/gallery/full/IMG_4888 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977594-43
+        src: /images/gallery/full/IMG_4888.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977596-44
+        src: /images/gallery/full/IMG_4920 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977599-45
+        src: /images/gallery/full/IMG_4920.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977602-46
+        src: /images/gallery/full/IMG_4921 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977604-47
+        src: /images/gallery/full/IMG_4921.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977606-48
+        src: /images/gallery/full/IMG_4932 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977609-49
+        src: /images/gallery/full/IMG_4932.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977611-50
+        src: /images/gallery/full/IMG_4934 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977613-51
+        src: /images/gallery/full/IMG_4934.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977615-52
+        src: /images/gallery/full/IMG_4935 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977617-53
+        src: /images/gallery/full/IMG_4935.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977620-54
+        src: /images/gallery/full/IMG_4936 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977622-55
+        src: /images/gallery/full/IMG_4936.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977624-56
+        src: /images/gallery/full/IMG_4937 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977627-57
+        src: /images/gallery/full/IMG_4937.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977629-58
+        src: /images/gallery/full/IMG_4938 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977632-59
+        src: /images/gallery/full/IMG_4938.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977634-60
+        src: /images/gallery/full/IMG_4939 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977637-61
+        src: /images/gallery/full/IMG_4939.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977639-62
+        src: /images/gallery/full/IMG_4940 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977642-63
+        src: /images/gallery/full/IMG_4940.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977644-64
+        src: /images/gallery/full/IMG_4941 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977647-65
+        src: /images/gallery/full/IMG_4941.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977648-66
+        src: /images/gallery/full/IMG_4942 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977651-67
+        src: /images/gallery/full/IMG_4942.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977653-68
+        src: /images/gallery/full/IMG_4943 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977657-69
+        src: /images/gallery/full/IMG_4943.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977659-70
+        src: /images/gallery/full/IMG_4944 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977662-71
+        src: /images/gallery/full/IMG_4944.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977664-72
+        src: /images/gallery/full/IMG_4946 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977666-73
+        src: /images/gallery/full/IMG_4946.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977668-74
+        src: /images/gallery/full/IMG_4947 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977671-75
+        src: /images/gallery/full/IMG_4947.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977673-76
+        src: /images/gallery/full/IMG_4948 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977675-77
+        src: /images/gallery/full/IMG_4948.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977677-78
+        src: /images/gallery/full/IMG_4949 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977679-79
+        src: /images/gallery/full/IMG_4949.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977682-80
+        src: /images/gallery/full/IMG_4950 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977684-81
+        src: /images/gallery/full/IMG_4950.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977688-82
+        src: /images/gallery/full/IMG_4951 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977690-83
+        src: /images/gallery/full/IMG_4951.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977693-84
+        src: /images/gallery/full/IMG_4952 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977696-85
+        src: /images/gallery/full/IMG_4952.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977698-86
+        src: /images/gallery/full/IMG_4953 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977701-87
+        src: /images/gallery/full/IMG_4953.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977703-88
+        src: /images/gallery/full/IMG_4954 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977706-89
+        src: /images/gallery/full/IMG_4954.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977708-90
+        src: /images/gallery/full/IMG_4955 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977711-91
+        src: /images/gallery/full/IMG_4955.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977713-92
+        src: /images/gallery/full/IMG_4956 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977715-93
+        src: /images/gallery/full/IMG_4956.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977718-94
+        src: /images/gallery/full/IMG_4957 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977720-95
+        src: /images/gallery/full/IMG_4957.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977722-96
+        src: /images/gallery/full/IMG_4958 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977725-97
+        src: /images/gallery/full/IMG_4958.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977727-98
+        src: /images/gallery/full/IMG_4967 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977729-99
+        src: /images/gallery/full/IMG_4967.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977732-100
+        src: /images/gallery/full/IMG_4971 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977734-101
+        src: /images/gallery/full/IMG_4971.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977736-102
+        src: /images/gallery/full/IMG_4972 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977739-103
+        src: /images/gallery/full/IMG_4972.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977741-104
+        src: /images/gallery/full/IMG_4973 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977745-105
+        src: /images/gallery/full/IMG_4973.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977748-106
+        src: /images/gallery/full/IMG_4975 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977750-107
+        src: /images/gallery/full/IMG_4975.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977753-108
+        src: /images/gallery/full/IMG_4976 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977755-109
+        src: /images/gallery/full/IMG_4976.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977757-110
+        src: /images/gallery/full/IMG_4977 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977760-111
+        src: /images/gallery/full/IMG_4977.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977762-112
+        src: /images/gallery/full/IMG_4978 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977764-113
+        src: /images/gallery/full/IMG_4978.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977766-114
+        src: /images/gallery/full/IMG_4979 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977767-115
+        src: /images/gallery/full/IMG_4979.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977769-116
+        src: /images/gallery/full/IMG_4980 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977771-117
+        src: /images/gallery/full/IMG_4980.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977773-118
+        src: /images/gallery/full/IMG_4981 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977774-119
+        src: /images/gallery/full/IMG_4981.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977776-120
+        src: /images/gallery/full/IMG_4982 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977778-121
+        src: /images/gallery/full/IMG_4982.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977780-122
+        src: /images/gallery/full/IMG_4983 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977782-123
+        src: /images/gallery/full/IMG_4983.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977786-124
+        src: /images/gallery/full/IMG_4984 (2).webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977789-125
+        src: /images/gallery/full/IMG_4984.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2844
+      - id: img-1774051977792-126
+        src: /images/gallery/full/IMG_3292.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2101
+      - id: img-1774051977795-127
+        src: /images/gallery/full/IMG_3296.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977797-128
+        src: /images/gallery/full/IMG_3298.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977799-129
+        src: /images/gallery/full/IMG_3302.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977801-130
+        src: /images/gallery/full/IMG_3303.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1924
+      - id: img-1774051977804-131
+        src: /images/gallery/full/IMG_3308.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977805-132
+        src: /images/gallery/full/IMG_3311.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977807-133
+        src: /images/gallery/full/IMG_3317.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1874
+      - id: img-1774051977809-134
+        src: /images/gallery/full/IMG_3318.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977812-135
+        src: /images/gallery/full/IMG_3319.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977814-136
+        src: /images/gallery/full/IMG_3321.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1710
+      - id: img-1774051977817-137
+        src: /images/gallery/full/IMG_3322.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977818-138
+        src: /images/gallery/full/IMG_3324.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977820-139
+        src: /images/gallery/full/IMG_3325.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977821-140
+        src: /images/gallery/full/IMG_3328.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977823-141
+        src: /images/gallery/full/IMG_3335.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977825-142
+        src: /images/gallery/full/IMG_3339.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2201
+      - id: img-1774051977827-143
+        src: /images/gallery/full/IMG_3340.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2031
+      - id: img-1774051977828-144
+        src: /images/gallery/full/IMG_3341.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977830-145
+        src: /images/gallery/full/IMG_3344.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977832-146
+        src: /images/gallery/full/IMG_3346.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977834-147
+        src: /images/gallery/full/IMG_3347.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977835-148
+        src: /images/gallery/full/IMG_3348.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977837-149
+        src: /images/gallery/full/IMG_3353.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977838-150
+        src: /images/gallery/full/IMG_3358.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977840-151
+        src: /images/gallery/full/IMG_3362.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977841-152
+        src: /images/gallery/full/IMG_3365.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977843-153
+        src: /images/gallery/full/IMG_3366.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977845-154
+        src: /images/gallery/full/IMG_3368.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977846-155
+        src: /images/gallery/full/IMG_3370.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977848-156
+        src: /images/gallery/full/IMG_3372.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2182
+      - id: img-1774051977849-157
+        src: /images/gallery/full/IMG_3374.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2093
+      - id: img-1774051977851-158
+        src: /images/gallery/full/IMG_3377.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977853-159
+        src: /images/gallery/full/IMG_3380.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977854-160
+        src: /images/gallery/full/IMG_3383.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977856-161
+        src: /images/gallery/full/IMG_3389.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977858-162
+        src: /images/gallery/full/IMG_3391.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977860-163
+        src: /images/gallery/full/IMG_3396.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774051977861-164
+        src: /images/gallery/full/IMG_3398.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1604
+      - id: img-1774051977863-165
+        src: /images/gallery/full/IMG_3399.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774051977865-166
+        src: /images/gallery/full/IMG_3403.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977867-167
+        src: /images/gallery/full/IMG_2188.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977868-168
+        src: /images/gallery/full/IMG_2189.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977870-169
+        src: /images/gallery/full/IMG_2190.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977871-170
+        src: /images/gallery/full/IMG_2191.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977874-171
+        src: /images/gallery/full/IMG_2192.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977876-172
+        src: /images/gallery/full/IMG_2193.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977877-173
+        src: /images/gallery/full/IMG_2194.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977879-174
+        src: /images/gallery/full/IMG_2195.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977881-175
+        src: /images/gallery/full/IMG_2196.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977883-176
+        src: /images/gallery/full/IMG_2199.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977885-177
+        src: /images/gallery/full/IMG_2200.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977887-178
+        src: /images/gallery/full/IMG_2201.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977888-179
+        src: /images/gallery/full/IMG_2202.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977890-180
+        src: /images/gallery/full/IMG_2203.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977891-181
+        src: /images/gallery/full/IMG_2204.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977894-182
+        src: /images/gallery/full/IMG_2205.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977896-183
+        src: /images/gallery/full/IMG_2206.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977898-184
+        src: /images/gallery/full/IMG_2207.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977899-185
+        src: /images/gallery/full/IMG_2208.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977901-186
+        src: /images/gallery/full/IMG_2209.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977903-187
+        src: /images/gallery/full/IMG_2210.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977905-188
+        src: /images/gallery/full/IMG_2211.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977907-189
+        src: /images/gallery/full/IMG_2212.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977909-190
+        src: /images/gallery/full/IMG_2213.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977911-191
+        src: /images/gallery/full/IMG_2214.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977913-192
+        src: /images/gallery/full/IMG_2215.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977914-193
+        src: /images/gallery/full/IMG_2216.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977916-194
+        src: /images/gallery/full/IMG_2217.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977918-195
+        src: /images/gallery/full/IMG_2218.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977919-196
+        src: /images/gallery/full/IMG_2219.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977921-197
+        src: /images/gallery/full/IMG_2220.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977923-198
+        src: /images/gallery/full/IMG_2221.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977924-199
+        src: /images/gallery/full/IMG_2222.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977926-200
+        src: /images/gallery/full/IMG_2223.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977928-201
+        src: /images/gallery/full/IMG_2224.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977929-202
+        src: /images/gallery/full/IMG_2225.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977931-203
+        src: /images/gallery/full/IMG_2226.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977932-204
+        src: /images/gallery/full/IMG_2227.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977934-205
+        src: /images/gallery/full/IMG_2229.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977935-206
+        src: /images/gallery/full/IMG_2230.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977937-207
+        src: /images/gallery/full/IMG_2231.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774051977939-208
+        src: /images/gallery/full/IMG_2232.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977940-209
+        src: /images/gallery/full/IMG_2233.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977942-210
+        src: /images/gallery/full/IMG_2234.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977944-211
+        src: /images/gallery/full/IMG_2235.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977946-212
+        src: /images/gallery/full/IMG_2236.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977947-213
+        src: /images/gallery/full/IMG_2237.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977949-214
+        src: /images/gallery/full/IMG_2238.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977950-215
+        src: /images/gallery/full/IMG_2239.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977952-216
+        src: /images/gallery/full/IMG_2240.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977953-217
+        src: /images/gallery/full/IMG_2241.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977955-218
+        src: /images/gallery/full/IMG_2242.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774051977956-219
+        src: /images/gallery/full/IMG_2243.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532582-0
+        src: /images/gallery/full/IMG_2165.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532586-1
+        src: /images/gallery/full/IMG_2166.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532594-2
+        src: /images/gallery/full/IMG_2167.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532603-3
+        src: /images/gallery/full/IMG_2168.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532605-4
+        src: /images/gallery/full/IMG_2169.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532613-5
+        src: /images/gallery/full/IMG_2170.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532616-6
+        src: /images/gallery/full/IMG_2171.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532620-7
+        src: /images/gallery/full/IMG_2172.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532622-8
+        src: /images/gallery/full/IMG_2173.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532623-9
+        src: /images/gallery/full/IMG_2176.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532625-10
+        src: /images/gallery/full/IMG_2179.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532627-11
+        src: /images/gallery/full/IMG_2180.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532629-12
+        src: /images/gallery/full/IMG_2181.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532633-13
+        src: /images/gallery/full/IMG_2182.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532638-14
+        src: /images/gallery/full/101132b3-27bf-4b6c-9e41-57d9b01d19b7.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532641-15
+        src: /images/gallery/full/2b600fba-8a4c-45fa-84ac-ac14ca5ccde6.webp
+        altSk: ""
+        altEn: ""
+        width: 1200
+        height: 1600
+      - id: img-1774058532645-16
+        src: /images/gallery/full/4503a1fa-cb20-471f-b76d-f23f2862efab.webp
+        altSk: ""
+        altEn: ""
+        width: 1536
+        height: 2048
+      - id: img-1774058532648-17
+        src: /images/gallery/full/b966bdec-58ca-49b9-9101-730a1a78701c.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1197
+      - id: img-1774058532652-18
+        src: /images/gallery/full/dd2e2b7d-3f85-4c5f-8c54-765526b4c984.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532656-19
+        src: /images/gallery/full/IMG_1961.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532663-20
+        src: /images/gallery/full/IMG_1962.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532669-21
+        src: /images/gallery/full/IMG_1969.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532676-22
+        src: /images/gallery/full/IMG_1970.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532678-23
+        src: /images/gallery/full/IMG_1971.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532682-24
+        src: /images/gallery/full/IMG_1972.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532688-25
+        src: /images/gallery/full/IMG_1975.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532694-26
+        src: /images/gallery/full/IMG_1976.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532701-27
+        src: /images/gallery/full/IMG_1977.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532707-28
+        src: /images/gallery/full/IMG_1985.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532711-29
+        src: /images/gallery/full/IMG_1986.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532714-30
+        src: /images/gallery/full/IMG_1987.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532716-31
+        src: /images/gallery/full/IMG_1988.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532719-32
+        src: /images/gallery/full/IMG_1990.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532722-33
+        src: /images/gallery/full/IMG_1992.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532724-34
+        src: /images/gallery/full/IMG_1993.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532727-35
+        src: /images/gallery/full/IMG_1995.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532730-36
+        src: /images/gallery/full/IMG_1996.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532732-37
+        src: /images/gallery/full/IMG_1997.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532735-38
+        src: /images/gallery/full/IMG_1999.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532737-39
+        src: /images/gallery/full/IMG_2001.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532742-40
+        src: /images/gallery/full/IMG_2002.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532746-41
+        src: /images/gallery/full/IMG_2003.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532749-42
+        src: /images/gallery/full/IMG_2004.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532752-43
+        src: /images/gallery/full/IMG_2005.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532754-44
+        src: /images/gallery/full/IMG_2006.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532757-45
+        src: /images/gallery/full/IMG_2016.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1326
+      - id: img-1774058532760-46
+        src: /images/gallery/full/IMG_2017.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532764-47
+        src: /images/gallery/full/IMG_2018.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532770-48
+        src: /images/gallery/full/IMG_2019.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532773-49
+        src: /images/gallery/full/IMG_2020.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532775-50
+        src: /images/gallery/full/IMG_2026.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1915
+      - id: img-1774058532779-51
+        src: /images/gallery/full/IMG_2027.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532781-52
+        src: /images/gallery/full/IMG_2028.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532784-53
+        src: /images/gallery/full/IMG_2029.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1673
+      - id: img-1774058532785-54
+        src: /images/gallery/full/IMG_2031.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532787-55
+        src: /images/gallery/full/IMG_2032.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532790-56
+        src: /images/gallery/full/IMG_2033.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532792-57
+        src: /images/gallery/full/IMG_2036.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532795-58
+        src: /images/gallery/full/IMG_2037.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 1200
+      - id: img-1774058532802-59
+        src: /images/gallery/full/IMG_2045.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532808-60
+        src: /images/gallery/full/IMG_2050.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532814-61
+        src: /images/gallery/full/IMG_2057.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+      - id: img-1774058532818-62
+        src: /images/gallery/full/IMG_2062.webp
+        altSk: ""
+        altEn: ""
+        width: 1600
+        height: 2133
+events: []

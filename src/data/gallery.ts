@@ -6,7 +6,7 @@ import {
   loadGalleryManifest,
   manifestToGalleryEvents,
   manifestToGalleryImages,
-} from './gallery-manifest';
+} from "./gallery-manifest";
 
 /**
  * Gallery images: path, alt text (SK/EN), dimensions, optional date from filename (YYYY-MM-DD).
@@ -32,12 +32,43 @@ const manifest = loadGalleryManifest();
 export const galleryImages: GalleryImage[] = manifestToGalleryImages(manifest);
 
 /** Format date for display (e.g. "14. jún 2025" / "14 June 2025") */
-export function formatGalleryDate(isoDate: string, locale: 'sk' | 'en'): string {
-  const [y, m, d] = isoDate.split('-').map(Number);
-  const monthNamesSk = ['január', 'február', 'marec', 'apríl', 'máj', 'jún', 'júl', 'august', 'september', 'október', 'november', 'december'];
-  const monthNamesEn = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  const names = locale === 'sk' ? monthNamesSk : monthNamesEn;
-  return locale === 'sk' ? `${d}. ${names[m - 1]} ${y}` : `${names[m - 1]} ${d}, ${y}`;
+export function formatGalleryDate(
+  isoDate: string,
+  locale: "sk" | "en"
+): string {
+  const [y, m, d] = isoDate.split("-").map(Number);
+  const monthNamesSk = [
+    "január",
+    "február",
+    "marec",
+    "apríl",
+    "máj",
+    "jún",
+    "júl",
+    "august",
+    "september",
+    "október",
+    "november",
+    "december",
+  ];
+  const monthNamesEn = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const names = locale === "sk" ? monthNamesSk : monthNamesEn;
+  return locale === "sk"
+    ? `${d}. ${names[m - 1]} ${y}`
+    : `${names[m - 1]} ${d}, ${y}`;
 }
 
 /** Event/album: a dated group of photos (for timeline and event pages). Max 50 images per event (soft limit). */
@@ -77,16 +108,18 @@ export const galleryVisible = manifest.galleryVisible;
 const isDev = import.meta.env.DEV;
 
 /** Events to show in timeline and to generate event pages. Drafts: dev only. Demo album: dev only. */
-export const galleryEventsForDisplay: GalleryEvent[] = galleryEvents.filter((e) => {
-  if (e.draft && !isDev) return false;
-  if (!isDev && e.slug === 'demo-50-aspect-ratios') return false;
-  return true;
-});
+export const galleryEventsForDisplay: GalleryEvent[] = galleryEvents.filter(
+  (e) => {
+    if (e.draft && !isDev) return false;
+    if (!isDev && e.slug === "demo-50-aspect-ratios") return false;
+    return true;
+  }
+);
 
 /** Display image for grid (800w WebP for assets; full for legacy). */
 export function galleryDisplaySrc(img: GalleryImage): string {
-  if (img.src.includes('/gallery/full/') && img.src.endsWith('.webp')) {
-    const name = img.src.split('/').pop();
+  if (img.src.includes("/gallery/full/") && img.src.endsWith(".webp")) {
+    const name = img.src.split("/").pop();
     return `/images/gallery/display/${name}`;
   }
   return img.src;
@@ -94,8 +127,8 @@ export function galleryDisplaySrc(img: GalleryImage): string {
 
 /** Tiny placeholder for blur-up (asset images only). */
 export function galleryPlaceholderSrc(img: GalleryImage): string | null {
-  if (img.src.includes('/gallery/full/') && img.src.endsWith('.webp')) {
-    const name = img.src.split('/').pop();
+  if (img.src.includes("/gallery/full/") && img.src.endsWith(".webp")) {
+    const name = img.src.split("/").pop();
     return `/images/gallery/placeholders/${name}`;
   }
   return null;
@@ -103,9 +136,11 @@ export function galleryPlaceholderSrc(img: GalleryImage): string | null {
 
 /** Extract YouTube video ID for embed from watch, youtu.be, or youtube.com/live URL. */
 export function getYoutubeEmbedId(url: string): string | null {
-  if (!url || typeof url !== 'string') return null;
+  if (!url || typeof url !== "string") return null;
   const trimmed = url.trim();
-  const m = trimmed.match(/(?:youtube\.com\/(?:watch\?v=|live\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  const m = trimmed.match(
+    /(?:youtube\.com\/(?:watch\?v=|live\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+  );
   return m ? m[1] : null;
 }
 
@@ -114,9 +149,11 @@ export function getYoutubeEmbedUrl(event: GalleryEvent): string | null {
   if (!event?.videoUrl) return null;
   const id = getYoutubeEmbedId(event.videoUrl);
   if (!id) return null;
-  const params = new URLSearchParams({ rel: '0' });
-  if (event.videoStartSeconds != null) params.set('start', String(event.videoStartSeconds));
-  if (event.videoEndSeconds != null) params.set('end', String(event.videoEndSeconds));
+  const params = new URLSearchParams({ rel: "0" });
+  if (event.videoStartSeconds != null)
+    params.set("start", String(event.videoStartSeconds));
+  if (event.videoEndSeconds != null)
+    params.set("end", String(event.videoEndSeconds));
   return `https://www.youtube.com/embed/${id}?${params.toString()}`;
 }
 
@@ -131,7 +168,9 @@ export function getEventImages(event: GalleryEvent): GalleryImage[] {
   const highlights = (event.highlightSrcs ?? [])
     .map(toImage)
     .filter((img): img is GalleryImage => !!img);
-  const rest = restSrcs.map(toImage).filter((img): img is GalleryImage => !!img);
+  const rest = restSrcs
+    .map(toImage)
+    .filter((img): img is GalleryImage => !!img);
   return [...highlights, ...rest];
 }
 
