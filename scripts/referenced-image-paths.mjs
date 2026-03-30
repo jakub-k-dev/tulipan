@@ -1,9 +1,14 @@
 /**
  * Single source of truth: which /images/... paths the site needs on disk.
  * Expands each /images/gallery/full/*.webp into display + placeholders (same basename).
+ *
+ * Gallery files referenced only from `catalogue[].src` (not from imageGroups or events) are
+ * excluded so prune can remove optimized outputs after an album is hidden while catalogue rows
+ * keep `src` for the manager UI.
  */
 import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
+import YAML from "yaml";
 
 /**
  * @param {string} siteRoot - websites/main
@@ -52,6 +57,8 @@ export function buildNeededImagePaths(siteRoot) {
     extractImagePaths(readFileSync(f, "utf8"));
   }
 
+  subtractCatalogueOnlyGalleryFullPaths(siteRoot, needed);
+
   for (let i = 1; i <= 4; i++) {
     for (const ext of ["jpg", "webp", "avif"]) {
       needed.add(`/images/hero/carousel-${i}.${ext}`);
@@ -84,6 +91,63 @@ export function buildNeededImagePaths(siteRoot) {
   for (const p of toAdd) needed.add(p);
 
   return needed;
+}
+
+/**
+ * Remove `gallery/full/*.webp` paths that appear only under manifest `catalogue[].src`
+ * (still present for tooling) but not under imageGroups or events — allows prune after hiding an album.
+ * @param {string} siteRoot
+ * @param {Set<string>} needed
+ */
+function subtractCatalogueOnlyGalleryFullPaths(siteRoot, needed) {
+  const manifestPath = join(siteRoot, "src", "data", "gallery.manifest.yaml");
+  let raw;
+  try {
+    raw = readFileSync(manifestPath, "utf8");
+  } catch {
+    return;
+  }
+  /** @type {unknown} */
+  let data;
+  try {
+    data = YAML.parse(raw);
+  } catch {
+    return;
+  }
+  /** @type {Set<string>} */
+  const structured = new Set();
+  const m = /** @type {Record<string, unknown>} */ (data ?? {});
+  for (const g of Array.isArray(m.imageGroups) ? m.imageGroups : []) {
+    if (!g || typeof g !== "object") continue;
+    for (const im of Array.isArray(/** @type {Record<string, unknown>} */ (g).images)
+      ? /** @type {Record<string, unknown>} */ (g).images
+      : []) {
+      if (im && typeof im === "object" && /** @type {Record<string, unknown>} */ (im).src != null) {
+        structured.add(String(/** @type {Record<string, unknown>} */ (im).src));
+      }
+    }
+  }
+  for (const ev of Array.isArray(m.events) ? m.events : []) {
+    if (!ev || typeof ev !== "object") continue;
+    const e = /** @type {Record<string, unknown>} */ (ev);
+    for (const s of Array.isArray(e.imageSrcs) ? e.imageSrcs : []) structured.add(String(s));
+    for (const s of Array.isArray(e.highlightSrcs) ? e.highlightSrcs : []) structured.add(String(s));
+    for (const s of Array.isArray(e.demoAspectSrcs) ? e.demoAspectSrcs : []) structured.add(String(s));
+  }
+  for (const row of Array.isArray(m.catalogue) ? m.catalogue : []) {
+    if (!row || typeof row !== "object") continue;
+    const src = /** @type {Record<string, unknown>} */ (row).src;
+    if (src == null || typeof src !== "string") continue;
+    const p = src.trim();
+    if (!/^\/images\/gallery\/full\/.+\.webp$/i.test(p)) continue;
+    if (structured.has(p)) continue;
+    needed.delete(p);
+    const mm = p.match(/^\/images\/gallery\/full\/(.+\.webp)$/i);
+    if (mm) {
+      needed.delete(`/images/gallery/display/${mm[1]}`);
+      needed.delete(`/images/gallery/placeholders/${mm[1]}`);
+    }
+  }
 }
 
 /**

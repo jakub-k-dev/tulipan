@@ -85,6 +85,15 @@ const manifestEventSchema = z
     }
   });
 
+const catalogueAlbumDraftEntrySchema = z.object({
+  slug: z.string(),
+  titleSk: z.string(),
+  titleEn: z.string(),
+  draft: z.boolean(),
+  includeOnSite: z.boolean(),
+  includedCatalogueIds: z.array(z.string()).optional(),
+});
+
 const manifestSchema = z.object({
   version: z.literal(1),
   galleryVisible: z.boolean(),
@@ -101,6 +110,9 @@ const manifestSchema = z.object({
   ),
   events: z.array(manifestEventSchema),
   catalogue: z.array(catalogueEntrySchema).optional().default([]),
+  catalogueAlbumDrafts: z
+    .record(catalogueAlbumDraftEntrySchema)
+    .optional(),
 });
 
 export type GalleryManifestV1 = z.infer<typeof manifestSchema>;
