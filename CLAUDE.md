@@ -14,7 +14,7 @@ Run from `websites/main/`:
 |---------|---------|
 | `npm run dev` | Local dev server at localhost:4321 |
 | `npm run build` | Production build to `./dist/` (also runs optimize-images + prune) |
-| `npm run optimize-images` | Generate optimized hero/gallery WebP, prune unreferenced outputs |
+| `npm run optimize-images` | Generate gallery AVIF+JPEG (hero is via manager Carousel Publish), prune unreferenced outputs |
 | `npm run optimize-images -- --no-prune` | Generate without pruning |
 | `npm run clean-unused-images` | Prune unreferenced image outputs standalone |
 

@@ -27,6 +27,7 @@ const catalogueEntrySchema = z.object({
   missingReason: z
     .enum(["not_listed_on_nc", "no_nextcloud_path"])
     .optional(),
+  contentHash: z.string().optional(),
   src: z.string().optional(),
   altSk: z.string().optional(),
   altEn: z.string().optional(),

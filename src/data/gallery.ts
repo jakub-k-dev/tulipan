@@ -106,9 +106,9 @@ export const galleryEventsForDisplay: GalleryEvent[] = galleryEvents.filter(
   }
 );
 
-/** Base name from a gallery full src (strips path prefix and .webp extension). */
+/** Base name from a gallery full src (strips path prefix and .avif extension). */
 function galleryBaseName(src: string): string | null {
-  const m = src.match(/^\/images\/gallery\/full\/(.+)\.webp$/i);
+  const m = src.match(/^\/images\/gallery\/full\/(.+)\.avif$/i);
   return m ? m[1] : null;
 }
 
@@ -136,14 +136,14 @@ export function galleryFullJpeg(img: GalleryImage): string {
   return base ? `/images/gallery/full/${base}.jpg` : img.src;
 }
 
-/** @deprecated Legacy: display WebP path. Use galleryDisplayAvif/Jpeg instead. */
+/** @deprecated Legacy: use galleryDisplayAvif/Jpeg instead. */
 export function galleryDisplaySrc(img: GalleryImage): string {
   return galleryDisplayJpeg(img);
 }
 
 /** Tiny placeholder for blur-up (asset images only). */
 export function galleryPlaceholderSrc(img: GalleryImage): string | null {
-  if (img.src.includes("/gallery/full/") && img.src.endsWith(".webp")) {
+  if (img.src.includes("/gallery/full/") && img.src.endsWith(".avif")) {
     const name = img.src.split("/").pop();
     return `/images/gallery/placeholders/${name}`;
   }

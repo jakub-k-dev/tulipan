@@ -3,7 +3,7 @@
  * Remove optimized files under public/images/ that are not referenced anywhere in src/
  * (including paths in gallery.manifest.yaml and other YAML under src/).
  * Skips public/images/assets/ (gitignored originals).
- * Gallery full/*.webp implies display/ + placeholders/ with the same basename.
+ * Gallery full/*.avif implies display/ + placeholders/ with the same basename.
  *
  * Usage: node scripts/clean-unused-optimized-images.mjs [--dry-run]
  */

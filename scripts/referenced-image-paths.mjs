@@ -1,6 +1,6 @@
 /**
  * Single source of truth: which /images/... paths the site needs on disk.
- * Expands each /images/gallery/full/*.webp into display + placeholders (same basename).
+ * Expands each /images/gallery/full/*.avif into display + placeholders (same basename).
  *
  * Gallery files referenced only from `catalogue[].src` (not from imageGroups or events) are
  * excluded so prune can remove optimized outputs after an album is hidden while catalogue rows
@@ -12,7 +12,7 @@ import YAML from "yaml";
 
 /**
  * @param {string} siteRoot - websites/main
- * @returns {Set<string>} paths like /images/gallery/full/foo.webp
+ * @returns {Set<string>} paths like /images/gallery/full/foo.avif
  */
 export function buildNeededImagePaths(siteRoot) {
   /** @type {Set<string>} */
@@ -75,20 +75,19 @@ export function buildNeededImagePaths(siteRoot) {
     needed.add(p);
   }
 
-  /** Same basename as full/ → derive display + placeholder variants in all formats. */
+  /** Same basename as full/ → derive display + placeholder variants. */
   const toAdd = [];
   for (const p of needed) {
-    const m = p.match(/^\/images\/gallery\/full\/(.+)\.webp$/i);
+    const m = p.match(/^\/images\/gallery\/full\/(.+)\.avif$/i);
     if (m) {
       const base = m[1];
-      // Full: AVIF + JPEG (alongside the WebP already in needed)
-      toAdd.push(`/images/gallery/full/${base}.avif`);
+      // Full: JPEG fallback
       toAdd.push(`/images/gallery/full/${base}.jpg`);
       // Display: AVIF + JPEG
       toAdd.push(`/images/gallery/display/${base}.avif`);
       toAdd.push(`/images/gallery/display/${base}.jpg`);
-      // Placeholder: WebP only (tiny blur-up)
-      toAdd.push(`/images/gallery/placeholders/${base}.webp`);
+      // Placeholder: AVIF (tiny blur-up)
+      toAdd.push(`/images/gallery/placeholders/${base}.avif`);
     }
   }
   for (const p of toAdd) needed.add(p);
@@ -129,7 +128,7 @@ function addHeroCarouselPaths(siteRoot, needed) {
 }
 
 /**
- * Remove `gallery/full/*.webp` paths that appear only under manifest `catalogue[].src`
+ * Remove `gallery/full/*.avif` paths that appear only under manifest `catalogue[].src`
  * (still present for tooling) but not under imageGroups or events — allows prune after hiding an album.
  * @param {string} siteRoot
  * @param {Set<string>} needed
@@ -174,13 +173,16 @@ function subtractCatalogueOnlyGalleryFullPaths(siteRoot, needed) {
     const src = /** @type {Record<string, unknown>} */ (row).src;
     if (src == null || typeof src !== "string") continue;
     const p = src.trim();
-    if (!/^\/images\/gallery\/full\/.+\.webp$/i.test(p)) continue;
+    if (!/^\/images\/gallery\/full\/.+\.avif$/i.test(p)) continue;
     if (structured.has(p)) continue;
     needed.delete(p);
-    const mm = p.match(/^\/images\/gallery\/full\/(.+\.webp)$/i);
+    const mm = p.match(/^\/images\/gallery\/full\/(.+)\.avif$/i);
     if (mm) {
-      needed.delete(`/images/gallery/display/${mm[1]}`);
-      needed.delete(`/images/gallery/placeholders/${mm[1]}`);
+      const base = mm[1];
+      needed.delete(`/images/gallery/full/${base}.jpg`);
+      needed.delete(`/images/gallery/display/${base}.avif`);
+      needed.delete(`/images/gallery/display/${base}.jpg`);
+      needed.delete(`/images/gallery/placeholders/${base}.avif`);
     }
   }
 }
