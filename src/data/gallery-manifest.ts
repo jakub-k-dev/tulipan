@@ -44,6 +44,12 @@ const catalogueEntrySchema = z.object({
   editorNote: z.string().optional(),
 });
 
+const eventLinkSchema = z.object({
+  url: z.string().min(1),
+  labelSk: z.string().optional(),
+  labelEn: z.string().optional(),
+});
+
 const manifestEventSchema = z
   .object({
     id: z.string().min(1),
@@ -54,11 +60,21 @@ const manifestEventSchema = z
     titleEn: z.string(),
     placeSk: z.string().optional(),
     placeEn: z.string().optional(),
+    /** Single place line (catalogue UI); shown for both locales on the site when set. */
+    place: z.string().optional(),
     descriptionSk: z.string().optional(),
     descriptionEn: z.string().optional(),
     videoUrl: z.string().optional(),
     videoStartSeconds: z.number().optional(),
     videoEndSeconds: z.number().optional(),
+    /** Second embed trim range (when videoUrl2 is set). */
+    video2StartSeconds: z.number().optional(),
+    video2EndSeconds: z.number().optional(),
+    /** Second hero-column YouTube URL (two embeds side by side on desktop). */
+    videoUrl2: z.string().optional(),
+    /** When one video + hero images: whether the iframe is left (default) or right. */
+    heroVideoColumn: z.enum(["left", "right"]).optional(),
+    links: z.array(eventLinkSchema).optional(),
     imageSrcs: z.array(z.string()).optional(),
     highlightSrcs: z.array(z.string()).optional(),
     demoAspectSrcs: z.array(z.string()).optional(),
@@ -92,6 +108,28 @@ const catalogueAlbumDraftEntrySchema = z.object({
   draft: z.boolean(),
   includeOnSite: z.boolean(),
   includedCatalogueIds: z.array(z.string()).optional(),
+  place: z.string().optional(),
+  placeSk: z.string().optional(),
+  placeEn: z.string().optional(),
+  descriptionSk: z.string().optional(),
+  descriptionEn: z.string().optional(),
+  videoUrl: z.string().optional(),
+  videoStartSeconds: z.number().optional(),
+  videoEndSeconds: z.number().optional(),
+  video2StartSeconds: z.number().optional(),
+  video2EndSeconds: z.number().optional(),
+  links: z.array(eventLinkSchema).optional(),
+  /** Hero column 1: image (catalogue row id) or embedded video. */
+  hero1Kind: z.enum(["image", "video"]).optional(),
+  hero2Kind: z.enum(["image", "video"]).optional(),
+  hero1CatalogueId: z.string().optional(),
+  hero2CatalogueId: z.string().optional(),
+  hero1VideoUrl: z.string().optional(),
+  hero2VideoUrl: z.string().optional(),
+  hero1VideoStart: z.number().optional(),
+  hero1VideoEnd: z.number().optional(),
+  hero2VideoStart: z.number().optional(),
+  hero2VideoEnd: z.number().optional(),
 });
 
 const manifestSchema = z.object({
@@ -259,6 +297,7 @@ function manifestEventToGalleryEvent(ev: ManifestGalleryEvent): GalleryEvent {
     date: ev.date,
     titleSk: ev.titleSk,
     titleEn: ev.titleEn,
+    place: ev.place,
     placeSk: ev.placeSk,
     placeEn: ev.placeEn,
     descriptionSk: ev.descriptionSk,
@@ -266,6 +305,11 @@ function manifestEventToGalleryEvent(ev: ManifestGalleryEvent): GalleryEvent {
     videoUrl: ev.videoUrl,
     videoStartSeconds: ev.videoStartSeconds,
     videoEndSeconds: ev.videoEndSeconds,
+    video2StartSeconds: ev.video2StartSeconds,
+    video2EndSeconds: ev.video2EndSeconds,
+    videoUrl2: ev.videoUrl2,
+    heroVideoColumn: ev.heroVideoColumn,
+    links: ev.links,
     imageSrcs,
     highlightSrcs,
     draft: ev.draft,

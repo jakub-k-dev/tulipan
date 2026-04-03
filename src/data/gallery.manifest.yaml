@@ -236,6 +236,10 @@ events:
     date: 2026-02-14
     titleSk: Fašiangy 2026
     titleEn: Fašiangy 2026
+    place: Čataj
+    descriptionSk: Fašiangový pochod a vystúpenie
+    videoUrl: https://www.youtube.com/watch?v=ZGr6EuYN0QE
+    heroVideoColumn: right
     imageSrcs:
       - /images/gallery/full/IMG_0004.webp
       - /images/gallery/full/IMG_0009.webp

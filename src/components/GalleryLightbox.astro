@@ -89,6 +89,41 @@ const { siteBase = '' } = Astro.props;
     btnPrev?.addEventListener('click', () => { setImage(currentIndex - 1); });
     btnNext?.addEventListener('click', () => { setImage(currentIndex + 1); });
 
+    // Focus trap: keep Tab/Shift+Tab within lightbox when open
+    const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    let previouslyFocused = null;
+
+    function trapFocus(e) {
+      if (e.key !== 'Tab') return;
+      const focusable = Array.from(lightbox.querySelectorAll(focusableSelector)).filter(
+        (el) => !el.closest('[style*="visibility: hidden"]') && el.offsetParent !== null
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    const origShow = show;
+    show = function () {
+      previouslyFocused = document.activeElement;
+      origShow();
+      lightbox.addEventListener('keydown', trapFocus);
+    };
+
+    const origHide = hide;
+    hide = function () {
+      lightbox.removeEventListener('keydown', trapFocus);
+      origHide();
+      if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
+    };
+
     document.addEventListener('keydown', (e) => {
       if (!lightbox || lightbox.classList.contains('hidden')) return;
       if (e.key === 'Escape') hide();

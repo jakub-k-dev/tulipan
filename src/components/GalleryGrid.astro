@@ -18,6 +18,15 @@ interface Props {
 
 const { images, locale, siteBase, itemsOnly = false, inGrid = false, compact = false } = Astro.props;
 
+/** Scale factor for 90°/270° rotated images so they fill the card without gaps. */
+const ROTATION_SCALE = 1.35;
+
+function rotationStyle(rotate?: 90 | 180 | 270): string | undefined {
+  if (!rotate) return undefined;
+  const scale = rotate === 90 || rotate === 270 ? ROTATION_SCALE : 1;
+  return `transform: rotate(${rotate}deg) scale(${scale})`;
+}
+
 function galleryCardClasses(img: GalleryImage, inGridLayout: boolean, noGap: boolean): string {
   const base = 'gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0' + (noGap ? ' rounded-none' : ' rounded-xl');
   const gap = inGridLayout ? '' : noGap ? ' break-inside-avoid' : ' break-inside-avoid mb-4';
@@ -43,7 +52,7 @@ function galleryImgClasses(): string {
         data-lightbox-alt={alt}
         title={alt}
       >
-        <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class={galleryImgClasses()} style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
+        <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class={galleryImgClasses()} style={rotationStyle(img.rotate)} loading="lazy" />
       </button>
     );
   })
@@ -62,7 +71,7 @@ function galleryImgClasses(): string {
             data-lightbox-alt={alt}
             title={alt}
           >
-            <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class={galleryImgClasses()} style={img.rotate ? `transform: rotate(${img.rotate}deg) scale(${img.rotate === 90 || img.rotate === 270 ? 1.35 : 1})` : undefined} loading="lazy" />
+            <img src={siteBase ? siteBase + displaySrc : displaySrc} alt={alt} width={img.width} height={img.height} class={galleryImgClasses()} style={rotationStyle(img.rotate)} loading="lazy" />
           </button>
         );
       })}

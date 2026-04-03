@@ -2,10 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomePageContent from '../components/HomePageContent.astro';
 import { tHome } from '../data/translations';
+import { siteBase } from '../utils/site';
 
 const locale = 'sk';
 const t = tHome(locale);
-const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
 const base = siteBase;
 ---
 
