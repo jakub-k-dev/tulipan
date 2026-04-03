@@ -26,3 +26,5 @@ pnpm-debug.log*
 
 # Raw/source images (camera JPGs, cropped hero); optimize-images generates hero/ and gallery outputs
 public/images/assets/
+# Carousel publish metadata (tracks which catalogue IDs were built, local only)
+public/images/hero/.carousel-meta.json
