@@ -4,6 +4,7 @@ import OrnamentDivider from './OrnamentDivider.astro';
 import RevealSection from './RevealSection.astro';
 import UpcomingEventCard from './UpcomingEventCard.astro';
 import { tHome, tSite } from '../data/translations';
+import { carouselSlideCount } from '../data/gallery';
 
 interface Props {
   locale: Locale;
@@ -14,38 +15,46 @@ interface Props {
 const { locale, siteBase, base } = Astro.props;
 const t = tHome(locale);
 const siteT = tSite(locale);
+
+const TOTAL = carouselSlideCount;
+const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
 ---
 
 <section class="relative min-h-[100vh] flex items-end justify-center overflow-hidden hero-carousel-section" aria-label={t.heroAria}>
-  <div class="hero-carousel absolute inset-0 z-0" aria-hidden="true">
-    {[1, 2, 3, 4].map((i) => (
-      <picture class={`hero-carousel__slide ${i === 1 ? 'hero-carousel__slide--active' : ''}`} data-slide={i}>
-        <source type="image/avif" srcset={`${siteBase}/images/hero/carousel-${i}.avif`} />
-        <source type="image/webp" srcset={`${siteBase}/images/hero/carousel-${i}.webp`} />
-        <img
-          src={`${siteBase}/images/hero/carousel-${i}.jpg`}
-          alt=""
-          fetchpriority={i === 1 ? 'high' : undefined}
-          loading={i === 1 ? 'eager' : 'lazy'}
-          decoding="async"
-          class="absolute inset-0 w-full h-full object-cover object-center"
-        />
-      </picture>
-    ))}
-  </div>
-  <div class="absolute inset-0 z-10 flex items-center justify-between px-2 sm:px-4 pointer-events-none">
-    <button type="button" class="hero-carousel__btn hero-carousel__btn--prev pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/80 text-white/90 hover:bg-white/20 focus:outline focus:ring-2 focus:ring-white/60 flex items-center justify-center transition-all" aria-label={locale === 'sk' ? 'Predchádzajúci obrázok' : 'Previous image'}>
-      <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-    </button>
-    <button type="button" class="hero-carousel__btn hero-carousel__btn--next pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/80 text-white/90 hover:bg-white/20 focus:outline focus:ring-2 focus:ring-white/60 flex items-center justify-center transition-all" aria-label={locale === 'sk' ? 'Ďalší obrázok' : 'Next image'}>
-      <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-    </button>
-  </div>
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2 pointer-events-auto">
-    {[1, 2, 3, 4].map((i) => (
-      <button type="button" class="hero-carousel__dot w-2.5 h-2.5 rounded-full border-2 border-white/90 transition-all focus:outline focus:ring-2 focus:ring-white/60" data-slide={i} aria-label={locale === 'sk' ? `Obrázok ${i}` : `Image ${i}`} aria-current={i === 1 ? 'true' : undefined}></button>
-    ))}
-  </div>
+  {TOTAL > 0 && (
+    <div class="hero-carousel absolute inset-0 z-0" aria-hidden="true" data-carousel-total={TOTAL}>
+      {heroSlides.map((i) => (
+        <picture class={`hero-carousel__slide ${i === 1 ? 'hero-carousel__slide--active' : ''}`} data-slide={i}>
+          <source type="image/avif" srcset={`${siteBase}/images/hero/carousel-${i}.avif`} />
+          <img
+            src={`${siteBase}/images/hero/carousel-${i}.jpg`}
+            alt=""
+            fetchpriority={i === 1 ? 'high' : undefined}
+            loading={i === 1 ? 'eager' : 'lazy'}
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </picture>
+      ))}
+    </div>
+  )}
+  {TOTAL > 1 && (
+    <div class="absolute inset-0 z-10 flex items-center justify-between px-2 sm:px-4 pointer-events-none">
+      <button type="button" class="hero-carousel__btn hero-carousel__btn--prev pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/80 text-white/90 hover:bg-white/20 focus:outline focus:ring-2 focus:ring-white/60 flex items-center justify-center transition-all" aria-label={locale === 'sk' ? 'Predchádzajúci obrázok' : 'Previous image'}>
+        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+      <button type="button" class="hero-carousel__btn hero-carousel__btn--next pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/80 text-white/90 hover:bg-white/20 focus:outline focus:ring-2 focus:ring-white/60 flex items-center justify-center transition-all" aria-label={locale === 'sk' ? 'Ďalší obrázok' : 'Next image'}>
+        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+      </button>
+    </div>
+  )}
+  {TOTAL > 1 && (
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2 pointer-events-auto">
+      {heroSlides.map((i) => (
+        <button type="button" class="hero-carousel__dot w-2.5 h-2.5 rounded-full border-2 border-white/90 transition-all focus:outline focus:ring-2 focus:ring-white/60" data-slide={i} aria-label={locale === 'sk' ? `Obrázok ${i}` : `Image ${i}`} aria-current={i === 1 ? 'true' : undefined}></button>
+      ))}
+    </div>
+  )}
   <div class="absolute inset-0 textile-overlay-dark z-10 pointer-events-none" aria-hidden="true" />
   <div class="relative z-20 w-full max-w-[90rem] mx-auto px-4 pb-20 pt-32 text-center md:text-left">
     <OrnamentDivider variant="bar" class="mb-6 justify-center md:justify-start" />
@@ -166,10 +175,14 @@ const siteT = tSite(locale);
 </style>
 
 <script>
-  const TOTAL = 4;
   function initHeroCarousel() {
     const section = document.querySelector('.hero-carousel-section');
     if (!section) return;
+    const carouselEl = section.querySelector('.hero-carousel');
+    if (!carouselEl) return;
+    const TOTAL = parseInt(carouselEl.getAttribute('data-carousel-total') || '0', 10);
+    if (TOTAL <= 1) return;
+
     const slides = section.querySelectorAll('.hero-carousel__slide');
     const dots = section.querySelectorAll('.hero-carousel__dot');
     const prevBtn = section.querySelector('.hero-carousel__btn--prev');

@@ -1,18 +1,23 @@
 ---
 import { siteBase } from '../utils/site';
+import { carouselSlideCount } from '../data/gallery';
 /** Page-level hero: same hero photo as main page, with light overlay and title */
 interface Props {
   title: string;
   class?: string;
 }
 const { title, class: className = '' } = Astro.props;
+const hasHero = carouselSlideCount > 0;
 ---
 <section class={`relative min-h-[40vh] flex items-end overflow-hidden isolate ${className}`} aria-label={title}>
-  <picture class="absolute inset-0 z-0" aria-hidden="true">
-    <source type="image/avif" srcset={`${siteBase}/images/hero/carousel-1.avif`} />
-    <source type="image/webp" srcset={`${siteBase}/images/hero/carousel-1.webp`} />
-    <img src={`${siteBase}/images/hero/carousel-1.jpg`} alt="" loading="eager" decoding="async" class="absolute inset-0 w-full h-full object-cover" style="object-position: center 40%;" />
-  </picture>
+  {hasHero ? (
+    <picture class="absolute inset-0 z-0" aria-hidden="true">
+      <source type="image/avif" srcset={`${siteBase}/images/hero/carousel-1.avif`} />
+      <img src={`${siteBase}/images/hero/carousel-1.jpg`} alt="" loading="eager" decoding="async" class="absolute inset-0 w-full h-full object-cover" style="object-position: center 40%;" />
+    </picture>
+  ) : (
+    <div class="absolute inset-0 z-0 bg-heritage-charcoal" aria-hidden="true" />
+  )}
   <div class="absolute inset-0 textile-overlay-dark z-10 pointer-events-none" aria-hidden="true" style="contain: strict;" />
   <div class="relative z-20 w-full max-w-[90rem] mx-auto px-4 py-16">
     <h1 class="font-display text-3xl md:text-4xl lg:text-5xl text-textile-outline font-semibold drop-shadow-md">

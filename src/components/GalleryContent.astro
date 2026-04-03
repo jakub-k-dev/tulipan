@@ -3,7 +3,7 @@ import type { Locale } from '../data/translations';
 import PageTextileHero from './PageTextileHero.astro';
 import { tGallery } from '../data/translations';
 import { galleryEventsForDisplay, getEventImages, formatGalleryDate } from '../data/gallery';
-import { galleryDisplaySrc } from '../data/gallery';
+import { galleryDisplayJpeg } from '../data/gallery';
 
 interface Props {
   locale: Locale;
@@ -25,7 +25,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
         {galleryEventsForDisplay.map((event) => {
           const images = getEventImages(event);
           const cover = images[0];
-          const displaySrc = cover ? galleryDisplaySrc(cover) : null;
+          const displaySrc = cover ? galleryDisplayJpeg(cover) : null;
           const title = locale === 'sk' ? event.titleSk : event.titleEn;
           const eventDate = event.date && event.slug !== 'ostatne' ? formatGalleryDate(event.date, locale) : null;
           const eventPath = `${galleryPath}/event/${event.slug}`;
@@ -54,7 +54,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
           {galleryEventsForDisplay.filter((_, i) => i % 2 === 0).map((event) => {
             const images = getEventImages(event);
             const cover = images[0];
-            const displaySrc = cover ? galleryDisplaySrc(cover) : null;
+            const displaySrc = cover ? galleryDisplayJpeg(cover) : null;
             const title = locale === 'sk' ? event.titleSk : event.titleEn;
             const eventDate = event.date && event.slug !== 'ostatne' ? formatGalleryDate(event.date, locale) : null;
             const eventPath = `${galleryPath}/event/${event.slug}`;
@@ -98,7 +98,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
           {galleryEventsForDisplay.filter((_, i) => i % 2 === 1).map((event) => {
             const images = getEventImages(event);
             const cover = images[0];
-            const displaySrc = cover ? galleryDisplaySrc(cover) : null;
+            const displaySrc = cover ? galleryDisplayJpeg(cover) : null;
             const title = locale === 'sk' ? event.titleSk : event.titleEn;
             const eventDate = event.date && event.slug !== 'ostatne' ? formatGalleryDate(event.date, locale) : null;
             const eventPath = `${galleryPath}/event/${event.slug}`;

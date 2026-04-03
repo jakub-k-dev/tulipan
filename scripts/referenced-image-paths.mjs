@@ -59,11 +59,8 @@ export function buildNeededImagePaths(siteRoot) {
 
   subtractCatalogueOnlyGalleryFullPaths(siteRoot, needed);
 
-  for (let i = 1; i <= 4; i++) {
-    for (const ext of ["jpg", "webp", "avif"]) {
-      needed.add(`/images/hero/carousel-${i}.${ext}`);
-    }
-  }
+  // Hero carousel: resolve catalogue IDs → gallery paths, then derive hero/ paths
+  addHeroCarouselPaths(siteRoot, needed);
 
   for (const p of [
     "/images/logo.svg",
@@ -78,19 +75,58 @@ export function buildNeededImagePaths(siteRoot) {
     needed.add(p);
   }
 
-  /** Same basename as full/ → site serves display/ + placeholders/ WebP. */
+  /** Same basename as full/ → derive display + placeholder variants in all formats. */
   const toAdd = [];
   for (const p of needed) {
-    const m = p.match(/^\/images\/gallery\/full\/(.+\.webp)$/i);
+    const m = p.match(/^\/images\/gallery\/full\/(.+)\.webp$/i);
     if (m) {
-      const name = m[1];
-      toAdd.push(`/images/gallery/display/${name}`);
-      toAdd.push(`/images/gallery/placeholders/${name}`);
+      const base = m[1];
+      // Full: AVIF + JPEG (alongside the WebP already in needed)
+      toAdd.push(`/images/gallery/full/${base}.avif`);
+      toAdd.push(`/images/gallery/full/${base}.jpg`);
+      // Display: AVIF + JPEG
+      toAdd.push(`/images/gallery/display/${base}.avif`);
+      toAdd.push(`/images/gallery/display/${base}.jpg`);
+      // Placeholder: WebP only (tiny blur-up)
+      toAdd.push(`/images/gallery/placeholders/${base}.webp`);
     }
   }
   for (const p of toAdd) needed.add(p);
 
   return needed;
+}
+
+/**
+ * Read heroCarousel.slides from manifest, resolve catalogue IDs to gallery paths,
+ * then add hero/carousel-N.{avif,jpg} to needed set.
+ * @param {string} siteRoot
+ * @param {Set<string>} needed
+ */
+function addHeroCarouselPaths(siteRoot, needed) {
+  const manifestPath = join(siteRoot, "src", "data", "gallery.manifest.yaml");
+  let raw;
+  try { raw = readFileSync(manifestPath, "utf8"); } catch { return; }
+  let data;
+  try { data = YAML.parse(raw); } catch { return; }
+  const slides = data?.heroCarousel?.slides;
+  if (!Array.isArray(slides)) return;
+  const catById = new Map();
+  for (const row of Array.isArray(data.catalogue) ? data.catalogue : []) {
+    if (row && typeof row === "object" && row.id) catById.set(row.id, row);
+  }
+  for (let i = 0; i < slides.length; i++) {
+    const s = slides[i];
+    if (!s || typeof s !== "object") continue;
+    const catId = s.catalogueId;
+    if (!catId) continue;
+    // Hero outputs
+    const prefix = `/images/hero/carousel-${i + 1}`;
+    needed.add(`${prefix}.avif`);
+    needed.add(`${prefix}.jpg`);
+    // Also ensure the source gallery full image stays (not pruned)
+    const row = catById.get(catId);
+    if (row && row.src) needed.add(row.src);
+  }
 }
 
 /**

@@ -4,9 +4,7 @@ import type { GalleryEvent, GalleryImage } from "./gallery";
 import manifestRaw from "./gallery.manifest.yaml?raw";
 
 const heroSlideSchema = z.object({
-  id: z.string().min(1),
-  source: z.enum(["base", "assets"]),
-  filename: z.string().min(1),
+  catalogueId: z.string().min(1),
 });
 
 const manifestImageSchema = z.object({
@@ -137,7 +135,7 @@ const manifestSchema = z.object({
   galleryVisible: z.boolean(),
   manifestEditorNote: z.string().optional(),
   heroCarousel: z.object({
-    slides: z.array(heroSlideSchema).length(4),
+    slides: z.array(heroSlideSchema),
   }),
   imageGroups: z.array(
     z.object({
@@ -151,6 +149,7 @@ const manifestSchema = z.object({
   catalogueAlbumDrafts: z
     .record(catalogueAlbumDraftEntrySchema)
     .optional(),
+  hiddenCatalogueDates: z.array(z.string()).optional(),
 });
 
 export type GalleryManifestV1 = z.infer<typeof manifestSchema>;
@@ -253,6 +252,11 @@ export function loadGalleryManifest(): GalleryManifestV1 {
 
 export type ManifestGalleryImage = z.infer<typeof manifestImageSchema>;
 export type ManifestGalleryEvent = z.infer<typeof manifestEventSchema>;
+
+/** Number of carousel slides configured in the manifest. */
+export function manifestCarouselSlideCount(m: GalleryManifestV1): number {
+  return m.heroCarousel.slides.length;
+}
 
 export function manifestToGalleryImages(m: GalleryManifestV1): GalleryImage[] {
   const out: GalleryImage[] = [];

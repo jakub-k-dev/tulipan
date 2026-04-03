@@ -4,18 +4,10 @@ manifestEditorNote: Trimmed 2026-03-25 to match files present under public/image
   Re-sync from Nextcloud, add sources under assets/, and run npm run optimize-images to rebuild the rest.
 heroCarousel:
   slides:
-    - id: hero-cal-3
-      source: base
-      filename: folkloristikalendar 3.jpg
-    - id: hero-cal-2
-      source: base
-      filename: folkloristikalendar 2.jpg
-    - id: hero-cal-1
-      source: base
-      filename: folkloristikalendar 1.jpg
-    - id: hero-cal-1-repeat
-      source: base
-      filename: folkloristikalendar 1.jpg
+    - catalogueId: 0420d5c6030e7bbf15b95180
+    - catalogueId: 7684ef9a79af4956a01cdb3c
+    - catalogueId: 5362743f5c7d4bb8ba1b3123
+    - catalogueId: 741a9adf305e18ebdebcb407
 imageGroups:
   - id: optimized-assets
     images:
@@ -278,6 +270,26 @@ events:
       - /images/gallery/full/IMG_9960.webp
     editorNote: generated-from-catalogue-nc
 catalogue:
+  - id: 5362743f5c7d4bb8ba1b3123
+    nextcloudPath: fotky kalendar 2026/FolkloristiKalendar-1.jpg
+    accepted: false
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2026-03-17T19:47:39.000Z
+  - id: 7684ef9a79af4956a01cdb3c
+    nextcloudPath: fotky kalendar 2026/FolkloristiKalendar-2.jpg
+    accepted: false
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2026-03-17T19:41:37.000Z
+  - id: 0420d5c6030e7bbf15b95180
+    nextcloudPath: fotky kalendar 2026/FolkloristiKalendar-3.jpg
+    accepted: false
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2026-03-17T19:41:35.000Z
+  - id: e3233043635ec929ec15a22d
+    nextcloudPath: fotky kalendar 2026/FolkloristiKalendar-4.jpg
+    accepted: false
+    missingFromNextcloud: false
+    nextcloudModifiedAt: 2026-04-03T15:49:06.000Z
   - id: 86f57edca72ed18528a2238e
     nextcloudPath: halina/101132b3-27bf-4b6c-9e41-57d9b01d19b7.jpeg
     accepted: false
@@ -3866,7 +3878,8 @@ catalogueAlbumDrafts:
     titleEn: MFF Myjava 2025
     draft: true
     includeOnSite: false
-    includedCatalogueIds: []
+    includedCatalogueIds:
+      - 741a9adf305e18ebdebcb407
     place: ""
     descriptionSk: ""
     descriptionEn: ""
@@ -3931,3 +3944,38 @@ catalogueAlbumDrafts:
     hero2CatalogueId: ""
     hero1VideoUrl: ""
     hero2VideoUrl: ""
+  2026-04-03:
+    slug: 2026-04-03
+    titleSk: Album 2026-04-03
+    titleEn: Album 2026-04-03
+    draft: true
+    includeOnSite: false
+    includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
+  2026-03-17:
+    slug: 2026-03-17
+    titleSk: Album 2026-03-17
+    titleEn: Album 2026-03-17
+    draft: true
+    includeOnSite: false
+    includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
+hiddenCatalogueDates:
+  - 2026-03-17
+  - 2026-04-03

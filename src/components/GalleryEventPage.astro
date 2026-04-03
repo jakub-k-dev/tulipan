@@ -8,7 +8,8 @@ import {
   getYoutubeEmbedId,
   getYoutubeEmbedUrl,
   getYoutubeEmbedUrlFromFields,
-  galleryDisplaySrc,
+  galleryDisplayAvif,
+  galleryDisplayJpeg,
 } from '../data/gallery';
 import type { Locale } from '../data/translations';
 import { tGallery } from '../data/translations';
@@ -190,7 +191,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
               {singleVideo && videoRight && firstImage && (
                 <div class="break-inside-avoid mb-4">
                   <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-xl" data-lightbox-src={siteBase ? siteBase + firstImage.src : firstImage.src} data-lightbox-alt={locale === 'sk' ? firstImage.altSk : firstImage.altEn} title={locale === 'sk' ? firstImage.altSk : firstImage.altEn}>
-                    <img src={siteBase ? siteBase + galleryDisplaySrc(firstImage) : galleryDisplaySrc(firstImage)} alt={locale === 'sk' ? firstImage.altSk : firstImage.altEn} width={firstImage.width} height={firstImage.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
+                    <img src={siteBase ? siteBase + galleryDisplayJpeg(firstImage) : galleryDisplayJpeg(firstImage)} alt={locale === 'sk' ? firstImage.altSk : firstImage.altEn} width={firstImage.width} height={firstImage.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
                   </button>
                 </div>
               )}
@@ -229,7 +230,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                       </div>
                     ) : (
                       <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-lg" data-lightbox-src={siteBase ? siteBase + heroCol1.img.src : heroCol1.img.src} data-lightbox-alt={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn} title={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn}>
-                        <img src={siteBase ? siteBase + galleryDisplaySrc(heroCol1.img) : galleryDisplaySrc(heroCol1.img)} alt={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn} width={heroCol1.img.width} height={heroCol1.img.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
+                        <img src={siteBase ? siteBase + galleryDisplayJpeg(heroCol1.img) : galleryDisplayJpeg(heroCol1.img)} alt={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn} width={heroCol1.img.width} height={heroCol1.img.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
                       </button>
                     )}
                   </div>
@@ -248,7 +249,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                       </div>
                     ) : (
                       <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-lg" data-lightbox-src={siteBase ? siteBase + heroCol2.img.src : heroCol2.img.src} data-lightbox-alt={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn} title={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn}>
-                        <img src={siteBase ? siteBase + galleryDisplaySrc(heroCol2.img) : galleryDisplaySrc(heroCol2.img)} alt={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn} width={heroCol2.img.width} height={heroCol2.img.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
+                        <img src={siteBase ? siteBase + galleryDisplayJpeg(heroCol2.img) : galleryDisplayJpeg(heroCol2.img)} alt={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn} width={heroCol2.img.width} height={heroCol2.img.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
                       </button>
                     )}
                   </div>
