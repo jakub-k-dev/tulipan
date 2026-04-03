@@ -69,65 +69,8 @@
   filter: brightness(0) invert(1);
 }
 
-/* Header: woven fabric look — threads + gradient + soft shine */
-.header-bar {
-  background-color: var(--red-fabric-bottom);
-  background-image:
-    linear-gradient(160deg, var(--red-fabric-shine) 0%, transparent 35%, transparent 65%, rgba(0,0,0,0.03) 100%),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 1px,
-      var(--red-fabric-weft) 1px,
-      var(--red-fabric-weft) 2px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 1px,
-      var(--red-fabric-warp) 1px,
-      var(--red-fabric-warp) 2px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent 0px,
-      transparent 2px,
-      var(--red-fabric-thread) 2px,
-      var(--red-fabric-thread) 3px
-    ),
-    linear-gradient(to bottom, var(--red-fabric-top) 0%, var(--red-fabric-mid) 35%, var(--red-fabric-bottom) 100%);
-  background-size: 100% 100%, 3px 3px, 3px 3px, 6px 6px, 100% 100%;
-  background-repeat: repeat, repeat, repeat, repeat, no-repeat;
-  box-shadow:
-    0 2px 16px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
-  position: relative;
-}
-
-/* Embroidery-style trim under header: gold + white lines */
-.header-bar::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 6px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0,
-    var(--trim-white) 1px,
-    transparent 2px,
-    transparent 3px,
-    var(--trim-gold) 4px,
-    var(--trim-gold) 5px,
-    transparent 6px
-  );
-  pointer-events: none;
-}
-
-/* Footer: same woven fabric treatment + trim on top */
-.footer-bar {
+/* Woven fabric base — shared by header and footer */
+.fabric-bar {
   background-color: var(--red-fabric-bottom);
   background-image:
     linear-gradient(160deg, var(--red-fabric-shine) 0%, transparent 40%),
@@ -140,24 +83,49 @@
   position: relative;
 }
 
+/* Header: extra diagonal thread layer + deeper outer shadow */
+.header-bar {
+  background-image:
+    linear-gradient(160deg, var(--red-fabric-shine) 0%, transparent 35%, transparent 65%, rgba(0,0,0,0.03) 100%),
+    repeating-linear-gradient(0deg, transparent 0, transparent 1px, var(--red-fabric-weft) 1px, var(--red-fabric-weft) 2px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 1px, var(--red-fabric-warp) 1px, var(--red-fabric-warp) 2px),
+    repeating-linear-gradient(-45deg, transparent 0px, transparent 2px, var(--red-fabric-thread) 2px, var(--red-fabric-thread) 3px),
+    linear-gradient(to bottom, var(--red-fabric-top) 0%, var(--red-fabric-mid) 35%, var(--red-fabric-bottom) 100%);
+  background-size: 100% 100%, 3px 3px, 3px 3px, 6px 6px, 100% 100%;
+  background-repeat: repeat, repeat, repeat, repeat, no-repeat;
+  box-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Embroidery-style trim: gold + white lines at bar edge */
+.header-bar::after,
 .footer-bar::before {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
   height: 6px;
+  pointer-events: none;
+}
+
+.header-bar::after {
+  bottom: 0;
   background: linear-gradient(
     to bottom,
-    var(--trim-white) 0px,
-    var(--trim-white) 1px,
-    transparent 2px,
-    var(--trim-gold) 3px,
-    var(--trim-gold) 4px,
-    transparent 5px,
-    transparent 6px
+    transparent 0, var(--trim-white) 1px, transparent 2px,
+    transparent 3px, var(--trim-gold) 4px, var(--trim-gold) 5px, transparent 6px
   );
-  pointer-events: none;
+}
+
+.footer-bar::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--trim-white) 0px, var(--trim-white) 1px, transparent 2px,
+    var(--trim-gold) 3px, var(--trim-gold) 4px, transparent 5px, transparent 6px
+  );
 }
 
 /* Red primary buttons: subtle gradient + depth so they’re not flat */

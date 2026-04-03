@@ -236,6 +236,10 @@ events:
     date: 2026-02-14
     titleSk: Fašiangy 2026
     titleEn: Fašiangy 2026
+    place: Čataj
+    descriptionSk: Fašiangový pochod a vystúpenie
+    videoUrl: https://www.youtube.com/watch?v=ZGr6EuYN0QE
+    heroVideoColumn: right
     imageSrcs:
       - /images/gallery/full/IMG_0004.webp
       - /images/gallery/full/IMG_0009.webp
@@ -3784,6 +3788,15 @@ catalogueAlbumDrafts:
     draft: true
     includeOnSite: false
     includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
   2025-07-12:
     slug: hody-2025
     titleSk: Album 2025-07-12
@@ -3791,6 +3804,15 @@ catalogueAlbumDrafts:
     draft: true
     includeOnSite: false
     includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
   2026-03-28:
     slug: odhalenie-pamatnik
     titleSk: Odhalenie pamätníka Tulipán
@@ -3798,12 +3820,30 @@ catalogueAlbumDrafts:
     draft: true
     includeOnSite: false
     includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
   2026-02-14:
     slug: fasiangy-2026
     titleSk: Fašiangy 2026
     titleEn: Fašiangy 2026
     draft: true
     includeOnSite: true
+    place: Čataj
+    descriptionSk: Fašiangový pochod a vystúpenie
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: video
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: https://www.youtube.com/watch?v=ZGr6EuYN0QE
   2025-07-09:
     slug: príprava hody
     titleSk: Album 2025-07-09
@@ -3811,6 +3851,15 @@ catalogueAlbumDrafts:
     draft: true
     includeOnSite: false
     includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
   2025-06-21:
     slug: myjava-2025
     titleSk: MFF Myjava 2025
@@ -3818,6 +3867,15 @@ catalogueAlbumDrafts:
     draft: true
     includeOnSite: false
     includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
   2025-06-14:
     slug: den-obce-2025
     titleSk: Deň obce 2025
@@ -3825,6 +3883,15 @@ catalogueAlbumDrafts:
     draft: true
     includeOnSite: false
     includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
   2025-03-01:
     slug: fasiangy-2025
     titleSk: Fašiangy 2025
@@ -3832,6 +3899,15 @@ catalogueAlbumDrafts:
     draft: true
     includeOnSite: false
     includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""
   2024-12-14:
     slug: 2024-12-14
     titleSk: Album 2024-12-14
@@ -3846,3 +3922,12 @@ catalogueAlbumDrafts:
     draft: true
     includeOnSite: false
     includedCatalogueIds: []
+    place: ""
+    descriptionSk: ""
+    descriptionEn: ""
+    hero1Kind: image
+    hero2Kind: image
+    hero1CatalogueId: ""
+    hero2CatalogueId: ""
+    hero1VideoUrl: ""
+    hero2VideoUrl: ""

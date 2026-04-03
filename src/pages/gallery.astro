@@ -7,7 +7,7 @@ import { galleryVisible } from '../data/gallery';
 const locale = 'sk';
 const t = tGallery(locale);
 const siteT = tSite(locale);
-const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+import { siteBase } from '../utils/site';
 ---
 
 <BaseLayout title={t.title} description={t.placeholder} locale={locale} current="gallery">

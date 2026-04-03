@@ -6,10 +6,9 @@ import { tAbout } from '../data/translations';
 
 interface Props {
   locale: Locale;
-  siteBase: string;
 }
 
-const { locale, siteBase } = Astro.props;
+const { locale } = Astro.props;
 const t = tAbout(locale);
 ---
 

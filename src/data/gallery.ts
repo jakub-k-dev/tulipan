@@ -37,38 +37,13 @@ export function formatGalleryDate(
   locale: "sk" | "en"
 ): string {
   const [y, m, d] = isoDate.split("-").map(Number);
-  const monthNamesSk = [
-    "január",
-    "február",
-    "marec",
-    "apríl",
-    "máj",
-    "jún",
-    "júl",
-    "august",
-    "september",
-    "október",
-    "november",
-    "december",
-  ];
-  const monthNamesEn = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const names = locale === "sk" ? monthNamesSk : monthNamesEn;
+  const date = new Date(y, m - 1, d);
+  const monthName = date.toLocaleString(locale === "sk" ? "sk-SK" : "en-GB", {
+    month: "long",
+  });
   return locale === "sk"
-    ? `${d}. ${names[m - 1]} ${y}`
-    : `${names[m - 1]} ${d}, ${y}`;
+    ? `${d}. ${monthName} ${y}`
+    : `${monthName} ${d}, ${y}`;
 }
 
 /** Event/album: a dated group of photos (for timeline and event pages). Max 50 images per event (soft limit). */
@@ -89,12 +64,23 @@ export interface GalleryEvent {
   videoStartSeconds?: number;
   /** Optional: end time in seconds for embed (e.g. 938 for 15:38). */
   videoEndSeconds?: number;
-  /** Optional: event location / place (for event-related albums) */
+  /** Optional: single place line (same for both locales when set). */
+  place?: string;
+  /** Optional: event location (legacy; use `place` for new content). */
   placeSk?: string;
   placeEn?: string;
   /** Optional: short event description (keep brief so details block stays compact) */
   descriptionSk?: string;
   descriptionEn?: string;
+  /** Optional: second hero-column YouTube embed (desktop: two videos side by side). */
+  videoUrl2?: string;
+  /** Optional: trim range for second embed (when videoUrl2 is set). */
+  video2StartSeconds?: number;
+  video2EndSeconds?: number;
+  /** When a single video shares the hero row with images: iframe on the left (default) or right. */
+  heroVideoColumn?: "left" | "right";
+  /** Optional: external links (shown in event details). */
+  links?: { url: string; labelSk?: string; labelEn?: string }[];
   /** When true, album is omitted from public timeline and static event routes (still listed in `galleryEvents` for tooling). Shown in dev server so you can preview WIP albums. */
   draft?: boolean;
 }
@@ -144,17 +130,28 @@ export function getYoutubeEmbedId(url: string): string | null {
   return m ? m[1] : null;
 }
 
-/** Build full YouTube embed URL for an event (with optional start/end in seconds). */
-export function getYoutubeEmbedUrl(event: GalleryEvent): string | null {
-  if (!event?.videoUrl) return null;
-  const id = getYoutubeEmbedId(event.videoUrl);
+/** Build full YouTube embed URL (with optional start/end in seconds). */
+export function getYoutubeEmbedUrlFromFields(
+  videoUrl: string | undefined,
+  startSeconds?: number,
+  endSeconds?: number
+): string | null {
+  if (!videoUrl) return null;
+  const id = getYoutubeEmbedId(videoUrl);
   if (!id) return null;
   const params = new URLSearchParams({ rel: "0" });
-  if (event.videoStartSeconds != null)
-    params.set("start", String(event.videoStartSeconds));
-  if (event.videoEndSeconds != null)
-    params.set("end", String(event.videoEndSeconds));
+  if (startSeconds != null) params.set("start", String(startSeconds));
+  if (endSeconds != null) params.set("end", String(endSeconds));
   return `https://www.youtube.com/embed/${id}?${params.toString()}`;
+}
+
+/** Build full YouTube embed URL for an event (with optional start/end in seconds). */
+export function getYoutubeEmbedUrl(event: GalleryEvent): string | null {
+  return getYoutubeEmbedUrlFromFields(
+    event.videoUrl,
+    event.videoStartSeconds,
+    event.videoEndSeconds
+  );
 }
 
 /** Get images for an event: highlights first (in highlightSrcs order), then rest in imageSrcs (time) order. */
