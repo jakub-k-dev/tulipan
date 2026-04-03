@@ -123,18 +123,8 @@ function addHeroCarouselPaths(siteRoot, needed) {
     const prefix = `/images/hero/carousel-${i + 1}`;
     needed.add(`${prefix}.avif`);
     needed.add(`${prefix}.jpg`);
-    // Also ensure the source gallery full image stays (not pruned)
-    const row = catById.get(catId);
-    if (row) {
-      // Prefer explicit src, otherwise derive from nextcloudPath (same rule as catalogue-link-local-webp)
-      let fullSrc = row.src;
-      if (!fullSrc && row.nextcloudPath) {
-        const ncName = String(row.nextcloudPath).replace(/\\/g, "/").split("/").pop() || "";
-        const base = ncName.replace(/\.[^.]+$/, "");
-        if (base) fullSrc = `/images/gallery/full/${base}.webp`;
-      }
-      if (fullSrc) needed.add(fullSrc);
-    }
+    // Hero files only — gallery files for these images are managed independently
+    // by album publish (imageGroups/events). No gallery protection here.
   }
 }
 
