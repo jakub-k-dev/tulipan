@@ -106,7 +106,7 @@ export const galleryEventsForDisplay: GalleryEvent[] = galleryEvents.filter(
   }
 );
 
-/** Base name from a gallery full src (e.g. "IMG_4778" from "/images/gallery/full/IMG_4778.webp"). */
+/** Base name from a gallery full src (strips path prefix and .webp extension). */
 function galleryBaseName(src: string): string | null {
   const m = src.match(/^\/images\/gallery\/full\/(.+)\.webp$/i);
   return m ? m[1] : null;

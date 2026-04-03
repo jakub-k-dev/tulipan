@@ -125,7 +125,16 @@ function addHeroCarouselPaths(siteRoot, needed) {
     needed.add(`${prefix}.jpg`);
     // Also ensure the source gallery full image stays (not pruned)
     const row = catById.get(catId);
-    if (row && row.src) needed.add(row.src);
+    if (row) {
+      // Prefer explicit src, otherwise derive from nextcloudPath (same rule as catalogue-link-local-webp)
+      let fullSrc = row.src;
+      if (!fullSrc && row.nextcloudPath) {
+        const ncName = String(row.nextcloudPath).replace(/\\/g, "/").split("/").pop() || "";
+        const base = ncName.replace(/\.[^.]+$/, "");
+        if (base) fullSrc = `/images/gallery/full/${base}.webp`;
+      }
+      if (fullSrc) needed.add(fullSrc);
+    }
   }
 }
 
