@@ -4,18 +4,10 @@ manifestEditorNote: Trimmed 2026-03-25 to match files present under public/image
   Re-sync from Nextcloud, add sources under assets/, and run npm run optimize-images to rebuild the rest.
 heroCarousel:
   slides:
-    - id: hero-cal-3
-      source: base
-      filename: folkloristikalendar 3.jpg
-    - id: hero-cal-2
-      source: base
-      filename: folkloristikalendar 2.jpg
-    - id: hero-cal-1
-      source: base
-      filename: folkloristikalendar 1.jpg
-    - id: hero-cal-1-repeat
-      source: base
-      filename: folkloristikalendar 1.jpg
+    - catalogueId: 0420d5c6030e7bbf15b95180
+    - catalogueId: 7684ef9a79af4956a01cdb3c
+    - catalogueId: 5362743f5c7d4bb8ba1b3123
+    - catalogueId: 741a9adf305e18ebdebcb407
 imageGroups:
   - id: optimized-assets
     images:

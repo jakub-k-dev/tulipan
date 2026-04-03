@@ -4,6 +4,7 @@
  */
 import {
   loadGalleryManifest,
+  manifestCarouselSlideCount,
   manifestToGalleryEvents,
   manifestToGalleryImages,
 } from "./gallery-manifest";
@@ -27,6 +28,9 @@ export interface GalleryImage {
 }
 
 const manifest = loadGalleryManifest();
+
+/** Number of hero carousel slides configured in the manifest. */
+export const carouselSlideCount: number = manifestCarouselSlideCount(manifest);
 
 /** All gallery images: order follows `imageGroups` in gallery.manifest.yaml. */
 export const galleryImages: GalleryImage[] = manifestToGalleryImages(manifest);
@@ -102,13 +106,39 @@ export const galleryEventsForDisplay: GalleryEvent[] = galleryEvents.filter(
   }
 );
 
-/** Display image for grid (800w WebP for assets; full for legacy). */
+/** Base name from a gallery full src (e.g. "IMG_4778" from "/images/gallery/full/IMG_4778.webp"). */
+function galleryBaseName(src: string): string | null {
+  const m = src.match(/^\/images\/gallery\/full\/(.+)\.webp$/i);
+  return m ? m[1] : null;
+}
+
+/** Display image AVIF path (800w). */
+export function galleryDisplayAvif(img: GalleryImage): string | null {
+  const base = galleryBaseName(img.src);
+  return base ? `/images/gallery/display/${base}.avif` : null;
+}
+
+/** Display image JPEG fallback path (800w). */
+export function galleryDisplayJpeg(img: GalleryImage): string {
+  const base = galleryBaseName(img.src);
+  return base ? `/images/gallery/display/${base}.jpg` : img.src;
+}
+
+/** Full image AVIF path (1600w). */
+export function galleryFullAvif(img: GalleryImage): string | null {
+  const base = galleryBaseName(img.src);
+  return base ? `/images/gallery/full/${base}.avif` : null;
+}
+
+/** Full image JPEG fallback path (1600w). */
+export function galleryFullJpeg(img: GalleryImage): string {
+  const base = galleryBaseName(img.src);
+  return base ? `/images/gallery/full/${base}.jpg` : img.src;
+}
+
+/** @deprecated Legacy: display WebP path. Use galleryDisplayAvif/Jpeg instead. */
 export function galleryDisplaySrc(img: GalleryImage): string {
-  if (img.src.includes("/gallery/full/") && img.src.endsWith(".webp")) {
-    const name = img.src.split("/").pop();
-    return `/images/gallery/display/${name}`;
-  }
-  return img.src;
+  return galleryDisplayJpeg(img);
 }
 
 /** Tiny placeholder for blur-up (asset images only). */
