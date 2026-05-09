@@ -1,23 +1,27 @@
 ---
 import type { Locale } from '../data/translations';
 import PageTextileHero from './PageTextileHero.astro';
-import UpcomingEventCard from './UpcomingEventCard.astro';
+import BigEventBody from './events/BigEventBody.astro';
 import { tEvents } from '../data/translations';
+import { getNextBigEvent } from '../data/bigEvents';
 
 interface Props {
   locale: Locale;
   base: string;
 }
 
-const { locale, base } = Astro.props;
+const { locale } = Astro.props;
 const t = tEvents(locale);
+const next = getNextBigEvent();
 ---
 
 <PageTextileHero title={t.title} />
 <div class="bg-textile-cream">
-  <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
-    <h2 class="sr-only">{t.upcoming}</h2>
-    <UpcomingEventCard locale={locale} variant="full" base={base} />
-    <p class="mt-8 text-heritage-charcoal/80 text-sm font-medium">{t.noEvents}</p>
-  </div>
+  {next ? (
+    <BigEventBody slug={next.slug} locale={locale} />
+  ) : (
+    <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
+      <p class="text-heritage-charcoal/80 text-base font-medium">{t.noEvents}</p>
+    </div>
+  )}
 </div>

@@ -1,0 +1,13 @@
+---
+import type { Locale } from '../../data/translations';
+import EventTulipan100 from './EventTulipan100.astro';
+
+interface Props {
+  slug: string;
+  locale: Locale;
+}
+
+const { slug, locale } = Astro.props;
+---
+
+{slug === '100-rokov-tulipan' && <EventTulipan100 locale={locale} />}
