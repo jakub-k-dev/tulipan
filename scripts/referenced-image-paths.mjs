@@ -62,12 +62,25 @@ export function buildNeededImagePaths(siteRoot) {
   // Hero carousel: resolve catalogue IDs → gallery paths, then derive hero/ paths
   addHeroCarouselPaths(siteRoot, needed);
 
+  // Files referenced via template-literal interpolation (e.g. `${siteBase}/images/sponsors/${slug}.avif`)
+  // are invisible to the path regex above and would be pruned from the deploy. List them explicitly here.
+  // When adding a new sponsor logo, add every variant the page actually requests (.avif/.png/.svg) below.
   for (const p of [
     "/images/logo.svg",
     "/images/sponsors/fpu.svg",
     "/images/sponsors/bsk.svg",
     "/images/sponsors/cataj.webp",
     "/images/sponsors/cataj.png",
+    "/images/sponsors/cataj.avif",
+    "/images/sponsors/mos.avif",
+    "/images/sponsors/mos.png",
+    "/images/sponsors/elv.svg",
+    "/images/sponsors/pd-cataj.avif",
+    "/images/sponsors/pd-cataj.png",
+    "/images/sponsors/commander.svg",
+    "/images/sponsors/ama.svg",
+    "/images/sponsors/agromacaj.avif",
+    "/images/sponsors/agromacaj.png",
     "/images/embroidery-pattern.png",
     "/images/embroidery-reference.png",
     "/images/embroidery-strip.png",
