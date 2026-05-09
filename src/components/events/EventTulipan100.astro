@@ -26,7 +26,10 @@ type Sponsor = {
   url?: string;
 };
 
-/** Sponsor logos in the order requested. Files live in `public/images/sponsors/`. */
+/** Sponsor logos in the order requested. Files live in `public/images/sponsors/`.
+ * Slugs are interpolated into the image src below, so the prune regex can't see them — every
+ * filename used here must also be listed in `scripts/referenced-image-paths.mjs`, or the deploy
+ * will 404. */
 const sponsors: Sponsor[] = [
   { slug: 'cataj',     alt: 'Obec Čataj',                    format: 'raster', size: 'tall', url: 'https://www.cataj.sk/' },
   { slug: 'bsk',       alt: 'Bratislavský samosprávny kraj', format: 'svg',    size: 'tall', url: 'https://bratislavskykraj.sk/' },
