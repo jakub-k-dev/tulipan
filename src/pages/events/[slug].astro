@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BigEventBody from '../../components/events/BigEventBody.astro';
+import { bigEvents, getBigEventBySlug } from '../../data/bigEvents';
+
+export function getStaticPaths() {
+  return bigEvents.map((e) => ({ params: { slug: e.slug } }));
+}
+
+const locale = 'sk';
+const { slug } = Astro.params;
+const ev = getBigEventBySlug(slug!)!;
+const meta = ev.sk;
+---
+
+<BaseLayout title={meta.title} description={meta.shortDescription} locale={locale} current="events">
+  <BigEventBody slug={slug!} locale={locale} />
+</BaseLayout>

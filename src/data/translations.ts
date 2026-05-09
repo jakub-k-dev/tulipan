@@ -144,27 +144,6 @@ export const timeline = {
   ],
 } as const;
 
-/** Upcoming event: 100th anniversary celebration, 16 May 2026 (from sponsor letter) */
-export const upcomingEvent = {
-  dateISO: '2026-05-16',
-  sk: {
-    dateLabel: '16. mája 2026',
-    title: '100. výročie Folklórnej skupiny z Čataja',
-    place: 'Čataj',
-    shortDescription: 'Slávnostné celodenné podujatie: krojovaný sprievod obcou, workshopy ľudovej kultúry a tradičných jedál, večer galaprogram s vystúpeniami našej skupiny, domácich i hosťujúcich skupín (vrátane folklórnej skupiny z Ploče, Chorvátsko), spoločenská zábava.',
-    description: 'V máji 2026 oslavujeme 100. výročie od prvého zdokumentovaného vystúpenia. Program má celodenný charakter v obci Čataj: krojovaný sprievod obcou, workshopy zamerané na ľudovú kultúru a tradičné jedlá; večer slávnostný galaprogram s vystúpením Folklórnej skupiny Tulipán Čataj, domácich i hosťujúcich skupín (vrátane medzinárodnej účasti – folklórna skupina z chorvátskeho mesta Ploče), po ktorom nasleduje spoločenská zábava. Podujatie je pod záštitou Bratislavského samosprávneho kraja a s odbornou podporou Fondu na podporu umenia.',
-    cta: 'Viac o podujatí',
-  },
-  en: {
-    dateLabel: '16 May 2026',
-    title: '100th anniversary of the Folklore Group from Čataj',
-    place: 'Čataj',
-    shortDescription: 'All-day celebration: costume procession through the village, workshops on folk culture and traditional food, evening gala with performances by our group, local and guest ensembles (including a folklore group from Ploče, Croatia), followed by social dancing.',
-    description: 'In May 2026 we celebrate 100 years since the first documented performance. The programme runs all day in the village of Čataj: costume procession through the village, workshops on folk culture and traditional food; in the evening a gala with performances by the Tulipan Folklore Group, local and guest ensembles (including international guests – a folklore group from Ploče, Croatia), followed by social dancing. The event is under the auspices of the Bratislava Self-Governing Region and with expert support from the Fund for the Support of the Arts.',
-    cta: 'More about the event',
-  },
-} as const;
-
 export const events = {
   sk: {
     title: 'Podujatia',
