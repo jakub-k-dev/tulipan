@@ -73,6 +73,7 @@ const orgJsonLd = JSON.stringify({
     <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/about` : `${siteBase}/en/about`} />
     <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/events` : `${siteBase}/en/events`} />
     <script type="application/ld+json" set:html={orgJsonLd} />
+    <slot name="head" />
     {goatCounterSite && (
       <script
         data-goatcounter={`https://${goatCounterSite}.goatcounter.com/count`}
