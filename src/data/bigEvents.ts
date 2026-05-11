@@ -81,3 +81,93 @@ export function getPastBigEvents(): BigEvent[] {
 export function getBigEventBySlug(slug: string): BigEvent | null {
   return bigEvents.find((e) => e.slug === slug) ?? null;
 }
+
+type EventJsonLdUrls = {
+  canonicalHref: string;
+  imageUrl: string;
+  orgUrl: string;
+};
+
+/**
+ * Build schema.org Event JSON-LD for a big event. Returns null if the slug has
+ * no structured-data definition. Date/time and performer/location details are
+ * sourced from the public page content (see EventTulipan100.astro) so search
+ * engines see the same facts visible on the page.
+ */
+export function getBigEventJsonLd(
+  slug: string,
+  locale: 'sk' | 'en',
+  urls: EventJsonLdUrls,
+): Record<string, unknown> | null {
+  if (slug !== '100-rokov-tulipan') return null;
+  const ev = getBigEventBySlug(slug)!;
+  const meta = ev[locale];
+  const venueName =
+    locale === 'sk'
+      ? 'Čataj — areál dolnej školy a Kultúrny dom'
+      : 'Čataj — Lower School grounds and Cultural House';
+  const performerSk = [
+    'Folklórna skupina Tulipán Čataj',
+    'FS Mladosť Šenkvice',
+    'FS z chorvátskeho mesta Ploče',
+    'FS Technik',
+    'FS Čífer',
+    'FS Slnečnica',
+  ];
+  const performerEn = [
+    'Tulipán Čataj folklore group',
+    'FS Mladosť Šenkvice',
+    'Folklore ensemble from Ploče, Croatia',
+    'FS Technik',
+    'FS Čífer',
+    'FS Slnečnica',
+  ];
+  const musicGroups = [
+    'Dychová hudba Šarfianka',
+    'Ľudová hudba Farkašovci',
+    'Sirka Cuvée Ensemble',
+    'Gin Tonic',
+  ];
+  const performers = (locale === 'sk' ? performerSk : performerEn)
+    .map((name) => ({ '@type': 'PerformingGroup', name }))
+    .concat(musicGroups.map((name) => ({ '@type': 'MusicGroup', name })));
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Festival',
+    name: meta.title,
+    description: meta.shortDescription,
+    startDate: '2026-05-16T11:00:00+02:00',
+    endDate: '2026-05-17T02:00:00+02:00',
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    inLanguage: locale === 'sk' ? 'sk' : 'en',
+    url: urls.canonicalHref,
+    image: [urls.imageUrl],
+    location: {
+      '@type': 'Place',
+      name: venueName,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Družstevná 60',
+        addressLocality: 'Čataj',
+        postalCode: '900 83',
+        addressCountry: 'SK',
+      },
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url: urls.canonicalHref,
+      validFrom: '2026-01-01T00:00:00+01:00',
+    },
+    organizer: {
+      '@type': 'Organization',
+      name: 'Folklórna skupina Tulipán',
+      url: urls.orgUrl,
+    },
+    performer: performers,
+  };
+}
