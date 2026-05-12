@@ -1,5 +1,6 @@
 ---
 import type { Locale } from '../data/translations';
+import { tHome, tContact } from '../data/translations';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { siteBase } from '../utils/site';
@@ -29,12 +30,30 @@ const ogImagePath = `${siteBase || ''}/images/hero/carousel-1.jpg`;
 const ogImageUrl = new URL(ogImagePath.startsWith('/') ? ogImagePath : `/${ogImagePath}`, siteOrigin).href;
 const fullTitle = `${title} — Tulipán`;
 const logoUrl = new URL(`${siteBase || ''}/images/logo.svg`, siteOrigin).href;
+const tH = tHome(locale);
+const tC = tContact(locale);
 const orgJsonLd = JSON.stringify({
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': 'PerformingGroup',
   name: 'Folklórna skupina Tulipán',
+  description: tH.intro,
   url: new URL(siteBase || '/', siteOrigin).href,
   logo: logoUrl,
+  foundingDate: '2018',
+  genre: ['folklore', 'Slovak folklore', 'folk dance'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Čataj 219',
+    postalCode: '900 83',
+    addressLocality: 'Čataj',
+    addressCountry: 'SK',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'public relations',
+    telephone: tC.phone,
+    email: tC.email,
+  },
   sameAs: [
     'https://www.facebook.com/fstulipancataj',
     'https://www.instagram.com/folklorna_skupina_tulipan/',
