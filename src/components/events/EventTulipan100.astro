@@ -40,6 +40,7 @@ const sponsors: Sponsor[] = [
   { slug: 'commander', alt: 'Commander',                     format: 'svg',    size: 'wide', url: 'https://commander.sk/' },
   { slug: 'ama',       alt: 'AMA Slovakia',                  format: 'svg',    size: 'wide', url: 'https://www.amaslovakia.sk/' },
   { slug: 'agromacaj', alt: 'Agromačaj',                     format: 'raster', size: 'wide' },
+  { slug: 'mecom',     alt: 'Mecom',                         format: 'svg',    size: 'wide', url: 'https://www.mecom.sk/' },
 ];
 
 type ProgramItem = {
@@ -378,7 +379,7 @@ const c = content[locale];
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" />
-      {[sponsors.slice(0, 4), sponsors.slice(4)].map((row) => (
+      {[sponsors.slice(0, 4), sponsors.slice(4, 7), sponsors.slice(7)].map((row) => (
         <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-10 md:gap-x-12 gap-y-8">
           {row.map((s) => {
             const heightClass = s.size === 'tall' ? 'h-16 md:h-20' : 'h-12 md:h-14';

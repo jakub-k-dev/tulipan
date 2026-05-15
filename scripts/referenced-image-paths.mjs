@@ -81,6 +81,7 @@ export function buildNeededImagePaths(siteRoot) {
     "/images/sponsors/ama.svg",
     "/images/sponsors/agromacaj.avif",
     "/images/sponsors/agromacaj.png",
+    "/images/sponsors/mecom.svg",
     "/images/embroidery-pattern.png",
     "/images/embroidery-reference.png",
     "/images/embroidery-strip.png",
