@@ -67,21 +67,68 @@ type Content = {
   moderator: string;
   program: ProgramItem[];
   joinChoirNote: string;
+  pressHeading: string;
+  pressIntro: string;
+  pressReadMore: string;
   patronageHeading: string;
   patronage: string;
   mainPartner: string;
   publicFunding: string;
 };
 
+type PressArticle = {
+  url: string;
+  siteName: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
+/** Press articles published after the event. Images are hot-linked from the
+ * source publications (lazy loaded). Title/description are the original og:*
+ * metadata trimmed for length where useful. */
+const pressArticles: PressArticle[] = [
+  {
+    url: 'https://bratislavskykraj.sk/cataj-oslavil-100-rokov-folkloru/',
+    siteName: 'Bratislavskykraj.sk',
+    title: 'Čataj oslávil 100 rokov folklóru',
+    description:
+      'V Čataji si v sobotu 16. mája 2026 pripomenuli 100 rokov folklórnej tradície. Celodenné podujatie spojilo históriu, kroje, hudbu, tanec aj spomienky na generácie ľudí, ktoré udržiavali tradície obce živé.',
+    image: 'https://bratislavskykraj.sk/wp-content/uploads/2026/05/IMG_20260516_183634-scaled.jpg',
+  },
+  {
+    url: 'https://www.bratislavskyvecernik.sk/2026/05/17/cataj-oslavil-storocnicu-folkloru/',
+    siteName: 'Bratislavský večerník',
+    title: 'Čataj oslávil storočnicu folklóru',
+    description:
+      'V Čataji si v sobotu 16. mája 2026 pripomenuli 100 rokov folklórnej tradície. Celodenné oslavy spojili kroje, hudbu, tanec, remeslá, výstavu dobových fotografií aj vystúpenia domácich a hosťujúcich súborov.',
+    image: 'https://www.bratislavskyvecernik.sk/wp-content/uploads/2026/05/cataj-100-rokov-folkloru.jpg',
+  },
+];
+
+/** Facebook post embeds from participating groups (post-event). */
+const groupFbEmbeds: { href: string; height: number; title: string }[] = [
+  {
+    href: 'https://www.facebook.com/fsmladost.senkvice/posts/pfbid033daDhcjpSmkbZRXFmoSq7dGXeuKiopZigfUbjfUgGppQwFh5BfMGagFLx4pAT9y1l',
+    height: 684,
+    title: 'FS Mladosť Šenkvice',
+  },
+  {
+    href: 'https://www.facebook.com/sirkacuvee.ensemble/posts/pfbid02BwC4mqfBq3NXvAe5JLdarBMo4dpjt96rDxiBU11kFpJ7uBpzW5m1rn6w1GJ5Emx9l',
+    height: 645,
+    title: 'Sirka Cuvée Ensemble',
+  },
+];
+
 const content: Record<Locale, Content> = {
   sk: {
     lede: 'Čataj oslávi 100 rokov folklóru — tradícia ožíva celodenným programom.',
     freeEntry: 'Vstup voľný',
     videoHeading: 'Videopozvánka',
-    videoTitle: 'Videopozvánka — 100 rokov folklórnej skupiny Tulipán',
+    videoTitle: 'Videopozvánka — 100 rokov folklóru v Čataji',
     invitationHeading: 'Pozvánka',
     invitation: [
-      'Folklórna skupina Tulipán pozýva všetkých občanov na oslavy 100 rokov folklórnej skupiny v Čataji, ktoré sa budú konať v sobotu 16. mája 2026.',
+      'Folklórna skupina Tulipán pozýva všetkých občanov na oslavy 100 rokov folklóru v Čataji, ktoré sa budú konať v sobotu 16. mája 2026.',
       'Začiatok je o 11:00 v areáli dolnej školy (Družstevná 60). O 12:30 bude podujatie pokračovať krojovaným sprievodom spred budovy dolnej školy pred budovu obecného úradu po hlavnej ulici. Budeme radi, ak sa do sprievodu zapoja všetci občania, ktorí majú kroje, aby sa tým zvýšila atmosféra podujatia.',
       'Pred Kultúrnym domom sa bude konať bohatý sprievodný program — remeselné trhy s dielničkami, predaj ľudovoumeleckých výrobkov, vystúpenia hostí, detí materskej a základnej školy, rozhovory s bývalými aj súčasnými členmi folklórnej skupiny a iné. Pripravené je aj bohaté občerstvenie.',
       'O 18:00 sa uskutoční v sále kultúrneho domu slávnostný galaprogram. Po jeho skončení nasleduje ľudová veselica. Tešíme sa na vašu účasť.',
@@ -158,6 +205,10 @@ const content: Record<Locale, Content> = {
     ],
     joinChoirNote:
       'Pozývame vás pripojiť sa k najväčšiemu folklórnemu zboru v Čataji piesňou „Nedaleko od Čataja“.',
+    pressHeading: 'Z podujatia',
+    pressIntro:
+      'Médiá, partneri a účinkujúci o storočnici folklóru v Čataji.',
+    pressReadMore: 'Čítať článok',
     patronageHeading: 'Záštita a partneri',
     patronage:
       'Podujatie sa koná pod záštitou predsedu Bratislavského samosprávneho kraja Juraja Drobu.',
@@ -168,7 +219,7 @@ const content: Record<Locale, Content> = {
     lede: 'Čataj celebrates 100 years of folklore — tradition comes alive in a full-day programme.',
     freeEntry: 'Free entry',
     videoHeading: 'Video invitation',
-    videoTitle: 'Video invitation — 100 years of the Tulipán folklore group',
+    videoTitle: 'Video invitation — 100 years of folklore in Čataj',
     invitationHeading: 'Invitation',
     invitation: [
       'The Tulipán folklore group invites all residents to the celebration of 100 years of the folklore group in Čataj, taking place on Saturday, 16 May 2026.',
@@ -248,6 +299,10 @@ const content: Record<Locale, Content> = {
     ],
     joinChoirNote:
       'Join the largest folklore choir in Čataj with the song “Nedaleko od Čataja”.',
+    pressHeading: 'From the event',
+    pressIntro:
+      'Media, partners and participating ensembles on the centenary of folklore in Čataj.',
+    pressReadMore: 'Read article',
     patronageHeading: 'Patronage and partners',
     patronage:
       'The event is held under the auspices of Juraj Droba, Chairman of the Bratislava Self-Governing Region.',
@@ -363,6 +418,61 @@ const c = content[locale];
       <p class="mt-8 rounded-lg border border-textile-gold/50 bg-white/80 p-4 text-heritage-charcoal/90 italic">
         {c.joinChoirNote}
       </p>
+    </section>
+
+    <OrnamentDivider class="my-10" />
+
+    <section aria-labelledby="press-heading">
+      <h2 id="press-heading" class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">
+        {c.pressHeading}
+      </h2>
+      <p class="mt-3 text-heritage-charcoal/80">{c.pressIntro}</p>
+
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        {pressArticles.map((a) => (
+          <a
+            href={a.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col rounded-xl border-2 border-textile-gold/50 bg-white/95 overflow-hidden shadow-sm transition-shadow hover:shadow-lg focus:outline focus:ring-2 focus:ring-groupRedDark focus:ring-offset-2"
+          >
+            <div class="aspect-[16/9] w-full bg-heritage-charcoal/10 overflow-hidden">
+              <img
+                src={a.image}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+            </div>
+            <div class="p-5 flex flex-col gap-2">
+              <p class="text-xs font-semibold uppercase tracking-wide text-groupRedDark">{a.siteName}</p>
+              <h3 class="font-display text-lg md:text-xl text-heritage-charcoal font-semibold leading-snug">{a.title}</h3>
+              <p class="text-sm text-heritage-charcoal/80 leading-relaxed">{a.description}</p>
+              <span class="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-groupRedDark">
+                {c.pressReadMore}
+                <span aria-hidden="true">→</span>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-8 flex flex-col md:flex-row flex-wrap justify-center items-start gap-8">
+        {groupFbEmbeds.map((p) => (
+          <iframe
+            src={`https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(p.href)}&show_text=true&width=500`}
+            width="500"
+            height={p.height}
+            style="border:none;overflow:hidden;max-width:100%;"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            loading="lazy"
+            title={locale === 'sk' ? `Príspevok na Facebooku — ${p.title}` : `Facebook post — ${p.title}`}
+          />
+        ))}
+      </div>
     </section>
 
     <OrnamentDivider class="my-10" />

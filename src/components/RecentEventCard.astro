@@ -1,0 +1,42 @@
+---
+import type { Locale } from '../data/translations';
+import { getMostRecentRecapBigEvent, getNextBigEvent } from '../data/bigEvents';
+
+interface Props {
+  locale: Locale;
+  base?: string;
+}
+
+const { locale, base = '' } = Astro.props;
+// Only show when there's no upcoming event to take the slot.
+const ev = getNextBigEvent() ? null : getMostRecentRecapBigEvent();
+const meta = ev ? ev[locale] : null;
+const recap = meta?.recap ?? null;
+---
+
+{ev && meta && recap && (
+  <article class="rounded-xl border-2 border-textile-gold/60 bg-white/95 shadow-lg overflow-hidden" aria-labelledby="recent-event-title">
+    <div class="p-5 md:p-6">
+      <p class="text-sm font-semibold uppercase tracking-wide text-groupRedDark" aria-hidden="true">
+        {recap.eyebrow}
+      </p>
+      <h2 id="recent-event-title" class="font-display text-xl md:text-2xl text-heritage-charcoal font-semibold mt-1">
+        {meta.title}
+      </h2>
+      <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-0 text-heritage-charcoal/90 font-medium">
+        <time datetime={ev.dateISO}>{meta.dateLabel}</time>
+        <span aria-hidden="true">·</span>
+        <span>{ev.place}</span>
+      </p>
+      <p class="mt-3 text-heritage-charcoal/90 text-sm leading-relaxed max-w-2xl">
+        {recap.shortDescription}
+      </p>
+      <a
+        href={`${base}/events/${ev.slug}`}
+        class="btn-red mt-4 inline-block px-4 py-2 text-white font-semibold rounded-md transition-colors border border-white/20"
+      >
+        {recap.cta}
+      </a>
+    </div>
+  </article>
+)}

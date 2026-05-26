@@ -19,6 +19,17 @@ export type BigEventLocaleStrings = {
   cta: string;
 };
 
+/** Optional post-event recap copy. When present, a recap card can render on the
+ * homepage in the slot the upcoming-event card vacated after the date passed. */
+export type BigEventRecap = {
+  /** Small uppercase eyebrow label (e.g. "Storočnica za nami"). */
+  eyebrow: string;
+  /** Short recap/thanks paragraph shown on the card. */
+  shortDescription: string;
+  /** Label on the recap-card CTA button. */
+  cta: string;
+};
+
 export type BigEvent = {
   /** URL slug under /events/. Keep stable; URLs persist forever. */
   slug: string;
@@ -26,8 +37,8 @@ export type BigEvent = {
   dateISO: string;
   /** Place line shown on cards (same in both locales). */
   place: string;
-  sk: BigEventLocaleStrings;
-  en: BigEventLocaleStrings;
+  sk: BigEventLocaleStrings & { recap?: BigEventRecap };
+  en: BigEventLocaleStrings & { recap?: BigEventRecap };
 };
 
 export const bigEvents: BigEvent[] = [
@@ -36,18 +47,30 @@ export const bigEvents: BigEvent[] = [
     dateISO: '2026-05-16',
     place: 'Čataj',
     sk: {
-      title: '100 rokov folklórnej skupiny Tulipán',
+      title: '100 rokov folklóru v Čataji',
       dateLabel: 'sobota 16. máj 2026',
       shortDescription:
         'Celodenné oslavy storočnice folklóru v Čataji: krojovaný sprievod, remeselné trhy, vystúpenia domácich i hosťujúcich súborov a večerný galaprogram. Vstup voľný.',
       cta: 'Viac o podujatí',
+      recap: {
+        eyebrow: 'Storočnica za nami',
+        shortDescription:
+          'Ďakujeme všetkým, ktorí prišli a podporili naše podujatie. Fotografie, video a rekapituláciu postupne pripravujeme.',
+        cta: 'Zobraziť podujatie',
+      },
     },
     en: {
-      title: '100 years of the Tulipán folklore group',
+      title: '100 years of folklore in Čataj',
       dateLabel: 'Saturday, 16 May 2026',
       shortDescription:
         'A full-day celebration of a century of folklore in Čataj: costume procession, craft markets, performances by local and guest ensembles, and an evening gala. Free entry.',
       cta: 'More about the event',
+      recap: {
+        eyebrow: 'A century behind us',
+        shortDescription:
+          'Thank you to everyone who came and supported the event. Photos, video and a full recap are on the way.',
+        cta: 'View event',
+      },
     },
   },
 ];
@@ -76,6 +99,13 @@ export function getPastBigEvents(): BigEvent[] {
   return bigEvents
     .filter((e) => e.dateISO < today)
     .sort((a, b) => b.dateISO.localeCompare(a.dateISO));
+}
+
+/** Most recent past event that has recap copy for both locales, or null.
+ * Used by the homepage to show a post-event thank-you card in the slot the
+ * upcoming-event card vacated after the date passed. */
+export function getMostRecentRecapBigEvent(): BigEvent | null {
+  return getPastBigEvents().find((e) => e.sk.recap && e.en.recap) ?? null;
 }
 
 export function getBigEventBySlug(slug: string): BigEvent | null {
