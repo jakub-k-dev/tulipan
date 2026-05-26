@@ -1,6 +1,6 @@
 export type Locale = 'sk' | 'en';
 
-/** Site-wide message when (parts of) the site are under construction */
+/** Site-wide notice used on pages still being filled in (e.g. /gallery). */
 export const site = {
   sk: {
     constructionMessage: 'Táto webová stránka je momentálne vo fáze prípravy. Postupne na nej dopĺňame ďalšie informácie o činnosti Folklórnej skupiny Tulipán, pripravovaných podujatiach a našej histórii. Ďakujeme za vašu trpezlivosť a tešíme sa na vašu ďalšiu návštevu.',
@@ -58,7 +58,7 @@ export const home = {
     galleryLink: 'Galéria →',
     calendarDetails: 'Kalendár a detaily →',
     contactLink: 'Kontaktovať →',
-    teaserEvents: '16. mája 2026 — 100. výročie Folklórnej skupiny z Čataja v obci Čataj. Celodenný program, galaprogram, hosťia z Ploče.',
+    teaserEvents: '16. mája 2026 — 100 rokov folklóru v Čataji. Celodenný program, galaprogram, hosťia z Ploče.',
     teaserGallery: 'Fotografie z vystúpení a podujatí Folklórnej skupiny Tulipán Čataj.',
     teaserTraditions: 'Tradičný ornament a výšivka z Čataja a Veľkého Grobu. Evanjelický kroj a dedičstvo.',
     teaserContact: 'Napíšte nám alebo nás príďte pozrieť do Čataja.',
@@ -76,7 +76,7 @@ export const home = {
     galleryLink: 'Gallery →',
     calendarDetails: 'Calendar and details →',
     contactLink: 'Contact →',
-    teaserEvents: '16 May 2026 — 100th anniversary of the Folklore Group from Čataj in the village of Čataj. All-day programme, gala, guests from Ploče.',
+    teaserEvents: '16 May 2026 — 100 years of folklore in Čataj. All-day programme, gala, guests from Ploče.',
     teaserGallery: 'Photos from performances and events of the Tulipan folklore group, Čataj.',
     teaserTraditions: 'Traditional ornament and embroidery from Čataj and Veľký Grob. Evangelical costume and heritage.',
     teaserContact: 'Get in touch or visit us in Čataj.',

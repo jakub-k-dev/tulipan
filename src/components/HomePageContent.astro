@@ -3,7 +3,8 @@ import type { Locale } from '../data/translations';
 import OrnamentDivider from './OrnamentDivider.astro';
 import RevealSection from './RevealSection.astro';
 import UpcomingEventCard from './UpcomingEventCard.astro';
-import { tHome, tSite } from '../data/translations';
+import RecentEventCard from './RecentEventCard.astro';
+import { tHome } from '../data/translations';
 import { carouselSlideCount } from '../data/gallery';
 
 interface Props {
@@ -14,7 +15,6 @@ interface Props {
 
 const { locale, siteBase, base } = Astro.props;
 const t = tHome(locale);
-const siteT = tSite(locale);
 
 const TOTAL = carouselSlideCount;
 const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
@@ -79,13 +79,10 @@ const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
   <div class="textile-overlay">
     <div class="max-w-[90rem] w-full mx-auto px-4 py-16 md:py-24">
 
-      <section class="mb-16 rounded-xl border-2 border-textile-gold/50 bg-heritage-charcoal/5 px-6 py-6 md:px-8 md:py-8 max-w-3xl" aria-label={locale === 'sk' ? 'Oznámenie' : 'Notice'}>
-        <p class="text-heritage-charcoal leading-relaxed font-medium">{siteT.constructionMessage}</p>
-      </section>
-
       <section id="next-event" class="scroll-mt-24 mb-16" aria-label={locale === 'sk' ? 'Najbližšie podujatie' : 'Next event'}>
         <RevealSection class="max-w-3xl">
           <UpcomingEventCard locale={locale} base={base} />
+          <RecentEventCard locale={locale} base={base} />
         </RevealSection>
       </section>
 
@@ -96,30 +93,36 @@ const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
       <section id="people-said" class="scroll-mt-24 mt-16">
         <RevealSection>
           <h2 class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">{t.peopleSaidTitle}</h2>
-          <div class="mt-6 flex flex-col md:flex-row justify-center items-start gap-8">
+          <div class="mt-6 flex flex-col md:flex-row flex-wrap justify-center items-start gap-8">
             <iframe
-              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbratislavskykraj.sk%2Fposts%2Fpfbid02Mjv1UFrWn6QdQ9sKTxc6XTQagKkYP5gR7JxMBwQFdShfNaPG7Ljm6F81EpE2DcsKl&show_text=true&width=500"
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbratislavskykraj.sk%2Fposts%2Fpfbid022k2YVBQMgmQkPQ3rwAAsUU4Fud2FCieefzxTANqabFQ8Dcd9qJxdqJSxEfNrJyqXl&show_text=true&width=500"
               width="500"
               height="793"
               style="border:none;overflow:hidden;max-width:100%;"
-              scrolling="no"
-              frameborder="0"
               allowfullscreen="true"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               loading="lazy"
               title={locale === 'sk' ? 'Príspevok na Facebooku — Bratislavský samosprávny kraj' : 'Facebook post — Bratislava Self-Governing Region'}
             ></iframe>
             <iframe
-              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmichal.feik%2Fposts%2Fpfbid0NpHXqKLc8tDGwR39dRy6fLUTug5z4tpYSWSMX4r2aPyKn762eRmnndrauka6hB3Gl&show_text=true&width=500"
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmichal.feik%2Fposts%2Fpfbid031ZDvR3P5YXHZB64oPBGb2f2w6y1X82tnjy2pov12Dog57j5xyQapWycK8Q7QTReZl&show_text=true&width=500"
               width="500"
               height="812"
               style="border:none;overflow:hidden;max-width:100%;"
-              scrolling="no"
-              frameborder="0"
               allowfullscreen="true"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               loading="lazy"
               title={locale === 'sk' ? 'Príspevok na Facebooku — Michal Feik' : 'Facebook post — Michal Feik'}
+            ></iframe>
+            <iframe
+              src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fregina.zapad%2Fposts%2Fpfbid02rphzQJZTc3kcdkVz9PiC7pryLRxzgjEPNixwRZiPX826qtpsP7xsHmykuEQpyNM8l&show_text=true&width=500"
+              width="500"
+              height="718"
+              style="border:none;overflow:hidden;max-width:100%;"
+              allowfullscreen="true"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              loading="lazy"
+              title={locale === 'sk' ? 'Príspevok na Facebooku — RTVS Regina Západ' : 'Facebook post — RTVS Regina Západ'}
             ></iframe>
           </div>
         </RevealSection>
