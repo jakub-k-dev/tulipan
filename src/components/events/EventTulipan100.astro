@@ -57,8 +57,8 @@ type Content = {
   freeEntry: string;
   videoHeading: string;
   videoTitle: string;
-  invitationHeading: string;
-  invitation: string[];
+  dayFlowHeading: string;
+  dayFlow: string[];
   aboutHeading: string;
   about: string[];
   quotes: Quote[];
@@ -66,7 +66,6 @@ type Content = {
   moderatorLabel: string;
   moderator: string;
   program: ProgramItem[];
-  joinChoirNote: string;
   pressHeading: string;
   pressIntro: string;
   pressReadMore: string;
@@ -122,22 +121,21 @@ const groupFbEmbeds: { href: string; height: number; title: string }[] = [
 
 const content: Record<Locale, Content> = {
   sk: {
-    lede: 'Čataj oslávi 100 rokov folklóru — tradícia ožíva celodenným programom.',
+    lede: 'Čataj oslávil 100 rokov folklóru — tradícia ožila celodenným programom.',
     freeEntry: 'Vstup voľný',
     videoHeading: 'Videopozvánka',
     videoTitle: 'Videopozvánka — 100 rokov folklóru v Čataji',
-    invitationHeading: 'Pozvánka',
-    invitation: [
-      'Folklórna skupina Tulipán pozýva všetkých občanov na oslavy 100 rokov folklóru v Čataji, ktoré sa budú konať v sobotu 16. mája 2026.',
-      'Začiatok je o 11:00 v areáli dolnej školy (Družstevná 60). O 12:30 bude podujatie pokračovať krojovaným sprievodom spred budovy dolnej školy pred budovu obecného úradu po hlavnej ulici. Budeme radi, ak sa do sprievodu zapoja všetci občania, ktorí majú kroje, aby sa tým zvýšila atmosféra podujatia.',
-      'Pred Kultúrnym domom sa bude konať bohatý sprievodný program — remeselné trhy s dielničkami, predaj ľudovoumeleckých výrobkov, vystúpenia hostí, detí materskej a základnej školy, rozhovory s bývalými aj súčasnými členmi folklórnej skupiny a iné. Pripravené je aj bohaté občerstvenie.',
-      'O 18:00 sa uskutoční v sále kultúrneho domu slávnostný galaprogram. Po jeho skončení nasleduje ľudová veselica. Tešíme sa na vašu účasť.',
+    dayFlowHeading: 'Priebeh dňa',
+    dayFlow: [
+      'Storočnica folklóru v Čataji sa konala v sobotu 16. mája 2026 ako celodenné podujatie. Deň sa začal o 11:00 v areáli dolnej školy na Družstevnej 60. O 12:30 sa krojovaný sprievod presunul od dolnej školy pred obecný úrad po hlavnej ulici — do sprievodu organizátori pozvali všetkých občanov s krojmi.',
+      'Pred Kultúrnym domom prebiehal sprievodný program — remeselné trhy s dielničkami, predaj ľudovoumeleckých výrobkov, vystúpenia hostí, detí materskej a základnej školy, rozhovory s bývalými aj súčasnými členmi folklórnej skupiny. K dispozícii bolo aj občerstvenie.',
+      'O 18:00 sa v sále Kultúrneho domu uskutočnil slávnostný galaprogram. Po jeho skončení nasledovala ľudová veselica.',
     ],
     aboutHeading: 'O podujatí',
     about: [
-      'Obec Čataj si v sobotu 16. mája 2026 pripomenie 100 rokov od prvého zdokumentovaného folklórneho vystúpenia. Jubileum oslávi celodenným podujatím, ktoré prinesie krojovaný sprievod obcou, tradičné remeslá, folklórne vystúpenia aj slávnostný galaprogram s účasťou domácich a zahraničných súborov.',
-      'Podujatie priblíži návštevníkom bohatstvo ľudovej kultúry prostredníctvom krojovaného sprievodu obcou, ukážok tradičných remesiel, workshopov a ochutnávok regionálnych jedál. Program vyvrcholí večerným galaprogramom v kultúrnom dome, kde vystúpi Folklórna skupina Tulipán Čataj spolu s domácimi aj hosťujúcimi súbormi vrátane zahraničných hostí z chorvátskeho mesta Ploče. Po galaprograme bude nasledovať ľudová veselica pre širokú verejnosť.',
-      'Organizátori kladú dôraz nielen na samotné vystúpenia, ale aj na zážitok z tradičného života, ktorý si budú môcť návštevníci vyskúšať na vlastnej koži. Súčasťou programu budú remeselné dielne, prezentácie výroby krojov, drotárstva či zdobenia medovníkov, ako aj aktivity pre deti a rodiny.',
+      'Obec Čataj si v sobotu 16. mája 2026 pripomenula 100 rokov od prvého zdokumentovaného folklórneho vystúpenia. Jubileum oslávila celodenným podujatím, ktoré prinieslo krojovaný sprievod obcou, tradičné remeslá, folklórne vystúpenia aj slávnostný galaprogram s účasťou domácich a zahraničných súborov.',
+      'Podujatie priblížilo návštevníkom bohatstvo ľudovej kultúry prostredníctvom krojovaného sprievodu obcou, ukážok tradičných remesiel, workshopov a ochutnávok regionálnych jedál. Program vyvrcholil večerným galaprogramom v kultúrnom dome, kde vystúpila Folklórna skupina Tulipán Čataj spolu s domácimi aj hosťujúcimi súbormi vrátane zahraničných hostí z chorvátskeho mesta Ploče. Po galaprograme nasledovala ľudová veselica pre širokú verejnosť.',
+      'Organizátori kládli dôraz nielen na samotné vystúpenia, ale aj na zážitok z tradičného života, ktorý si návštevníci mohli vyskúšať na vlastnej koži. Súčasťou programu boli remeselné dielne, prezentácie výroby krojov, drotárstva či zdobenia medovníkov, ako aj aktivity pre deti a rodiny.',
     ],
     quotes: [
       {
@@ -172,7 +170,7 @@ const content: Record<Locale, Content> = {
         heading: 'Všetci do kroja',
         location: 'krojovaný sprievod od dolnej školy pred kultúrny dom',
         lines: [
-          'Pozývame všetkých občanov s krojmi, aby sa pridali a spoločne vytvorili sprievod hlavnou ulicou.',
+          'Pozvali sme všetkých občanov s krojmi, aby sa pridali a spoločne vytvorili sprievod hlavnou ulicou.',
         ],
       },
       {
@@ -203,35 +201,32 @@ const content: Record<Locale, Content> = {
         ],
       },
     ],
-    joinChoirNote:
-      'Pozývame vás pripojiť sa k najväčšiemu folklórnemu zboru v Čataji piesňou „Nedaleko od Čataja“.',
     pressHeading: 'Z podujatia',
     pressIntro:
       'Médiá, partneri a účinkujúci o storočnici folklóru v Čataji.',
     pressReadMore: 'Čítať článok',
     patronageHeading: 'Záštita a partneri',
     patronage:
-      'Podujatie sa koná pod záštitou predsedu Bratislavského samosprávneho kraja Juraja Drobu.',
+      'Podujatie sa konalo pod záštitou predsedu Bratislavského samosprávneho kraja Juraja Drobu.',
     mainPartner: 'Projekt bol podporený z finančných prostriedkov obce Čataj.',
     publicFunding: 'Z verejných zdrojov podporil Fond na podporu umenia.',
   },
   en: {
-    lede: 'Čataj celebrates 100 years of folklore — tradition comes alive in a full-day programme.',
+    lede: 'Čataj celebrated 100 years of folklore — tradition came alive in a full-day programme.',
     freeEntry: 'Free entry',
     videoHeading: 'Video invitation',
     videoTitle: 'Video invitation — 100 years of folklore in Čataj',
-    invitationHeading: 'Invitation',
-    invitation: [
-      'The Tulipán folklore group invites all residents to the celebration of 100 years of the folklore group in Čataj, taking place on Saturday, 16 May 2026.',
-      'The day starts at 11:00 in the grounds of the Lower School (Družstevná 60). At 12:30 the event continues with a costume procession from the Lower School past the village hall along the main street. We will be glad if all residents who own folk costumes join the procession to add to the atmosphere of the day.',
-      'In front of the Cultural House (Kultúrny dom) a rich accompanying programme awaits — craft markets with workshops, sale of folk-art products, performances by guest ensembles, by children from the kindergarten and primary school, conversations with former and current members of the folklore group, and more. Plenty of refreshments will be available.',
-      'At 18:00 a festive gala programme begins in the Cultural House hall. After it ends, a folk dance follows. We look forward to seeing you.',
+    dayFlowHeading: 'How the day unfolded',
+    dayFlow: [
+      'The centenary of folklore in Čataj took place on Saturday, 16 May 2026 as a full-day event. The day began at 11:00 in the grounds of the Lower School at Družstevná 60. At 12:30 a costume procession set off from the Lower School past the village hall along the main street — the organisers invited all residents in folk costume to walk along.',
+      'In front of the Cultural House (Kultúrny dom) an accompanying programme ran throughout the afternoon — craft markets with workshops, sale of folk-art products, performances by guest ensembles, by children from the kindergarten and primary school, and conversations with former and current members of the folklore group. Refreshments were available throughout.',
+      'At 18:00 a festive gala programme took place in the Cultural House hall. After it ended, a folk dance followed.',
     ],
     aboutHeading: 'About the event',
     about: [
-      'On Saturday, 16 May 2026, the village of Čataj will mark 100 years since the first documented folklore performance. The anniversary will be celebrated with a full-day event featuring a costume procession through the village, traditional crafts, folklore performances, and a festive gala programme with local and international ensembles.',
-      'The day brings the wealth of folk culture to visitors through a costume procession, demonstrations of traditional crafts, workshops, and tastings of regional dishes. The programme culminates in an evening gala in the Cultural House, where the Tulipán Čataj folklore group will perform together with local and guest ensembles, including international guests from the Croatian town of Ploče. After the gala, a folk dance for the wider public follows.',
-      'The organisers place emphasis not only on performances themselves, but also on the experience of traditional life that visitors will be able to try first-hand. The programme includes craft workshops, demonstrations of folk-costume making, tinker craft and gingerbread decorating, as well as activities for children and families.',
+      'On Saturday, 16 May 2026, the village of Čataj marked 100 years since the first documented folklore performance. The anniversary was celebrated with a full-day event featuring a costume procession through the village, traditional crafts, folklore performances, and a festive gala programme with local and international ensembles.',
+      'The day brought the wealth of folk culture to visitors through a costume procession, demonstrations of traditional crafts, workshops, and tastings of regional dishes. The programme culminated in an evening gala in the Cultural House, where the Tulipán Čataj folklore group performed together with local and guest ensembles, including international guests from the Croatian town of Ploče. After the gala, a folk dance for the wider public followed.',
+      'The organisers placed emphasis not only on performances themselves, but also on the experience of traditional life that visitors were able to try first-hand. The programme included craft workshops, demonstrations of folk-costume making, tinker craft and gingerbread decorating, as well as activities for children and families.',
     ],
     quotes: [
       {
@@ -266,7 +261,7 @@ const content: Record<Locale, Content> = {
         heading: 'Everyone in costume',
         location: 'costume procession from the Lower School to the Cultural House',
         lines: [
-          'We invite all residents with folk costumes to join and create a procession along the main street together.',
+          'We invited all residents with folk costumes to join and create a procession along the main street together.',
         ],
       },
       {
@@ -297,15 +292,13 @@ const content: Record<Locale, Content> = {
         ],
       },
     ],
-    joinChoirNote:
-      'Join the largest folklore choir in Čataj with the song “Nedaleko od Čataja”.',
     pressHeading: 'From the event',
     pressIntro:
       'Media, partners and participating ensembles on the centenary of folklore in Čataj.',
     pressReadMore: 'Read article',
     patronageHeading: 'Patronage and partners',
     patronage:
-      'The event is held under the auspices of Juraj Droba, Chairman of the Bratislava Self-Governing Region.',
+      'The event was held under the auspices of Juraj Droba, Chairman of the Bratislava Self-Governing Region.',
     mainPartner: 'The project was supported with funding from the village of Čataj.',
     publicFunding: 'Supported using public funds by the Slovak Arts Council (Fond na podporu umenia).',
   },
@@ -335,12 +328,12 @@ const c = content[locale];
       <OrnamentDivider variant="bar" class="mt-6 justify-center md:justify-start" />
     </header>
 
-    <section class="mt-10" aria-labelledby="invitation-heading">
-      <h2 id="invitation-heading" class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">
-        {c.invitationHeading}
+    <section class="mt-10" aria-labelledby="day-flow-heading">
+      <h2 id="day-flow-heading" class="font-display text-2xl md:text-3xl text-heritage-charcoal font-semibold">
+        {c.dayFlowHeading}
       </h2>
       <div class="mt-4 space-y-4 text-heritage-charcoal/90 leading-relaxed">
-        {c.invitation.map((p) => <p>{p}</p>)}
+        {c.dayFlow.map((p: string) => <p>{p}</p>)}
       </div>
     </section>
 
@@ -415,9 +408,6 @@ const c = content[locale];
           </li>
         ))}
       </ol>
-      <p class="mt-8 rounded-lg border border-textile-gold/50 bg-white/80 p-4 text-heritage-charcoal/90 italic">
-        {c.joinChoirNote}
-      </p>
     </section>
 
     <OrnamentDivider class="my-10" />
