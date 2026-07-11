@@ -85,6 +85,9 @@ export function buildNeededImagePaths(siteRoot) {
     "/images/embroidery-pattern.png",
     "/images/embroidery-reference.png",
     "/images/embroidery-strip.png",
+    // Current-event poster (EventPosterCard.astro) — built via template literal, so invisible to the regex.
+    "/images/events/hodova-veselica-2026.avif",
+    "/images/events/hodova-veselica-2026.jpg",
   ]) {
     needed.add(p);
   }

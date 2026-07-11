@@ -4,6 +4,7 @@ import OrnamentDivider from './OrnamentDivider.astro';
 import RevealSection from './RevealSection.astro';
 import UpcomingEventCard from './UpcomingEventCard.astro';
 import RecentEventCard from './RecentEventCard.astro';
+import EventPosterCard from './EventPosterCard.astro';
 import { tHome } from '../data/translations';
 import { carouselSlideCount } from '../data/gallery';
 
@@ -80,7 +81,8 @@ const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
     <div class="max-w-[90rem] w-full mx-auto px-4 py-16 md:py-24">
 
       <section id="next-event" class="scroll-mt-24 mb-16" aria-label={locale === 'sk' ? 'Najbližšie podujatie' : 'Next event'}>
-        <RevealSection class="max-w-3xl">
+        <RevealSection class="max-w-3xl space-y-6">
+          <EventPosterCard locale={locale} siteBase={siteBase} />
           <UpcomingEventCard locale={locale} base={base} />
           <RecentEventCard locale={locale} base={base} />
         </RevealSection>

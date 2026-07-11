@@ -1,0 +1,79 @@
+---
+import type { Locale } from '../data/translations';
+
+interface Props {
+  locale: Locale;
+  siteBase?: string;
+}
+
+const { locale, siteBase = '' } = Astro.props;
+
+// Standalone poster for the current event. Shown regardless of date (unlike the
+// date-driven big-event cards). To swap in a new poster, replace the image files
+// under public/images/events/ and update the fields below.
+const poster = {
+  base: `${siteBase}/images/events/hodova-veselica-2026`,
+  title: 'HODOVÁ veselica',
+  dateISO: '2026-07-11',
+  sk: {
+    eyebrow: 'Aktuálne podujatie',
+    dateLabel: 'sobota 11. júla 2026 · 17:00',
+    place: 'Futbalové ihrisko, Čataj',
+    alt: 'Plagát: HODOVÁ veselica FS Tulipán Čataj, 11. júla 2026 o 17:00 na futbalovom ihrisku v Čataji',
+    view: 'Zobraziť plagát',
+  },
+  en: {
+    eyebrow: 'Current event',
+    dateLabel: 'Saturday, 11 July 2026 · 17:00',
+    place: 'Football field, Čataj',
+    alt: 'Poster: HODOVÁ veselica by FS Tulipán Čataj, 11 July 2026 at 17:00 at the football field in Čataj',
+    view: 'View poster',
+  },
+};
+
+const t = poster[locale];
+---
+
+<article class="rounded-xl border-2 border-textile-gold/60 bg-white/95 shadow-lg overflow-hidden" aria-labelledby="event-poster-title">
+  <div class="p-5 md:p-6">
+    <p class="text-sm font-semibold uppercase tracking-wide text-groupRedDark" aria-hidden="true">
+      {t.eyebrow}
+    </p>
+    <h2 id="event-poster-title" class="font-display text-xl md:text-2xl text-heritage-charcoal font-semibold mt-1">
+      {poster.title}
+    </h2>
+    <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-0 text-heritage-charcoal/90 font-medium">
+      <time datetime={poster.dateISO}>{t.dateLabel}</time>
+      <span aria-hidden="true">·</span>
+      <span>{t.place}</span>
+    </p>
+    <a
+      href={`${poster.base}.jpg`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group mt-4 block rounded-lg overflow-hidden border border-textile-gold/40 focus:outline focus:ring-2 focus:ring-groupRedDark/60"
+      aria-label={t.view}
+    >
+      <picture>
+        <source type="image/avif" srcset={`${poster.base}.avif`} />
+        <img
+          src={`${poster.base}.jpg`}
+          alt={t.alt}
+          width="1400"
+          height="1980"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto max-w-[24rem] mx-auto transition-transform duration-300 group-hover:scale-[1.02]"
+        />
+      </picture>
+    </a>
+    <a
+      href={`${poster.base}.jpg`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-red mt-4 inline-block px-4 py-2 text-white font-semibold rounded-md transition-colors border border-white/20"
+    >
+      {t.view}
+    </a>
+  </div>
+</article>
