@@ -88,6 +88,8 @@ export function buildNeededImagePaths(siteRoot) {
     // Current-event poster (EventPosterCard.astro) — built via template literal, so invisible to the regex.
     "/images/events/hodova-veselica-2026.avif",
     "/images/events/hodova-veselica-2026.jpg",
+    "/images/events/vysivkarsky-kruzok-2026.avif",
+    "/images/events/vysivkarsky-kruzok-2026.jpg",
   ]) {
     needed.add(p);
   }
