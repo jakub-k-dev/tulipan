@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GalleryContent from '../../components/GalleryContent.astro';
-import { tGallery, tSite } from '../../data/translations';
+import { tGallery, tSite, type Locale } from '../../data/translations';
 import { galleryVisible, galleryEventsForDisplay } from '../../data/gallery';
 
-const locale = 'en';
+const locale = 'en' as Locale;
 const t = tGallery(locale);
 const siteT = tSite(locale);
 import { siteBase } from '../../utils/site';
