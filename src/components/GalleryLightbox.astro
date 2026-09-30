@@ -1,17 +1,20 @@
 ---
 /** Lightbox: open image in modal on same page (no new tab). Include once per page that has a gallery grid. */
-interface Props { siteBase?: string; }
-const { siteBase = '' } = Astro.props;
+import type { Locale } from '../data/translations';
+import { tGallery } from '../data/translations';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = tGallery(locale);
 ---
 
-<div id="gallery-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-heritage-charcoal/90 p-4" role="dialog" aria-modal="true" aria-label="Lightbox">
-  <button type="button" id="lightbox-close" class="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white" aria-label="Close">
+<div id="gallery-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-heritage-charcoal/90 p-4" role="dialog" aria-modal="true" aria-label={t.title}>
+  <button type="button" id="lightbox-close" class="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white" aria-label={t.lightboxClose}>
     <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
   </button>
-  <button type="button" id="lightbox-prev" class="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white sm:left-4" aria-label="Previous">
+  <button type="button" id="lightbox-prev" class="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white sm:left-4" aria-label={t.lightboxPrev}>
     <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
   </button>
-  <button type="button" id="lightbox-next" class="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white sm:right-4" aria-label="Next">
+  <button type="button" id="lightbox-next" class="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white sm:right-4" aria-label={t.lightboxNext}>
     <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
   </button>
   <div class="relative max-h-[85vh] max-w-[90vw]">
@@ -20,9 +23,8 @@ const { siteBase = '' } = Astro.props;
   </div>
 </div>
 
-<script define:vars={{ siteBase }}>
+<script is:inline>
   (function () {
-    const base = typeof siteBase === 'string' ? siteBase : '';
     const lightbox = document.getElementById('gallery-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
@@ -52,7 +54,7 @@ const { siteBase = '' } = Astro.props;
       if (index < 0 || index >= items.length) return;
       currentIndex = index;
       const item = items[index];
-      const src = (item.src && item.src.startsWith('/')) ? base + item.src : item.src;
+      const src = item.src;
       lightboxImg.src = '';
       lightboxImg.alt = item.alt || '';
       lightboxImg.src = src;
@@ -64,13 +66,16 @@ const { siteBase = '' } = Astro.props;
     function open(trigger) {
       const container = trigger.closest('[data-lightbox-container]');
       if (!container) return;
-      const nodes = container.querySelectorAll('[data-lightbox-src]');
-      items = Array.from(nodes).map((el) => ({
+      // Skip triggers in the hidden layout (mobile vs desktop copies share one container).
+      const nodes = Array.from(container.querySelectorAll('[data-lightbox-src]')).filter(
+        (el) => el.getClientRects().length > 0
+      );
+      items = nodes.map((el) => ({
         src: el.getAttribute('data-lightbox-src'),
         alt: el.getAttribute('data-lightbox-alt') || '',
       })).filter((i) => i.src);
       if (items.length === 0) return;
-      const idx = Array.from(nodes).indexOf(trigger);
+      const idx = nodes.indexOf(trigger);
       currentIndex = idx >= 0 ? idx : 0;
       setImage(currentIndex);
       show();

@@ -5,7 +5,6 @@
 /* Project: textile + bright red, full-width, scroll sections */
 @layer base {
   html {
-    scroll-behavior: smooth;
     /* Overscroll top/bottom: same red gradient as header/footer */
     background-color: var(--red-fabric-bottom);
     background-image: linear-gradient(to bottom, var(--red-fabric-top) 0%, var(--red-fabric-mid) 35%, var(--red-fabric-bottom) 100%);
@@ -14,6 +13,11 @@
   }
   body {
     @apply text-heritage-charcoal bg-textile-cream antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
 
@@ -161,15 +165,18 @@
       rgba(44, 24, 16, 0.35) 100%
     );
   }
-  /* Reveal-on-scroll: initial state (before visible) */
-  .reveal-section {
-    opacity: 0;
-    transform: translateY(1rem);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  .reveal-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* Reveal-on-scroll: hidden only once JS has run (html.js set inline in BaseLayout),
+     so content stays visible without JS; skipped entirely for reduced motion. */
+  @media (prefers-reduced-motion: no-preference) {
+    html.js .reveal-section {
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    html.js .reveal-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   /* Page content: min-height + isolation so hero overlay doesn’t bleed above footer */
   .page-content-fill {

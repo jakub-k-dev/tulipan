@@ -18,7 +18,7 @@ const next = getNextBigEvent();
 <PageTextileHero title={t.title} />
 <div class="bg-textile-cream">
   {next ? (
-    <BigEventBody slug={next.slug} locale={locale} />
+    <BigEventBody slug={next.slug} locale={locale} nested />
   ) : (
     <div class="max-w-[90rem] w-full mx-auto px-4 py-12">
       <p class="text-heritage-charcoal/80 text-base font-medium">{t.noEvents}</p>
