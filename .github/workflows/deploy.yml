@@ -26,8 +26,10 @@ jobs:
         run: npm ci
       - name: Lint
         run: npm run lint
+      # Plain astro build: `npm run build` chains optimize-images, whose prune can drop
+      # committed photos it can't see referenced (originals aren't in CI, so it only prunes).
       - name: Build Astro site
-        run: npm run build
+        run: npx astro build
         env:
           PUBLIC_GOATCOUNTER_SITE: ${{ vars.PUBLIC_GOATCOUNTER_SITE }}
       - name: Upload artifact

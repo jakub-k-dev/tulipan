@@ -15,17 +15,23 @@ interface Props {
   fullTextile?: boolean;
   /** If true, preload hero image for LCP (homepage only) */
   preloadHero?: boolean;
+  /** If true (404), emit noindex and omit canonical/og:url/hreflang — the page has no real URL. */
+  noindex?: boolean;
 }
 
-const { title, description, locale, current, fullTextile = false, preloadHero = false } = Astro.props;
+const { title, description, locale, current, fullTextile = false, preloadHero = false, noindex = false } = Astro.props;
 const lang = locale === 'sk' ? 'sk' : 'en';
 const goatCounterSite = import.meta.env.PUBLIC_GOATCOUNTER_SITE as string | undefined;
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const pathWithoutBase = siteBase ? pathname.replace(siteBase, '') || '/' : pathname;
 const enUrl = locale === 'en' ? pathname : `${siteBase}/en${pathWithoutBase === '/' ? '' : pathWithoutBase}`;
 const skUrl = locale === 'sk' ? pathname : (siteBase ? pathname.replace(`${siteBase}/en`, siteBase) : pathname.replace(/^\/en/, '')) || siteBase || '/';
-const siteOrigin = (typeof Astro.site === 'string' ? Astro.site.replace(/\/$/, '') : null) ?? Astro.url.origin;
-const canonicalHref = new URL(pathname, siteOrigin).href;
+// trailingSlash: 'always' — canonical/hreflang must match the slash-terminated URLs GitHub Pages serves.
+const withSlash = (p: string) => (p.endsWith('/') ? p : `${p}/`);
+const siteOrigin = Astro.site ? Astro.site.href.replace(/\/$/, '') : Astro.url.origin;
+const canonicalHref = new URL(withSlash(pathname), siteOrigin).href;
+// Same page in the other language, for the header SK/EN switch (404 has no counterpart → Header falls back to home).
+const alternateHref = pathname.endsWith('/404') ? undefined : withSlash(locale === 'sk' ? enUrl : skUrl);
 const ogImagePath = `${siteBase || ''}/images/hero/carousel-1.jpg`;
 const ogImageUrl = new URL(ogImagePath.startsWith('/') ? ogImagePath : `/${ogImagePath}`, siteOrigin).href;
 const fullTitle = `${title} — Tulipán`;
@@ -66,18 +72,19 @@ const orgJsonLd = JSON.stringify({
   <head>
     {preloadHero && <link rel="preload" as="image" href={`${siteBase || ''}/images/hero/carousel-1.avif`} type="image/avif" fetchpriority="high" />}
     <meta charset="utf-8" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <link rel="icon" type="image/svg+xml" href={`${siteBase || ''}/images/logo.svg`} />
     <link rel="apple-touch-icon" href={`${siteBase || ''}/images/logo.svg`} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
-    <link rel="canonical" href={canonicalHref} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalHref} />}
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />
     {description && <meta property="og:description" content={description} />}
-    <meta property="og:url" content={canonicalHref} />
+    {!noindex && <meta property="og:url" content={canonicalHref} />}
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:locale" content={lang === 'sk' ? 'sk_SK' : 'en_GB'} />
     <meta property="og:site_name" content="Tulipán Čataj" />
@@ -86,11 +93,15 @@ const orgJsonLd = JSON.stringify({
     <meta name="twitter:title" content={fullTitle} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImageUrl} />
-    <link rel="alternate" hreflang="sk" href={new URL(skUrl, Astro.url).href} />
-    <link rel="alternate" hreflang="en" href={new URL(enUrl, Astro.url).href} />
-    <link rel="alternate" hreflang="x-default" href={new URL(skUrl, Astro.url).href} />
-    <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/about` : `${siteBase}/en/about`} />
-    <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/events` : `${siteBase}/en/events`} />
+    {!noindex && (
+      <>
+        <link rel="alternate" hreflang="sk" href={new URL(withSlash(skUrl), Astro.url).href} />
+        <link rel="alternate" hreflang="en" href={new URL(withSlash(enUrl), Astro.url).href} />
+        <link rel="alternate" hreflang="x-default" href={new URL(withSlash(skUrl), Astro.url).href} />
+      </>
+    )}
+    <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/about/` : `${siteBase}/en/about/`} />
+    <link rel="prefetch" href={locale === 'sk' ? `${siteBase}/events/` : `${siteBase}/en/events/`} />
     <script type="application/ld+json" set:html={orgJsonLd} />
     <slot name="head" />
     {goatCounterSite && (
@@ -102,7 +113,7 @@ const orgJsonLd = JSON.stringify({
     )}
   </head>
   <body class="min-h-screen flex flex-col text-heritage-charcoal font-body">
-    <Header locale={locale} current={current} />
+    <Header locale={locale} current={current} alternateHref={alternateHref} />
     <main class={fullTextile ? 'flex-1' : 'flex-1 bg-textile-cream'}>
       <slot />
     </main>

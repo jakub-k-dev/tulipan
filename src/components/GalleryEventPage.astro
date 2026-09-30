@@ -9,6 +9,7 @@ import {
   getYoutubeEmbedUrl,
   getYoutubeEmbedUrlFromFields,
   galleryDisplayJpeg,
+  galleryFullJpeg,
 } from '../data/gallery';
 import type { Locale } from '../data/translations';
 import { tGallery } from '../data/translations';
@@ -25,7 +26,7 @@ const { locale, slug } = Astro.props;
 const t = tGallery(locale);
 const event = getEventBySlug(slug);
 const galleryBase = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase}/gallery`;
-const galleryPath = galleryBase || '/gallery';
+const galleryPath = `${galleryBase || '/gallery'}/`;
 const videoId = event ? getYoutubeEmbedId(event.videoUrl ?? '') : null;
 const videoEmbedUrl = event ? getYoutubeEmbedUrl(event) : null;
 const videoId2 = event ? getYoutubeEmbedId(event.videoUrl2 ?? '') : null;
@@ -95,6 +96,7 @@ const col1AR = flexAr(heroCol1);
 const col2AR = flexAr(heroCol2);
 
 const restImagesDesktop = allImages.slice(restOffset);
+const mobileGridImages = singleVideo && videoRight && firstImage ? allImages.slice(1) : allImages;
 const showHeroRow = !!(heroCol1 || heroCol2);
 ---
 
@@ -165,7 +167,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                     <p class="text-xs font-semibold uppercase tracking-wide text-heritage-charcoal/60 mb-2">{t.videoLabel} 1</p>
                     <div class="aspect-video w-full rounded-xl overflow-hidden bg-heritage-charcoal/10 shadow-lg">
                       <iframe
-                        src={videoEmbedUrl}
+                        data-yt-src={videoEmbedUrl}
                         title={t.videoLabel}
                         class="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -177,7 +179,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                     <p class="text-xs font-semibold uppercase tracking-wide text-heritage-charcoal/60 mb-2">{t.videoLabel} 2</p>
                     <div class="aspect-video w-full rounded-xl overflow-hidden bg-heritage-charcoal/10 shadow-lg">
                       <iframe
-                        src={videoEmbedUrl2}
+                        data-yt-src={videoEmbedUrl2}
                         title={t.videoLabel}
                         class="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -189,7 +191,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
               )}
               {singleVideo && videoRight && firstImage && (
                 <div class="break-inside-avoid mb-4">
-                  <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-xl" data-lightbox-src={siteBase ? siteBase + firstImage.src : firstImage.src} data-lightbox-alt={locale === 'sk' ? firstImage.altSk : firstImage.altEn} title={locale === 'sk' ? firstImage.altSk : firstImage.altEn}>
+                  <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-xl" data-lightbox-src={siteBase + galleryFullJpeg(firstImage)} data-lightbox-alt={locale === 'sk' ? firstImage.altSk : firstImage.altEn} title={locale === 'sk' ? firstImage.altSk : firstImage.altEn}>
                     <img src={siteBase ? siteBase + galleryDisplayJpeg(firstImage) : galleryDisplayJpeg(firstImage)} alt={locale === 'sk' ? firstImage.altSk : firstImage.altEn} width={firstImage.width} height={firstImage.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
                   </button>
                 </div>
@@ -199,7 +201,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                   <p class="text-xs font-semibold uppercase tracking-wide text-heritage-charcoal/60 mb-2">{t.videoLabel}</p>
                   <div class="aspect-video w-full rounded-xl overflow-hidden bg-heritage-charcoal/10 shadow-lg">
                     <iframe
-                      src={videoEmbedUrl}
+                      data-yt-src={videoEmbedUrl}
                       title={t.videoLabel}
                       class="w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -208,7 +210,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                   </div>
                 </div>
               )}
-              {allImages.length > 0 && <GalleryGrid images={allImages} locale={locale} siteBase={siteBase} itemsOnly />}
+              {mobileGridImages.length > 0 && <GalleryGrid images={mobileGridImages} locale={locale} siteBase={siteBase} itemsOnly />}
             </div>
             {/* Desktop: justified first row — widths proportional to aspect ratios so all cells are the same height */}
             <div class="hidden lg:block">
@@ -220,7 +222,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                     {heroCol1.kind === 'video' ? (
                       <div class="aspect-video w-full overflow-hidden bg-heritage-charcoal/10">
                         <iframe
-                          src={heroCol1.embedUrl}
+                          data-yt-src={heroCol1.embedUrl}
                           title={t.videoLabel}
                           class="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -228,7 +230,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                         />
                       </div>
                     ) : (
-                      <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-lg" data-lightbox-src={siteBase ? siteBase + heroCol1.img.src : heroCol1.img.src} data-lightbox-alt={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn} title={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn}>
+                      <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-lg" data-lightbox-src={siteBase + galleryFullJpeg(heroCol1.img)} data-lightbox-alt={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn} title={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn}>
                         <img src={siteBase ? siteBase + galleryDisplayJpeg(heroCol1.img) : galleryDisplayJpeg(heroCol1.img)} alt={locale === 'sk' ? heroCol1.img.altSk : heroCol1.img.altEn} width={heroCol1.img.width} height={heroCol1.img.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
                       </button>
                     )}
@@ -239,7 +241,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                     {heroCol2.kind === 'video' ? (
                       <div class="aspect-video w-full overflow-hidden bg-heritage-charcoal/10">
                         <iframe
-                          src={heroCol2.embedUrl}
+                          data-yt-src={heroCol2.embedUrl}
                           title={t.videoLabel}
                           class="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -247,7 +249,7 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                         />
                       </div>
                     ) : (
-                      <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-lg" data-lightbox-src={siteBase ? siteBase + heroCol2.img.src : heroCol2.img.src} data-lightbox-alt={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn} title={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn}>
+                      <button type="button" class="gallery-card block w-full overflow-hidden bg-heritage-charcoal/5 text-left cursor-pointer border-0 p-0 rounded-lg" data-lightbox-src={siteBase + galleryFullJpeg(heroCol2.img)} data-lightbox-alt={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn} title={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn}>
                         <img src={siteBase ? siteBase + galleryDisplayJpeg(heroCol2.img) : galleryDisplayJpeg(heroCol2.img)} alt={locale === 'sk' ? heroCol2.img.altSk : heroCol2.img.altEn} width={heroCol2.img.width} height={heroCol2.img.height} class="w-full h-auto block pointer-events-none" loading="lazy" />
                       </button>
                     )}
@@ -301,7 +303,17 @@ const showHeroRow = !!(heroCol1 || heroCol2);
                 </div>
               )}
             </div>
-            <GalleryLightbox siteBase={siteBase} />
+            <GalleryLightbox locale={locale} />
+            <script>
+              // Mobile and desktop layouts each hold a copy of the videos; load only the visible one.
+              const loadVisibleVideos = () => {
+                document.querySelectorAll<HTMLIFrameElement>('iframe[data-yt-src]').forEach((el) => {
+                  if (el.getClientRects().length > 0 && !el.src) el.src = el.dataset.ytSrc ?? '';
+                });
+              };
+              loadVisibleVideos();
+              window.addEventListener('resize', loadVisibleVideos, { passive: true });
+            </script>
           </div>
         )}
       </div>

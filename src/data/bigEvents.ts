@@ -162,13 +162,16 @@ export function getBigEventJsonLd(
     .map((name) => ({ '@type': 'PerformingGroup', name }))
     .concat(musicGroups.map((name) => ({ '@type': 'MusicGroup', name })));
 
+  const END_DATE = '2026-05-17T02:00:00+02:00';
+  const isPast = new Date(END_DATE).getTime() < Date.now();
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Festival',
     name: meta.title,
     description: meta.shortDescription,
     startDate: '2026-05-16T11:00:00+02:00',
-    endDate: '2026-05-17T02:00:00+02:00',
+    endDate: END_DATE,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     inLanguage: locale === 'sk' ? 'sk' : 'en',
@@ -185,14 +188,19 @@ export function getBigEventJsonLd(
         addressCountry: 'SK',
       },
     },
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock',
-      url: urls.canonicalHref,
-      validFrom: '2026-01-01T00:00:00+01:00',
-    },
+    // Offer only while the event is still ahead (checked at build time); a past event has nothing to attend.
+    ...(isPast
+      ? {}
+      : {
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'EUR',
+            availability: 'https://schema.org/InStock',
+            url: urls.canonicalHref,
+            validFrom: '2026-01-01T00:00:00+01:00',
+          },
+        }),
     organizer: {
       '@type': 'Organization',
       name: 'Folklórna skupina Tulipán',

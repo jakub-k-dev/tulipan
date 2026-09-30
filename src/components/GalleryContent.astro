@@ -28,7 +28,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
           const displaySrc = cover ? galleryDisplayJpeg(cover) : null;
           const title = locale === 'sk' ? event.titleSk : event.titleEn;
           const eventDate = event.date && event.slug !== 'ostatne' ? formatGalleryDate(event.date, locale) : null;
-          const eventPath = `${galleryPath}/event/${event.slug}`;
+          const eventPath = `${galleryPath}/event/${event.slug}/`;
           return (
             <article class="timeline-event-card relative">
               <span class="absolute -left-7 top-4 w-4 h-4 rounded-full bg-groupRedDark border-2 border-textile-cream shadow shrink-0" aria-hidden="true" />
@@ -57,7 +57,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
             const displaySrc = cover ? galleryDisplayJpeg(cover) : null;
             const title = locale === 'sk' ? event.titleSk : event.titleEn;
             const eventDate = event.date && event.slug !== 'ostatne' ? formatGalleryDate(event.date, locale) : null;
-            const eventPath = `${galleryPath}/event/${event.slug}`;
+            const eventPath = `${galleryPath}/event/${event.slug}/`;
             return (
               <article class="timeline-event-card">
                 {displaySrc && (
@@ -101,7 +101,7 @@ const galleryPath = locale === 'en' ? `${siteBase}/en/gallery` : `${siteBase || 
             const displaySrc = cover ? galleryDisplayJpeg(cover) : null;
             const title = locale === 'sk' ? event.titleSk : event.titleEn;
             const eventDate = event.date && event.slug !== 'ostatne' ? formatGalleryDate(event.date, locale) : null;
-            const eventPath = `${galleryPath}/event/${event.slug}`;
+            const eventPath = `${galleryPath}/event/${event.slug}/`;
             return (
               <article class="timeline-event-card">
                 {displaySrc && (

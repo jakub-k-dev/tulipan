@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GalleryContent from '../components/GalleryContent.astro';
 import { tGallery, tSite } from '../data/translations';
-import { galleryVisible } from '../data/gallery';
+import { galleryVisible, galleryEventsForDisplay } from '../data/gallery';
 
 const locale = 'sk';
 const t = tGallery(locale);
@@ -11,7 +11,7 @@ import { siteBase } from '../utils/site';
 ---
 
 <BaseLayout title={t.title} description={t.placeholder} locale={locale} current="gallery">
-  {galleryVisible ? (
+  {galleryVisible && galleryEventsForDisplay.length > 0 ? (
     <GalleryContent locale={locale} siteBase={siteBase} />
   ) : (
     <div class="z-10 bg-textile-cream page-content-fill">

@@ -5,33 +5,118 @@ import { siteBase } from '../utils/site';
 interface Props {
   locale: Locale;
   current: string;
+  /** Same page in the other language; defaults to that language's homepage. */
+  alternateHref?: string;
 }
 
-const { locale, current } = Astro.props;
+const { locale, current, alternateHref } = Astro.props;
 const navItems = tNav(locale);
 const base = locale === 'en' ? `${siteBase}/en` : siteBase;
 const homeHref = base ? `${base}/` : '/';
 const isEn = locale === 'en';
 const activeClass = 'text-white font-semibold';
 const inactiveClass = 'text-white/90 hover:text-white transition-colors font-medium';
+const links = [
+  { key: 'home', href: homeHref, label: navItems.home },
+  { key: 'about', href: `${base}/about/`, label: navItems.about },
+  { key: 'events', href: `${base}/events/`, label: navItems.events },
+  { key: 'gallery', href: `${base}/gallery/`, label: navItems.gallery },
+  { key: 'contact', href: `${base}/contact/`, label: navItems.contact },
+];
 ---
 
-<header class="fabric-bar header-bar sticky top-0 z-50" aria-label="Hlavná navigácia">
-  <div class="max-w-[90rem] w-full mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
-    <a href={homeHref} class="flex items-center gap-2 font-display text-xl text-white font-semibold hover:text-white/95 transition-colors">
+<header class="fabric-bar header-bar sticky top-0 z-50" data-site-header>
+  <div class="max-w-[90rem] w-full mx-auto px-4 py-3 flex flex-wrap items-center gap-x-5 gap-y-2">
+    <a href={homeHref} class="mr-auto flex items-center gap-2 font-display text-xl text-white font-semibold hover:text-white/95 transition-colors">
       <img src={`${siteBase || ''}/images/logo.svg`} alt="" class="header-logo h-9 w-auto" width="49" height="36" />
       <span>Tulipán</span>
     </a>
-    <nav class="flex flex-wrap items-center gap-5" aria-label="Hlavná navigácia">
-      <a href={homeHref} class={current === 'home' ? activeClass : inactiveClass}>{navItems.home}</a>
-      <a href={`${base}/about`} class={current === 'about' ? activeClass : inactiveClass}>{navItems.about}</a>
-      <a href={`${base}/events`} class={current === 'events' ? activeClass : inactiveClass}>{navItems.events}</a>
-      <a href={`${base}/gallery`} class={current === 'gallery' ? activeClass : inactiveClass}>{navItems.gallery}</a>
-      <a href={`${base}/contact`} class={current === 'contact' ? activeClass : inactiveClass}>{navItems.contact}</a>
-      <a href={`${base}/contact#support`} class="inline-flex items-center px-3 py-1.5 rounded border border-white/60 text-white hover:bg-white/15 transition-colors font-medium text-sm">{navItems.support}</a>
-      <a href={isEn ? (siteBase ? `${siteBase}/` : '/') : (siteBase ? `${siteBase}/en/` : '/en/')} class={`text-sm ${inactiveClass}`} hreflang={isEn ? 'sk' : 'en'} lang={isEn ? 'sk' : 'en'}>
-        {isEn ? 'SK' : 'EN'}
-      </a>
+    <nav id="site-nav" class="site-nav">
+      <ul class="flex flex-col lg:flex-row lg:items-center lg:gap-5">
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class={`site-nav__link ${current === l.key ? activeClass : inactiveClass}`}
+              aria-current={current === l.key ? 'page' : undefined}
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+        <li class="mt-3 lg:mt-0">
+          <a href={`${base}/contact/#support`} class="inline-flex items-center px-3 py-1.5 rounded border border-white/60 text-white hover:bg-white/15 transition-colors font-medium text-sm">{navItems.support}</a>
+        </li>
+      </ul>
     </nav>
+    <a href={alternateHref ?? (isEn ? (siteBase ? `${siteBase}/` : '/') : (siteBase ? `${siteBase}/en/` : '/en/'))} class={`text-sm inline-flex items-center min-h-11 lg:min-h-0 ${inactiveClass}`} hreflang={isEn ? 'sk' : 'en'} lang={isEn ? 'sk' : 'en'}>
+      {isEn ? 'SK' : 'EN'}
+    </a>
+    <button
+      type="button"
+      class="site-nav__toggle lg:hidden inline-flex items-center gap-2 min-h-11 px-3 -mr-3 rounded text-white font-medium hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+      aria-controls="site-nav"
+      aria-expanded="false"
+    >
+      <svg class="site-nav__icon h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path class="site-nav__icon-open" d="M4 7h16M4 12h16M4 17h16" />
+        <path class="site-nav__icon-close" d="M6 6l12 12M18 6L6 18" />
+      </svg>
+      <span>Menu</span>
+    </button>
   </div>
 </header>
+
+<style>
+  /* Below lg the nav is a full-width panel under the top row. It is only collapsed once
+     JS is running (html.js, set in BaseLayout) so it stays usable without JS. */
+  @media (max-width: 1023.98px) {
+    .site-nav {
+      order: 10;
+      flex-basis: 100%;
+      padding-bottom: 0.75rem;
+    }
+    .site-nav__link {
+      display: block;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgb(255 255 255 / 0.15);
+    }
+    :global(html.js) [data-site-header]:not([data-open]) .site-nav {
+      display: none;
+    }
+  }
+  :global(html:not(.js)) .site-nav__toggle {
+    display: none;
+  }
+  .site-nav__icon-close,
+  [data-open] .site-nav__icon-open {
+    display: none;
+  }
+  [data-open] .site-nav__icon-close {
+    display: inline;
+  }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+  const toggle = header?.querySelector<HTMLButtonElement>('.site-nav__toggle');
+  if (header && toggle) {
+    const setOpen = (open: boolean) => {
+      header.toggleAttribute('data-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => setOpen(!header.hasAttribute('data-open')));
+    // Close on Escape (return focus to the button), on any link tap (e.g. same-page #support),
+    // and when the viewport grows to the desktop layout.
+    header.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && header.hasAttribute('data-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    header.querySelectorAll('#site-nav a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+      if (e.matches) setOpen(false);
+    });
+  }
+</script>

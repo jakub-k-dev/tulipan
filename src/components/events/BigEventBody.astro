@@ -5,9 +5,10 @@ import EventTulipan100 from './EventTulipan100.astro';
 interface Props {
   slug: string;
   locale: Locale;
+  nested?: boolean;
 }
 
-const { slug, locale } = Astro.props;
+const { slug, locale, nested = false } = Astro.props;
 ---
 
-{slug === '100-rokov-tulipan' && <EventTulipan100 locale={locale} />}
+{slug === '100-rokov-tulipan' && <EventTulipan100 locale={locale} nested={nested} />}

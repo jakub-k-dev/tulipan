@@ -14,7 +14,7 @@ const ev = getBigEventBySlug(slug!)!;
 const meta = ev.sk;
 
 const siteOrigin = Astro.site ? Astro.site.href.replace(/\/$/, '') : Astro.url.origin;
-const canonicalHref = new URL(Astro.url.pathname, siteOrigin).href;
+const canonicalHref = new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`, siteOrigin).href;
 const imageUrl = new URL(`${siteBase || ''}/images/hero/carousel-1.jpg`, siteOrigin).href;
 const orgUrl = new URL(siteBase || '/', siteOrigin).href;
 const eventJsonLdObj = getBigEventJsonLd(slug!, locale, { canonicalHref, imageUrl, orgUrl });
