@@ -12,8 +12,23 @@ const hasHero = carouselSlideCount > 0;
 <section class={`relative min-h-[40vh] flex items-end overflow-hidden isolate ${className}`} aria-label={title}>
   {hasHero ? (
     <picture class="absolute inset-0 z-0" aria-hidden="true">
-      <source type="image/avif" srcset={`${siteBase}/images/hero/carousel-1.avif`} />
-      <img src={`${siteBase}/images/hero/carousel-1.jpg`} alt="" loading="eager" decoding="async" class="absolute inset-0 w-full h-full object-cover" style="object-position: center 40%;" />
+      {/* Banner-sized copies of hero carousel-1 (public/images/banner/), not the 2048px original.
+          Regenerate them if carousel-1 changes. */}
+      <source
+        type="image/avif"
+        srcset={`${siteBase}/images/banner/page-banner-800.avif 800w, ${siteBase}/images/banner/page-banner-1600.avif 1600w`}
+        sizes="100vw"
+      />
+      <img
+        src={`${siteBase}/images/banner/page-banner-1600.jpg`}
+        srcset={`${siteBase}/images/banner/page-banner-800.jpg 800w, ${siteBase}/images/banner/page-banner-1600.jpg 1600w`}
+        sizes="100vw"
+        alt=""
+        loading="eager"
+        decoding="async"
+        class="absolute inset-0 w-full h-full object-cover"
+        style="object-position: center 40%;"
+      />
     </picture>
   ) : (
     <div class="absolute inset-0 z-0 bg-heritage-charcoal" aria-hidden="true" />

@@ -90,6 +90,13 @@ export function buildNeededImagePaths(siteRoot) {
     "/images/events/hodova-veselica-2026.jpg",
     "/images/events/vysivkarsky-kruzok-2026.avif",
     "/images/events/vysivkarsky-kruzok-2026.jpg",
+    // Header logo (small raster of logo.svg; regenerate if the logo changes).
+    "/images/logo-header.png",
+    // Subpage banner (PageTextileHero.astro) — srcset in a template literal, invisible to the regex.
+    "/images/banner/page-banner-800.avif",
+    "/images/banner/page-banner-800.jpg",
+    "/images/banner/page-banner-1600.avif",
+    "/images/banner/page-banner-1600.jpg",
   ]) {
     needed.add(p);
   }

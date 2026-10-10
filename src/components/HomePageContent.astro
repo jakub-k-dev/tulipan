@@ -26,15 +26,31 @@ const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
     <div class="hero-carousel absolute inset-0 z-0" aria-hidden="true" data-carousel-total={TOTAL}>
       {heroSlides.map((i) => (
         <picture class={`hero-carousel__slide ${i === 1 ? 'hero-carousel__slide--active' : ''}`} data-slide={i}>
-          <source type="image/avif" srcset={`${siteBase}/images/hero/carousel-${i}.avif`} />
-          <img
-            src={`${siteBase}/images/hero/carousel-${i}.jpg`}
-            alt=""
-            fetchpriority={i === 1 ? 'high' : undefined}
-            loading={i === 1 ? 'eager' : 'lazy'}
-            decoding="async"
-            class="absolute inset-0 w-full h-full object-cover object-center"
-          />
+          {/* Only slide 1 loads with the page; the script fills in data-src for the others
+              before they are shown, so a slide never appears unloaded. */}
+          {i === 1 ? (
+            <>
+              <source type="image/avif" srcset={`${siteBase}/images/hero/carousel-${i}.avif`} />
+              <img
+                src={`${siteBase}/images/hero/carousel-${i}.jpg`}
+                alt=""
+                fetchpriority="high"
+                loading="eager"
+                decoding="async"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            </>
+          ) : (
+            <>
+              <source type="image/avif" data-srcset={`${siteBase}/images/hero/carousel-${i}.avif`} />
+              <img
+                data-src={`${siteBase}/images/hero/carousel-${i}.jpg`}
+                alt=""
+                decoding="async"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            </>
+          )}
         </picture>
       ))}
     </div>
@@ -57,7 +73,8 @@ const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
     </div>
   )}
   <div class="absolute inset-0 textile-overlay-dark z-10 pointer-events-none" aria-hidden="true" />
-  <div class="relative z-20 w-full max-w-[90rem] mx-auto px-4 pb-20 pt-32 text-center md:text-left">
+  {/* Text sits above the carousel controls; let clicks pass through to the arrows/dots except on its own links. */}
+  <div class="relative z-20 w-full max-w-[90rem] mx-auto px-4 pb-20 pt-32 text-center md:text-left pointer-events-none [&_a]:pointer-events-auto">
     <OrnamentDivider variant="bar" class="mb-6 justify-center md:justify-start" />
     <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-textile-outline font-semibold leading-tight max-w-2xl mx-auto md:mx-0 drop-shadow-lg">
       {t.title}
@@ -200,12 +217,40 @@ const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
 
     let current = 0;
     let timer: ReturnType<typeof setInterval> | null = null;
+    let request = 0;
+    const loading = new Map<number, Promise<void>>();
 
-    function goTo(index: number) {
-      current = (index + TOTAL) % TOTAL;
+    // Start loading slide `i` (if not yet) and resolve once it is decoded and ready to show.
+    function ensureLoaded(i: number): Promise<void> {
+      const existing = loading.get(i);
+      if (existing) return existing;
+      const slide = slides[i];
+      const img = slide?.querySelector('img');
+      if (!slide || !img) return Promise.resolve();
+      slide.querySelectorAll<HTMLSourceElement>('source[data-srcset]').forEach((src) => {
+        src.srcset = src.dataset.srcset ?? '';
+        src.removeAttribute('data-srcset');
+      });
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      }
+      const ready = img.decode().catch(() => undefined);
+      loading.set(i, ready);
+      return ready;
+    }
+
+    // Switch only after the target slide is loaded, so the current photo stays up meanwhile.
+    async function goTo(index: number) {
+      const target = (index + TOTAL) % TOTAL;
+      const token = ++request;
+      resetTimer();
+      await ensureLoaded(target);
+      if (token !== request) return; // a newer click won
+      current = target;
       slides.forEach((s, i) => s.classList.toggle('hero-carousel__slide--active', i === current));
       dots.forEach((d, i) => d.setAttribute('aria-current', i === current ? 'true' : 'false'));
-      resetTimer();
+      ensureLoaded((current + 1) % TOTAL);
     }
 
     function next() {
@@ -231,7 +276,12 @@ const heroSlides = Array.from({ length: TOTAL }, (_, i) => i + 1);
     prevBtn?.addEventListener('click', prev);
     nextBtn?.addEventListener('click', next);
     dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+    loading.set(0, Promise.resolve());
     resetTimer();
+    // Fetch slide 2 once the page has finished loading, well before the first auto-advance.
+    const preloadNext = () => ensureLoaded(1);
+    if (document.readyState === 'complete') preloadNext();
+    else window.addEventListener('load', preloadNext, { once: true });
   }
   initHeroCarousel();
 </script>
